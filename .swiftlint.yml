@@ -1,10 +1,11 @@
 # By default, SwiftLint uses a set of sensible default rules you can adjust:
 disabled_rules: # rule identifiers turned on by default to exclude from running
-  # - colon
-  - comma
-  - control_statement
+  - trailing_whitespace
 opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - empty_count # find all the available rules by running: `swiftlint rules`
+  - colon
+  - comma
+  - control_statement
 
 # Alternatively, specify all rules explicitly by uncommenting this option:
 # only_rules: # delete `disabled_rules` & `opt_in_rules` if using this
