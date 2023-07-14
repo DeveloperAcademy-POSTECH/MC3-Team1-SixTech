@@ -10,13 +10,15 @@ import SwiftUI
 struct ContentView: View {
     
     let num65: Int = 3
-    
+    private var isConditionValid: Bool {
+           false
+    }
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Button("Test") {
+                 print("SixTech")
+             }.buttonStyle(DefaultButton(isdisable: isConditionValid))
+             .disabled(isConditionValid)
         }
         .padding()
     }

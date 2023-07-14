@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BE598072A5FD31400D019EA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE598062A5FD31400D019EA /* ColorExtension.swift */; };
+		0BE5980A2A5FD48F00D019EA /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE598092A5FD48F00D019EA /* ButtonStyle.swift */; };
+		0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5980E2A5FDE2E00D019EA /* OnBoardingView.swift */; };
+		0BE598112A5FE3D700D019EA /* OnBoarding2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE598102A5FE3D700D019EA /* OnBoarding2View.swift */; };
+		0BE598132A5FE3E400D019EA /* OnBoarding3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE598122A5FE3E400D019EA /* OnBoarding3View.swift */; };
+		0BE598152A5FE6FE00D019EA /* PageTabViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE598142A5FE6FE00D019EA /* PageTabViewStyle.swift */; };
+		0BE598182A5FF23B00D019EA /* SwiftUIGIF in Frameworks */ = {isa = PBXBuildFile; productRef = 0BE598172A5FF23B00D019EA /* SwiftUIGIF */; };
+		0BE598322A60F3E600D019EA /* TheJamsilOTF6ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BE5982C2A60F3E600D019EA /* TheJamsilOTF6ExtraBold.otf */; };
+		0BE598332A60F3E600D019EA /* TheJamsilOTF2Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BE5982D2A60F3E600D019EA /* TheJamsilOTF2Light.otf */; };
+		0BE598342A60F3E600D019EA /* TheJamsilOTF3Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BE5982E2A60F3E600D019EA /* TheJamsilOTF3Regular.otf */; };
+		0BE598352A60F3E600D019EA /* TheJamsilOTF1Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BE5982F2A60F3E600D019EA /* TheJamsilOTF1Thin.otf */; };
+		0BE598362A60F3E600D019EA /* TheJamsilOTF4Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598302A60F3E600D019EA /* TheJamsilOTF4Medium.otf */; };
+		0BE598372A60F3E600D019EA /* TheJamsilOTF5Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598312A60F3E600D019EA /* TheJamsilOTF5Bold.otf */; };
+		0BE598392A60F9AC00D019EA /* OnboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */; };
 		0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */; };
 		0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FAC12A5A83AF002A39FB /* ContentView.swift */; };
 		0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC32A5A83B0002A39FB /* Assets.xcassets */; };
@@ -16,6 +30,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BE598062A5FD31400D019EA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		0BE598092A5FD48F00D019EA /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		0BE5980B2A5FD86F00D019EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0BE5980E2A5FDE2E00D019EA /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		0BE598102A5FE3D700D019EA /* OnBoarding2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding2View.swift; sourceTree = "<group>"; };
+		0BE598122A5FE3E400D019EA /* OnBoarding3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding3View.swift; sourceTree = "<group>"; };
+		0BE598142A5FE6FE00D019EA /* PageTabViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTabViewStyle.swift; sourceTree = "<group>"; };
+		0BE5982C2A60F3E600D019EA /* TheJamsilOTF6ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheJamsilOTF6ExtraBold.otf; sourceTree = "<group>"; };
+		0BE5982D2A60F3E600D019EA /* TheJamsilOTF2Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheJamsilOTF2Light.otf; sourceTree = "<group>"; };
+		0BE5982E2A60F3E600D019EA /* TheJamsilOTF3Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheJamsilOTF3Regular.otf; sourceTree = "<group>"; };
+		0BE5982F2A60F3E600D019EA /* TheJamsilOTF1Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheJamsilOTF1Thin.otf; sourceTree = "<group>"; };
+		0BE598302A60F3E600D019EA /* TheJamsilOTF4Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheJamsilOTF4Medium.otf; sourceTree = "<group>"; };
+		0BE598312A60F3E600D019EA /* TheJamsilOTF5Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheJamsilOTF5Bold.otf; sourceTree = "<group>"; };
+		0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = OnboardingGIF.gif; sourceTree = "<group>"; };
 		0E94FABC2A5A83AE002A39FB /* SixTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SixTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixTechApp.swift; sourceTree = "<group>"; };
 		0E94FAC12A5A83AF002A39FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,12 +58,61 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BE598182A5FF23B00D019EA /* SwiftUIGIF in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BE598052A5FD2FC00D019EA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0BE598062A5FD31400D019EA /* ColorExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		0BE598082A5FD47900D019EA /* ButtonStyle */ = {
+			isa = PBXGroup;
+			children = (
+				0BE598092A5FD48F00D019EA /* ButtonStyle.swift */,
+			);
+			path = ButtonStyle;
+			sourceTree = "<group>";
+		};
+		0BE5980C2A5FDE0E00D019EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0BE5980D2A5FDE1D00D019EA /* Onboarding */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0BE5980D2A5FDE1D00D019EA /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0BE5980E2A5FDE2E00D019EA /* OnBoardingView.swift */,
+				0BE598102A5FE3D700D019EA /* OnBoarding2View.swift */,
+				0BE598122A5FE3E400D019EA /* OnBoarding3View.swift */,
+				0BE598142A5FE6FE00D019EA /* PageTabViewStyle.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		0BE5981B2A60EAB700D019EA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0BE5982F2A60F3E600D019EA /* TheJamsilOTF1Thin.otf */,
+				0BE5982D2A60F3E600D019EA /* TheJamsilOTF2Light.otf */,
+				0BE5982E2A60F3E600D019EA /* TheJamsilOTF3Regular.otf */,
+				0BE598302A60F3E600D019EA /* TheJamsilOTF4Medium.otf */,
+				0BE598312A60F3E600D019EA /* TheJamsilOTF5Bold.otf */,
+				0BE5982C2A60F3E600D019EA /* TheJamsilOTF6ExtraBold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0E94FAB32A5A83AE002A39FB = {
 			isa = PBXGroup;
 			children = (
@@ -57,9 +134,15 @@
 		0E94FABE2A5A83AF002A39FB /* SixTech */ = {
 			isa = PBXGroup;
 			children = (
+				0BE5981B2A60EAB700D019EA /* Fonts */,
+				0BE598082A5FD47900D019EA /* ButtonStyle */,
+				0BE598052A5FD2FC00D019EA /* Extension */,
+				0BE5980C2A5FDE0E00D019EA /* View */,
+				0BE5980B2A5FD86F00D019EA /* Info.plist */,
 				0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */,
 				0E94FAC12A5A83AF002A39FB /* ContentView.swift */,
 				0E94FAC32A5A83B0002A39FB /* Assets.xcassets */,
+				0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */,
 				0E94FAC52A5A83B0002A39FB /* Preview Content */,
 			);
 			path = SixTech;
@@ -90,6 +173,9 @@
 			dependencies = (
 			);
 			name = SixTech;
+			packageProductDependencies = (
+				0BE598172A5FF23B00D019EA /* SwiftUIGIF */,
+			);
 			productName = SixTech;
 			productReference = 0E94FABC2A5A83AE002A39FB /* SixTech.app */;
 			productType = "com.apple.product-type.application";
@@ -118,6 +204,9 @@
 				Base,
 			);
 			mainGroup = 0E94FAB32A5A83AE002A39FB;
+			packageReferences = (
+				0BE598162A5FF23B00D019EA /* XCRemoteSwiftPackageReference "swiftui-gif" */,
+			);
 			productRefGroup = 0E94FABD2A5A83AE002A39FB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -133,8 +222,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EAD30212A5C6FE700E8A548 /* .swiftlint.yml in Resources */,
+				0BE598342A60F3E600D019EA /* TheJamsilOTF3Regular.otf in Resources */,
 				0E94FAC72A5A83B0002A39FB /* Preview Assets.xcassets in Resources */,
 				0EAD30232A5C711500E8A548 /* .pre-commit-config.yaml in Resources */,
+				0BE598332A60F3E600D019EA /* TheJamsilOTF2Light.otf in Resources */,
+				0BE598352A60F3E600D019EA /* TheJamsilOTF1Thin.otf in Resources */,
+				0BE598362A60F3E600D019EA /* TheJamsilOTF4Medium.otf in Resources */,
+				0BE598372A60F3E600D019EA /* TheJamsilOTF5Bold.otf in Resources */,
+				0BE598392A60F9AC00D019EA /* OnboardingGIF.gif in Resources */,
+				0BE598322A60F3E600D019EA /* TheJamsilOTF6ExtraBold.otf in Resources */,
 				0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,7 +262,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BE598112A5FE3D700D019EA /* OnBoarding2View.swift in Sources */,
+				0BE598152A5FE6FE00D019EA /* PageTabViewStyle.swift in Sources */,
+				0BE598072A5FD31400D019EA /* ColorExtension.swift in Sources */,
+				0BE5980A2A5FD48F00D019EA /* ButtonStyle.swift in Sources */,
 				0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */,
+				0BE598132A5FE3E400D019EA /* OnBoarding3View.swift in Sources */,
+				0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,12 +398,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = PAQ92DM7XD;
+				DEVELOPMENT_TEAM = GSD6RCY68C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SixTech/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,12 +427,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = PAQ92DM7XD;
+				DEVELOPMENT_TEAM = GSD6RCY68C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SixTech/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -368,6 +470,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0BE598162A5FF23B00D019EA /* XCRemoteSwiftPackageReference "swiftui-gif" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/globulus/swiftui-gif.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0BE598172A5FF23B00D019EA /* SwiftUIGIF */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BE598162A5FF23B00D019EA /* XCRemoteSwiftPackageReference "swiftui-gif" */;
+			productName = SwiftUIGIF;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0E94FAB42A5A83AE002A39FB /* Project object */;
 }
