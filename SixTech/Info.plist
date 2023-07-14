@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Cafe24Ssurround-v2.0.otf</string>
+		<string>Cafe24SsurroundAir-v1.1.otf</string>
+		<string>TheJamsilOTF1Thin.otf</string>
+		<string>TheJamsilOTF3Regular.otf</string>
+		<string>TheJamsilOTF2Light.otf</string>
+		<string>TheJamsilOTF4Medium.otf</string>
+		<string>TheJamsilOTF5Bold.otf</string>
+		<string>TheJamsilOTF6ExtraBold.otf</string>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIImageName</key>
+		<string>LaunchScreen</string>
+	</dict>
+</dict>
+</plist>
