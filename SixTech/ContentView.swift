@@ -15,7 +15,7 @@ struct ContentView: View {
     }
     var body: some View {
         VStack {
-            Button("Test") {
+            Button("Test Test") {
                  print("SixTech")
              }.buttonStyle(DefaultButton(isdisable: isConditionValid))
              .disabled(isConditionValid)
