@@ -34,7 +34,7 @@ struct DefaultButton: ButtonStyle {
             .background(isdisable ? Color.disableColor : Color.defaultColor)
             .cornerRadius(36)
             .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
-            .font(.custom("TheJamsilOTF5Bold", size: 24)) // 나중에 폰트 적용시켜야함
+            .font(.Jamsil.bold.font(size: 24))
             .opacity(configuration.isPressed ? 0.4 : 1)
     }
 }

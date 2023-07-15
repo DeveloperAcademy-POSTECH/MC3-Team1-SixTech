@@ -16,7 +16,7 @@ struct OnBoarding3View: View {
                 Spacer()
                 Text("같이줍깅은 애플워치가 있다면\n더 좋아요")
                     .multilineTextAlignment(.center)
-                    .font(.custom("TheJamsilOTF3Regular", size: 24))
+                    .font(.Jamsil.regular.font(size: 24))
                 Spacer()
                 
                 VStack {

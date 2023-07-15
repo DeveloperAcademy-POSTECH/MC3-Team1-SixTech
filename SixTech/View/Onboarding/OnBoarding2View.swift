@@ -16,7 +16,7 @@ struct OnBoarding2View: View {
                 Spacer()
                 Text("사람들과 함께 플로깅하고,\n함께 축하해요")
                     .multilineTextAlignment(.center)
-                    .font(.custom("TheJamsilOTF3Regular", size: 24))
+                    .font(.Jamsil.regular.font(size: 24))
                 
                 VStack {
                     Image("onboarding_gourd")

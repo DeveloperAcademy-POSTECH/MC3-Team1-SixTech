@@ -17,7 +17,7 @@ struct OnBoardingView: View {
                 VStack {
                     Spacer()
                         Text("나의 플로깅 발자취를 한눈에\n ")
-                            .font(.custom("TheJamsilOTF3Regular", size: 24))
+                        .font(.Jamsil.regular.font(size: 24))
                     Spacer()
                     
                     VStack {
