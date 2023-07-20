@@ -28,6 +28,15 @@
 		0E94FAC72A5A83B0002A39FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */; };
 		0EAD30212A5C6FE700E8A548 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */; };
 		0EAD30232A5C711500E8A548 /* .pre-commit-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0EAD30222A5C711500E8A548 /* .pre-commit-config.yaml */; };
+		86E0143A2A690AB1007F3195 /* WaitingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E014392A690AB1007F3195 /* WaitingRoomView.swift */; };
+		86E0143E2A691097007F3195 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0143D2A691097007F3195 /* DismissButton.swift */; };
+		86E058742A67F3DB00F86049 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0586F2A67F3DB00F86049 /* UIView.swift */; };
+		86E058752A67F3DB00F86049 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E058702A67F3DB00F86049 /* MatchManager.swift */; };
+		86E058762A67F3DB00F86049 /* EngagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E058712A67F3DB00F86049 /* EngagementView.swift */; };
+		86E058772A67F3DB00F86049 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E058722A67F3DB00F86049 /* TestView.swift */; };
+		86E058782A67F3DB00F86049 /* CreateRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E058732A67F3DB00F86049 /* CreateRoomView.swift */; };
+		86E0587A2A67FDFC00F86049 /* CustomMatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E058792A67FDFC00F86049 /* CustomMatchingViewController.swift */; };
+		86E0587D2A6901D800F86049 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0587C2A6901D800F86049 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +62,16 @@
 		0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		0EAD30222A5C711500E8A548 /* .pre-commit-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = ".pre-commit-config.yaml"; sourceTree = "<group>"; };
+		86E014392A690AB1007F3195 /* WaitingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomView.swift; sourceTree = "<group>"; };
+		86E0143D2A691097007F3195 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		86E0586F2A67F3DB00F86049 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		86E058702A67F3DB00F86049 /* MatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
+		86E058712A67F3DB00F86049 /* EngagementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngagementView.swift; sourceTree = "<group>"; };
+		86E058722A67F3DB00F86049 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		86E058732A67F3DB00F86049 /* CreateRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRoomView.swift; sourceTree = "<group>"; };
+		86E058792A67FDFC00F86049 /* CustomMatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMatchingViewController.swift; sourceTree = "<group>"; };
+		86E0587B2A68027500F86049 /* SixTech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SixTech.entitlements; sourceTree = "<group>"; };
+		86E0587C2A6901D800F86049 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +156,8 @@
 		0E94FABE2A5A83AF002A39FB /* SixTech */ = {
 			isa = PBXGroup;
 			children = (
+				86E0587B2A68027500F86049 /* SixTech.entitlements */,
+				86E0586E2A67F3DB00F86049 /* JerryTest */,
 				0BE5981B2A60EAB700D019EA /* Fonts */,
 				0BE598082A5FD47900D019EA /* ButtonStyle */,
 				0BE598052A5FD2FC00D019EA /* Extension */,
@@ -157,6 +178,22 @@
 				0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		86E0586E2A67F3DB00F86049 /* JerryTest */ = {
+			isa = PBXGroup;
+			children = (
+				86E0586F2A67F3DB00F86049 /* UIView.swift */,
+				86E058702A67F3DB00F86049 /* MatchManager.swift */,
+				86E058712A67F3DB00F86049 /* EngagementView.swift */,
+				86E058722A67F3DB00F86049 /* TestView.swift */,
+				86E058732A67F3DB00F86049 /* CreateRoomView.swift */,
+				86E058792A67FDFC00F86049 /* CustomMatchingViewController.swift */,
+				86E0587C2A6901D800F86049 /* MainView.swift */,
+				86E014392A690AB1007F3195 /* WaitingRoomView.swift */,
+				86E0143D2A691097007F3195 /* DismissButton.swift */,
+			);
+			path = JerryTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,15 +302,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E058742A67F3DB00F86049 /* UIView.swift in Sources */,
 				0BE598112A5FE3D700D019EA /* OnBoarding2View.swift in Sources */,
+				86E0143A2A690AB1007F3195 /* WaitingRoomView.swift in Sources */,
 				0BE598152A5FE6FE00D019EA /* PageTabViewStyle.swift in Sources */,
+				86E058752A67F3DB00F86049 /* MatchManager.swift in Sources */,
 				0BE598072A5FD31400D019EA /* ColorExtension.swift in Sources */,
+				86E058762A67F3DB00F86049 /* EngagementView.swift in Sources */,
+				86E0143E2A691097007F3195 /* DismissButton.swift in Sources */,
 				0BE5980A2A5FD48F00D019EA /* ButtonStyle.swift in Sources */,
+				86E058782A67F3DB00F86049 /* CreateRoomView.swift in Sources */,
 				0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */,
+				86E0587D2A6901D800F86049 /* MainView.swift in Sources */,
 				0BE598132A5FE3E400D019EA /* OnBoarding3View.swift in Sources */,
 				0BE5983D2A62629600D019EA /* FontExtension.swift in Sources */,
 				0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */,
+				86E058772A67F3DB00F86049 /* TestView.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
+				86E0587A2A67FDFC00F86049 /* CustomMatchingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,10 +445,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SixTech/SixTech.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = GSD6RCY68C;
+				DEVELOPMENT_TEAM = M75X2R2UVV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
@@ -415,7 +462,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -428,10 +475,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SixTech/SixTech.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = GSD6RCY68C;
+				DEVELOPMENT_TEAM = M75X2R2UVV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
@@ -444,7 +492,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

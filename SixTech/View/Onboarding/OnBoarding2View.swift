@@ -31,7 +31,7 @@ struct OnBoarding2View: View {
                 }.buttonStyle(DefaultButton(isdisable: false))
                 
             }
-            .position(x:geometry.size.width/2, y:geometry.size.height/2)
+            .position(x: geometry.size.width/2, y: geometry.size.height/2)
             .navigationBarBackButtonHidden()
         }
     }
