@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B94E32F2A6814B9008F6D39 /* onboadingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0B94E32E2A6814B9008F6D39 /* onboadingGIF.gif */; };
+		0B94E3312A681552008F6D39 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3302A681552008F6D39 /* ImageButton.swift */; };
+		0B94E3332A681560008F6D39 /* CharacterCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3322A681560008F6D39 /* CharacterCreateView.swift */; };
 		0BE598072A5FD31400D019EA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE598062A5FD31400D019EA /* ColorExtension.swift */; };
 		0BE5980A2A5FD48F00D019EA /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE598092A5FD48F00D019EA /* ButtonStyle.swift */; };
 		0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5980E2A5FDE2E00D019EA /* OnBoardingView.swift */; };
@@ -20,10 +23,8 @@
 		0BE598352A60F3E600D019EA /* TheJamsilOTF1Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BE5982F2A60F3E600D019EA /* TheJamsilOTF1Thin.otf */; };
 		0BE598362A60F3E600D019EA /* TheJamsilOTF4Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598302A60F3E600D019EA /* TheJamsilOTF4Medium.otf */; };
 		0BE598372A60F3E600D019EA /* TheJamsilOTF5Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598312A60F3E600D019EA /* TheJamsilOTF5Bold.otf */; };
-		0BE598392A60F9AC00D019EA /* OnboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */; };
 		0BE5983D2A62629600D019EA /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5983C2A62629600D019EA /* FontExtension.swift */; };
 		0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */; };
-		0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FAC12A5A83AF002A39FB /* ContentView.swift */; };
 		0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC32A5A83B0002A39FB /* Assets.xcassets */; };
 		0E94FAC72A5A83B0002A39FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */; };
 		0EAD30212A5C6FE700E8A548 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */; };
@@ -31,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B94E32E2A6814B9008F6D39 /* onboadingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboadingGIF.gif; sourceTree = "<group>"; };
+		0B94E3302A681552008F6D39 /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
+		0B94E3322A681560008F6D39 /* CharacterCreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCreateView.swift; sourceTree = "<group>"; };
 		0BE598062A5FD31400D019EA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		0BE598092A5FD48F00D019EA /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		0BE5980B2A5FD86F00D019EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -44,11 +48,9 @@
 		0BE5982F2A60F3E600D019EA /* TheJamsilOTF1Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheJamsilOTF1Thin.otf; sourceTree = "<group>"; };
 		0BE598302A60F3E600D019EA /* TheJamsilOTF4Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheJamsilOTF4Medium.otf; sourceTree = "<group>"; };
 		0BE598312A60F3E600D019EA /* TheJamsilOTF5Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheJamsilOTF5Bold.otf; sourceTree = "<group>"; };
-		0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = OnboardingGIF.gif; sourceTree = "<group>"; };
 		0BE5983C2A62629600D019EA /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		0E94FABC2A5A83AE002A39FB /* SixTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SixTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixTechApp.swift; sourceTree = "<group>"; };
-		0E94FAC12A5A83AF002A39FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0E94FAC32A5A83B0002A39FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -67,6 +69,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B94E3282A681459008F6D39 /* CharacterCreate */ = {
+			isa = PBXGroup;
+			children = (
+				0B94E3292A681459008F6D39 /* View */,
+			);
+			path = CharacterCreate;
+			sourceTree = "<group>";
+		};
+		0B94E3292A681459008F6D39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B94E3322A681560008F6D39 /* CharacterCreateView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0BE598052A5FD2FC00D019EA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +97,7 @@
 		0BE598082A5FD47900D019EA /* ButtonStyle */ = {
 			isa = PBXGroup;
 			children = (
+				0B94E3302A681552008F6D39 /* ImageButton.swift */,
 				0BE598092A5FD48F00D019EA /* ButtonStyle.swift */,
 			);
 			path = ButtonStyle;
@@ -87,6 +106,7 @@
 		0BE5980C2A5FDE0E00D019EA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0B94E3282A681459008F6D39 /* CharacterCreate */,
 				0BE5980D2A5FDE1D00D019EA /* Onboarding */,
 			);
 			path = View;
@@ -143,9 +163,8 @@
 				0BE5980C2A5FDE0E00D019EA /* View */,
 				0BE5980B2A5FD86F00D019EA /* Info.plist */,
 				0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */,
-				0E94FAC12A5A83AF002A39FB /* ContentView.swift */,
 				0E94FAC32A5A83B0002A39FB /* Assets.xcassets */,
-				0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */,
+				0B94E32E2A6814B9008F6D39 /* onboadingGIF.gif */,
 				0E94FAC52A5A83B0002A39FB /* Preview Content */,
 			);
 			path = SixTech;
@@ -232,8 +251,8 @@
 				0BE598352A60F3E600D019EA /* TheJamsilOTF1Thin.otf in Resources */,
 				0BE598362A60F3E600D019EA /* TheJamsilOTF4Medium.otf in Resources */,
 				0BE598372A60F3E600D019EA /* TheJamsilOTF5Bold.otf in Resources */,
-				0BE598392A60F9AC00D019EA /* OnboardingGIF.gif in Resources */,
 				0BE598322A60F3E600D019EA /* TheJamsilOTF6ExtraBold.otf in Resources */,
+				0B94E32F2A6814B9008F6D39 /* onboadingGIF.gif in Resources */,
 				0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,10 +288,11 @@
 				0BE598152A5FE6FE00D019EA /* PageTabViewStyle.swift in Sources */,
 				0BE598072A5FD31400D019EA /* ColorExtension.swift in Sources */,
 				0BE5980A2A5FD48F00D019EA /* ButtonStyle.swift in Sources */,
-				0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */,
+				0B94E3312A681552008F6D39 /* ImageButton.swift in Sources */,
 				0BE598132A5FE3E400D019EA /* OnBoarding3View.swift in Sources */,
 				0BE5983D2A62629600D019EA /* FontExtension.swift in Sources */,
 				0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */,
+				0B94E3332A681560008F6D39 /* CharacterCreateView.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
