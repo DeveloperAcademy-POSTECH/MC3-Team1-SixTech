@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PageTabViewStyle: View {
-    let circleSize: CGFloat = 15
+    let circleSize: CGFloat = 8
     let pageNumber: Int
     
     var body: some View {

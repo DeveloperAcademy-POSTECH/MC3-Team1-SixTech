@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B94E32F2A6814B9008F6D39 /* onboadingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0B94E32E2A6814B9008F6D39 /* onboadingGIF.gif */; };
+		0B94E32F2A6814B9008F6D39 /* onboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0B94E32E2A6814B9008F6D39 /* onboardingGIF.gif */; };
 		0B94E3312A681552008F6D39 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3302A681552008F6D39 /* ImageButton.swift */; };
 		0B94E3332A681560008F6D39 /* CharacterCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3322A681560008F6D39 /* CharacterCreateView.swift */; };
 		0B94E3362A690570008F6D39 /* ImageMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3352A690570008F6D39 /* ImageMerger.swift */; };
+		0B94E3382A6914B4008F6D39 /* Onboarding1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3372A6914B4008F6D39 /* Onboarding1View.swift */; };
 		0BE598072A5FD31400D019EA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE598062A5FD31400D019EA /* ColorExtension.swift */; };
 		0BE5980A2A5FD48F00D019EA /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE598092A5FD48F00D019EA /* ButtonStyle.swift */; };
 		0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5980E2A5FDE2E00D019EA /* OnBoardingView.swift */; };
@@ -33,10 +34,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B94E32E2A6814B9008F6D39 /* onboadingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboadingGIF.gif; sourceTree = "<group>"; };
+		0B94E32E2A6814B9008F6D39 /* onboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboardingGIF.gif; sourceTree = "<group>"; };
 		0B94E3302A681552008F6D39 /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		0B94E3322A681560008F6D39 /* CharacterCreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCreateView.swift; sourceTree = "<group>"; };
 		0B94E3352A690570008F6D39 /* ImageMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMerger.swift; sourceTree = "<group>"; };
+		0B94E3372A6914B4008F6D39 /* Onboarding1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1View.swift; sourceTree = "<group>"; };
 		0BE598062A5FD31400D019EA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		0BE598092A5FD48F00D019EA /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		0BE5980B2A5FD86F00D019EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				0BE5980E2A5FDE2E00D019EA /* OnBoardingView.swift */,
+				0B94E3372A6914B4008F6D39 /* Onboarding1View.swift */,
 				0BE598102A5FE3D700D019EA /* OnBoarding2View.swift */,
 				0BE598122A5FE3E400D019EA /* OnBoarding3View.swift */,
 				0BE598142A5FE6FE00D019EA /* PageTabViewStyle.swift */,
@@ -175,7 +178,7 @@
 				0BE5980B2A5FD86F00D019EA /* Info.plist */,
 				0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */,
 				0E94FAC32A5A83B0002A39FB /* Assets.xcassets */,
-				0B94E32E2A6814B9008F6D39 /* onboadingGIF.gif */,
+				0B94E32E2A6814B9008F6D39 /* onboardingGIF.gif */,
 				0E94FAC52A5A83B0002A39FB /* Preview Content */,
 			);
 			path = SixTech;
@@ -263,7 +266,7 @@
 				0BE598362A60F3E600D019EA /* TheJamsilOTF4Medium.otf in Resources */,
 				0BE598372A60F3E600D019EA /* TheJamsilOTF5Bold.otf in Resources */,
 				0BE598322A60F3E600D019EA /* TheJamsilOTF6ExtraBold.otf in Resources */,
-				0B94E32F2A6814B9008F6D39 /* onboadingGIF.gif in Resources */,
+				0B94E32F2A6814B9008F6D39 /* onboardingGIF.gif in Resources */,
 				0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +309,7 @@
 				0B94E3332A681560008F6D39 /* CharacterCreateView.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
 				0B94E3362A690570008F6D39 /* ImageMerger.swift in Sources */,
+				0B94E3382A6914B4008F6D39 /* Onboarding1View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
