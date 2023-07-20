@@ -98,6 +98,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0B94E3392A6927CF008F6D39 /* CameraFilter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CameraFilter;
+			sourceTree = "<group>";
+		};
 		0BE598052A5FD2FC00D019EA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +126,7 @@
 		0BE5980C2A5FDE0E00D019EA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0B94E3392A6927CF008F6D39 /* CameraFilter */,
 				0B94E3282A681459008F6D39 /* CharacterCreate */,
 				0BE5980D2A5FDE1D00D019EA /* Onboarding */,
 			);
