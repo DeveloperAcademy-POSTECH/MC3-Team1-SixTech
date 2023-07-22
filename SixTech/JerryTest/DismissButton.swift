@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-func dismissButton(completion: @escaping() -> Void) -> some View {
+func dismissButton(sfName: String, completion: @escaping() -> Void) -> some View {
         Button {
             completion()
         } label: {
-            Image(systemName: "chevron.backward")
+            Image(systemName: sfName)
                 .foregroundColor(.defaultColor)
                 .fontWeight(.heavy)
                 .background(

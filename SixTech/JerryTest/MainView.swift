@@ -9,8 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     
-    @Environment(\.dismiss) var dismiss
-    
     @State var isFlipped = true
     @State var backDegree = 90.0
     @State var frontDegree = 0.0
@@ -19,14 +17,18 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Text("환영해요! 들린매스크 !")
+                    .font(.Jamsil.bold.font(size: 20))
+                    .padding(.top, 86)
                 Text("오늘도 지구를 위해 함께 달려요!")
                     .font(.Jamsil.light.font(size: 17))
+                    .padding(.top, 14)
                 
                 ZStack {
                     FrontView(degree: $frontDegree)
-                        .padding()
+                        .padding(.top)
                     BackView(degree: $backDegree)
-                        .padding()
+                        .padding(.top)
                 }.onTapGesture {
                     flipCard()
                 }
@@ -34,22 +36,17 @@ struct MainView: View {
                 NavigationLink("플로깅 플레이") {
                 }.buttonStyle(DefaultButton(isdisable: false))
                     .padding(.top)
-                NavigationLink("내 프로필") {
+                NavigationLink("히스토리") {
                 }.buttonStyle(DefaultButton(isdisable: false))
                     .padding()
                 Spacer().frame(height: 60)
                 
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    dismissButton {
-                        dismiss()
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    dismissButton(sfName: "person.crop.circle") {
+                        print("my info ...")
                     }
-                }
-                
-                ToolbarItem(placement: .principal) {
-                    Text("환영해요! 들린매스크 !")
-                        .font(.Jamsil.bold.font(size: 20))
                 }
             }
         }

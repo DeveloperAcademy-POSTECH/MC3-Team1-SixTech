@@ -12,7 +12,7 @@ struct CreateRoomView: View {
     
     @State private var selection = 1
     
-    @State private var isPickerView = true
+    @State private var isPickerView = false
     
     var body: some View {
         NavigationView {
@@ -96,7 +96,7 @@ struct CreateRoomView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    dismissButton {
+                    dismissButton(sfName: "chevron.backward") {
                         dismiss()
                     }
                 }
