@@ -22,7 +22,7 @@ struct MainView: View {
                     .padding(.top, 86)
                 Text("오늘도 지구를 위해 함께 달려요!")
                     .font(.Jamsil.light.font(size: 17))
-                    .padding(.top, 14)
+                    .padding(.top, 4)
                 
                 ZStack {
                     FrontView(degree: $frontDegree)
