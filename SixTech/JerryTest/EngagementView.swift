@@ -79,7 +79,6 @@ struct CustomNumberPad: View {
                     var arr = Array(text)
                     let indd = abs(index-3)
                     arr[indd] = " "
-                    print("\(indd)")
                     text = String(arr)
                 }
                 
