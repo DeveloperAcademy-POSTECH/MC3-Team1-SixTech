@@ -11,109 +11,42 @@ struct WaitingRoomView: View {
     var body: some View {
         VStack {
             Text("대기실")
+                .font(.Jamsil.bold.font(size: 24))
+            
             Text("모두 도착할 때까지 기다려요.")
+                .font(.Jamsil.light.font(size: 20))
+            
             Image("onboarding_character")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 136, height: 136)
                 .background(
-                    Circle().fill(Color.backgroundColor)
+                    Circle().fill(Color.background2Color)
                         .frame(width: 170, height: 170)
                 )
-            Text("들린매스크")
                 .padding()
+            
+            Text("들린매스크")
+                .font(.Jamsil.bold.font(size: 25))
+                .padding()
+            
             ScrollView {
-                HStack {
-                    Image("onboarding_character")
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                        .scaledToFit()
-                        .background(
-                            Circle()
-                                .fill(Color.backgroundColor)
-                                .frame(width: 100, height: 100)
-                        )
-                    Text("팀원들은 참여코드를 입력하여 플로깅 팀에 참여해요.")
-                        .font(.Jamsil.light.font(size: 16))
-
-                }
-                HStack {
-                    Image("onboarding_character")
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                        .scaledToFit()
-                        .background(
-                            Circle()
-                                .fill(Color.backgroundColor)
-                                .frame(width: 100, height: 100)
-                        )
-                    Text("팀원들은 참여코드를 입력하여\n플로깅 팀에 참여해요.")
-                        .font(.Jamsil.light.font(size: 16))
-
-                }
-                HStack {
-                    Image("onboarding_character")
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                        .scaledToFit()
-                        .background(
-                            Circle()
-                                .fill(Color.backgroundColor)
-                                .frame(width: 100, height: 100)
-                        )
-                    Text("팀원들은 참여코드를 입력하여\n플로깅 팀에 참여해요.")
-                        .font(.Jamsil.light.font(size: 16))
-
-                }
-                HStack {
-                    Image("onboarding_character")
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                        .scaledToFit()
-                        .background(
-                            Circle()
-                                .fill(Color.backgroundColor)
-                                .frame(width: 100, height: 100)
-                        )
-                    Text("팀원들은 참여코드를 입력하여\n플로깅 팀에 참여해요.")
-                        .font(.Jamsil.light.font(size: 16))
-
-                }
-                HStack {
-                    Image("onboarding_character")
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                        .scaledToFit()
-                        .background(
-                            Circle()
-                                .fill(Color.backgroundColor)
-                                .frame(width: 100, height: 100)
-                        )
-                    Text("팀원들은 참여코드를 입력하여\n플로깅 팀에 참여해요.")
-                        .font(.Jamsil.light.font(size: 16))
-
-                }
-                HStack {
-                    Image("onboarding_character")
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                        .scaledToFit()
-                        .background(
-                            Circle()
-                                .fill(Color.backgroundColor)
-                                .frame(width: 100, height: 100)
-                        )
-                    Text("팀원들은 참여코드를 입력하여\n플로깅 팀에 참여해요.")
-                        .font(.Jamsil.light.font(size: 16))
-
+                ForEach(Range(1...5)) { _ in
+                    PlayerCellView(image: "onboarding_character", nickName: "렌조로")
                 }
             }.background(
                 RoundedRectangle(cornerRadius: 40).fill(Color.background2Color)
             )
         }.overlay {
-            NavigationLink("시작하기") {
-            }.buttonStyle(DefaultButton(isdisable: false))
-                .offset(y: 350)
+            VStack {
+                Text("􀁜 모든 멤버가 입장하면 시작할 수 있어요.")
+                    .font(.Jamsil.light.font(size: 14))
+                    .foregroundColor(.gray)
+                    .offset(y: 350)
+                NavigationLink("시작하기") {
+                }.buttonStyle(DefaultButton(isdisable: false))
+                    .offset(y: 350)
+            }
         }
     }
 }
@@ -121,5 +54,30 @@ struct WaitingRoomView: View {
 struct WaitingRoomView_Previews: PreviewProvider {
     static var previews: some View {
         WaitingRoomView()
+    }
+}
+
+
+struct PlayerCellView: View {
+    let image: String
+    let nickName: String
+    
+    var body: some View {
+        HStack {
+            Image(image)
+                .resizable()
+                .frame(width: 80, height: 80)
+                .scaledToFill()
+                .background(
+                    Circle()
+                        .fill(Color.backgroundColor)
+                        .frame(width: 100, height: 100)
+                )
+                .padding(.all, 20)
+            Text(nickName)
+                .font(.Jamsil.regular.font(size: 25))
+            Spacer()
+            
+        }.frame(width: 342)
     }
 }
