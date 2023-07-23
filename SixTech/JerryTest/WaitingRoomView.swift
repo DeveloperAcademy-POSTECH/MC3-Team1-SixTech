@@ -37,6 +37,7 @@ struct WaitingRoomView: View {
             }.background(
                 RoundedRectangle(cornerRadius: 40).fill(Color.background2Color)
             )
+            
         }.overlay {
             VStack {
                 Text("􀁜 모든 멤버가 입장하면 시작할 수 있어요.")
@@ -56,7 +57,6 @@ struct WaitingRoomView_Previews: PreviewProvider {
         WaitingRoomView()
     }
 }
-
 
 struct PlayerCellView: View {
     let image: String

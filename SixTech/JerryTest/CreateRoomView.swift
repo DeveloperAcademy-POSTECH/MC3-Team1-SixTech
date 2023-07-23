@@ -11,9 +11,8 @@ struct CreateRoomView: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var selection = 1
-    
     @State private var isPickerView = false
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -38,7 +37,7 @@ struct CreateRoomView: View {
                     
                     Text("명")
                         .font(.Jamsil.bold.font(size: 20))
-                } // 인원수 뷰 스택
+                } // MARK: 인원수 뷰 스택
                 .padding([.leading, .trailing])
                 
                 if isPickerView {
@@ -57,14 +56,14 @@ struct CreateRoomView: View {
                     }
                 } else {
                     Spacer().frame(height: 100)
-                } // 피커뷰 on/off 스택
+                } // MARK: 피커뷰 on/off 스택
                 Divider()
                 HStack {
                     Text("참여 코드")
                         .font(.Jamsil.bold.font(size: 20))
                         .padding(.leading)
                     Spacer()
-                } // 참여코드 헤드라인 뷰 스택
+                } // MARK: 참여코드 헤드라인 뷰 스택
                 
                 HStack {
                     Spacer()
@@ -75,7 +74,7 @@ struct CreateRoomView: View {
                     Image(systemName: "doc.on.doc.fill")
                         .foregroundColor(.defaultColor)
                         .padding(.trailing)
-                } // 참여코드 복사 뷰 스택
+                } // MARK: 참여코드 복사 뷰 스택
                 .frame(width: 342, height: 76)
                 .background(
                     RoundedRectangle(cornerRadius: 15)
@@ -86,7 +85,7 @@ struct CreateRoomView: View {
                     Image(systemName: "questionmark.circle")
                     Text("다른 팀원들은 참여코드가 있어야 입장할 수 있어요.")
                         .font(.Jamsil.light.font(size: 14))
-                }// 팁스택
+                }// MARK: 팁스택
                 
                 Spacer()
                 
@@ -105,7 +104,7 @@ struct CreateRoomView: View {
                     Text("방 만들기")
                         .font(.Jamsil.bold.font(size: 30))
                 }
-            }
+            } // MARK: 네비게이션 바뷰
         }
     }
 }
