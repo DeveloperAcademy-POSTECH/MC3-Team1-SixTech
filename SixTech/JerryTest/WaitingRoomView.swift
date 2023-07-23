@@ -8,47 +8,58 @@
 import SwiftUI
 
 struct WaitingRoomView: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        VStack {
-            Text("대기실")
-                .font(.Jamsil.bold.font(size: 24))
-            
-            Text("모두 도착할 때까지 기다려요.")
-                .font(.Jamsil.light.font(size: 20))
-            
-            Image("onboarding_character")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 136, height: 136)
-                .background(
-                    Circle().fill(Color.background2Color)
-                        .frame(width: 170, height: 170)
-                )
-                .padding()
-            
-            Text("들린매스크")
-                .font(.Jamsil.bold.font(size: 25))
-                .padding()
-            
-            ScrollView {
-                ForEach(Range(1...5)) { _ in
-                    PlayerCellView(image: "onboarding_character", nickName: "렌조로")
-                }
-            }.background(
-                RoundedRectangle(cornerRadius: 40).fill(Color.background2Color)
-            )
-            
-        }.overlay {
+        NavigationView {
             VStack {
-                Text("􀁜 모든 멤버가 입장하면 시작할 수 있어요.")
-                    .font(.Jamsil.light.font(size: 14))
-                    .foregroundColor(.gray)
-                    .offset(y: 350)
-                NavigationLink("시작하기") {
-                }.buttonStyle(DefaultButton(isdisable: false))
-                    .offset(y: 350)
+                Text("대기실")
+                    .font(.Jamsil.bold.font(size: 24))
+                
+                Text("모두 도착할 때까지 기다려요.")
+                    .font(.Jamsil.light.font(size: 20))
+                
+                Image("onboarding_character")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 136, height: 136)
+                    .background(
+                        Circle().fill(Color.background2Color)
+                            .frame(width: 170, height: 170)
+                    )
+                    .padding()
+                
+                Text("들린매스크")
+                    .font(.Jamsil.bold.font(size: 25))
+                    .padding()
+                
+                ScrollView {
+                    ForEach(Range(1...5)) { _ in
+                        PlayerCellView(image: "onboarding_character", nickName: "렌조로")
+                    }
+                }.background(
+                    RoundedRectangle(cornerRadius: 40).fill(Color.background2Color)
+                )
+                
+            }.overlay {
+                VStack {
+                    Text("􀁜 모든 멤버가 입장하면 시작할 수 있어요.")
+                        .font(.Jamsil.light.font(size: 14))
+                        .foregroundColor(.gray)
+                        .offset(y: 300)
+                    NavigationLink("시작하기") {
+                    }.buttonStyle(DefaultButton(isdisable: false))
+                        .offset(y: 300)
+                }
             }
-        }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    dismissButton(sfName: "chevron.backward") {
+                        dismiss()
+                    }
+                }
+            }
+        }.navigationBarBackButtonHidden()
     }
 }
 

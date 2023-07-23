@@ -90,6 +90,7 @@ struct CreateRoomView: View {
                 Spacer()
                 
                 NavigationLink("방 만들기") {
+                    WaitingRoomView()
                 }.buttonStyle(DefaultButton(isdisable: false)) // 버튼 뷰
                 
             }
@@ -105,7 +106,7 @@ struct CreateRoomView: View {
                         .font(.Jamsil.bold.font(size: 30))
                 }
             } // MARK: 네비게이션 바뷰
-        }
+        }.navigationBarBackButtonHidden()
     }
 }
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PlayView: View {
+struct PloggingPlayView: View {
     
     @Environment(\.dismiss) var dismiss
     
@@ -33,9 +33,11 @@ struct PlayView: View {
                 }
                 
                 NavigationLink("방 만들기") {
+                    CreateRoomView()
                 }.buttonStyle(DefaultButton(isdisable: false))
                     .padding(.top)
                 NavigationLink("참여하기") {
+                    EngagementView()
                 }.buttonStyle(DefaultButton(isdisable: false))
                     .padding()
                 Spacer().frame(height: 60)
@@ -48,7 +50,7 @@ struct PlayView: View {
                     }
                 }
             }
-        }
+        }.navigationBarBackButtonHidden()
     }
     
     // MARK: Flip Card Function
@@ -73,9 +75,9 @@ struct PlayView: View {
     
 }
 
-struct PlayView_Previews: PreviewProvider {
+struct PloggingPlayView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayView()
+        PloggingPlayView()
     }
 }
 
