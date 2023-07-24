@@ -16,7 +16,7 @@ protocol CustomMatchmakerViewControllerDelegate: AnyObject {
     func customMatchmakerViewControllerWasCancelled(_ viewController: CustomMatchmakerViewController)
 }
 
-class CustomMatchmakerViewController: UIViewController {
+final class CustomMatchmakerViewController: UIViewController {
     
     weak var delegate: CustomMatchmakerViewControllerDelegate?
     

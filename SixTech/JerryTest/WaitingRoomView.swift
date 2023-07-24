@@ -40,6 +40,7 @@ struct WaitingRoomView: View {
                 }.background(
                     RoundedRectangle(cornerRadius: 40).fill(Color.background2Color)
                 )
+                .clipShape(RoundedRectangle(cornerRadius: 40))
                 
             }.overlay {
                 VStack {
