@@ -12,28 +12,50 @@ struct MapView: View {
 	@ObservedObject var locationManager = LocationManager()
 	
 	var body: some View {
-		ZStack {
-			Map(coordinateRegion: $locationManager.region, showsUserLocation: true)
-				.ignoresSafeArea()
-			VStack {
-				Spacer()
-				HStack {
+		NavigationView {
+			ZStack {
+				MapUI(locationManager: locationManager)
+					.ignoresSafeArea()
+				VStack {
 					Spacer()
-					Button {
-						locationManager.trackUser.toggle()
-						if locationManager.trackUser {
-							locationManager.startUpdating()
-						} else {
-							locationManager.stopUpdating()
+					HStack {
+						Spacer()
+						Button {
+							locationManager.changeTrackingMode()
+						} label: {
+							Image(systemName: locationIcon(mode: locationManager.trackUser))
+								.frame(width: .zero, height: .zero)
+								.padding()
+								.background(Color.white)
+								.clipShape(Circle())
+								.shadow(radius: 0, x: 1, y: 1)
+								.overlay(Circle().stroke(lineWidth: 0.05))
 						}
-					} label: {
-						Image(systemName: locationManager.trackUser ? "location.fill" : "location")
-							.padding()
-							.clipShape(Circle())
+						.padding()
 					}
-					.padding()
+					NavigationLink {
+						Text("Detail View")
+					} label: {
+						Text("to polylineView")
+					}
+	//				Button {
+	//					locationManager.addCustomAnnotation()
+	//				} label: {
+	//					Text("ADA")
+	//				}
 				}
 			}
+		}
+	}
+	
+	private func locationIcon(mode: UserTrackingMode) -> String {
+		switch mode {
+		case .none:
+			return "location"
+		case .follow:
+			return "location.fill"
+		case .followWithHeading:
+			return "location.north.line.fill"
 		}
 	}
 }
