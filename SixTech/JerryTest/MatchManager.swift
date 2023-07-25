@@ -64,7 +64,8 @@ class MatchManager: NSObject, ObservableObject {
     
     func cancelMatchmaking() {
         matchmaker?.cancel()
-        print("매치 취소 했엉!")
+        otherPlayer = nil
+        print("매치 취소!")
     }
     
     func authenticateUser() {
@@ -108,9 +109,8 @@ class MatchManager: NSObject, ObservableObject {
     func receivedString(_ message: String) {
         let messageSplit = message.split(separator: ":")
         guard let messagePrefix = messageSplit.first else { return }
-        
         let parameter = String(messageSplit.last ?? "")
-        print("\(parameter) 메세지 받음")
+        
         switch messagePrefix {
         case "began":
             if playerUUIDKey == parameter {
@@ -138,11 +138,7 @@ extension MatchManager: GKMatchDelegate {
             let message = content.replacing("strData:", with: "")
             receivedString(message)
         } else {
-//            do {
-////                lastData
-//            } catch {
-//                print("error")
-//            }
+            // 만약 깨진 데이터 받아서 이상해지면.... -> lastData로 처리해주는 로직대충 만들기
         }
     }
     
@@ -162,14 +158,12 @@ extension MatchManager: GKMatchDelegate {
     func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
         switch state {
         case .connected:
-            // 플레이어가 연결되었을 때 처리
             DispatchQueue.main.async {
                 self.otherPlayer?.append(player)
                 self.sendString("began: \(self.playerUUIDKey)")
             }
         case .disconnected:
-            // 플레이어가 연결이 끊겼을 때 처리
-            break
+            print("플레이어\(player.displayName)의 연결이 끊김")
         case .unknown:
             // 연결 상태를 알 수 없을 때 처리
             break

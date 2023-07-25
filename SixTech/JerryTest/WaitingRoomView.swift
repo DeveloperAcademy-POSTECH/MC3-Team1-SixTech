@@ -41,7 +41,7 @@ struct WaitingRoomView: View {
                     PlayerCellView(image: "onboarding_character"
                                    , nickName: matchManager.localPlayer.displayName)
                     if matchManager.otherPlayer != nil {
-                        ForEach(matchManager.otherPlayer!, id: \.self) { player in
+                        ForEach(matchManager.otherPlayer!, id: \.self) { _ in
                             PlayerCellView(image: "onboarding_character", nickName: matchManager.lastData)
                         }
                     }
@@ -64,6 +64,7 @@ struct WaitingRoomView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     dismissButton(sfName: "chevron.backward") {
+                        matchManager.cancelMatchmaking()
                         dismiss()
                     }
                 }
