@@ -128,9 +128,9 @@ struct CharacterCreateView: View {
             Spacer()
             Spacer()
             
-            Button("선택하기") {
+            ButtonView(text: "선택하기", isdisable: false) {
                 saveImageToPNG(image: imageMerger.merge("\(faceArray[characterFace] + colorArray[characterColor])", with: "\(emotionArray[characterEmotion])"))
-            }.buttonStyle(DefaultButton(isdisable: false))
+            }
         }
         .navigationBarBackButtonHidden()
     }
