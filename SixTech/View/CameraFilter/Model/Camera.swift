@@ -6,6 +6,11 @@ class Camera: NSObject, ObservableObject {
     var videoDeviceInput: AVCaptureDeviceInput!
     let output = AVCapturePhotoOutput()
     var photoData = Data(count: 0)
+    var profileImageURL: URL
+    
+    init(profileImageURL: URL) {
+        self.profileImageURL = profileImageURL
+    }
     
     @Published var recentImage: UIImage?
     @Published var isCameraBusy = false
@@ -25,7 +30,9 @@ class Camera: NSObject, ObservableObject {
                     output.isHighResolutionCaptureEnabled = true
                     output.maxPhotoQualityPrioritization = .quality
                 }
-                session.startRunning() // 세션 시작
+                DispatchQueue.main.async {
+                    self.session.startRunning()
+                }
             } catch {
                 print(error) // 에러 프린트
             }
@@ -64,15 +71,14 @@ class Camera: NSObject, ObservableObject {
     }
     
     func savePhoto(_ imageData: Data) {
-        
         guard let image = UIImage(data: imageData) else { return }
+        
         let size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
 //        let scaledImage = image.resize(to: size)
         let scaledImage = image.resizeAndCrop(to: size)
-        
-        
-        let character = UIImage(named: "face_dust_gray")
-        let newImage = scaledImage!.overlayWith(image: character ?? UIImage())
+            
+        let character = loadImageFromURL(imageURL: profileImageURL)
+        let newImage = scaledImage!.overlayWith(image: character)
         UIImageWriteToSavedPhotosAlbum(newImage, nil, nil, nil)
         print("[Camera]: Photo's saved")
     }
@@ -162,7 +168,6 @@ extension Camera: AVCapturePhotoCaptureDelegate {
 }
 
 extension UIImage {
-    // 워터마크 오버레이 헬퍼 함수
     func overlayWith(image: UIImage) -> UIImage {
         let newSize = CGSize(width: size.width, height: size.height)
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
@@ -176,7 +181,6 @@ extension UIImage {
         
         return newImage
     }
-    
     
     func resize(to newSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)

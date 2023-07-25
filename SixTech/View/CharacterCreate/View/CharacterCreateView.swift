@@ -13,6 +13,7 @@ struct CharacterCreateView: View {
     private let colorArray: [String] = ["gray", "green", "lightpurple", "mystic", "pink", "orange", "yellow"]
     private let emotionArray: [String] = ["emotion_1", "emotion_2", "emotion_3", "emotion_4", "emotion_5", "emotion_6", "emotion_7", "emotion_8"]
     
+    @State private var pressedButton: Bool = false
     @State private var characterColor: Int
     @State private var characterFace: Int
     @State private var characterEmotion: Int
@@ -75,11 +76,12 @@ struct CharacterCreateView: View {
         }
     }
     
-    private func saveImageToPNG(image: UIImage) {
+    private func saveImageToPNG(image: UIImage) -> URL {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let uniqueFileName = "\(UUID().uuidString).png"
+        let fileURL = documentsDirectory.appendingPathComponent(uniqueFileName)
+        
         if let imageData = image.pngData() {
-            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            let uniqueFileName = "\(UUID().uuidString).png"
-            let fileURL = documentsDirectory.appendingPathComponent(uniqueFileName)
             do {
                 try imageData.write(to: fileURL)
                 print("Image saved to: \(fileURL)")
@@ -87,6 +89,7 @@ struct CharacterCreateView: View {
                 print("Error saving image: \(error)")
             }
         }
+        return fileURL
     }
     
     var body: some View {
@@ -128,9 +131,13 @@ struct CharacterCreateView: View {
             Spacer()
             Spacer()
             
-            ButtonView(text: "선택하기", isdisable: false) {
-                saveImageToPNG(image: imageMerger.merge("\(faceArray[characterFace] + colorArray[characterColor])", with: "\(emotionArray[characterEmotion])"))
-            }
+            NavigationLinkView(text: "선택하기"
+                               , isdisable: false
+                               , destination: CameraView(profileImageURL: saveImageToPNG(image: imageMerger.merge("\(faceArray[characterFace] + colorArray[characterColor])", with: "\(emotionArray[characterEmotion])"))))
+            
+//            if let profileURL = URL(string: profileURLString) {
+//                                UserDataManager.shared.saveUser(nickName: nickName, profileURL: profileURL)
+//                            }
         }
         .navigationBarBackButtonHidden()
     }

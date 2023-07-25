@@ -3,11 +3,11 @@ import AVFoundation
 import Combine
 
 class CameraViewModel: ObservableObject {
-    private let model: Camera
+    let model: Camera
     private let session: AVCaptureSession
     private var subscriptions = Set<AnyCancellable>()
     private var isCameraBusy = false
-    
+    let profileImageURL: URL
     let cameraPreview: AnyView
     let hapticImpact = UIImpactFeedbackGenerator()
     
@@ -25,6 +25,7 @@ class CameraViewModel: ObservableObject {
     
     // 사진 촬영
     func capturePhoto() {
+        
         if isCameraBusy == false {
             hapticImpact.impactOccurred()
             withAnimation(.easeInOut(duration: 0.1)) {
@@ -62,20 +63,21 @@ class CameraViewModel: ObservableObject {
         print("[CameraViewModel]: Camera changed!")
     }
     
-    init() {
-        model = Camera()
-        session = model.session
-        cameraPreview = AnyView(CameraPreviewView(session: session))
-        
-        model.$recentImage.sink { [weak self] (photo) in
-            guard let picture = photo else { return }
-            self?.recentImage = picture
+    init(profileImageURL: URL) {
+            self.profileImageURL = profileImageURL
+            model = Camera(profileImageURL: profileImageURL)
+            session = model.session
+            cameraPreview = AnyView(CameraPreviewView(session: session))
+
+            model.$recentImage.sink { [weak self] (photo) in
+                guard let picture = photo else { return }
+                self?.recentImage = picture
+            }
+            .store(in: &self.subscriptions)
+
+            model.$isCameraBusy.sink { [weak self] (result) in
+                self?.isCameraBusy = result
+            }
+            .store(in: &self.subscriptions)
         }
-        .store(in: &self.subscriptions)
-        
-        model.$isCameraBusy.sink { [weak self] (result) in
-            self?.isCameraBusy = result
-        }
-        .store(in: &self.subscriptions)
-    }
 }

@@ -1,10 +1,17 @@
 import SwiftUI
 import AVFoundation
 
-// 너무 야매여서 일단 넘어가고 .snapshot 모디파이어가 있는데, 일단 카메라는 이대로 두고 다른 거 하다가 시간 괜찮으면 다시 작업하겠습니다 ㅠㅠㅠㅠㅠㅠㅠ
+// 너무 야매여서 일단 넘어가고 뷰 자체를 캡쳐 하는 .snapshot 모디파이어가 있는데, 일단 카메라는 이대로 두고 다른 거 하다가 시간 괜찮으면 다시 작업하겠습니다 ㅠㅠㅠㅠㅠㅠㅠ
+// 아에 새로 다시 만들고 싶어요. 하 ㅠㅠㅠ 일단 완성이 우선이라고 생각해서... 너무 맘에 안드는데 이대로 두겠습니다...
 
 struct CameraView: View {
-    @ObservedObject var viewModel = CameraViewModel()
+    let profileImageURL: URL
+        @ObservedObject var viewModel: CameraViewModel
+        
+        init(profileImageURL: URL) {
+            self.profileImageURL = profileImageURL
+            viewModel = CameraViewModel(profileImageURL: profileImageURL)
+        }
     
     var body: some View {
         ZStack {
@@ -16,7 +23,7 @@ struct CameraView: View {
                         viewModel.configure()
                     }
                 
-                Image("face_dust_gray")
+                Image(uiImage: loadImageFromURL(imageURL: profileImageURL))
                     .resizable()
                     .frame(width: 200, height: 200)
                 
@@ -33,6 +40,7 @@ struct CameraView: View {
                 Spacer()
                 ZStack {
                     Button {
+                        viewModel.model.profileImageURL = profileImageURL
                         viewModel.capturePhoto()
                     } label: {
                         ShutterButton()
@@ -57,6 +65,7 @@ struct CameraView: View {
             }
             
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
@@ -92,7 +101,7 @@ struct CameraPreviewView: UIViewRepresentable {
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView()
+        CameraView(profileImageURL: URL(string: "file:///Users/a_mcflurry/Library/Developer/Xcode/UserData/Previews/Simulator%20Devices/9C22CA36-B077-4ADB-AE51-F31615D8E474/data/Containers/Data/Application/A65A3C9B-FD21-4286-8118-BD32AE3FB695/Documents/C79E5A01-633B-48AD-94D9-F9952139AFC1.png")!)
     }
 }
 
