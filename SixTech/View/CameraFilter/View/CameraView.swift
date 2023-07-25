@@ -1,6 +1,8 @@
 import SwiftUI
 import AVFoundation
 
+// 너무 야매여서 일단 넘어가고 .snapshot 모디파이어가 있는데, 일단 카메라는 이대로 두고 다른 거 하다가 시간 괜찮으면 다시 작업하겠습니다 ㅠㅠㅠㅠㅠㅠㅠ
+
 struct CameraView: View {
     @ObservedObject var viewModel = CameraViewModel()
     
@@ -9,6 +11,7 @@ struct CameraView: View {
             
             Group {
                 viewModel.cameraPreview.ignoresSafeArea()
+                    .frame(height: UIScreen.main.bounds.width)
                     .onAppear {
                         viewModel.configure()
                     }
@@ -32,14 +35,7 @@ struct CameraView: View {
                     Button {
                         viewModel.capturePhoto()
                     } label: {
-                        ZStack {
-                            Circle()
-                                .fill(Color.white)
-                                .frame(width: 65, height: 65)
-                            Circle()
-                                .stroke(Color .white, lineWidth: 2)
-                                .frame(width: 75, height: 75)
-                        }
+                        ShutterButton()
                     }
                     HStack {
                         Spacer()
@@ -97,5 +93,18 @@ struct CameraPreviewView: UIViewRepresentable {
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
         CameraView()
+    }
+}
+
+struct ShutterButton: View {
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(Color.white)
+                .frame(width: 65, height: 65)
+            Circle()
+                .stroke(Color .white, lineWidth: 2)
+                .frame(width: 75, height: 75)
+        }
     }
 }

@@ -26,6 +26,6 @@ struct PageTabViewStyle: View {
 
 struct PageTabViewStyle_Previews: PreviewProvider {
     static var previews: some View {
-        PageTabViewStyle(pageNumber: 1, totalPageNumber: 4)
+        PageTabViewStyle(pageNumber: 1, totalPageNumber: 3)
     }
 }

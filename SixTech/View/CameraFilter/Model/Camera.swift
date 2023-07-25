@@ -66,11 +66,13 @@ class Camera: NSObject, ObservableObject {
     func savePhoto(_ imageData: Data) {
         
         guard let image = UIImage(data: imageData) else { return }
-        let size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        let scaledImage = image.resize(to: size)
+        let size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+//        let scaledImage = image.resize(to: size)
+        let scaledImage = image.resizeAndCrop(to: size)
+        
         
         let character = UIImage(named: "face_dust_gray")
-        let newImage = scaledImage.overlayWith(image: character ?? UIImage())
+        let newImage = scaledImage!.overlayWith(image: character ?? UIImage())
         UIImageWriteToSavedPhotosAlbum(newImage, nil, nil, nil)
         print("[Camera]: Photo's saved")
     }
@@ -183,6 +185,21 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return scaledImage ?? self
     }
+
+    func resizeAndCrop(to size: CGSize) -> UIImage? {
+          let scale = max(size.width / self.size.width, size.height / self.size.height)
+          let newSize = CGSize(width: self.size.width * scale, height: self.size.height * scale)
+
+          let origin = CGPoint(x: (size.width - newSize.width) / 2.0, y: (size.height - newSize.height) / 2.0)
+          let rect = CGRect(origin: origin, size: newSize)
+
+          UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+          self.draw(in: rect)
+          let newImage = UIGraphicsGetImageFromCurrentImageContext()
+          UIGraphicsEndImageContext()
+
+          return newImage
+      }
 }
 
 extension CGFloat {
