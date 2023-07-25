@@ -24,18 +24,54 @@ struct CharacterCreateView: View {
         _characterEmotion = State(initialValue: Int.random(in: 0..<emotionArray.count))
     }
     
-    private func increaseCount(index: Int, maxSize: Int) -> Int {
-        if index < maxSize - 1 {
-            return index + 1
-        } else {
-            return 0
+    enum Characterkind {
+        case face
+        case color
+        case emotion
+    }
+    
+    private func getCharacterArraykind(kind: Characterkind) -> [String] {
+        switch kind {
+        case .face:
+            return faceArray
+        case .color:
+            return colorArray
+        case .emotion:
+            return emotionArray
         }
     }
-    private func decreaseCount(index: Int, maxSize: Int) -> Int {
-        if 0 < index {
-            return index - 1
+    
+    private func getCharacterkind(kind: Characterkind) -> Binding<Int> {
+        switch kind {
+        case .face:
+            return $characterFace
+        case .color:
+            return $characterColor
+        case .emotion:
+            return $characterEmotion
+        }
+    }
+    
+    private func increaseCount(kind: Characterkind) {
+        let binding = getCharacterkind(kind: kind)
+        let index = binding.wrappedValue
+        let maxSize = getCharacterArraykind(kind: kind).count
+        
+        if index < maxSize - 1 {
+            binding.wrappedValue += 1
         } else {
-            return maxSize - 1
+            binding.wrappedValue = 0
+        }
+    }
+    private func decreaseCount(kind: Characterkind) {
+        let binding = getCharacterkind(kind: kind)
+        let index = binding.wrappedValue
+        let maxSize = getCharacterArraykind(kind: kind).count
+        
+        if 0 < index {
+            binding.wrappedValue -= 1
+        } else {
+            binding.wrappedValue = maxSize - 1
         }
     }
     
@@ -64,9 +100,9 @@ struct CharacterCreateView: View {
                 .font(.Jamsil.light.font(size: 17))
             HStack {
                 VStack {
-                    ImageButton(image: .left) { characterFace = decreaseCount(index: characterFace, maxSize: faceArray.count) }
-                    ImageButton(image: .left) { characterColor = decreaseCount(index: characterColor, maxSize: colorArray.count) }
-                    ImageButton(image: .left) { characterEmotion = decreaseCount(index: characterEmotion, maxSize: emotionArray.count) }
+                    ImageButton(image: .left) { decreaseCount(kind: .face) }
+                    ImageButton(image: .left) { decreaseCount(kind: .emotion) }
+                    ImageButton(image: .left) { decreaseCount(kind: .color) }
                 }
                 
                 Image(uiImage: imageMerger.merge("\(faceArray[characterFace] + colorArray[characterColor])", with: "\(emotionArray[characterEmotion])"))
@@ -74,9 +110,9 @@ struct CharacterCreateView: View {
                     .frame(width: 200, height: 200)
                 
                 VStack {
-                    ImageButton(image: .right) { characterFace = increaseCount(index: characterFace, maxSize: faceArray.count) }
-                    ImageButton(image: .right) { characterColor = increaseCount(index: characterColor, maxSize: colorArray.count) }
-                    ImageButton(image: .right) { characterEmotion = increaseCount(index: characterEmotion, maxSize: emotionArray.count) }
+                    ImageButton(image: .right) { increaseCount(kind: .face) }
+                    ImageButton(image: .right) { increaseCount(kind: .emotion) }
+                    ImageButton(image: .right) { increaseCount(kind: .color) }
                 }
             }
             
@@ -157,3 +193,32 @@ struct CharacterCreateView_Previews: PreviewProvider {
 //
 //        }
 //    }
+
+// HStack {
+//    VStack {
+//        ImageButton(image: .left) { characterFace = decreaseCount(index: characterFace, maxSize: faceArray.count) }
+//        ImageButton(image: .left) { characterColor = decreaseCount(index: characterColor, maxSize: colorArray.count) }
+//        ImageButton(image: .left) { characterEmotion = decreaseCount(index: characterEmotion, maxSize: emotionArray.count) }
+//    }
+//
+//    Image(uiImage: imageMerger.merge("\(faceArray[characterFace]+colorArray[characterColor])"
+//                                     , with: "\(emotionArray[characterEmotion])"))
+//        .resizable()
+//        .frame(width: 200, height: 200)
+//
+//    VStack {
+//        ImageButton(image: .right) { characterFace = increaseCount(index: characterFace, maxSize: faceArray.count) }
+//        ImageButton(image: .right) { characterColor = increaseCount(index: characterColor, maxSize: colorArray.count) }
+//        ImageButton(image: .right) { characterEmotion = increaseCount(index: characterEmotion, maxSize: emotionArray.count) }
+//    }
+// }
+
+// ZStack {
+//    Image("\(faceArray[characterFace]+colorArray[characterColor])")
+//        .resizable()
+//    Image("\(emotionArray[characterEmotion])")
+//        .resizable()
+//        .transition(.move(edge: .bottom))
+//        .transition(AnyTransition.opacity.animation(.easeInOut))
+// }
+// .frame(width: 200, height: 200)

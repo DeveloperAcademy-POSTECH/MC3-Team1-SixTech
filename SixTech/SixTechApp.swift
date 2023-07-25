@@ -11,7 +11,7 @@ import SwiftUI
 struct SixTechApp: App {
     var body: some Scene {
         WindowGroup {
-            OnBoardingView()
+            CameraView()
         }
     }
 }

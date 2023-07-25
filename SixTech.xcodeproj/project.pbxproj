@@ -10,7 +10,6 @@
 		0B4E2BC12A6EC3FE00014F85 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BBF2A6EC3FE00014F85 /* Camera.swift */; };
 		0B4E2BC22A6EC3FE00014F85 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BC02A6EC3FE00014F85 /* CameraViewModel.swift */; };
 		0B4E2BC42A6EC40400014F85 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BC32A6EC40400014F85 /* CameraView.swift */; };
-		0B4E2BC72A6F9FD800014F85 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BC62A6F9FD800014F85 /* UserModel.swift */; };
 		0B94E32F2A6814B9008F6D39 /* onboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0B94E32E2A6814B9008F6D39 /* onboardingGIF.gif */; };
 		0B94E3312A681552008F6D39 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3302A681552008F6D39 /* ImageButton.swift */; };
 		0B94E3332A681560008F6D39 /* CharacterCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3322A681560008F6D39 /* CharacterCreateView.swift */; };
@@ -41,7 +40,6 @@
 		0B4E2BBF2A6EC3FE00014F85 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		0B4E2BC02A6EC3FE00014F85 /* CameraViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		0B4E2BC32A6EC40400014F85 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		0B4E2BC62A6F9FD800014F85 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0B94E32E2A6814B9008F6D39 /* onboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboardingGIF.gif; sourceTree = "<group>"; };
 		0B94E3302A681552008F6D39 /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		0B94E3322A681560008F6D39 /* CharacterCreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCreateView.swift; sourceTree = "<group>"; };
@@ -81,14 +79,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B4E2BC52A6F9FC800014F85 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				0B4E2BC62A6F9FD800014F85 /* UserModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		0B94E3282A681459008F6D39 /* CharacterCreate */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +204,6 @@
 		0E94FABE2A5A83AF002A39FB /* SixTech */ = {
 			isa = PBXGroup;
 			children = (
-				0B4E2BC52A6F9FC800014F85 /* Model */,
 				0BE5981B2A60EAB700D019EA /* Fonts */,
 				0BE598082A5FD47900D019EA /* ButtonStyle */,
 				0BE598052A5FD2FC00D019EA /* Extension */,
@@ -352,7 +341,6 @@
 				0BE5983D2A62629600D019EA /* FontExtension.swift in Sources */,
 				0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */,
 				0B94E3332A681560008F6D39 /* CharacterCreateView.swift in Sources */,
-				0B4E2BC72A6F9FD800014F85 /* UserModel.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
 				0B4E2BC12A6EC3FE00014F85 /* Camera.swift in Sources */,
 				0B4E2BC22A6EC3FE00014F85 /* CameraViewModel.swift in Sources */,
