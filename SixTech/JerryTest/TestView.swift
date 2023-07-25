@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TestView: View {
-    @ObservedObject var matchManager = MatchManager()
+    @EnvironmentObject var matchManager: MatchManager
     
     var body: some View {
         VStack {
@@ -20,7 +20,7 @@ struct TestView: View {
                 VStack {
                     Text(" Matching View !")
                     Button {
-                        matchManager.startMatchMaking()
+
                     } label: {
                         Text("Maching Start !")
                     }
@@ -35,6 +35,6 @@ struct TestView: View {
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
-        TestView(matchManager: MatchManager())
+        TestView()
     }
 }

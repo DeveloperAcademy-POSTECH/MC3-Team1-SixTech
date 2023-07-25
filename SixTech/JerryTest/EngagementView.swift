@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EngagementView: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var matchManager: MatchManager
     
     @State private var numberText = "    "
     
@@ -30,7 +31,7 @@ struct EngagementView: View {
                     .padding()
                 
                 NavigationLink("참여하기") {
-                    WaitingRoomView()
+                    WaitingRoomView(groupCode: numberText)
                 }.buttonStyle(DefaultButton(isdisable: false))
             }
             .toolbar {
@@ -47,6 +48,7 @@ struct EngagementView: View {
 struct EngagementView_Previews: PreviewProvider {
     static var previews: some View {
         EngagementView()
+            .environmentObject(MatchManager())
     }
 }
 

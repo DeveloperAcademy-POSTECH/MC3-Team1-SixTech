@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct SixTechApp: App {
+    @StateObject var matchManager = MatchManager()
+    
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(matchManager)
         }
     }
 }

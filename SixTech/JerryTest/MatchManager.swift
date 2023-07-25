@@ -17,44 +17,61 @@ enum PlayerAuthState: String {
     case restricted = "You're not allowed to play multiplayer games!"
 }
 
-class MatchManager: NSObject, ObservableObject,
-                    CustomMatchmakerViewControllerDelegate {
-    func customMatchmakerViewController(_ viewController: CustomMatchmakerViewController,
-                                        didFind match: GKMatch) {
-        viewController.dismiss(animated: true)
-        startGame(newMatch: match)
-        print("match successful")
-        match.delegate = self
-    }
+class MatchManager: NSObject, ObservableObject {
     
-    func customMatchmakerViewController(_ viewController: CustomMatchmakerViewController,
-                                        didFailWithError error: Error) {
-        print("error in Matching")
-        viewController.dismiss(animated: true)
-    }
-    
-    func customMatchmakerViewControllerWasCancelled(_ viewController: CustomMatchmakerViewController) {
-        print("Cencle in Matching")
-        viewController.dismiss(animated: true)
-    }
+    private var matchRequest: GKMatchRequest = GKMatchRequest()
+    private var matchmakingMode: GKMatchmakingMode = .default
+    private var matchmaker: GKMatchmaker?
     
     @Published var inGame = false
     @Published var isGameOver = false
     @Published var authenticationState = PlayerAuthState.authenticating
     @Published var lastData = ""
-//    @Published var currentlyDrawing = false
+    @Published var groupNumber = ""
+
     var match: GKMatch?
     var otherPlayer: [GKPlayer]?
     var localPlayer = GKLocalPlayer.local
     
     var playerUUIDKey = UUID().uuidString
-    
     var rootViewController: UIViewController? {
         let windowsence = UIApplication.shared.connectedScenes.first as? UIWindowScene
         return windowsence?.windows.first?.rootViewController
     }
     
+    func generateRandom4DigitNumber() {
+        let randomNumber = Int.random(in: 0...9999)
+        groupNumber = String(format: "%04d", randomNumber)
+    }
+    
+    func startMatchmaking() {
+        let request = GKMatchRequest()
+        request.minPlayers = 2
+        request.maxPlayers = 8
+        request.playerGroup = Int(groupNumber)!
+        matchRequest = request
+        
+        matchmaker = GKMatchmaker.shared()
+        matchmaker?.findMatch(for: matchRequest, withCompletionHandler: { [weak self] (match, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else if let match = match {
+                print("매치를 찾음 !")
+                self?.otherPlayer = match.players
+                self?.startGame(newMatch: match)
+                print("match successful")
+                match.delegate = self
+            }
+        })
+    }
+    
+    func cancelMatchmaking() {
+        matchmaker?.cancel()
+        print("매치 취소 했엉!")
+    }
+    
     func authenticateUser() {
+        print("유저 인증 시작")
         GKLocalPlayer.local.authenticateHandler = { [self] viewc, error in
             if let viewContorller = viewc {
                 rootViewController?.present(viewContorller, animated: true)
@@ -75,17 +92,6 @@ class MatchManager: NSObject, ObservableObject,
                 authenticationState = .unauthenticated
             }
         }
-    }
-    
-    func startMatchMaking() {
-        let request = GKMatchRequest()
-        request.minPlayers = 2
-        request.maxPlayers = 8
-        request.playerGroup = 9292
-        
-        let matchmakingVC = CustomMatchmakerViewController(matchRequest: request, matchmakingMode: .default)
-        matchmakingVC.delegate = self
-        rootViewController?.present(matchmakingVC, animated: true)
     }
     
     func startGame(newMatch: GKMatch) {
@@ -153,5 +159,6 @@ extension MatchManager: GKMatchDelegate {
     }
     
     func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
+        print(" \(player.displayName) is connection changed..")
     }
 }

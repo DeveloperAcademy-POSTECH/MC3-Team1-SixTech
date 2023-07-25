@@ -17,7 +17,6 @@ protocol CustomMatchmakerViewControllerDelegate: AnyObject {
 }
 
 final class CustomMatchmakerViewController: UIViewController {
-    
     weak var delegate: CustomMatchmakerViewControllerDelegate?
     
     private let matchRequest: GKMatchRequest

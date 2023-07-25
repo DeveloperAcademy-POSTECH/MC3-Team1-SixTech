@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct PloggingPlayView: View {
-    
+    @EnvironmentObject var matchManager: MatchManager
     @Environment(\.dismiss) var dismiss
     
-    @State var isFlipped = true
-    @State var backDegree = 90.0
-    @State var frontDegree = 0.0
+    @State private var isFlipped = true
+    @State private var backDegree = 90.0
+    @State private var frontDegree = 0.0
     
-    let durationAndDelay: CGFloat = 0.3
+    private let durationAndDelay: CGFloat = 0.3
     
     var body: some View {
         NavigationView {
@@ -78,6 +78,7 @@ struct PloggingPlayView: View {
 struct PloggingPlayView_Previews: PreviewProvider {
     static var previews: some View {
         PloggingPlayView()
+            .environmentObject(MatchManager())
     }
 }
 

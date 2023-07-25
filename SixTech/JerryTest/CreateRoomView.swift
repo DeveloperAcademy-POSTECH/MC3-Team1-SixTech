@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CreateRoomView: View {
+    @EnvironmentObject var matchManager: MatchManager
     @Environment(\.dismiss) var dismiss
     
     @State private var selection = 1
@@ -67,7 +68,7 @@ struct CreateRoomView: View {
                 
                 HStack {
                     Spacer()
-                    Text("0000")
+                    Text(matchManager.groupNumber.isEmpty ? "0000": matchManager.groupNumber)
                         .font(.Jamsil.bold.font(size: 34))
                         .foregroundColor(.defaultColor)
                     Spacer()
@@ -107,11 +108,15 @@ struct CreateRoomView: View {
                 }
             } // MARK: 네비게이션 바뷰
         }.navigationBarBackButtonHidden()
+            .onAppear {
+                matchManager.generateRandom4DigitNumber()
+            }
     }
 }
 
 struct CreateRoomView_Previews: PreviewProvider {
     static var previews: some View {
         CreateRoomView()
+            .environmentObject(MatchManager())
     }
 }

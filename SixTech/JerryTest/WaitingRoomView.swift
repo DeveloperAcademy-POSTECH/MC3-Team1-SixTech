@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct WaitingRoomView: View {
+    @EnvironmentObject var matchManager: MatchManager
     @Environment(\.dismiss) var dismiss
+    
+    @State var isFirst = true
+    var groupCode: String?
     
     var body: some View {
         NavigationView {
@@ -34,8 +38,11 @@ struct WaitingRoomView: View {
                     .padding()
                 
                 ScrollView {
-                    ForEach(Range(1...5)) { _ in
-                        PlayerCellView(image: "onboarding_character", nickName: "렌조로")
+                    PlayerCellView(image: "onboarding_character", nickName: "렌조로")
+                    if let players = matchManager.otherPlayer {
+                        ForEach(players, id: \.self) { _ in
+                            PlayerCellView(image: "onboarding_character", nickName: "렌조로")
+                        }
                     }
                 }.background(
                     RoundedRectangle(cornerRadius: 40).fill(Color.background2Color)
@@ -61,6 +68,16 @@ struct WaitingRoomView: View {
                 }
             }
         }.navigationBarBackButtonHidden()
+            .onAppear {
+                if let playCode = groupCode, isFirst {
+                    matchManager.groupNumber = playCode
+                    matchManager.startMatchmaking()
+                    isFirst = false
+                } else if isFirst {
+                    matchManager.startMatchmaking()
+                    isFirst = false
+                }
+            }
     }
 }
 
