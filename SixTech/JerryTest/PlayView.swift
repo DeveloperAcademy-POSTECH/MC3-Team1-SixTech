@@ -166,7 +166,7 @@ struct BackView: View {
                                 .fill(Color.backgroundColor)
                                 .frame(width: 65, height: 65)
                         )
-                    Text("플로깅의 경험을 공유하기 위해 \n사진 미션을 수행해요. \n오늘의 플로깅 활동을 기록하고 \n공유할 수 있어요.")
+                    Text("플로깅의 경험을 공유하기 위해 \n사진 미션을 수행해요.")
                         .font(.Jamsil.light.font(size: 16))
 
                 }

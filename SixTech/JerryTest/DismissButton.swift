@@ -19,5 +19,5 @@ func dismissButton(sfName: String, completion: @escaping() -> Void) -> some View
                         .fill(Color.init(hexCode: "#F5F5F5"))
                         .frame(width: 45, height: 45)
                 )
-        }
+        }.padding()
 }

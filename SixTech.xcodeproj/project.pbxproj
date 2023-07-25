@@ -37,6 +37,7 @@
 		86E058782A67F3DB00F86049 /* CreateRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E058732A67F3DB00F86049 /* CreateRoomView.swift */; };
 		86E0587A2A67FDFC00F86049 /* CustomMatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E058792A67FDFC00F86049 /* CustomMatchingViewController.swift */; };
 		86E0587D2A6901D800F86049 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0587C2A6901D800F86049 /* PlayView.swift */; };
+		86F4A36D2A6FFD4C00F780AB /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F4A36C2A6FFD4C00F780AB /* CustomAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		86E058792A67FDFC00F86049 /* CustomMatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMatchingViewController.swift; sourceTree = "<group>"; };
 		86E0587B2A68027500F86049 /* SixTech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SixTech.entitlements; sourceTree = "<group>"; };
 		86E0587C2A6901D800F86049 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		86F4A36C2A6FFD4C00F780AB /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				86E0143F2A6D50BC007F3195 /* MainView.swift */,
 				86E014392A690AB1007F3195 /* WaitingRoomView.swift */,
 				86E0143D2A691097007F3195 /* DismissButton.swift */,
+				86F4A36C2A6FFD4C00F780AB /* CustomAlert.swift */,
 			);
 			path = JerryTest;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				0BE598152A5FE6FE00D019EA /* PageTabViewStyle.swift in Sources */,
 				86E058752A67F3DB00F86049 /* MatchManager.swift in Sources */,
 				86E014402A6D50BC007F3195 /* MainView.swift in Sources */,
+				86F4A36D2A6FFD4C00F780AB /* CustomAlert.swift in Sources */,
 				0BE598072A5FD31400D019EA /* ColorExtension.swift in Sources */,
 				86E058762A67F3DB00F86049 /* EngagementView.swift in Sources */,
 				86E0143E2A691097007F3195 /* DismissButton.swift in Sources */,
