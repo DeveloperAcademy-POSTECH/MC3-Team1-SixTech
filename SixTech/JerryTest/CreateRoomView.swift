@@ -109,7 +109,7 @@ struct CreateRoomView: View {
             } // MARK: 네비게이션 바뷰
         }.navigationBarBackButtonHidden()
             .onAppear {
-                matchManager.generateRandom4DigitNumber()
+                matchManager.generateRandomPlayCode()
             }
     }
 }

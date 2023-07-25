@@ -28,9 +28,9 @@ class MatchManager: NSObject, ObservableObject {
     @Published var authenticationState = PlayerAuthState.authenticating
     @Published var lastData = ""
     @Published var groupNumber = ""
+    @Published var otherPlayer: [GKPlayer]?
 
     var match: GKMatch?
-    var otherPlayer: [GKPlayer]?
     var localPlayer = GKLocalPlayer.local
     
     var playerUUIDKey = UUID().uuidString
@@ -39,15 +39,15 @@ class MatchManager: NSObject, ObservableObject {
         return windowsence?.windows.first?.rootViewController
     }
     
-    func generateRandom4DigitNumber() {
+    func generateRandomPlayCode() {
         let randomNumber = Int.random(in: 0...9999)
         groupNumber = String(format: "%04d", randomNumber)
     }
     
-    func startMatchmaking() {
+    func startMatchmaking(_ maxPlayer: Int?) {
         let request = GKMatchRequest()
         request.minPlayers = 2
-        request.maxPlayers = 8
+        request.maxPlayers = maxPlayer ?? 2
         request.playerGroup = Int(groupNumber)!
         matchRequest = request
         
@@ -57,9 +57,8 @@ class MatchManager: NSObject, ObservableObject {
                 print("\(error.localizedDescription)")
             } else if let match = match {
                 print("매치를 찾음 !")
-                self?.otherPlayer = match.players
                 self?.startGame(newMatch: match)
-                print("match successful")
+                
                 match.delegate = self
             }
         })
@@ -159,6 +158,11 @@ extension MatchManager: GKMatchDelegate {
     }
     
     func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
-        print(" \(player.displayName) is connection changed..")
+        print(" \(state) is connection changed..")
+        if state.rawValue == 1 {
+            DispatchQueue.main.async {
+                self.otherPlayer?.append(player)
+            }
+        }
     }
 }

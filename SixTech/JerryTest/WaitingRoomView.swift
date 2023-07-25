@@ -38,10 +38,11 @@ struct WaitingRoomView: View {
                     .padding()
                 
                 ScrollView {
-                    PlayerCellView(image: "onboarding_character", nickName: "렌조로")
-                    if let players = matchManager.otherPlayer {
-                        ForEach(players, id: \.self) { _ in
-                            PlayerCellView(image: "onboarding_character", nickName: "렌조로")
+                    PlayerCellView(image: "onboarding_character"
+                                   , nickName: matchManager.localPlayer.displayName)
+                    if matchManager.otherPlayer != nil {
+                        ForEach(matchManager.otherPlayer!, id: \.self) { player in
+                            PlayerCellView(image: "onboarding_character", nickName: player.displayName)
                         }
                     }
                 }.background(
@@ -71,19 +72,15 @@ struct WaitingRoomView: View {
             .onAppear {
                 if let playCode = groupCode, isFirst {
                     matchManager.groupNumber = playCode
-                    matchManager.startMatchmaking()
+                    matchManager.startMatchmaking(nil)
                     isFirst = false
                 } else if isFirst {
-                    matchManager.startMatchmaking()
+                    matchManager.startMatchmaking(nil)
                     isFirst = false
+                } else {
+                    print(" matching Error !@!@!@")
                 }
             }
-    }
-}
-
-struct WaitingRoomView_Previews: PreviewProvider {
-    static var previews: some View {
-        WaitingRoomView()
     }
 }
 
