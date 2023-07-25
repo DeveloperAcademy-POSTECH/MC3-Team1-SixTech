@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct SixTechApp: App {
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
-            CameraView()
+            OnBoardingView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
