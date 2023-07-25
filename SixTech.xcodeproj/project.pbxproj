@@ -46,6 +46,8 @@
 		0B3D81D52A6FF1B100D3616F /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		0B3D81D72A6FF23C00D3616F /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		0B3D81D92A6FF43A00D3616F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0B3D81DD2A701D4E00D3616F /* JJIBBABBA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JJIBBABBA.ttf; sourceTree = "<group>"; };
+		0B3D81DE2A701D4E00D3616F /* JJIBBABBABold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JJIBBABBABold.ttf; sourceTree = "<group>"; };
 		0B4E2BBF2A6EC3FE00014F85 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		0B4E2BC02A6EC3FE00014F85 /* CameraViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		0B4E2BC32A6EC40400014F85 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,8 @@
 		0BE5981B2A60EAB700D019EA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				0B3D81DD2A701D4E00D3616F /* JJIBBABBA.ttf */,
+				0B3D81DE2A701D4E00D3616F /* JJIBBABBABold.ttf */,
 				0BE5982F2A60F3E600D019EA /* TheJamsilOTF1Thin.otf */,
 				0BE5982D2A60F3E600D019EA /* TheJamsilOTF2Light.otf */,
 				0BE5982E2A60F3E600D019EA /* TheJamsilOTF3Regular.otf */,
