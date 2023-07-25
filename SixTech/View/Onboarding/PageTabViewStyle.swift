@@ -10,18 +10,15 @@ import SwiftUI
 struct PageTabViewStyle: View {
     let circleSize: CGFloat = 8
     let pageNumber: Int
+    let totalPageNumber: Int
     
     var body: some View {
         HStack {
-            Circle()
-                .frame(width: circleSize, height: circleSize)
-                .foregroundColor(pageNumber==1 ? .defaultColor : .backgroundColor)
-            Circle()
-                .frame(width: circleSize, height: circleSize)
-                .foregroundColor(pageNumber==2 ? .defaultColor : .backgroundColor)
-            Circle()
-                .frame(width: circleSize, height: circleSize)
-                .foregroundColor(pageNumber==3 ? .defaultColor : .backgroundColor)
+            ForEach(1...totalPageNumber, id: \.self) { index in
+                Circle()
+                    .frame(width: circleSize, height: circleSize)
+                    .foregroundColor(pageNumber == index ? .defaultColor : .backgroundColor)
+            }
         }
         .padding()
     }
@@ -29,6 +26,6 @@ struct PageTabViewStyle: View {
 
 struct PageTabViewStyle_Previews: PreviewProvider {
     static var previews: some View {
-        PageTabViewStyle(pageNumber: 1)
+        PageTabViewStyle(pageNumber: 1, totalPageNumber: 4)
     }
 }

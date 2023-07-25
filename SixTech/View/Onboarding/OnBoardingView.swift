@@ -25,11 +25,9 @@ struct OnBoardingView: View {
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .padding(.top, 50)
                 
-                PageTabViewStyle(pageNumber: currentPage)
+                PageTabViewStyle(pageNumber: currentPage, totalPageNumber: 3)
                 
-                NavigationLink("확인했어요") {
-                    CharacterCreateView()
-                }.buttonStyle(DefaultButton(isdisable: false))
+                NavigationLinkView(text: "확인했어요", isdisable: false, destination: CharacterCreateView())
             }
         }
     }
@@ -40,3 +38,7 @@ struct OnBoardingView_Previews: PreviewProvider {
         OnBoardingView()
     }
 }
+
+// NavigationLink("확인했어요") {
+//    CharacterCreateView()
+// }.buttonStyle(DefaultButton(isdisable: false))
