@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B4E2BC12A6EC3FE00014F85 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BBF2A6EC3FE00014F85 /* Camera.swift */; };
+		0B4E2BC22A6EC3FE00014F85 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BC02A6EC3FE00014F85 /* CameraViewModel.swift */; };
+		0B4E2BC42A6EC40400014F85 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BC32A6EC40400014F85 /* CameraView.swift */; };
+		0B4E2BC72A6F9FD800014F85 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BC62A6F9FD800014F85 /* UserModel.swift */; };
 		0B94E32F2A6814B9008F6D39 /* onboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0B94E32E2A6814B9008F6D39 /* onboardingGIF.gif */; };
 		0B94E3312A681552008F6D39 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3302A681552008F6D39 /* ImageButton.swift */; };
 		0B94E3332A681560008F6D39 /* CharacterCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3322A681560008F6D39 /* CharacterCreateView.swift */; };
@@ -34,6 +38,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B4E2BBF2A6EC3FE00014F85 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		0B4E2BC02A6EC3FE00014F85 /* CameraViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		0B4E2BC32A6EC40400014F85 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		0B4E2BC62A6F9FD800014F85 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0B94E32E2A6814B9008F6D39 /* onboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboardingGIF.gif; sourceTree = "<group>"; };
 		0B94E3302A681552008F6D39 /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		0B94E3322A681560008F6D39 /* CharacterCreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCreateView.swift; sourceTree = "<group>"; };
@@ -73,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B4E2BC52A6F9FC800014F85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E2BC62A6F9FD800014F85 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0B94E3282A681459008F6D39 /* CharacterCreate */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,8 +117,27 @@
 		0B94E3392A6927CF008F6D39 /* CameraFilter */ = {
 			isa = PBXGroup;
 			children = (
+				0BAAD2832A6CDD8C000E0127 /* Model */,
+				0B94E33A2A6928CB008F6D39 /* View */,
 			);
 			path = CameraFilter;
+			sourceTree = "<group>";
+		};
+		0B94E33A2A6928CB008F6D39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E2BC32A6EC40400014F85 /* CameraView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0BAAD2832A6CDD8C000E0127 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E2BBF2A6EC3FE00014F85 /* Camera.swift */,
+				0B4E2BC02A6EC3FE00014F85 /* CameraViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0BE598052A5FD2FC00D019EA /* Extension */ = {
@@ -179,6 +214,7 @@
 		0E94FABE2A5A83AF002A39FB /* SixTech */ = {
 			isa = PBXGroup;
 			children = (
+				0B4E2BC52A6F9FC800014F85 /* Model */,
 				0BE5981B2A60EAB700D019EA /* Fonts */,
 				0BE598082A5FD47900D019EA /* ButtonStyle */,
 				0BE598052A5FD2FC00D019EA /* Extension */,
@@ -309,13 +345,17 @@
 				0BE598112A5FE3D700D019EA /* OnBoarding2View.swift in Sources */,
 				0BE598152A5FE6FE00D019EA /* PageTabViewStyle.swift in Sources */,
 				0BE598072A5FD31400D019EA /* ColorExtension.swift in Sources */,
+				0B4E2BC42A6EC40400014F85 /* CameraView.swift in Sources */,
 				0BE5980A2A5FD48F00D019EA /* ButtonStyle.swift in Sources */,
 				0B94E3312A681552008F6D39 /* ImageButton.swift in Sources */,
 				0BE598132A5FE3E400D019EA /* OnBoarding3View.swift in Sources */,
 				0BE5983D2A62629600D019EA /* FontExtension.swift in Sources */,
 				0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */,
 				0B94E3332A681560008F6D39 /* CharacterCreateView.swift in Sources */,
+				0B4E2BC72A6F9FD800014F85 /* UserModel.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
+				0B4E2BC12A6EC3FE00014F85 /* Camera.swift in Sources */,
+				0B4E2BC22A6EC3FE00014F85 /* CameraViewModel.swift in Sources */,
 				0B94E3362A690570008F6D39 /* ImageMerger.swift in Sources */,
 				0B94E3382A6914B4008F6D39 /* Onboarding1View.swift in Sources */,
 			);
