@@ -32,9 +32,9 @@ class MatchManager: NSObject, ObservableObject {
 
     var match: GKMatch?
     var localPlayer = GKLocalPlayer.local
+    private var playerUUIDKey = UUID().uuidString
     
-    var playerUUIDKey = UUID().uuidString
-    var rootViewController: UIViewController? {
+    private var rootViewController: UIViewController? {
         let windowsence = UIApplication.shared.connectedScenes.first as? UIWindowScene
         return windowsence?.windows.first?.rootViewController
     }
@@ -58,8 +58,6 @@ class MatchManager: NSObject, ObservableObject {
             } else if let match = match {
                 print("매치를 찾음 !")
                 self?.startGame(newMatch: match)
-                
-                match.delegate = self
             }
         })
     }
@@ -94,16 +92,16 @@ class MatchManager: NSObject, ObservableObject {
     }
     
     func startGame(newMatch: GKMatch) {
+        newMatch.delegate = self
         match = newMatch
-        match?.delegate = self
+        
         if let players = match?.players {
             otherPlayer = players
-            print("\(players.first?.displayName ?? "player name error")")
             inGame = true
+//            sendString("began: \(playerUUIDKey)")
         } else {
             print("player info nothing..")
         }
-        sendString("began: \(playerUUIDKey)")
 //        게임로직 시작 하면됨..
     }
     
@@ -112,32 +110,36 @@ class MatchManager: NSObject, ObservableObject {
         guard let messagePrefix = messageSplit.first else { return }
         
         let parameter = String(messageSplit.last ?? "")
-        
+        print("\(parameter) 메세지 받음")
         switch messagePrefix {
         case "began":
             if playerUUIDKey == parameter {
                 playerUUIDKey = UUID().uuidString
                 sendString("began:\(playerUUIDKey)")
                 break
+            } else {
+                DispatchQueue.main.async {
+                    self.lastData = parameter
+                }
             }
 //            inGame = true // 게임중이라는 거 여기다 다표시해주기
         default:
             break
         }
     }
+
 }
 
 // MARK: GKMatchDelegate
 extension MatchManager: GKMatchDelegate {
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
         let content = String(decoding: data, as: UTF8.self)
-        
         if content.starts(with: "strData") {
-//            let message = content.replacing("strData:", with: "")
-//            reci
+            let message = content.replacing("strData:", with: "")
+            receivedString(message)
         } else {
 //            do {
-////                lastData 데이터 가져오기
+////                lastData
 //            } catch {
 //                print("error")
 //            }
@@ -153,16 +155,27 @@ extension MatchManager: GKMatchDelegate {
         do {
             try match?.sendData(toAllPlayers: data, with: mode)
         } catch {
-            print(error.localizedDescription)
+            print("데이터 보내기 에러 = \(error.localizedDescription)")
         }
     }
     
     func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
-        print(" \(state) is connection changed..")
-        if state.rawValue == 1 {
+        switch state {
+        case .connected:
+            // 플레이어가 연결되었을 때 처리
             DispatchQueue.main.async {
                 self.otherPlayer?.append(player)
+                self.sendString("began: \(self.playerUUIDKey)")
             }
+        case .disconnected:
+            // 플레이어가 연결이 끊겼을 때 처리
+            break
+        case .unknown:
+            // 연결 상태를 알 수 없을 때 처리
+            break
+        @unknown default:
+            break
         }
+            
     }
 }

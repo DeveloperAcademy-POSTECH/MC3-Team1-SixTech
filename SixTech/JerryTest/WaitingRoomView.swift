@@ -42,7 +42,7 @@ struct WaitingRoomView: View {
                                    , nickName: matchManager.localPlayer.displayName)
                     if matchManager.otherPlayer != nil {
                         ForEach(matchManager.otherPlayer!, id: \.self) { player in
-                            PlayerCellView(image: "onboarding_character", nickName: player.displayName)
+                            PlayerCellView(image: "onboarding_character", nickName: matchManager.lastData)
                         }
                     }
                 }.background(
@@ -77,8 +77,6 @@ struct WaitingRoomView: View {
                 } else if isFirst {
                     matchManager.startMatchmaking(nil)
                     isFirst = false
-                } else {
-                    print(" matching Error !@!@!@")
                 }
             }
     }
