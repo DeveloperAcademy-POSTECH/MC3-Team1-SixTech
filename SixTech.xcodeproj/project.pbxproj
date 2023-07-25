@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E6DA0932A690317006CCC33 /* SixTechWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6DA0922A690317006CCC33 /* SixTechWatchApp.swift */; };
-		0E6DA0952A690317006CCC33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6DA0942A690317006CCC33 /* ContentView.swift */; };
-		0E6DA0972A690317006CCC33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E6DA0962A690317006CCC33 /* Assets.xcassets */; };
-		0E6DA09A2A690317006CCC33 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E6DA0992A690317006CCC33 /* Preview Assets.xcassets */; };
-		0E6DA09E2A690317006CCC33 /* SixTechWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0E6DA0902A690317006CCC33 /* SixTechWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0BE598072A5FD31400D019EA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE598062A5FD31400D019EA /* ColorExtension.swift */; };
 		0BE5980A2A5FD48F00D019EA /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE598092A5FD48F00D019EA /* ButtonStyle.swift */; };
 		0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5980E2A5FDE2E00D019EA /* OnBoardingView.swift */; };
@@ -35,36 +30,7 @@
 		0EAD30232A5C711500E8A548 /* .pre-commit-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0EAD30222A5C711500E8A548 /* .pre-commit-config.yaml */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		0E6DA09B2A690317006CCC33 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0E94FAB42A5A83AE002A39FB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0E6DA08F2A690317006CCC33;
-			remoteInfo = "SixTechWatch Watch App";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		0E6DA09D2A690317006CCC33 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				0E6DA09E2A690317006CCC33 /* SixTechWatch Watch App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		0E6DA0902A690317006CCC33 /* SixTechWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SixTechWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E6DA0922A690317006CCC33 /* SixTechWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixTechWatchApp.swift; sourceTree = "<group>"; };
-		0E6DA0942A690317006CCC33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0E6DA0962A690317006CCC33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0E6DA0992A690317006CCC33 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0BE598062A5FD31400D019EA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		0BE598092A5FD48F00D019EA /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		0BE5980B2A5FD86F00D019EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -90,13 +56,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0E6DA08D2A690317006CCC33 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0E94FAB92A5A83AE002A39FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,23 +67,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E6DA0912A690317006CCC33 /* SixTechWatch Watch App */ = {
-			isa = PBXGroup;
-			children = (
-				0E6DA0922A690317006CCC33 /* SixTechWatchApp.swift */,
-				0E6DA0942A690317006CCC33 /* ContentView.swift */,
-				0E6DA0962A690317006CCC33 /* Assets.xcassets */,
-				0E6DA0982A690317006CCC33 /* Preview Content */,
-			);
-			path = "SixTechWatch Watch App";
-			sourceTree = "<group>";
-		};
-		0E6DA0982A690317006CCC33 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				0E6DA0992A690317006CCC33 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 		0BE598052A5FD2FC00D019EA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +122,6 @@
 				0EAD30222A5C711500E8A548 /* .pre-commit-config.yaml */,
 				0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */,
 				0E94FABE2A5A83AF002A39FB /* SixTech */,
-				0E6DA0912A690317006CCC33 /* SixTechWatch Watch App */,
 				0E94FABD2A5A83AE002A39FB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -189,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				0E94FABC2A5A83AE002A39FB /* SixTech.app */,
-				0E6DA0902A690317006CCC33 /* SixTechWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -222,23 +162,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0E6DA08F2A690317006CCC33 /* SixTechWatch Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0E6DA0A12A690317006CCC33 /* Build configuration list for PBXNativeTarget "SixTechWatch Watch App" */;
-			buildPhases = (
-				0E6DA08C2A690317006CCC33 /* Sources */,
-				0E6DA08D2A690317006CCC33 /* Frameworks */,
-				0E6DA08E2A690317006CCC33 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "SixTechWatch Watch App";
-			productName = "SixTechWatch Watch App";
-			productReference = 0E6DA0902A690317006CCC33 /* SixTechWatch Watch App.app */;
-			productType = "com.apple.product-type.application";
-		};
 		0E94FABB2A5A83AE002A39FB /* SixTech */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E94FACA2A5A83B0002A39FB /* Build configuration list for PBXNativeTarget "SixTech" */;
@@ -247,12 +170,10 @@
 				0E94FAB92A5A83AE002A39FB /* Frameworks */,
 				0E94FABA2A5A83AE002A39FB /* Resources */,
 				0EAD301E2A5C6F9A00E8A548 /* ShellScript */,
-				0E6DA09D2A690317006CCC33 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0E6DA09C2A690317006CCC33 /* PBXTargetDependency */,
 			);
 			name = SixTech;
 			packageProductDependencies = (
@@ -272,9 +193,6 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					0E6DA08F2A690317006CCC33 = {
-						CreatedOnToolsVersion = 14.3.1;
-					};
 					0E94FABB2A5A83AE002A39FB = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -297,21 +215,11 @@
 			projectRoot = "";
 			targets = (
 				0E94FABB2A5A83AE002A39FB /* SixTech */,
-				0E6DA08F2A690317006CCC33 /* SixTechWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0E6DA08E2A690317006CCC33 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0E6DA09A2A690317006CCC33 /* Preview Assets.xcassets in Resources */,
-				0E6DA0972A690317006CCC33 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0E94FABA2A5A83AE002A39FB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,15 +261,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0E6DA08C2A690317006CCC33 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0E6DA0952A690317006CCC33 /* ContentView.swift in Sources */,
-				0E6DA0932A690317006CCC33 /* SixTechWatchApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0E94FAB82A5A83AE002A39FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -380,75 +279,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		0E6DA09C2A690317006CCC33 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0E6DA08F2A690317006CCC33 /* SixTechWatch Watch App */;
-			targetProxy = 0E6DA09B2A690317006CCC33 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		0E6DA09F2A690317006CCC33 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SixTechWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = PAQ92DM7XD;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = SixTechWatch;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTech;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.4;
-			};
-			name = Debug;
-		};
-		0E6DA0A02A690317006CCC33 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SixTechWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = PAQ92DM7XD;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = SixTechWatch;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTech;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.4;
-			};
-			name = Release;
-		};
 		0E94FAC82A5A83B0002A39FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -566,7 +397,6 @@
 		0E94FACB2A5A83B0002A39FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -596,7 +426,6 @@
 		0E94FACC2A5A83B0002A39FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -626,15 +455,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0E6DA0A12A690317006CCC33 /* Build configuration list for PBXNativeTarget "SixTechWatch Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0E6DA09F2A690317006CCC33 /* Debug */,
-				0E6DA0A02A690317006CCC33 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		0E94FAB72A5A83AE002A39FB /* Build configuration list for PBXProject "SixTech" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
