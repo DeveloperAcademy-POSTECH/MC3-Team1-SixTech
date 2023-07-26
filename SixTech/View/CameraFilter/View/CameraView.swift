@@ -5,25 +5,18 @@ import AVFoundation
 // 아에 새로 다시 만들고 싶어요. 하 ㅠㅠㅠ 일단 완성이 우선이라고 생각해서... 너무 맘에 안드는데 이대로 두겠습니다...
 
 struct CameraView: View {
-    let profileImageURL: URL
         @ObservedObject var viewModel: CameraViewModel
-        
-        init(profileImageURL: URL) {
-            self.profileImageURL = profileImageURL
-            viewModel = CameraViewModel(profileImageURL: profileImageURL)
-        }
     
     var body: some View {
         ZStack {
             
             Group {
-                viewModel.cameraPreview.ignoresSafeArea()
-                    .frame(height: UIScreen.main.bounds.width)
-                    .onAppear {
-                        viewModel.configure()
-                    }
-                
-                Image(uiImage: loadImageFromURL(imageURL: profileImageURL))
+                viewModel.cameraPreview
+                        .frame(height: UIScreen.main.bounds.width)
+                        .onAppear {
+                            viewModel.configure()
+                        }
+                Image(uiImage: loadImageFromURL(imageURL: UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!))
                     .resizable()
                     .frame(width: 200, height: 200)
                 
@@ -35,12 +28,12 @@ struct CameraView: View {
                     viewModel.zoomInitialize()
                 }
             )
+            .edgesIgnoringSafeArea(.all)
             
             VStack {
                 Spacer()
                 ZStack {
                     Button {
-                        viewModel.model.profileImageURL = profileImageURL
                         viewModel.capturePhoto()
                     } label: {
                         ShutterButton()
@@ -63,7 +56,6 @@ struct CameraView: View {
                     
                 }
             }
-            
         }
         .navigationBarBackButtonHidden()
     }
@@ -101,7 +93,7 @@ struct CameraPreviewView: UIViewRepresentable {
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView(profileImageURL: URL(string: "file:///Users/a_mcflurry/Library/Developer/Xcode/UserData/Previews/Simulator%20Devices/9C22CA36-B077-4ADB-AE51-F31615D8E474/data/Containers/Data/Application/A65A3C9B-FD21-4286-8118-BD32AE3FB695/Documents/C79E5A01-633B-48AD-94D9-F9952139AFC1.png")!)
+        CameraView(viewModel: CameraViewModel())
     }
 }
 

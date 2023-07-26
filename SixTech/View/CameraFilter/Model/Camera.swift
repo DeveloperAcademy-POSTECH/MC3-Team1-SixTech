@@ -6,11 +6,7 @@ class Camera: NSObject, ObservableObject {
     var videoDeviceInput: AVCaptureDeviceInput!
     let output = AVCapturePhotoOutput()
     var photoData = Data(count: 0)
-    var profileImageURL: URL
-    
-    init(profileImageURL: URL) {
-        self.profileImageURL = profileImageURL
-    }
+    @AppStorage("profileURL") var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!
     
     @Published var recentImage: UIImage?
     @Published var isCameraBusy = false

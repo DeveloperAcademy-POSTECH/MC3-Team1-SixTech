@@ -7,7 +7,6 @@ class CameraViewModel: ObservableObject {
     private let session: AVCaptureSession
     private var subscriptions = Set<AnyCancellable>()
     private var isCameraBusy = false
-    let profileImageURL: URL
     let cameraPreview: AnyView
     let hapticImpact = UIImpactFeedbackGenerator()
     
@@ -63,9 +62,8 @@ class CameraViewModel: ObservableObject {
         print("[CameraViewModel]: Camera changed!")
     }
     
-    init(profileImageURL: URL) {
-            self.profileImageURL = profileImageURL
-            model = Camera(profileImageURL: profileImageURL)
+    init() {
+            model = Camera()
             session = model.session
             cameraPreview = AnyView(CameraPreviewView(session: session))
 
