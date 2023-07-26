@@ -13,6 +13,8 @@
 		<string>TheJamsilOTF5Bold.otf</string>
 		<string>TheJamsilOTF6ExtraBold.otf</string>
 	</array>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>

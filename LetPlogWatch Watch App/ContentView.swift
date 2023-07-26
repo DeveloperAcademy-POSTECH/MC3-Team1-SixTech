@@ -19,7 +19,7 @@ struct ContentView: View {
             Text("X: \(String(format: "%.2f", motionManager.deviceMotion?.userAcceleration.x ?? 0))")
             Text("Y: \(String(format: "%.2f", motionManager.deviceMotion?.userAcceleration.y ?? 0))")
             Text("Z: \(String(format: "%.2f", motionManager.deviceMotion?.userAcceleration.z ?? 0))")
-
+            
             Text("Rotation Rate:")
             Text("X: \(String(format: "%.2f", motionManager.deviceMotion?.rotationRate.x ?? 0))")
             Text("Y: \(String(format: "%.2f", motionManager.deviceMotion?.rotationRate.y ?? 0))")
@@ -42,7 +42,7 @@ struct ContentView: View {
 
 class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
     private var motionManager: CMMotionManager?
-    private var data: [(userAcceleration: CMAcceleration, rotationRate: CMRotationRate)] = []
+    private var data: [(timestamp: TimeInterval, userAcceleration: CMAcceleration, rotationRate: CMRotationRate, attitude: CMAttitude, gravity: CMAcceleration)] = []
     private var timer: Timer? = nil
     private var backgroundSession: WKExtendedRuntimeSession?
     
@@ -82,7 +82,7 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 50.0, repeats: true) { _ in
             guard let motion = self.deviceMotion else { return }
-            self.data.append((userAcceleration: motion.userAcceleration, rotationRate: motion.rotationRate))
+            self.data.append((timestamp: motion.timestamp, userAcceleration: motion.userAcceleration, rotationRate: motion.rotationRate, attitude: motion.attitude, gravity: motion.gravity))
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
@@ -103,19 +103,32 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
     }
     
     func sendToiPhone() {
-//        if WCSession.default.isReachable {
-//            let dataToSend = data.map {
-//                ["userAcceleration": ["x": $0.userAcceleration.x, "y": $0.userAcceleration.y, "z": $0.userAcceleration.z],
-//                 "rotationRate": ["x": $0.rotationRate.x, "y": $0.rotationRate.y, "z": $0.rotationRate.z]]
-//            }
-//            WCSession.default.sendMessage(["sensorData": dataToSend], replyHandler: nil)
-//        }
-        
         let dataToSend = data.map {
-            ["userAcceleration": ["x": $0.userAcceleration.x, "y": $0.userAcceleration.y, "z": $0.userAcceleration.z],
-             "rotationRate": ["x": $0.rotationRate.x, "y": $0.rotationRate.y, "z": $0.rotationRate.z]]
+            [
+                "timestamp": $0.timestamp,
+                "userAcceleration": [
+                    "x": $0.userAcceleration.x,
+                    "y": $0.userAcceleration.y,
+                    "z": $0.userAcceleration.z
+                ],
+                "rotationRate": [
+                    "x": $0.rotationRate.x,
+                    "y": $0.rotationRate.y,
+                    "z": $0.rotationRate.z
+                ],
+                "attitude": [
+                    "pitch": $0.attitude.pitch,
+                    "roll": $0.attitude.roll,
+                    "yaw": $0.attitude.yaw
+                ],
+                "gravity": [
+                    "x": $0.gravity.x,
+                    "y": $0.gravity.y,
+                    "z": $0.gravity.z
+                ]
+            ]
         }
-
+        
         let _ = WCSession.default.transferUserInfo(["sensorData": dataToSend])
     }
 }
