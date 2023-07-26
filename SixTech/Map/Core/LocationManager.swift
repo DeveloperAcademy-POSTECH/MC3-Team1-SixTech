@@ -113,7 +113,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 	}
 	
 	func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-		//오류 너무남
+		
 	}
 	
 	func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
