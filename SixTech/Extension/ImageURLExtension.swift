@@ -15,3 +15,11 @@ func loadImageFromURL(imageURL: URL) -> UIImage {
     }
     return uiImage
 }
+
+struct ImageFromURL_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+           Image(uiImage: loadImageFromURL(imageURL: UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!)) 
+        }
+    }
+}

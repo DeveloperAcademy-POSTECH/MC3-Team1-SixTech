@@ -25,3 +25,15 @@ struct ImageButton: View {
         }
     }
 }
+
+struct ImageButton_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            ImageButton(image: .left) { }
+            ImageButton(image: .right) { }
+            ImageButton(image: .checkmark) { }
+            ImageButton(image: .exit) { }
+        }
+        
+    }
+}

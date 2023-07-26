@@ -22,3 +22,18 @@ extension Font {
         }
     }
 }
+
+struct Font_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            Text("폰트이름을 알아보자")
+        }.onAppear {
+            print("----------------------------------------------------")
+            for family in UIFont.familyNames.sorted() {
+                let names = UIFont.fontNames(forFamilyName: family)
+                print("Font names: \(names)")
+            }
+        }
+        
+    }
+}
