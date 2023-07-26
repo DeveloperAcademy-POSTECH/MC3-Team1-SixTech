@@ -34,7 +34,7 @@ struct MainView: View {
                     .padding()
                 
                 NavigationLink("내 프로필") {
-                    Text("내 프로필은 준비중 !")
+                    MyprofileView()
                 }.buttonStyle(DefaultButton(isdisable: false))
                 
             }

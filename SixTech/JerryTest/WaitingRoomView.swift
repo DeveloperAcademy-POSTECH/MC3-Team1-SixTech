@@ -88,7 +88,7 @@ struct WaitingRoomView: View {
                    primaryButton: CustomAlertButton(title: "나가기", action: {
                 matchManager.cancelMatchmaking()
                 dismiss() }),
-                   secondaryButton: CustomAlertButton(title: "취소", action: { dismiss() }),
+                   secondaryButton: CustomAlertButton(title: "취소", action: { isAlert.toggle() }),
                    isPresented: $isAlert)
     }
 }

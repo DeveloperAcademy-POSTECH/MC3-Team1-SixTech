@@ -7,14 +7,78 @@
 
 import SwiftUI
 
-struct Myprofile: View {
+struct MyprofileView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    @State var nickName: String = "" // 추후 텍스트필드 적용할 것.
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack(spacing: 18) {
+                textBackgroundView(st1: "닉네임", st2: "들린매스크")
+                textBackgroundView(st1: "캐릭터", nextView: Text("gogo"))
+                textBackgroundView(st1: "이전기록", nextView: MyHistoryView())
+                Spacer()
+                textBackgroundView(st1: "이용 약관 및 개인정보 처리방침", nextView: Text("gogo"))
+                textBackgroundView(st1: "개발자 정보", nextView: Text("gogo"))
+                Spacer()
+                
+            }.padding()
+                .padding()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    dismissButton(sfName: "chevron.backward") {
+                        dismiss()
+                    }
+                }
+                
+                ToolbarItem(placement: .principal) {
+                    Text("내 프로필")
+                        .font(.Jamsil.bold.font(size: 20))
+                }
+
+            }
+        }.navigationBarBackButtonHidden()
+    }
+    
+    func textBackgroundView(st1: String, st2: String) -> some View {
+        HStack {
+            Text(st1)
+                .font(.Jamsil.medium.font(size: 18))
+                .padding()
+            Spacer()
+            Text(st2)
+                .font(.Jamsil.light.font(size: 18))
+                .padding()
+            Spacer()
+        }.background(
+            RoundedRectangle(cornerRadius: 40)
+                .fill(Color(red: 0.96, green: 0.96, blue: 0.96))
+        )
+    }
+    func textBackgroundView(st1: String, nextView: some View) -> some View {
+        NavigationLink(destination: nextView) {
+            HStack {
+                Text(st1)
+                    .lineLimit(1)
+                    .font(.Jamsil.medium.font(size: 18))
+                    .foregroundColor(.black)
+                    .padding()
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .foregroundColor(.defaultColor)
+                    .fontWeight(.bold)
+                    .padding()
+            }
+        }.background(
+            RoundedRectangle(cornerRadius: 40)
+                .fill(Color(red: 0.96, green: 0.96, blue: 0.96))
+        )
     }
 }
 
-struct Myprofile_Previews: PreviewProvider {
+struct MyprofileView_Previews: PreviewProvider {
     static var previews: some View {
-        Myprofile()
+        MyprofileView()
     }
 }

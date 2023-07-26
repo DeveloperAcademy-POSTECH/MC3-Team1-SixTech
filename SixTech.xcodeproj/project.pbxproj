@@ -38,6 +38,9 @@
 		86E0587A2A67FDFC00F86049 /* CustomMatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E058792A67FDFC00F86049 /* CustomMatchingViewController.swift */; };
 		86E0587D2A6901D800F86049 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0587C2A6901D800F86049 /* PlayView.swift */; };
 		86F4A36D2A6FFD4C00F780AB /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F4A36C2A6FFD4C00F780AB /* CustomAlert.swift */; };
+		86F4A36F2A71461F00F780AB /* MyprofileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F4A36E2A71461E00F780AB /* MyprofileView.swift */; };
+		86F62EE32A7158C000A15076 /* MyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F62EE22A7158C000A15076 /* MyHistoryView.swift */; };
+		86F62EE52A715C5800A15076 /* 캘린더.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F62EE42A715C5800A15076 /* 캘린더.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +77,9 @@
 		86E0587B2A68027500F86049 /* SixTech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SixTech.entitlements; sourceTree = "<group>"; };
 		86E0587C2A6901D800F86049 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		86F4A36C2A6FFD4C00F780AB /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		86F4A36E2A71461E00F780AB /* MyprofileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyprofileView.swift; sourceTree = "<group>"; };
+		86F62EE22A7158C000A15076 /* MyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHistoryView.swift; sourceTree = "<group>"; };
+		86F62EE42A715C5800A15076 /* 캘린더.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "캘린더.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +201,9 @@
 				86E014392A690AB1007F3195 /* WaitingRoomView.swift */,
 				86E0143D2A691097007F3195 /* DismissButton.swift */,
 				86F4A36C2A6FFD4C00F780AB /* CustomAlert.swift */,
+				86F4A36E2A71461E00F780AB /* MyprofileView.swift */,
+				86F62EE22A7158C000A15076 /* MyHistoryView.swift */,
+				86F62EE42A715C5800A15076 /* 캘린더.swift */,
 			);
 			path = JerryTest;
 			sourceTree = "<group>";
@@ -321,8 +330,11 @@
 				0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */,
 				86E0587D2A6901D800F86049 /* PlayView.swift in Sources */,
 				0BE598132A5FE3E400D019EA /* OnBoarding3View.swift in Sources */,
+				86F62EE32A7158C000A15076 /* MyHistoryView.swift in Sources */,
 				0BE5983D2A62629600D019EA /* FontExtension.swift in Sources */,
 				0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */,
+				86F62EE52A715C5800A15076 /* 캘린더.swift in Sources */,
+				86F4A36F2A71461F00F780AB /* MyprofileView.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
 				86E0587A2A67FDFC00F86049 /* CustomMatchingViewController.swift in Sources */,
 			);
