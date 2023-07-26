@@ -12,6 +12,7 @@ import CoreLocation
 
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, MKMapViewDelegate {
 	var locationManager: CLLocationManager?
+	var polylines: MKPolyline { MKPolyline(coordinates: userLocations, count: userLocations.count) }
 	
 	@Published var mapView: MKMapView = MKMapView()
 	@Published var trackUser: UserTrackingMode = .follow
@@ -32,9 +33,15 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 		let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
 		region = MKCoordinateRegion(center: center, span: span)
 		
+		addPolylineToMap()
 //		print(trackUser)
 //		print("lat = \(location.coordinate.latitude)")
 //		print("lng = \(location.coordinate.longitude)")
+	}
+	
+	func addPolylineToMap() {
+		let polyline = MKPolyline(coordinates: userLocations, count: userLocations.count)
+		mapView.addOverlay(polyline)
 	}
 	
 	func addPolaroidAnnotation() {

@@ -17,6 +17,7 @@
 		707316032A6707EE00FCFE13 /* MapUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707316022A6707EE00FCFE13 /* MapUI.swift */; };
 		70A843D42A5FD3C300228842 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A843D32A5FD3C300228842 /* MapView.swift */; };
 		70A843D62A5FD75100228842 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A843D52A5FD75100228842 /* LocationManager.swift */; };
+		70AE2AB82A71011900C121BB /* TestPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE2AB72A71011900C121BB /* TestPhotoView.swift */; };
 		70D93FD52A67EFB5003C027A /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D93FD42A67EFB5003C027A /* ImageAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		707316022A6707EE00FCFE13 /* MapUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUI.swift; sourceTree = "<group>"; };
 		70A843D32A5FD3C300228842 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		70A843D52A5FD75100228842 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		70AE2AB72A71011900C121BB /* TestPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPhotoView.swift; sourceTree = "<group>"; };
 		70D93FD42A67EFB5003C027A /* ImageAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,9 +91,10 @@
 			children = (
 				70A843D32A5FD3C300228842 /* MapView.swift */,
 				707316022A6707EE00FCFE13 /* MapUI.swift */,
-				70D93FD42A67EFB5003C027A /* ImageAnnotationView.swift */,
 				705495842A6E520400EE0040 /* InfoView.swift */,
 				70A843D52A5FD75100228842 /* LocationManager.swift */,
+				70D93FD42A67EFB5003C027A /* ImageAnnotationView.swift */,
+				70AE2AB72A71011900C121BB /* TestPhotoView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0EAD301E2A5C6F9A00E8A548 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -192,6 +196,7 @@
 				705495852A6E520400EE0040 /* InfoView.swift in Sources */,
 				70A843D62A5FD75100228842 /* LocationManager.swift in Sources */,
 				707316032A6707EE00FCFE13 /* MapUI.swift in Sources */,
+				70AE2AB82A71011900C121BB /* TestPhotoView.swift in Sources */,
 				0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */,
 				70A843D42A5FD3C300228842 /* MapView.swift in Sources */,
 				70D93FD52A67EFB5003C027A /* ImageAnnotationView.swift in Sources */,

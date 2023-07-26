@@ -10,7 +10,8 @@ import MapKit
 
 struct MapView: View {
 	@ObservedObject var locationManager = LocationManager()
-	
+	@State private var mapSnapshot = UIImage()
+
 	var body: some View {
 		NavigationView {
 			ZStack {
@@ -36,11 +37,19 @@ struct MapView: View {
 					ActivityDataView()
 						.padding(.bottom)
 						.padding(.bottom)
-//					NavigationLink {
-//						Text("Detail View")
-//					} label: {
-//						Text("to polylineView")
-//					}
+					
+					Button {
+						takeSnapshot(mapView: locationManager.mapView, polyline: locationManager.polylines) { image in
+							if let image = image {
+								self.mapSnapshot = image
+							} else { return }
+						}
+					} label: {
+						Text("Snapshot")
+					}
+					NavigationLink(destination: TestPhotoView(snapshot: $mapSnapshot)) {
+						Text("gotosnapshot")
+					}
 				}
 			}
 		}
@@ -56,6 +65,66 @@ struct MapView: View {
 			return "location.north.line.fill"
 		}
 	}
+}
+
+extension MKPolyline {
+	var coordinates: [CLLocationCoordinate2D] {
+		var coords = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid, count: self.pointCount)
+		self.getCoordinates(&coords, range: NSRange(location: 0, length: self.pointCount))
+		return coords
+	}
+}
+
+func takeSnapshot(mapView: MKMapView, polyline: MKPolyline, completion: @escaping (UIImage?) -> Void) {
+	let options = MKMapSnapshotter.Options()
+	options.region = region(for: polyline)
+	options.size = mapView.frame.size
+	options.scale = UIScreen.main.scale
+	
+	let snapshotter = MKMapSnapshotter(options: options)
+	snapshotter.start { snapshot, error in
+		guard let snapshot = snapshot else {
+			print("Unable to take a snapshot of the map: \(error?.localizedDescription ?? "No error provided.")")
+			completion(nil)
+			return
+		}
+		
+		let renderer = UIGraphicsImageRenderer(size: options.size)
+		let image = renderer.image { _ in
+			snapshot.image.draw(at: CGPoint.zero)
+			
+			let path = UIBezierPath()
+			for (index, coordinate) in polyline.coordinates.enumerated() {
+				let point = snapshot.point(for: coordinate)
+				if index == 0 {
+					path.move(to: point)
+				} else {
+					path.addLine(to: point)
+				}
+			}
+			
+			UIColor.blue.setStroke()
+			path.lineWidth = 5
+			path.stroke()
+		}
+		
+		completion(image)
+	}
+}
+
+func region(for polyline: MKPolyline) -> MKCoordinateRegion {
+	var regionRect = polyline.boundingMapRect
+
+	let wPadding = regionRect.size.width * 0.25
+	let hPadding = regionRect.size.height * 0.25
+
+	regionRect.size.width += wPadding
+	regionRect.size.height += hPadding
+
+	regionRect.origin.x -= wPadding / 2
+	regionRect.origin.y -= hPadding / 2
+
+	return MKCoordinateRegion(regionRect)
 }
 
 struct MapView_Previews: PreviewProvider {
