@@ -12,7 +12,8 @@ struct MapUI: UIViewRepresentable {
 	@ObservedObject var locationManager: LocationManager
 
 	func makeUIView(context: Context) -> MKMapView {
-		locationManager.mapView
+		locationManager.mapView.showsCompass = false
+		return locationManager.mapView
 	}
 	
 	func updateUIView(_ uiView: MKMapView, context: Context) {
