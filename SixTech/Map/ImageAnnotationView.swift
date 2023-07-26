@@ -1,5 +1,5 @@
 //
-//  CustomAnnotationView.swift
+//  ImageAnnotationView.swift
 //  SixTech
 //
 //  Created by Junyoo on 2023/07/19.
@@ -7,22 +7,22 @@
 
 import MapKit
 
-class CustomAnnotationView: MKAnnotationView {
-	static let identifier = "CustomAnnotationView"
+class ImageAnnotationView: MKAnnotationView {
+	static let identifier = "ImageAnnotationView"
 
 	override var annotation: MKAnnotation? {
 		willSet {
-			guard let customAnnotation = newValue as? CustomAnnotation else { return }
+			guard let imageAnnotation = newValue as? ImageAnnotation else { return }
 
 			canShowCallout = false
-			image = customAnnotation.image
+			image = imageAnnotation.image
 			frame = CGRect(x: 0, y: 0, width: 50, height: 50)
 			centerOffset = CGPoint(x: 0, y: -frame.size.height / 2)
 		}
 	}
 }
 
-class CustomAnnotation: NSObject, MKAnnotation {
+class ImageAnnotation: NSObject, MKAnnotation {
 	let image: UIImage?
 	let coordinate: CLLocationCoordinate2D
 
