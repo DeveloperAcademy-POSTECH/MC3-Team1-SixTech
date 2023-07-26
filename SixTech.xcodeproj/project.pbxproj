@@ -33,6 +33,7 @@
 		0EB41DFE2A705940002929D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41DFD2A705940002929D9 /* Assets.xcassets */; };
 		0EB41E012A705940002929D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41E002A705940002929D9 /* Preview Assets.xcassets */; };
 		0EB41E052A705940002929D9 /* LetPlogWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0EB637252A70EAA1005A44FB /* WatchDatasetReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB637242A70EAA1005A44FB /* WatchDatasetReceiver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		0EB41DFB2A70593F002929D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0EB41DFD2A705940002929D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EB41E002A705940002929D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0EB637242A70EAA1005A44FB /* WatchDatasetReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDatasetReceiver.swift; sourceTree = "<group>"; };
+		0EB637262A70FA9F005A44FB /* LetPlogWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "LetPlogWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,7 @@
 		0BE5980C2A5FDE0E00D019EA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0EB637232A70EA78005A44FB /* WatchDatasetReceiver */,
 				0BE5980D2A5FDE1D00D019EA /* Onboarding */,
 			);
 			path = View;
@@ -205,6 +209,7 @@
 		0EB41DF82A70593F002929D9 /* LetPlogWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				0EB637262A70FA9F005A44FB /* LetPlogWatch-Watch-App-Info.plist */,
 				0EB41DF92A70593F002929D9 /* LetPlogWatchApp.swift */,
 				0EB41DFB2A70593F002929D9 /* ContentView.swift */,
 				0EB41DFD2A705940002929D9 /* Assets.xcassets */,
@@ -219,6 +224,14 @@
 				0EB41E002A705940002929D9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0EB637232A70EA78005A44FB /* WatchDatasetReceiver */ = {
+			isa = PBXGroup;
+			children = (
+				0EB637242A70EAA1005A44FB /* WatchDatasetReceiver.swift */,
+			);
+			path = WatchDatasetReceiver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BE598112A5FE3D700D019EA /* OnBoarding2View.swift in Sources */,
+				0EB637252A70EAA1005A44FB /* WatchDatasetReceiver.swift in Sources */,
 				0BE598152A5FE6FE00D019EA /* PageTabViewStyle.swift in Sources */,
 				0BE598072A5FD31400D019EA /* ColorExtension.swift in Sources */,
 				0BE5980A2A5FD48F00D019EA /* ButtonStyle.swift in Sources */,
@@ -514,10 +528,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = GSD6RCY68C;
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need to save CSV file";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -544,10 +559,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = GSD6RCY68C;
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need to save CSV file";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -573,9 +589,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LetPlogWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = GSD6RCY68C;
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LetPlogWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = LetPlogWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTech;
@@ -603,9 +620,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LetPlogWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = GSD6RCY68C;
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LetPlogWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = LetPlogWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTech;
