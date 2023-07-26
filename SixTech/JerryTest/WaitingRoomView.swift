@@ -73,10 +73,6 @@ struct WaitingRoomView: View {
                         }
                     }
                 }
-                .alert(title: "대기실 나가기", message: "메인 화면으로 돌아갑니다.",
-                       primaryButton: CustomAlertButton(title: "취소", action: { }),
-                       secondaryButton: CustomAlertButton(title: "나가기", action: { }),
-                       isPresented: $isAlert)
             }
         }.navigationBarBackButtonHidden()
             .onAppear {
@@ -89,6 +85,10 @@ struct WaitingRoomView: View {
                     isFirst = false
                 }
             }
+            .alert(title: "대기실 나가기", message: "메인 화면으로 돌아갑니다.",
+                   primaryButton: CustomAlertButton(title: "취소", action: { }),
+                   secondaryButton: CustomAlertButton(title: "나가기", action: { }),
+                   isPresented: $isAlert)
     }
 }
 

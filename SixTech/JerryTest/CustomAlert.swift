@@ -19,8 +19,8 @@ struct CustomAlert: View {
     
     // MARK: Private
     @State private var opacity: CGFloat           = 0.6
-    @State private var backgroundOpacity: CGFloat = 0.9
-    @State private var scale: CGFloat             = 0.001
+    @State private var backgroundOpacity: CGFloat = 0
+    @State private var scale: CGFloat             = 1.101
 
     @Environment(\.dismiss) private var dismiss
 
@@ -28,7 +28,7 @@ struct CustomAlert: View {
     // MARK: Public
     var body: some View {
         ZStack {
-            dimView
+//            dimView
     
             alertView
                 .scaleEffect(scale)
@@ -43,7 +43,7 @@ struct CustomAlert: View {
 
     // MARK: Private
     private var alertView: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 30) {
             titleView
             messageView
             buttonsView
@@ -59,10 +59,10 @@ struct CustomAlert: View {
     private var titleView: some View {
         if !title.isEmpty {
             Text(title)
-                .font(.system(size: 18, weight: .bold))
+                .font(.Jamsil.bold.font(size: 24))
                 .foregroundColor(.black)
                 .lineSpacing(24 - UIFont.systemFont(ofSize: 18, weight: .bold).lineHeight)
-                .multilineTextAlignment(.leading)
+                .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
@@ -71,10 +71,10 @@ struct CustomAlert: View {
     private var messageView: some View {
         if !message.isEmpty {
             Text(message)
-                .font(.system(size: title.isEmpty ? 18 : 16))
+                .font(.Jamsil.light.font(size: 20))
                 .foregroundColor(title.isEmpty ? .black : .gray)
                 .lineSpacing(24 - UIFont.systemFont(ofSize: title.isEmpty ? 18 : 16).lineHeight)
-                .multilineTextAlignment(.leading)
+                .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
@@ -86,7 +86,10 @@ struct CustomAlert: View {
     
             } else if primaryButton != nil, secondaryButton != nil {
                 secondaryButtonView
+                    .foregroundColor(.defaultColor)
+                Spacer()
                 primaryButtonView
+                    .foregroundColor(.red)
             }
         }
         .padding(.top, 23)
@@ -137,11 +140,11 @@ struct CustomAlert: View {
         }
     }
 
-    private var dimView: some View {
-        Color.gray
-            .opacity(0.88)
-            .opacity(backgroundOpacity)
-    }
+//    private var dimView: some View {
+//        Color.blue
+//            .opacity(0.88)
+//            .opacity(backgroundOpacity)
+//    }
 
     // MARK: - Function
     // MARK: Private
@@ -176,27 +179,18 @@ struct CustomAlert: View {
 struct CustomAlert_Previews: PreviewProvider {
 
     static var previews: some View {
-        let dismissButton   = CustomAlertButton(title: "OK")
         let primaryButton   = CustomAlertButton(title: "OK")
         let secondaryButton = CustomAlertButton(title: "Cancel")
 
-        let title = "This is your life. Do what you want and do it often."
-        let message = """
-                    If you don't like something, change it.
-                    If you don't like your job, quit.
-                    If you don't have enough time, stop watching TV.
-                    """
+        let title = "대기실 나가기"
+        let message = "메인 화면으로 돌아갑니다."
 
         return VStack {
-            CustomAlert(title: title, message: message, dismissButton: nil, primaryButton: nil,
-                        secondaryButton: nil)
-            CustomAlert(title: title, message: message, dismissButton: dismissButton, primaryButton: nil,
-                        secondaryButton: nil)
             CustomAlert(title: title, message: message, dismissButton: nil, primaryButton: primaryButton,
                         secondaryButton: secondaryButton)
         }
         .previewDevice("iPhone 13 Pro Max")
-        .preferredColorScheme(.light)
+//        .preferredColorScheme(.light)
     }
 }
 #endif
@@ -216,12 +210,12 @@ struct CustomAlertButton: View {
         
         } label: {
             Text(title)
-                .font(.system(size: 14, weight: .medium))
-                .foregroundColor(.white)
+                .font(.Jamsil.bold.font(size: 24))
+                .multilineTextAlignment(.center)
                 .padding(.horizontal, 10)
         }
         .frame(height: 30)
-        .background(Color.purple)
+        .background(Color.white)
         .cornerRadius(15)
     }
 }
@@ -258,7 +252,6 @@ extension CustomAlertModifier {
         self.title         = title
         self.message       = message
         self.dismissButton = dismissButton
-    
         self.primaryButton   = nil
         self.secondaryButton = nil
     
@@ -279,16 +272,6 @@ extension CustomAlertModifier {
 }
 
 extension View {
-
-    func alert(title: String = "", message: String = "",
-               dismissButton: CustomAlertButton = CustomAlertButton(title: "ok"),
-               isPresented: Binding<Bool>) -> some View {
-        let title   = NSLocalizedString(title, comment: "")
-        let message = NSLocalizedString(message, comment: "")
-    
-        return modifier(CustomAlertModifier(title: title, message: message,
-                                            dismissButton: dismissButton, isPresented: isPresented))
-    }
 
     func alert(title: String = "", message: String = "",
                primaryButton: CustomAlertButton, secondaryButton: CustomAlertButton,

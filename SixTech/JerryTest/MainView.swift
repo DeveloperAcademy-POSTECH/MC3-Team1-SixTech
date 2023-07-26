@@ -42,9 +42,10 @@ struct MainView: View {
         }.onAppear {
             if isFirst {
                 matchManager.authenticateUser()
-                isFirst = false
+//                isFirst = false
             }
         }
+
     }
 }
 
