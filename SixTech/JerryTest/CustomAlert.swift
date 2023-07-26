@@ -18,9 +18,9 @@ struct CustomAlert: View {
     let secondaryButton: CustomAlertButton?
     
     // MARK: Private
-    @State private var opacity: CGFloat           = 0.6
+    @State private var opacity: CGFloat           = 0
     @State private var backgroundOpacity: CGFloat = 0
-    @State private var scale: CGFloat             = 1.101
+    @State private var scale: CGFloat             = 1.0
 
     @Environment(\.dismiss) private var dismiss
 
@@ -28,31 +28,30 @@ struct CustomAlert: View {
     // MARK: Public
     var body: some View {
         ZStack {
-//            dimView
-    
             alertView
-                .scaleEffect(scale)
-                .opacity(opacity)
+//                .scaleEffect(scale)
+//                .opacity(opacity)
         }
-        .ignoresSafeArea()
-        .transition(.opacity)
-        .task {
-            animate(isShown: true)
-        }
+//        .ignoresSafeArea()
+//        .transition(.opacity)
+//        .task {
+//            animate(isShown: true)
+//        }
     }
 
     // MARK: Private
     private var alertView: some View {
         VStack(spacing: 30) {
             titleView
+                .padding()
             messageView
+                .padding(.bottom, 40)
             buttonsView
         }
         .padding(24)
-        .frame(width: 320)
+        .frame(width: 295)
         .background(.white)
-        .cornerRadius(12)
-        .shadow(color: Color.black.opacity(0.4), radius: 16, x: 0, y: 12)
+        .cornerRadius(22)
     }
 
     @ViewBuilder
@@ -63,19 +62,19 @@ struct CustomAlert: View {
                 .foregroundColor(.black)
                 .lineSpacing(24 - UIFont.systemFont(ofSize: 18, weight: .bold).lineHeight)
                 .multilineTextAlignment(.center)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .center)
         }
     }
 
     @ViewBuilder
     private var messageView: some View {
         if !message.isEmpty {
-            Text(message)
+            Text("\(message)")
                 .font(.Jamsil.light.font(size: 20))
                 .foregroundColor(title.isEmpty ? .black : .gray)
                 .lineSpacing(24 - UIFont.systemFont(ofSize: title.isEmpty ? 18 : 16).lineHeight)
                 .multilineTextAlignment(.center)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .center)
         }
     }
 
@@ -87,8 +86,12 @@ struct CustomAlert: View {
             } else if primaryButton != nil, secondaryButton != nil {
                 secondaryButtonView
                     .foregroundColor(.defaultColor)
+                    .padding(.leading)
+                    .padding(.leading)
                 Spacer()
                 primaryButtonView
+                    .padding(.trailing)
+                    .padding(.trailing)
                     .foregroundColor(.red)
             }
         }
@@ -140,12 +143,6 @@ struct CustomAlert: View {
         }
     }
 
-//    private var dimView: some View {
-//        Color.blue
-//            .opacity(0.88)
-//            .opacity(backgroundOpacity)
-//    }
-
     // MARK: - Function
     // MARK: Private
     private func animate(isShown: Bool, completion: (() -> Void)? = nil) {
@@ -179,8 +176,8 @@ struct CustomAlert: View {
 struct CustomAlert_Previews: PreviewProvider {
 
     static var previews: some View {
-        let primaryButton   = CustomAlertButton(title: "OK")
-        let secondaryButton = CustomAlertButton(title: "Cancel")
+        let primaryButton   = CustomAlertButton(title: "나가기")
+        let secondaryButton = CustomAlertButton(title: "취소")
 
         let title = "대기실 나가기"
         let message = "메인 화면으로 돌아갑니다."
@@ -212,11 +209,7 @@ struct CustomAlertButton: View {
             Text(title)
                 .font(.Jamsil.bold.font(size: 24))
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 10)
         }
-        .frame(height: 30)
-        .background(Color.white)
-        .cornerRadius(15)
     }
 }
 
@@ -237,11 +230,17 @@ struct CustomAlertModifier {
 extension CustomAlertModifier: ViewModifier {
 
     func body(content: Content) -> some View {
-        content
-            .fullScreenCover(isPresented: $isPresented) {
+        ZStack {
+            content
+            if isPresented {
+                // 얼럿이 띄워질 때 반투명한 뒷 배경을 추가
+                Color.black.opacity(0.5).edgesIgnoringSafeArea(.all)
+
                 CustomAlert(title: title, message: message, dismissButton: dismissButton,
                             primaryButton: primaryButton, secondaryButton: secondaryButton)
+                    .zIndex(1) // 얼럿 창이 뒷 배경보다 위에 나타나도록 설정
             }
+        }
     }
 }
 

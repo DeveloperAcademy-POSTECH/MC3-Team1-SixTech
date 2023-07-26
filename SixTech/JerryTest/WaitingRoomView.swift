@@ -68,13 +68,12 @@ struct WaitingRoomView: View {
                     ToolbarItem(placement: .navigationBarLeading) {
                         dismissButton(sfName: "xmark") {
                             isAlert = true
-                            //                        matchManager.cancelMatchmaking()
-                            //                        dismiss()
                         }
                     }
                 }
             }
-        }.navigationBarBackButtonHidden()
+        }
+        .navigationBarBackButtonHidden()
             .onAppear {
                 if let playCode = groupCode, isFirst {
                     matchManager.groupNumber = playCode
@@ -86,8 +85,10 @@ struct WaitingRoomView: View {
                 }
             }
             .alert(title: "대기실 나가기", message: "메인 화면으로 돌아갑니다.",
-                   primaryButton: CustomAlertButton(title: "취소", action: { }),
-                   secondaryButton: CustomAlertButton(title: "나가기", action: { }),
+                   primaryButton: CustomAlertButton(title: "나가기", action: {
+                matchManager.cancelMatchmaking()
+                dismiss() }),
+                   secondaryButton: CustomAlertButton(title: "취소", action: { dismiss() }),
                    isPresented: $isAlert)
     }
 }
