@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B3D81D32A6FEF1400D3616F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3D81D22A6FEF1400D3616F /* UserModel.swift */; };
-		0B3D81D62A6FF1B100D3616F /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B3D81D42A6FF1B100D3616F /* User.xcdatamodeld */; };
-		0B3D81D82A6FF23C00D3616F /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3D81D72A6FF23C00D3616F /* PersistenceController.swift */; };
-		0B3D81DA2A6FF43A00D3616F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3D81D92A6FF43A00D3616F /* User.swift */; };
 		0B4E2BC12A6EC3FE00014F85 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BBF2A6EC3FE00014F85 /* Camera.swift */; };
 		0B4E2BC22A6EC3FE00014F85 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BC02A6EC3FE00014F85 /* CameraViewModel.swift */; };
 		0B4E2BC42A6EC40400014F85 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BC32A6EC40400014F85 /* CameraView.swift */; };
@@ -48,10 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B3D81D22A6FEF1400D3616F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		0B3D81D52A6FF1B100D3616F /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
-		0B3D81D72A6FF23C00D3616F /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
-		0B3D81D92A6FF43A00D3616F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0B4E2BBF2A6EC3FE00014F85 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		0B4E2BC02A6EC3FE00014F85 /* CameraViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		0B4E2BC32A6EC40400014F85 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -104,10 +96,6 @@
 		0B3D81D12A6FEEF200D3616F /* UserMdoel */ = {
 			isa = PBXGroup;
 			children = (
-				0B3D81D92A6FF43A00D3616F /* User.swift */,
-				0B3D81D22A6FEF1400D3616F /* UserModel.swift */,
-				0B3D81D42A6FF1B100D3616F /* User.xcdatamodeld */,
-				0B3D81D72A6FF23C00D3616F /* PersistenceController.swift */,
 			);
 			path = UserMdoel;
 			sourceTree = "<group>";
@@ -426,19 +414,15 @@
 				0B4E2BC42A6EC40400014F85 /* CameraView.swift in Sources */,
 				0BE5980A2A5FD48F00D019EA /* ButtonStyle.swift in Sources */,
 				0B4E2BC92A6FB5AB00014F85 /* ImageURLExtension.swift in Sources */,
-				0B3D81D62A6FF1B100D3616F /* User.xcdatamodeld in Sources */,
 				0B5B27132A70FFCC00703D56 /* PolaroidView.swift in Sources */,
 				0B5B270A2A70CA1400703D56 /* ImagePicker.swift in Sources */,
 				0B94E3312A681552008F6D39 /* ImageButton.swift in Sources */,
-				0B3D81DA2A6FF43A00D3616F /* User.swift in Sources */,
 				0B5B27112A70E9EE00703D56 /* ImageTabView.swift in Sources */,
 				0BE598132A5FE3E400D019EA /* OnBoarding3View.swift in Sources */,
 				0B5B270F2A70E68000703D56 /* ShareImageView.swift in Sources */,
-				0B3D81D32A6FEF1400D3616F /* UserModel.swift in Sources */,
 				0BE5983D2A62629600D019EA /* FontExtension.swift in Sources */,
 				0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */,
 				0B94E3332A681560008F6D39 /* CharacterCreateView.swift in Sources */,
-				0B3D81D82A6FF23C00D3616F /* PersistenceController.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
 				0B5B27152A713C4E00703D56 /* CharacterCreateViewModel.swift in Sources */,
 				0B4E2BC12A6EC3FE00014F85 /* Camera.swift in Sources */,
@@ -665,19 +649,6 @@
 			productName = SwiftUIGIF;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		0B3D81D42A6FF1B100D3616F /* User.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0B3D81D52A6FF1B100D3616F /* User.xcdatamodel */,
-			);
-			currentVersion = 0B3D81D52A6FF1B100D3616F /* User.xcdatamodel */;
-			path = User.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0E94FAB42A5A83AE002A39FB /* Project object */;
 }
