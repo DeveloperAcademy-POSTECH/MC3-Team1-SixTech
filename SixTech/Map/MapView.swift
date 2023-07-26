@@ -17,7 +17,6 @@ struct MapView: View {
 				MapUI(locationManager: locationManager)
 					.ignoresSafeArea()
 				VStack {
-					Spacer()
 					HStack {
 						Spacer()
 						Button {
@@ -33,16 +32,15 @@ struct MapView: View {
 						}
 						.padding()
 					}
-					NavigationLink {
-						Text("Detail View")
-					} label: {
-						Text("to polylineView")
-					}
-	//				Button {
-	//					locationManager.addCustomAnnotation()
-	//				} label: {
-	//					Text("ADA")
-	//				}
+					Spacer()
+					ActivityDataView()
+						.padding(.bottom)
+						.padding(.bottom)
+//					NavigationLink {
+//						Text("Detail View")
+//					} label: {
+//						Text("to polylineView")
+//					}
 				}
 			}
 		}
