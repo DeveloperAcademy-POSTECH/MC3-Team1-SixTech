@@ -26,8 +26,7 @@ struct OnBoardingView: View {
                 .padding(.top, 50)
                 
                 PageTabViewStyle(pageNumber: currentPage, totalPageNumber: 3)
-                
-                NavigationLinkView(text: "확인했어요", isdisable: false, destination: CharacterCreateView())
+                NavigationLinkView(text: "확인했어요", isdisable: Binding.constant(false), destination: CharacterCreateView())
             }
         }
     }
