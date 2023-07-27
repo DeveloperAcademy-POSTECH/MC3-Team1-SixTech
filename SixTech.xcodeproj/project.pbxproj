@@ -20,6 +20,9 @@
 		0EB41DFE2A705940002929D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41DFD2A705940002929D9 /* Assets.xcassets */; };
 		0EB41E012A705940002929D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41E002A705940002929D9 /* Preview Assets.xcassets */; };
 		0EB41E052A705940002929D9 /* LetPlogWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7981B1F12A71656F00DA59D3 /* ResultWithPolylineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7981B1F02A71656F00DA59D3 /* ResultWithPolylineView.swift */; };
+		79F817CC2A711BFC00E5A4EA /* EndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F817CB2A711BFC00E5A4EA /* EndResultView.swift */; };
+		79F817D12A71439C00E5A4EA /* ResultWithPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F817D02A71439C00E5A4EA /* ResultWithPhotoView.swift */; };
 		709C76302A725CFE00C16313 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76032A725CFE00C16313 /* ImagePicker.swift */; };
 		709C76312A725CFE00C16313 /* ImagePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76052A725CFE00C16313 /* ImagePickView.swift */; };
 		709C76322A725CFE00C16313 /* PolaroidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76062A725CFE00C16313 /* PolaroidView.swift */; };
@@ -115,6 +118,9 @@
 		0EB41DFB2A70593F002929D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0EB41DFD2A705940002929D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EB41E002A705940002929D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7981B1F02A71656F00DA59D3 /* ResultWithPolylineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWithPolylineView.swift; sourceTree = "<group>"; };
+		79F817CB2A711BFC00E5A4EA /* EndResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndResultView.swift; sourceTree = "<group>"; };
+		79F817D02A71439C00E5A4EA /* ResultWithPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWithPhotoView.swift; sourceTree = "<group>"; };
 		709C76032A725CFE00C16313 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		709C76052A725CFE00C16313 /* ImagePickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickView.swift; sourceTree = "<group>"; };
 		709C76062A725CFE00C16313 /* PolaroidView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolaroidView.swift; sourceTree = "<group>"; };
@@ -260,6 +266,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		79F817CA2A711B8A00E5A4EA /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				79F817CB2A711BFC00E5A4EA /* EndResultView.swift */,
+				79F817D02A71439C00E5A4EA /* ResultWithPhotoView.swift */,
+				7981B1F02A71656F00DA59D3 /* ResultWithPolylineView.swift */,
+			);
+			path = Result;
 		709C76002A725CFE00C16313 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +282,7 @@
 				709C760D2A725CFE00C16313 /* ShareResult */,
 				709C76112A725CFE00C16313 /* CharacterCreate */,
 				709C76172A725CFE00C16313 /* Onboarding */,
+				79F817CA2A711B8A00E5A4EA /* Result */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -645,6 +660,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F817D12A71439C00E5A4EA /* ResultWithPhotoView.swift in Sources */,
+				7981B1F12A71656F00DA59D3 /* ResultWithPolylineView.swift in Sources */,
+				79F817CC2A711BFC00E5A4EA /* EndResultView.swift in Sources */,
 				709C76802A725EDF00C16313 /* DismissButton.swift in Sources */,
 				709C76762A725EDF00C16313 /* MyprofileView.swift in Sources */,
 				709C767D2A725EDF00C16313 /* MainView.swift in Sources */,

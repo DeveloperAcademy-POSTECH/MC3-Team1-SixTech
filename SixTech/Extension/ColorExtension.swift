@@ -29,10 +29,11 @@ extension Color {
     static let backgroundColor = Color(hexCode: "#B8E3D4")
     static let background2Color = Color(hexCode: "#DBEDE7")
     static let disableColor = Color(hexCode: "#B3B3B3")
+    static let buttonBackgroundColor = Color(hexCode: "F5F5F5")
     static let beforeImagePickColor = Color(hexCode: "#C4C4C4")
     static let beforeImagePickTextColor = Color(hexCode: "#1A8370")
-	static let fontColor = Color(hexCode: "#1A8370")
-	static let accentFontColor = Color(hexCode: "#106051")
+    static let fontColor = Color(hexCode: "#1A8370")
+    static let accentFontColor = Color(hexCode: "#106051")
     static let calendarNumberBackground = Color(hexCode: "#E5F9F5")
 }
 
