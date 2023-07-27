@@ -1,21 +1,21 @@
 //
-//  ShareImageView.swift
+//  ShareResultView.swift
 //  SixTech
 //
-//  Created by A_Mcflurry on 2023/07/26.
+//  Created by A_Mcflurry on 2023/07/27.
 //
 
 import SwiftUI
 
-struct ShareImageView: View {
+struct ShareResultView: View {
     @State private var selected: Int = 1
     var body: some View {
         Text("")
     }
 }
 
-struct ShareImageView_Previews: PreviewProvider {
+struct ShareResultView_Previews: PreviewProvider {
     static var previews: some View {
-        ShareImageView()
+        ShareResultView()
     }
 }

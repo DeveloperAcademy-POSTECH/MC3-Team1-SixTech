@@ -13,13 +13,13 @@
 		0B4E2BC92A6FB5AB00014F85 /* ImageURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E2BC82A6FB5AB00014F85 /* ImageURLExtension.swift */; };
 		0B5B27072A70AD5E00703D56 /* ImagePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B27062A70AD5E00703D56 /* ImagePickView.swift */; };
 		0B5B270A2A70CA1400703D56 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B27092A70CA1400703D56 /* ImagePicker.swift */; };
-		0B5B270F2A70E68000703D56 /* ShareImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B270E2A70E68000703D56 /* ShareImageView.swift */; };
 		0B5B27112A70E9EE00703D56 /* ImageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B27102A70E9EE00703D56 /* ImageTabView.swift */; };
 		0B5B27132A70FFCC00703D56 /* PolaroidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B27122A70FFCC00703D56 /* PolaroidView.swift */; };
 		0B5B27152A713C4E00703D56 /* CharacterCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B27142A713C4E00703D56 /* CharacterCreateViewModel.swift */; };
 		0B5B271F2A7166B200703D56 /* History.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B271D2A7166B200703D56 /* History.xcdatamodeld */; };
 		0B5B27212A71784D00703D56 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B27202A71784D00703D56 /* HistoryModel.swift */; };
 		0B5B272B2A717F2000703D56 /* CoredataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B272A2A717F2000703D56 /* CoredataTest.swift */; };
+		0B5B272D2A72202A00703D56 /* ShareResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B272C2A72202A00703D56 /* ShareResultView.swift */; };
 		0B94E32F2A6814B9008F6D39 /* onboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0B94E32E2A6814B9008F6D39 /* onboardingGIF.gif */; };
 		0B94E3312A681552008F6D39 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3302A681552008F6D39 /* ImageButton.swift */; };
 		0B94E3332A681560008F6D39 /* CharacterCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B94E3322A681560008F6D39 /* CharacterCreateView.swift */; };
@@ -53,13 +53,13 @@
 		0B4E2BC82A6FB5AB00014F85 /* ImageURLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURLExtension.swift; sourceTree = "<group>"; };
 		0B5B27062A70AD5E00703D56 /* ImagePickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickView.swift; sourceTree = "<group>"; };
 		0B5B27092A70CA1400703D56 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		0B5B270E2A70E68000703D56 /* ShareImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareImageView.swift; sourceTree = "<group>"; };
 		0B5B27102A70E9EE00703D56 /* ImageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabView.swift; sourceTree = "<group>"; };
 		0B5B27122A70FFCC00703D56 /* PolaroidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolaroidView.swift; sourceTree = "<group>"; };
 		0B5B27142A713C4E00703D56 /* CharacterCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreateViewModel.swift; sourceTree = "<group>"; };
 		0B5B271E2A7166B200703D56 /* History.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = History.xcdatamodel; sourceTree = "<group>"; };
 		0B5B27202A71784D00703D56 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		0B5B272A2A717F2000703D56 /* CoredataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoredataTest.swift; sourceTree = "<group>"; };
+		0B5B272C2A72202A00703D56 /* ShareResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareResultView.swift; sourceTree = "<group>"; };
 		0B94E32E2A6814B9008F6D39 /* onboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onboardingGIF.gif; sourceTree = "<group>"; };
 		0B94E3302A681552008F6D39 /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		0B94E3322A681560008F6D39 /* CharacterCreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCreateView.swift; sourceTree = "<group>"; };
@@ -125,20 +125,20 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0B5B270B2A70E64700703D56 /* ShareImage */ = {
+		0B5B270B2A70E64700703D56 /* ShareResult */ = {
 			isa = PBXGroup;
 			children = (
 				0B5B270D2A70E66C00703D56 /* Model */,
 				0B5B270C2A70E66600703D56 /* View */,
 			);
-			path = ShareImage;
+			path = ShareResult;
 			sourceTree = "<group>";
 		};
 		0B5B270C2A70E66600703D56 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0B5B270E2A70E68000703D56 /* ShareImageView.swift */,
 				0B5B27102A70E9EE00703D56 /* ImageTabView.swift */,
+				0B5B272C2A72202A00703D56 /* ShareResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 		0BE5980C2A5FDE0E00D019EA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0B5B270B2A70E64700703D56 /* ShareImage */,
+				0B5B270B2A70E64700703D56 /* ShareResult */,
 				0B5B27042A70AD1F00703D56 /* ImagePicker */,
 				0B94E3392A6927CF008F6D39 /* CameraFilter */,
 				0B94E3282A681459008F6D39 /* CharacterCreate */,
@@ -429,11 +429,11 @@
 				0B94E3312A681552008F6D39 /* ImageButton.swift in Sources */,
 				0B5B27112A70E9EE00703D56 /* ImageTabView.swift in Sources */,
 				0BE598132A5FE3E400D019EA /* OnBoarding3View.swift in Sources */,
-				0B5B270F2A70E68000703D56 /* ShareImageView.swift in Sources */,
 				0BE5983D2A62629600D019EA /* FontExtension.swift in Sources */,
 				0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */,
 				0B94E3332A681560008F6D39 /* CharacterCreateView.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
+				0B5B272D2A72202A00703D56 /* ShareResultView.swift in Sources */,
 				0B5B271F2A7166B200703D56 /* History.xcdatamodeld in Sources */,
 				0B5B27152A713C4E00703D56 /* CharacterCreateViewModel.swift in Sources */,
 				0B4E2BC12A6EC3FE00014F85 /* Camera.swift in Sources */,

@@ -11,6 +11,7 @@ struct ImagePickView: View {
     @State private var isdisable: Bool = true
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
+    // 미션
     var body: some View {
         VStack {
             Spacer()
@@ -25,7 +26,7 @@ struct ImagePickView: View {
             PolaroidView(selectedImage: $selectedImage, isdisable: $isdisable, profileImage: $profileImage)
             
             ButtonView(text: "골랐어요!", isdisable: $isdisable) {
-                print("Test")
+                    // Navigation -> ShareResultView
             }
             .padding(.top, 100)
         }

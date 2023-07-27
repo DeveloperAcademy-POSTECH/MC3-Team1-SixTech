@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ImageTabView: View {
-    
     @Binding var selectedTab: Int
     let images: [Image]
     @State private var offset = CGFloat.zero

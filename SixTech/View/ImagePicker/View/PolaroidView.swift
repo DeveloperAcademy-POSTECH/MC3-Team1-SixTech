@@ -59,7 +59,7 @@ struct PolaroidView: View {
                        content: { ImagePicker(image: $selectedImage) })
                 
                 Text("\(UserDefaults.standard.string(forKey: "username") ?? "")")
-                Text("Text")
+                Text("Plz add Mission")
                 Spacer()
             }
         }

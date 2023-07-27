@@ -13,7 +13,7 @@ class CoredataManager: ObservableObject {
     init() {
         container.loadPersistentStores { desc, error in
             if let error = error {
-                print("왜 안됨? \(error.localizedDescription)")
+                print("Nooooooooooo? \(error.localizedDescription)")
             }
         }
     }
@@ -21,9 +21,9 @@ class CoredataManager: ObservableObject {
     func saveHistory(context: NSManagedObjectContext) {
         do {
             try context.save()
-            print("coredata save YEE")
+            print("Coredata save YEE")
         } catch {
-            print("data nononononnono save")
+            print("Failed to save data to CoreData: \(error.localizedDescription)")
         }
     }
     

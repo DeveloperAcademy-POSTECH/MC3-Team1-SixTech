@@ -7,18 +7,18 @@
 
 /*
     머스크가 Coredata를 열심히 삽질하기 위해 만든 뷰 입니다. 무시해도 상관없으나 어떻게 쓰는건지 예제를 여기에 둘테니 참고하시면 좋을듯.
-    imageURL은 임의로 넣었으나 어처피 저희 실제 앱에선 자동으로 들어가니 ㄱㅊ
+    imageURL은 임의로 넣었으나 어처피 저희 실제 앱에선 자동으로 들어가니 괜찮을듯.
  */
 import SwiftUI
 
 struct CoredataTest: View {
-    //생성하거나 그럴떈 꼭 Enviromet를 해줘야 함
+    // 생성할땐 꼭 Enviromet를 해서 context에 넣기
     @Environment (\.managedObjectContext) var managedObjContext
     @State private var date: Date = Date()
-    @State private var kilometer: String = ""
-    @State private var steps: String = ""
-    @State private var trash: String = ""
-    @State private var kcal: Int16 = 0
+    @State private var kilometer: String = "10"
+    @State private var steps: String = "5000"
+    @State private var trash: String = "100"
+    @State private var kcal: Int16 = 300
     @State private var image: URL? = URL(string: "file:///Users/a_mcflurry/Library/Developer/Xcode/UserData/Previews/Simulator%20Devices/9C22CA36-B077-4ADB-AE51-F31615D8E474/data/Containers/Data/Application/EB164961-9917-422D-867E-1D8A093325CB/Documents/F3174D90-0F91-41F7-A3E4-A70F91269D53.png")
     
     var body: some View {
@@ -126,7 +126,7 @@ struct CoredataListView: View {
                 Text("No data")
             } else {
                 ForEach(historyForDate, id: \.self) { history in
-                    // 옵셔널이 아닌데 옵셔널 아니면 안됨. 이유 아시는분...?
+                    // 옵셔널 아니면 안됨.
                     VStack(alignment: .leading) {
                         Text("Date: \(history.date ?? Date())")
                         Text("Image URL: \(history.image ?? URL(string: "")!)")
