@@ -18,39 +18,39 @@ struct PloggingPlayView: View {
     private let durationAndDelay: CGFloat = 0.3
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("플로깅 플레이")
-                    .font(.Jamsil.bold.font(size: 20))
-                
-                ZStack {
-                    FrontView(degree: $frontDegree)
-                        .padding(.top)
-                    BackView(degree: $backDegree)
-                        .padding(.top)
-                }.onTapGesture {
-                    flipCard()
-                }
-                
-                NavigationLink("방 만들기") {
-                    CreateRoomView()
-                }.buttonStyle(DefaultButton(isdisable: false))
+        VStack {
+            Text("플로깅 플레이")
+                .font(.Jamsil.bold.font(size: 20))
+            
+            ZStack {
+                FrontView(degree: $frontDegree)
                     .padding(.top)
-                NavigationLink("참여하기") {
-                    EngagementView()
-                }.buttonStyle(DefaultButton(isdisable: false))
-                    .padding()
-                Spacer().frame(height: 60)
-                
+                BackView(degree: $backDegree)
+                    .padding(.top)
+            }.onTapGesture {
+                flipCard()
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    dismissButton(sfName: "chevron.backward") {
-                        dismiss()
-                    }
+            
+            NavigationLink("방 만들기") {
+                CreateRoomView()
+            }.buttonStyle(DefaultButton(isdisable: false))
+                .padding(.top)
+            NavigationLink("참여하기") {
+                EngagementView()
+            }.buttonStyle(DefaultButton(isdisable: false))
+                .padding()
+            Spacer().frame(height: 60)
+            
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                dismissButton(sfName: "chevron.backward") {
+                    dismiss()
                 }
             }
-        }.navigationBarBackButtonHidden()
+        }
+        .navigationBarBackButtonHidden()
+        
     }
     
     // MARK: Flip Card Function

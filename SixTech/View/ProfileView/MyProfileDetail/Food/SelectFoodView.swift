@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SelectFoodView: View {
+    @Environment(\.dismiss) var dismiss
+    
     @State private var foods = [
         Food(emoji: "🥑", name: "아보카도", kcal: "250kcal", kcalInt: 250),
            Food(emoji: "🌮", name: "타코", kcal: "200kcal", kcalInt: 200 ),
@@ -19,12 +21,11 @@ struct SelectFoodView: View {
            Food(emoji: "🍕", name: "피자", kcal: "300kcal", kcalInt: 300)
        ]
        
-    @State private var selectedFoodIndex: Int? = nil
-    
+    @State private var selectedFoodIndex: Int?
 //    var isCardSelected: Bool
     
     let columns = [
-            //추가 하면 할수록 화면에 보여지는 개수가 변함
+            // 추가 하면 할수록 화면에 보여지는 개수가 변함
             GridItem(.flexible(), spacing: nil, alignment: nil),
             GridItem(.flexible(), spacing: nil, alignment: nil)
         ]
@@ -34,7 +35,7 @@ struct SelectFoodView: View {
             ZStack {
                 HStack {
                     Button {
-                        
+                        dismiss()
                     } label: {
                         
                         // 버튼 배경색이 아직 안들어와있어서 회색으로 대체...
@@ -85,7 +86,7 @@ struct SelectFoodView: View {
             Spacer()
             
             Button {
-                
+                dismiss()
             } label: {
                 Text("선택하기")
             }

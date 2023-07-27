@@ -39,4 +39,3 @@ struct FoodCardView: View {
         .frame(width: 142, height: 62)
     }
 }
-

@@ -14,34 +14,34 @@ struct EngagementView: View {
     @State private var numberText = "    "
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("참여코드를 입력하세요.")
-                    .font(.Jamsil.bold.font(size: 30))
-                    .padding()
-                Text("같이줍깅은 참여코드가 필요해요.")
-                    .font(.Jamsil.light.font(size: 17))
-                
-                CustomTextField(text: $numberText)
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
-                    .frame(width: 240)
-                
-                CustomNumberPad(text: $numberText)
-                    .padding()
-                
-                NavigationLink("참여하기") {
-                    WaitingRoomView(groupCode: numberText)
-                }.buttonStyle(DefaultButton(isdisable: false))
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    dismissButton(sfName: "chevron.backward") {
-                        dismiss()
-                    }
+        
+        VStack {
+            Text("참여코드를 입력하세요.")
+                .font(.Jamsil.bold.font(size: 30))
+                .padding()
+            Text("같이줍깅은 참여코드가 필요해요.")
+                .font(.Jamsil.light.font(size: 17))
+            
+            CustomTextField(text: $numberText)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+                .frame(width: 240)
+            
+            CustomNumberPad(text: $numberText)
+                .padding()
+            
+            NavigationLink("참여하기") {
+                WaitingRoomView(groupCode: numberText)
+            }.buttonStyle(DefaultButton(isdisable: false))
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                dismissButton(sfName: "chevron.backward") {
+                    dismiss()
                 }
             }
-        }.navigationBarBackButtonHidden()
+        }
+        .navigationBarBackButtonHidden()
     }
 }
 

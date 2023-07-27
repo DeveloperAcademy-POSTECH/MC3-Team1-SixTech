@@ -8,22 +8,25 @@
 import SwiftUI
 
 struct EndResultView: View {
+    @Environment(\.presentationMode) var prsent
     
     @State var userImage: String = "ploggingphoto"
     @State var mapImage: String = "usermap"
     
     @State var isRightTapped: Bool = false
     @State var isLeftTapped: Bool = true
+    @State var isAlert = false
     
     var body: some View {
+        
         HStack {
             VStack {
                 HStack {
-            
+                    
                     Spacer()
                     
                     Button {
-                       
+                        isAlert = true
                     } label: {
                         Image(systemName: "xmark")
                             .font(.title2)
@@ -42,7 +45,7 @@ struct EndResultView: View {
                 Text("플로깅 완료를 축하합니다!\n 마음에 드는 기록을 공유/저장해요")
                     .font(.Jamsil.light.font(size: 17))
                     .multilineTextAlignment(.center)
-
+                
                 Spacer()
                 
                 if isLeftTapped {
@@ -94,12 +97,12 @@ struct EndResultView: View {
                                 .fontWeight(.bold)
                                 .font(.system(size: 24))
                                 .padding(.trailing)
-
+                            
                             Text("저장하기")
                                 .padding(.trailing)
                         }
                     }
-                .buttonStyle(SmallButton())
+                    .buttonStyle(SmallButton())
                     
                     Spacer()
                     
@@ -111,7 +114,7 @@ struct EndResultView: View {
                                 .fontWeight(.bold)
                                 .font(.system(size: 24))
                                 .padding(.trailing)
-
+                            
                             Text("공유하기")
                                 .padding(.trailing)
                         }
@@ -124,7 +127,19 @@ struct EndResultView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .padding(.horizontal, 24)
+        .alert(title: "플로깅 완료",
+               message:
+                            """
+                            메인화면으로 돌아갑니다.
+                            내 프로필에서 기륵을
+                            확인할 수 있어요
+                            """,
+               primaryButton: CustomAlertButton(title: "확인", action: { NavigationUtil.popToRootView() }),
+               secondaryButton: CustomAlertButton(title: "취소", action: { isAlert = false }),
+               isPresented: $isAlert)
+        .navigationBarBackButtonHidden()
     }
+    
 }
 
 struct EndResultView_Previews: PreviewProvider {

@@ -23,6 +23,7 @@ struct ImagePickView: View {
     }
     
     var body: some View {
+        
         VStack {
             Spacer()
             Text("미션 사진 고르기")
@@ -42,12 +43,12 @@ struct ImagePickView: View {
                    onDismiss: loadImage,
                    content: { ImagePicker(image: $selectedImage) })
             .padding(.horizontal, 45)
-            PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission)
-            ButtonView(text: "골랐어요!", isdisable: $isdisable) {
-                    // Navigation -> ShareResultView
-            }
-            .padding(.top, 100)
+            //                PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission)
+            NavigationLinkView(text: "골랐어요!", isdisable: $isdisable, destination: EndResultView())
+                .padding(.top, 100)
         }
+        .navigationBarBackButtonHidden()
+        
     }
 }
 

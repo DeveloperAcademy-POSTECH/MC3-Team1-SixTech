@@ -28,7 +28,7 @@ struct InfoView: View {
 
 				Spacer()
 				
-				ActivityDataView()
+//				ActivityDataView()
 			}
 		}
 	}
@@ -36,6 +36,8 @@ struct InfoView: View {
 
 struct ActivityDataView: View {
 	@State private var pauseTapped = false
+    @State private var isAlert = false
+    @Binding var isShow: Bool
 
 	var body: some View {
 		ZStack {
@@ -60,7 +62,7 @@ struct ActivityDataView: View {
 				if pauseTapped {
 					HStack {
 						ControlButtonView(buttonType: .stop) {
-							
+							isAlert = true
 						}
 						.padding(.bottom)
 						.padding(.horizontal)
@@ -84,6 +86,7 @@ struct ActivityDataView: View {
 				.foregroundColor(.white)
 				.shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 4)
 		}
+        .alert(title: "플로깅 완료", message: "플로깅을 끝내시겠어요?", primaryButton: CustomAlertButton(title: "완료", action: { isShow = true}), secondaryButton: CustomAlertButton(title: "취소", action: { isAlert = false }), isPresented: $isAlert)
 	}
 }
 

@@ -13,18 +13,18 @@ struct MyprofileView: View {
     @State var nickName: String = "" // 추후 텍스트필드 적용할 것.
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 18) {
-                textBackgroundView(st1: "닉네임", st2: "들린매스크")
-                textBackgroundView(st1: "캐릭터", nextView: Text("gogo"))
-                textBackgroundView(st1: "이전기록", nextView: MyHistoryView())
-                Spacer()
-                textBackgroundView(st1: "이용 약관 및 개인정보 처리방침", nextView: Text("gogo"))
-                textBackgroundView(st1: "개발자 정보", nextView: Text("gogo"))
-                Spacer()
-                
-            }.padding()
-                .padding()
+        
+        VStack(spacing: 18) {
+            textBackgroundView(st1: "닉네임", st2: "들린매스크")
+            textBackgroundView(st1: "캐릭터", nextView: Text("gogo"))
+            textBackgroundView(st1: "이전기록", nextView: MyHistoryView())
+            Spacer()
+            textBackgroundView(st1: "이용 약관 및 개인정보 처리방침", nextView: Text("gogo"))
+            textBackgroundView(st1: "개발자 정보", nextView: DeveloperInfoView())
+            Spacer()
+            
+        }.padding()
+            .padding()
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     dismissButton(sfName: "chevron.backward") {
@@ -36,9 +36,10 @@ struct MyprofileView: View {
                     Text("내 프로필")
                         .font(.Jamsil.bold.font(size: 20))
                 }
-
+                
             }
-        }.navigationBarBackButtonHidden()
+            .navigationBarBackButtonHidden()
+        
     }
     
     func textBackgroundView(st1: String, st2: String) -> some View {

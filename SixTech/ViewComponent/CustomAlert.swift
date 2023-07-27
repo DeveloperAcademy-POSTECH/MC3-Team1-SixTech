@@ -110,10 +110,10 @@ struct CustomAlert: View {
         if let button = primaryButton {
             CustomAlertButton(title: button.title) {
                 animate(isShown: false) {
-                    dismiss()
+//                    dismiss()
                 }
             
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
                     button.action?()
                 }
             }
@@ -125,10 +125,10 @@ struct CustomAlert: View {
         if let button = secondaryButton {
             CustomAlertButton(title: button.title) {
                 animate(isShown: false) {
-                    dismiss()
+//                    dismiss()
                 }
         
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
                     button.action?()
                 }
             }
