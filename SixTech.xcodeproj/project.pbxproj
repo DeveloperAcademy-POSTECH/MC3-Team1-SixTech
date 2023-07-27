@@ -42,7 +42,45 @@
 		86F62EE32A7158C000A15076 /* MyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F62EE22A7158C000A15076 /* MyHistoryView.swift */; };
 		86F62EE52A715C5800A15076 /* 캘린더.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F62EE42A715C5800A15076 /* 캘린더.swift */; };
 		86F62EE72A72362200A15076 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F62EE62A72362200A15076 /* ViewExtension.swift */; };
+		705495852A6E520400EE0040 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705495842A6E520400EE0040 /* InfoView.swift */; };
+		707316032A6707EE00FCFE13 /* MapUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707316022A6707EE00FCFE13 /* MapUI.swift */; };
+		709C75DF2A7170FF00C16313 /* SnapshotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C75DE2A7170FF00C16313 /* SnapshotManager.swift */; };
+		709C75E12A71715A00C16313 /* MKPolyline+Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C75E02A71715A00C16313 /* MKPolyline+Coordinates.swift */; };
+		709C75E52A71752900C16313 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C75E42A71752900C16313 /* RectangleView.swift */; };
+		70A843D42A5FD3C300228842 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A843D32A5FD3C300228842 /* MapView.swift */; };
+		70A843D62A5FD75100228842 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A843D52A5FD75100228842 /* LocationManager.swift */; };
+		70AE2AB82A71011900C121BB /* TestPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE2AB72A71011900C121BB /* TestPhotoView.swift */; };
+		70D93FD52A67EFB5003C027A /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D93FD42A67EFB5003C027A /* ImageAnnotationView.swift */; };
+		0EB41DFA2A70593F002929D9 /* LetPlogWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB41DF92A70593F002929D9 /* LetPlogWatchApp.swift */; };
+		0EB41DFC2A70593F002929D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB41DFB2A70593F002929D9 /* ContentView.swift */; };
+		0EB41DFE2A705940002929D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41DFD2A705940002929D9 /* Assets.xcassets */; };
+		0EB41E012A705940002929D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41E002A705940002929D9 /* Preview Assets.xcassets */; };
+		0EB41E052A705940002929D9 /* LetPlogWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0EB41E022A705940002929D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E94FAB42A5A83AE002A39FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0EB41DF62A70593F002929D9;
+			remoteInfo = "LetPlogWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0EB41E042A705940002929D9 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				0EB41E052A705940002929D9 /* LetPlogWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0BE598062A5FD31400D019EA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -82,6 +120,20 @@
 		86F62EE22A7158C000A15076 /* MyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHistoryView.swift; sourceTree = "<group>"; };
 		86F62EE42A715C5800A15076 /* 캘린더.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "캘린더.swift"; sourceTree = "<group>"; };
 		86F62EE62A72362200A15076 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		705495842A6E520400EE0040 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		707316022A6707EE00FCFE13 /* MapUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUI.swift; sourceTree = "<group>"; };
+		709C75DE2A7170FF00C16313 /* SnapshotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotManager.swift; sourceTree = "<group>"; };
+		709C75E02A71715A00C16313 /* MKPolyline+Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPolyline+Coordinates.swift"; sourceTree = "<group>"; };
+		709C75E42A71752900C16313 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		70A843D32A5FD3C300228842 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		70A843D52A5FD75100228842 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		70AE2AB72A71011900C121BB /* TestPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPhotoView.swift; sourceTree = "<group>"; };
+		70D93FD42A67EFB5003C027A /* ImageAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
+		0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LetPlogWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EB41DF92A70593F002929D9 /* LetPlogWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetPlogWatchApp.swift; sourceTree = "<group>"; };
+		0EB41DFB2A70593F002929D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0EB41DFD2A705940002929D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0EB41E002A705940002929D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +142,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BE598182A5FF23B00D019EA /* SwiftUIGIF in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EB41DF42A70593F002929D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +212,7 @@
 				0EAD30222A5C711500E8A548 /* .pre-commit-config.yaml */,
 				0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */,
 				0E94FABE2A5A83AF002A39FB /* SixTech */,
+				0EB41DF82A70593F002929D9 /* LetPlogWatch Watch App */,
 				0E94FABD2A5A83AE002A39FB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -161,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				0E94FABC2A5A83AE002A39FB /* SixTech.app */,
+				0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +231,7 @@
 			children = (
 				86E0587B2A68027500F86049 /* SixTech.entitlements */,
 				86E0586E2A67F3DB00F86049 /* JerryTest */,
+				70A843D22A5FD3A800228842 /* Map */,
 				0BE5981B2A60EAB700D019EA /* Fonts */,
 				0BE598082A5FD47900D019EA /* ButtonStyle */,
 				0BE598052A5FD2FC00D019EA /* Extension */,
@@ -217,6 +279,69 @@
 				86E058792A67FDFC00F86049 /* CustomMatchingViewController.swift */,
 			);
 			path = API;
+		709C75E22A7171DC00C16313 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				709C75E02A71715A00C16313 /* MKPolyline+Coordinates.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		709C75E32A7171E500C16313 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				70A843D32A5FD3C300228842 /* MapView.swift */,
+				707316022A6707EE00FCFE13 /* MapUI.swift */,
+				705495842A6E520400EE0040 /* InfoView.swift */,
+				709C75E42A71752900C16313 /* RectangleView.swift */,
+				70AE2AB72A71011900C121BB /* TestPhotoView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		709C75E62A7175D000C16313 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				709C75DE2A7170FF00C16313 /* SnapshotManager.swift */,
+				70A843D52A5FD75100228842 /* LocationManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		709C75E72A7176B100C16313 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				70D93FD42A67EFB5003C027A /* ImageAnnotationView.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		70A843D22A5FD3A800228842 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				709C75E32A7171E500C16313 /* UI */,
+				709C75E22A7171DC00C16313 /* Extension */,
+				709C75E62A7175D000C16313 /* Core */,
+				709C75E72A7176B100C16313 /* Utilities */,
+			);
+			path = Map;
+		0EB41DF82A70593F002929D9 /* LetPlogWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				0EB41DF92A70593F002929D9 /* LetPlogWatchApp.swift */,
+				0EB41DFB2A70593F002929D9 /* ContentView.swift */,
+				0EB41DFD2A705940002929D9 /* Assets.xcassets */,
+				0EB41DFF2A705940002929D9 /* Preview Content */,
+			);
+			path = "LetPlogWatch Watch App";
+			sourceTree = "<group>";
+		};
+		0EB41DFF2A705940002929D9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0EB41E002A705940002929D9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,10 +355,12 @@
 				0E94FAB92A5A83AE002A39FB /* Frameworks */,
 				0E94FABA2A5A83AE002A39FB /* Resources */,
 				0EAD301E2A5C6F9A00E8A548 /* ShellScript */,
+				0EB41E042A705940002929D9 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0EB41E032A705940002929D9 /* PBXTargetDependency */,
 			);
 			name = SixTech;
 			packageProductDependencies = (
@@ -241,6 +368,23 @@
 			);
 			productName = SixTech;
 			productReference = 0E94FABC2A5A83AE002A39FB /* SixTech.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0EB41DF62A70593F002929D9 /* LetPlogWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EB41E082A705940002929D9 /* Build configuration list for PBXNativeTarget "LetPlogWatch Watch App" */;
+			buildPhases = (
+				0EB41DF32A70593F002929D9 /* Sources */,
+				0EB41DF42A70593F002929D9 /* Frameworks */,
+				0EB41DF52A70593F002929D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LetPlogWatch Watch App";
+			productName = "LetPlogWatch Watch App";
+			productReference = 0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -254,6 +398,9 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					0E94FABB2A5A83AE002A39FB = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					0EB41DF62A70593F002929D9 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
@@ -275,6 +422,7 @@
 			projectRoot = "";
 			targets = (
 				0E94FABB2A5A83AE002A39FB /* SixTech */,
+				0EB41DF62A70593F002929D9 /* LetPlogWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -295,6 +443,15 @@
 				0BE598392A60F9AC00D019EA /* OnboardingGIF.gif in Resources */,
 				0BE598322A60F3E600D019EA /* TheJamsilOTF6ExtraBold.otf in Resources */,
 				0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EB41DF52A70593F002929D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EB41E012A705940002929D9 /* Preview Assets.xcassets in Resources */,
+				0EB41DFE2A705940002929D9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +484,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E058742A67F3DB00F86049 /* UIViewExtension.swift in Sources */,
+				705495852A6E520400EE0040 /* InfoView.swift in Sources */,
+				70A843D62A5FD75100228842 /* LocationManager.swift in Sources */,
+				707316032A6707EE00FCFE13 /* MapUI.swift in Sources */,
+				70AE2AB82A71011900C121BB /* TestPhotoView.swift in Sources */,
+				709C75E52A71752900C16313 /* RectangleView.swift in Sources */,
+				0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */,
+				70A843D42A5FD3C300228842 /* MapView.swift in Sources */,
+				70D93FD52A67EFB5003C027A /* ImageAnnotationView.swift in Sources */,
 				0BE598112A5FE3D700D019EA /* OnBoarding2View.swift in Sources */,
 				86E0143A2A690AB1007F3195 /* WaitingRoomView.swift in Sources */,
 				0BE598152A5FE6FE00D019EA /* PageTabViewStyle.swift in Sources */,
@@ -349,10 +514,29 @@
 				86F4A36F2A71461F00F780AB /* MyprofileView.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
 				86E0587A2A67FDFC00F86049 /* CustomMatchingViewController.swift in Sources */,
+				709C75E12A71715A00C16313 /* MKPolyline+Coordinates.swift in Sources */,
+				709C75DF2A7170FF00C16313 /* SnapshotManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EB41DF32A70593F002929D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EB41DFC2A70593F002929D9 /* ContentView.swift in Sources */,
+				0EB41DFA2A70593F002929D9 /* LetPlogWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0EB41E032A705940002929D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0EB41DF62A70593F002929D9 /* LetPlogWatch Watch App */;
+			targetProxy = 0EB41E022A705940002929D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0E94FAC82A5A83B0002A39FB /* Debug */ = {
@@ -472,6 +656,7 @@
 		0E94FACB2A5A83B0002A39FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SixTech/SixTech.entitlements;
@@ -482,6 +667,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "같이줍깅을 사용하기 위해 위치권한이 필요해요";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -502,6 +688,7 @@
 		0E94FACC2A5A83B0002A39FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SixTech/SixTech.entitlements;
@@ -511,7 +698,9 @@
 				DEVELOPMENT_TEAM = M75X2R2UVV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "같이줍깅을 사용하기 위해 위치권한이 필요해요";
 				INFOPLIST_FILE = SixTech/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "같이줍깅을 사용하기 위해 위치권한이 필요해요";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -526,6 +715,66 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0EB41E062A705940002929D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LetPlogWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = GSD6RCY68C;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = LetPlogWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTech;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		0EB41E072A705940002929D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LetPlogWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = GSD6RCY68C;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = LetPlogWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTech;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Release;
 		};
@@ -546,6 +795,15 @@
 			buildConfigurations = (
 				0E94FACB2A5A83B0002A39FB /* Debug */,
 				0E94FACC2A5A83B0002A39FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EB41E082A705940002929D9 /* Build configuration list for PBXNativeTarget "LetPlogWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EB41E062A705940002929D9 /* Debug */,
+				0EB41E072A705940002929D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
