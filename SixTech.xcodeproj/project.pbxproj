@@ -33,9 +33,9 @@
 		0EB41DFE2A705940002929D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41DFD2A705940002929D9 /* Assets.xcassets */; };
 		0EB41E012A705940002929D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41E002A705940002929D9 /* Preview Assets.xcassets */; };
 		0EB41E052A705940002929D9 /* LetPlogWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7981B1F12A71656F00DA59D3 /* ResultLogView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7981B1F02A71656F00DA59D3 /* ResultLogView2.swift */; };
+		7981B1F12A71656F00DA59D3 /* ResultWithPolylineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7981B1F02A71656F00DA59D3 /* ResultWithPolylineView.swift */; };
 		79F817CC2A711BFC00E5A4EA /* EndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F817CB2A711BFC00E5A4EA /* EndResultView.swift */; };
-		79F817D12A71439C00E5A4EA /* ResultLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F817D02A71439C00E5A4EA /* ResultLogView.swift */; };
+		79F817D12A71439C00E5A4EA /* ResultWithPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F817D02A71439C00E5A4EA /* ResultWithPhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,9 +90,9 @@
 		0EB41DFB2A70593F002929D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0EB41DFD2A705940002929D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EB41E002A705940002929D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7981B1F02A71656F00DA59D3 /* ResultLogView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultLogView2.swift; sourceTree = "<group>"; };
+		7981B1F02A71656F00DA59D3 /* ResultWithPolylineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWithPolylineView.swift; sourceTree = "<group>"; };
 		79F817CB2A711BFC00E5A4EA /* EndResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndResultView.swift; sourceTree = "<group>"; };
-		79F817D02A71439C00E5A4EA /* ResultLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultLogView.swift; sourceTree = "<group>"; };
+		79F817D02A71439C00E5A4EA /* ResultWithPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWithPhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,8 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				79F817CB2A711BFC00E5A4EA /* EndResultView.swift */,
-				79F817D02A71439C00E5A4EA /* ResultLogView.swift */,
-				7981B1F02A71656F00DA59D3 /* ResultLogView2.swift */,
+				79F817D02A71439C00E5A4EA /* ResultWithPhotoView.swift */,
+				7981B1F02A71656F00DA59D3 /* ResultWithPolylineView.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -377,11 +377,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BE598112A5FE3D700D019EA /* OnBoarding2View.swift in Sources */,
-				79F817D12A71439C00E5A4EA /* ResultLogView.swift in Sources */,
+				79F817D12A71439C00E5A4EA /* ResultWithPhotoView.swift in Sources */,
 				0BE598152A5FE6FE00D019EA /* PageTabViewStyle.swift in Sources */,
 				0BE598072A5FD31400D019EA /* ColorExtension.swift in Sources */,
 				0BE5980A2A5FD48F00D019EA /* ButtonStyle.swift in Sources */,
-				7981B1F12A71656F00DA59D3 /* ResultLogView2.swift in Sources */,
+				7981B1F12A71656F00DA59D3 /* ResultWithPolylineView.swift in Sources */,
 				0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */,
 				0BE598132A5FE3E400D019EA /* OnBoarding3View.swift in Sources */,
 				0BE5983D2A62629600D019EA /* FontExtension.swift in Sources */,

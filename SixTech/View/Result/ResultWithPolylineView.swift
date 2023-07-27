@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ResultLogView2: View {
+struct ResultWithPolylineView: View {
         
     // 플로깅 데이터
     @State var kcal: Int = 130
@@ -24,7 +24,6 @@ struct ResultLogView2: View {
 
     var body: some View {
         ZStack {
-            
             Rectangle()
                 .foregroundColor(.clear)
                 .shadow(radius: 10, y: 4)
@@ -34,7 +33,6 @@ struct ResultLogView2: View {
 
             // 데이터 부분
             VStack {
-                
                 HStack {
                     Text(date)
                         .font(.Jamsil.medium.font(size: 16))
@@ -45,7 +43,6 @@ struct ResultLogView2: View {
                     Image(userProfileImage)
                         .resizable()
                         .frame(width: 36, height: 36)
-                    
                 }
                 .padding(.horizontal)
                 .foregroundColor(.white)
@@ -57,7 +54,6 @@ struct ResultLogView2: View {
                     Text("같이줍깅")
                         .foregroundColor(.white)
                         .font(.Jamsil.light.font(size: 12))
-                        
                 }
                 .padding(.trailing)
                 
@@ -73,7 +69,6 @@ struct ResultLogView2: View {
                         
                         Text("km")
                             .font(.Jamsil.light.font(size: 12))
-                        
                     }
                     Spacer()
                     
@@ -83,7 +78,6 @@ struct ResultLogView2: View {
                         
                         Text("steps")
                             .font(.Jamsil.light.font(size: 12))
-                        
                     }
                     
                     Spacer()
@@ -94,7 +88,6 @@ struct ResultLogView2: View {
                         
                         Text("줍깅")
                             .font(.Jamsil.light.font(size: 12))
-                        
                     }
                     
                     Spacer()
@@ -105,26 +98,22 @@ struct ResultLogView2: View {
                         
                         Text("kcal")
                             .font(.Jamsil.light.font(size: 12))
-                        
                     }
                     
                     Spacer()
-                    
+            
                 }
                 .shadow(radius: 2, y: 1)
                 .foregroundColor(.white)
                 .padding(.bottom)
-                
             }
-                
         }
         .frame(width: 320, height: 337)
     }
-    
 }
 
 struct ResultLogView2_Previews: PreviewProvider {
     static var previews: some View {
-        ResultLogView2()
+        ResultWithPolylineView()
     }
 }

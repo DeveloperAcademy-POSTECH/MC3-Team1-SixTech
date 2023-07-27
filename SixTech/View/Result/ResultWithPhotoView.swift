@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ResultLogView: View {
+struct ResultWithPhotoView: View {
     
-    // 플로깅 데이터
+    // 플로깅 데이터... 나중에 데이터 받는 방법 수정해보겠습니다
     @State var kcal: Int = 130
     @State var userkm: Double = 5.0
     @State var steps: Int =  13332
@@ -23,9 +23,7 @@ struct ResultLogView: View {
     @State var userProfileImage: String = "userprofile"
     
     var body: some View {
-    
             ZStack(alignment: .top) {
-                
                 Rectangle()
                     .foregroundColor(.white)
                     .shadow(radius: 10, y: 1)
@@ -36,33 +34,32 @@ struct ResultLogView: View {
                     .padding(.top)
                 
                 VStack {
-                    
                     Spacer()
                     
                     Rectangle()
                         .foregroundColor(.white)
                     .frame(height: 90)
-                    
                 }
                 
+                // 데이터 부분
                 VStack {
-                    
-                    // 이게맞나... ㅜㅜ
-                    
-                    Spacer()
-                    
-                    Spacer()
-                    
-                    Spacer()
-                    
-                    Spacer()
-                    
-                    ZStack(alignment: .center) {
+                    HStack {
+                        Text(date)
+                            .font(.Jamsil.medium.font(size: 16))
+                            .foregroundColor(.white)
+                            .shadow(radius: 2, y: 1)
                         
+                        Spacer()
+                    }
+                    .padding(.leading)
+                    .padding(.top)
+                    
+                    Spacer()
+                    
+                    ZStack {
                         Circle()
                             .frame(width: 70, height: 70)
-                            .foregroundColor(.white)
-                        
+                        .foregroundColor(.white)
                         Circle()
                             .frame(width: 60, height: 60)
                             .foregroundColor(.white)
@@ -73,29 +70,7 @@ struct ResultLogView: View {
                             )
                     }
                     
-                    Spacer()
-                    
-                }
-                
-                // 데이터 부분
-                VStack {
-                
                     HStack {
-                        Text(date)
-                            .font(.Jamsil.medium.font(size: 16))
-                            .foregroundColor(.white)
-                            .shadow(radius: 2, y: 1)
-                        
-                        Spacer()
-                        
-                    }
-                    .padding(.leading)
-                    .padding(.top)
-                    
-                    Spacer()
-                    
-                    HStack {
-
                         Spacer()
                         
                         VStack {
@@ -104,7 +79,7 @@ struct ResultLogView: View {
                             
                             Text("km")
                                 .font(.Jamsil.light.font(size: 12))
-                            
+
                         }
                         Spacer()
                         
@@ -114,7 +89,6 @@ struct ResultLogView: View {
                             
                             Text("steps")
                                 .font(.Jamsil.light.font(size: 12))
-                            
                         }
 
                         Spacer()
@@ -125,7 +99,6 @@ struct ResultLogView: View {
                             
                             Text("줍깅")
                                 .font(.Jamsil.light.font(size: 12))
-                            
                         }
 
                         Spacer()
@@ -136,23 +109,20 @@ struct ResultLogView: View {
                             
                             Text("kcal")
                                 .font(.Jamsil.light.font(size: 12))
-                            
                         }
                         
                         Spacer()
-                        
+                    
                     }
                     .padding(.bottom)
-                    
                 }
             }
             .frame(width: 320, height: 337)
         }
-
 }
 
 struct ResultLogStyle_Previews: PreviewProvider {
     static var previews: some View {
-        ResultLogView()
+        ResultWithPhotoView()
     }
 }

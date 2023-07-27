@@ -16,13 +16,10 @@ struct EndResultView: View {
     @State var isLeftTapped: Bool = true
     
     var body: some View {
-
         HStack {
-    
             VStack {
-                
                 HStack {
-                    
+            
                     Spacer()
                     
                     Button {
@@ -35,9 +32,7 @@ struct EndResultView: View {
                             .background(Color.buttonBackgroundColor)
                             .foregroundColor(Color.defaultColor)
                             .clipShape(Circle())
-                        
                     }
-                    
                 }
                 
                 Text("오늘의 플로깅 기록")
@@ -51,10 +46,10 @@ struct EndResultView: View {
                 Spacer()
                 
                 if isLeftTapped {
-                    ResultLogView()
+                    ResultWithPhotoView()
                         .padding(.vertical)
                 } else {
-                    ResultLogView2()
+                    ResultWithPolylineView()
                         .padding(.vertical)
                 }
                 
@@ -91,12 +86,10 @@ struct EndResultView: View {
                 Spacer()
                 
                 HStack {
-                    
                     Button {
                         // 저장하는 기능
                     } label: {
                         HStack {
-                            
                             Image(systemName: "square.and.arrow.up")
                                 .fontWeight(.bold)
                                 .font(.system(size: 24))
@@ -104,7 +97,6 @@ struct EndResultView: View {
 
                             Text("저장하기")
                                 .padding(.trailing)
-    
                         }
                     }
                 .buttonStyle(SmallButton())
@@ -114,9 +106,7 @@ struct EndResultView: View {
                     Button {
                         // 공유하는 기능
                     } label: {
-                        
                         HStack {
-                            
                             Image(systemName: "square.and.arrow.down")
                                 .fontWeight(.bold)
                                 .font(.system(size: 24))
@@ -124,25 +114,17 @@ struct EndResultView: View {
 
                             Text("공유하기")
                                 .padding(.trailing)
-                            
                         }
-                        
                     }
                     .buttonStyle(SmallButton())
-                    
                 }
-                
                 Spacer()
-                
             }
             .padding(.top, 47)
-            
         }
         .edgesIgnoringSafeArea(.all)
         .padding(.horizontal, 24)
-        
     }
-    
 }
 
 struct EndResultView_Previews: PreviewProvider {
