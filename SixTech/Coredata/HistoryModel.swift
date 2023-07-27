@@ -41,24 +41,24 @@ class CoredataManager: ObservableObject {
     }
     
     func fetchHistory(targetDate: Date) -> [History] {
-            let context: NSManagedObjectContext = CoredataManager().container.viewContext
-            let fetchRequest: NSFetchRequest<History> = History.fetchRequest()
+        let context: NSManagedObjectContext = CoredataManager().container.viewContext
+        let fetchRequest: NSFetchRequest<History> = History.fetchRequest()
         
-            let calendar = Calendar.current
-            let startOfDay = calendar.startOfDay(for: targetDate) // 해당 날짜의 시작 시간
-            let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)! // 해당 날짜의 다음 날 시작 시간
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: targetDate) // 해당 날짜의 시작 시간
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)! // 해당 날짜의 다음 날 시작 시간
         
-            let predicate = NSPredicate(format: "(date >= %@) AND (date < %@)", startOfDay as NSDate, endOfDay as NSDate)
-            fetchRequest.predicate = predicate
-            
-            do {
-                let historyResults = try context.fetch(fetchRequest)
-                return historyResults
-            } catch {
-                print("Error fetching history: \(error.localizedDescription)")
-                return []
-            }
+        let predicate = NSPredicate(format: "(date >= %@) AND (date < %@)", startOfDay as NSDate, endOfDay as NSDate)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let historyResults = try context.fetch(fetchRequest)
+            return historyResults
+        } catch {
+            print("Error fetching history: \(error.localizedDescription)")
+            return []
         }
+    }
     
     func fetchAllHistory() -> [History] {
         let context: NSManagedObjectContext = CoredataManager().container.viewContext
@@ -74,18 +74,18 @@ class CoredataManager: ObservableObject {
     }
     
     func deleteAllData() {
-            let context: NSManagedObjectContext = CoredataManager().container.viewContext
-            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "History")
-            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
-            do {
-                try context.execute(deleteRequest)
-                try context.save()
-                print("All data deleted successfully.")
-            } catch {
-                print("Error deleting data: \(error.localizedDescription)")
-            }
+        let context: NSManagedObjectContext = CoredataManager().container.viewContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "History")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+            print("All data deleted successfully.")
+        } catch {
+            print("Error deleting data: \(error.localizedDescription)")
         }
+    }
     
     func createDate(year: Int, month: Int, days: Int) -> Date {
         var components = DateComponents()
@@ -96,6 +96,5 @@ class CoredataManager: ObservableObject {
         let calendar = Calendar.current
         return calendar.date(from: components)!
     }
-    
     
 }
