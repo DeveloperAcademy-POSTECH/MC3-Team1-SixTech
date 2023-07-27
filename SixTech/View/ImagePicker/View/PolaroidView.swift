@@ -10,6 +10,9 @@ import SwiftUI
 struct PolaroidView: View {
     @Binding var isdisable: Bool
     @Binding var profileImage: Image?
+    @Binding var userName: String?
+    @Binding var userMission: String?
+    @AppStorage("profileURL") var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!
     
     var body: some View {
         ZStack {
@@ -40,8 +43,19 @@ struct PolaroidView: View {
                 }
                 .aspectRatio(1, contentMode: .fit)
                 .padding(.all, 12)
-                Text("\(UserDefaults.standard.string(forKey: "username") ?? "")")
-                Text("Plz add Mission")
+                HStack(alignment: .center) {
+                    ZStack {
+                        Circle()
+                            .foregroundColor(.backgroundColor)
+                            .frame(width: 40, height: 40)
+                        Image(uiImage: loadImageFromURL(imageURL: profileImageURL))
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                    }
+                    
+                    Text(userName ?? "")
+                }
+                Text(userMission ?? "")
                 Spacer()
             }
         }

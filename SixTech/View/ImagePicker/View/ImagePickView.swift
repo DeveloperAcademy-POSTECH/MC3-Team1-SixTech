@@ -12,6 +12,8 @@ struct ImagePickView: View {
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
     @State private var imagePickerPresented = false
+    @State private var userName: String? = UserDefaults.standard.string(forKey:"username") ?? ""
+    @State private var userMission: String?
     
     func loadImage() {
         guard let selectedImage = selectedImage else { return }
@@ -19,7 +21,7 @@ struct ImagePickView: View {
         isdisable = false
         print("Image Pick Complete and isdisable false")
     }
-    // 미션
+    
     var body: some View {
         VStack {
             Spacer()
@@ -34,7 +36,7 @@ struct ImagePickView: View {
                 print("Image Picking")
                 imagePickerPresented.toggle()
             } label: {
-                PolaroidView(isdisable: $isdisable, profileImage: $profileImage)
+                PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission)
             }
             .sheet(isPresented: $imagePickerPresented,
                    onDismiss: loadImage,

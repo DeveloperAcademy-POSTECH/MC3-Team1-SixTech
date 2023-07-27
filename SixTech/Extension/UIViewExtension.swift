@@ -83,3 +83,13 @@ extension UIView {
                bottom: view.bottomAnchor, right: view.rightAnchor)
     }
 }
+
+extension UIView {
+    func takeSnapshot() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
+}

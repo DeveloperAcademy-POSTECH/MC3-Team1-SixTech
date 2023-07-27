@@ -49,7 +49,7 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
             // Spacing will be horizontal padding...
             .padding(.horizontal, spacing)
             // Setting only after 0th index...
-            .offset(x: (CGFloat(currentIndex) * -width) + ( currentIndex != 0 ? adjustMentWidth : 0 ) + offset)
+            .offset(x: (CGFloat(currentIndex) * -width) + adjustMentWidth + offset)
             .gesture(
                 DragGesture()
                     .updating($offset, body: { value, out, _ in
