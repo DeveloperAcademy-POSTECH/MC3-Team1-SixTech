@@ -29,4 +29,27 @@ extension Color {
     static let backgroundColor = Color(hexCode: "#B8E3D4")
     static let background2Color = Color(hexCode: "#DBEDE7")
     static let disableColor = Color(hexCode: "#B3B3B3")
+    static let beforeImagePickColor = Color(hexCode: "#C4C4C4")
+    static let beforeImagePickTextColor = Color(hexCode: "#1A8370")
+}
+
+struct Color_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            Text("색깔을 알아보자")
+            Rectangle()
+                .foregroundColor(.defaultColor)
+            Rectangle()
+                .foregroundColor(.backgroundColor)
+            Rectangle()
+                .foregroundColor(.background2Color)
+            Rectangle()
+                .foregroundColor(.disableColor)
+            Rectangle()
+                .foregroundColor(.beforeImagePickColor)
+            Rectangle()
+                .foregroundColor(.beforeImagePickTextColor)
+                
+        }
+    }
 }
