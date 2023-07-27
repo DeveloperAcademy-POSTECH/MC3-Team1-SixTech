@@ -13,12 +13,14 @@ struct CameraFilterView : View {
     @State private var isAlbumPresented = false
     @State private var isboltClicked = false
     @State private var capturedImage: UIImage? = nil
+    @State private var useFrontCamera = false
     
     @StateObject private var cameraModel = CameraModel()
     
     var body: some View {
         ZStack {
-            ARViewContainer().edgesIgnoringSafeArea(.all)
+//            ARViewContainer().edgesIgnoringSafeArea(.all)
+            ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel)
             VStack {
                 VStack{
                     HStack{
@@ -36,6 +38,7 @@ struct CameraFilterView : View {
                         .padding(.trailing)
                         Spacer()
                         Button(action: {
+                            isboltClicked.toggle()
                             cameraModel.toggleFlash()
                         }) {
                             Image(systemName: isboltClicked ? "bolt.slash.fill" : "bolt.fill")
@@ -77,7 +80,8 @@ struct CameraFilterView : View {
                         .padding(.trailing)
                         Spacer()
                         Button(action: {
-                            cameraModel.toggleCamera()
+//                            cameraModel.toggleCamera()
+                            useFrontCamera.toggle()
                         }) {
                             Image(systemName: "arrow.triangle.2.circlepath.camera")
                                 .resizable()

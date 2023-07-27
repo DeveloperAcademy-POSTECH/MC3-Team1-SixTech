@@ -53,7 +53,6 @@ struct FilterCarouselView: View {
                         }) {
                             VStack{
                                 Circle()
-                                
                                     .frame(width: getButtonSize(for: index), height: getButtonSize(for: index))
                                 
                                     .overlay(
@@ -106,14 +105,41 @@ struct FilterCarouselView: View {
     
     func takeScreenshotAndSave() {
         print("takeScreenshotAndSave")
-        if isButtonClicked, let image = capturedImage {
-            DispatchQueue.main.async {
-                let rect = CGRect(origin: .zero, size: CGSize(width: image.size.width, height: 400))
-                UIApplication.shared.windows.first?.rootViewController?.view.takeScreenshotAndSaveToAlbum(in: rect)
+        if isButtonClicked {
+            if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
+                // 화면 크기로 그래픽 컨텍스트 생성
+                UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, false, 0)
+
+                // 전체 뷰 계층 구조를 현재 컨텍스트에 렌더링
+                rootViewController.view.drawHierarchy(in: UIScreen.main.bounds, afterScreenUpdates: true)
+
+                // 스크린샷 이미지 가져오기
+                let fullScreenshot = UIGraphicsGetImageFromCurrentImageContext()
+
+                // 그래픽 컨텍스트 종료
+                UIGraphicsEndImageContext()
+
+                if let fullScreenshot = fullScreenshot {
+                    let scale = fullScreenshot.scale
+                    let cropRect = CGRect(x: 0,
+                                          y: (fullScreenshot.size.height / 6) * scale,
+                                          width: fullScreenshot.size.width * scale,
+                                          height: (fullScreenshot.size.height / 2.2) * scale)
+                    if let croppedImage = fullScreenshot.cgImage?.cropping(to: cropRect) {
+                        let croppedUIImage = UIImage(cgImage: croppedImage, scale: scale, orientation: .up)
+
+                        // 잘린 스크린샷을 앨범에 저장
+                        UIImageWriteToSavedPhotosAlbum(croppedUIImage, nil, nil, nil)
+                    }
+                }
+
             }
+
             isButtonClicked = false
         }
     }
+
+
 }
 
 struct FilterCarouselView_Previews: PreviewProvider {

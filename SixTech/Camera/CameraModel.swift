@@ -8,6 +8,7 @@ import SwiftUI
 import AVFoundation
 
 class CameraModel: NSObject, ObservableObject {
+    
     private var captureSession: AVCaptureSession?
     private var frontCamera: AVCaptureDevice?
     private var rearCamera: AVCaptureDevice?
@@ -58,12 +59,14 @@ class CameraModel: NSObject, ObservableObject {
         print("toggle camera")
         captureSession?.beginConfiguration()
         if isUsingFrontCamera {
-            switchToFrontCamera()
-        } else {
             switchToRearCamera()
+        } else {
+            switchToFrontCamera()
         }
         captureSession?.commitConfiguration()
+        isUsingFrontCamera.toggle()
     }
+
     
     private func switchToFrontCamera() {
         guard let frontCamera = frontCamera else { return }
