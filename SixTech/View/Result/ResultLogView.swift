@@ -46,6 +46,15 @@ struct ResultLogView: View {
                 }
                 
                 VStack {
+                    
+                    // 이게맞나... ㅜㅜ
+                    
+                    Spacer()
+                    
+                    Spacer()
+                    
+                    Spacer()
+                    
                     Spacer()
                     
                     ZStack(alignment: .center) {
@@ -63,7 +72,8 @@ struct ResultLogView: View {
                                     .scaledToFit()
                             )
                     }
-                    .padding(.bottom, 50)
+                    
+                    Spacer()
                     
                 }
                 
@@ -79,8 +89,8 @@ struct ResultLogView: View {
                         Spacer()
                         
                     }
-                    .padding(.leading, 20)
-                    .padding(.top, 20)
+                    .padding(.leading)
+                    .padding(.top)
                     
                     Spacer()
                     
@@ -132,7 +142,7 @@ struct ResultLogView: View {
                         Spacer()
                         
                     }
-                    .padding(.bottom, 12)
+                    .padding(.bottom)
                     
                 }
             }

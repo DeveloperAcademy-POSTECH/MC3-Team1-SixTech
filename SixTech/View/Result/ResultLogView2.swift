@@ -47,8 +47,7 @@ struct ResultLogView2: View {
                         .frame(width: 36, height: 36)
                     
                 }
-                .padding(.leading, 20)
-                .padding(.trailing, 8)
+                .padding(.horizontal)
                 .foregroundColor(.white)
                 
                 HStack {
@@ -60,7 +59,7 @@ struct ResultLogView2: View {
                         .font(.Jamsil.light.font(size: 12))
                         
                 }
-                .padding(.trailing, 6)
+                .padding(.trailing)
                 
                 Spacer()
                 
@@ -114,7 +113,7 @@ struct ResultLogView2: View {
                 }
                 .shadow(radius: 2, y: 1)
                 .foregroundColor(.white)
-                .padding(.bottom, 12)
+                .padding(.bottom)
                 
             }
                 

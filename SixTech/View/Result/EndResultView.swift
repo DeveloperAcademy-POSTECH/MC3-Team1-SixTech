@@ -48,13 +48,17 @@ struct EndResultView: View {
                     .font(.Jamsil.light.font(size: 17))
                     .multilineTextAlignment(.center)
 
+                Spacer()
+                
                 if isLeftTapped {
                     ResultLogView()
-                        .padding(.vertical, 24)
+                        .padding(.vertical)
                 } else {
                     ResultLogView2()
-                        .padding(.vertical, 24)
+                        .padding(.vertical)
                 }
+                
+                Spacer()
                 
                 HStack {
                     Button {
@@ -81,8 +85,10 @@ struct EndResultView: View {
                     .buttonStyle(CircleButton(isTapped: $isRightTapped))
                     
                 }
-                .padding(.horizontal, 22)
-                .padding(.bottom, 24)
+                .padding(.horizontal)
+                .padding(.bottom)
+                
+                Spacer()
                 
                 HStack {
                     
@@ -125,6 +131,8 @@ struct EndResultView: View {
                     .buttonStyle(SmallButton())
                     
                 }
+                
+                Spacer()
                 
             }
             .padding(.top, 47)
