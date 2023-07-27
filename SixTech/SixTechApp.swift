@@ -10,10 +10,12 @@ import CoreData
 
 @main
 struct SixTechApp: App {
-    
+    @StateObject private var coredataManager = CoredataManager()
+
     var body: some Scene {
         WindowGroup {
-            OnBoardingView()
+            CoredataTest()
+                .environment(\.managedObjectContext, coredataManager.container.viewContext)
         }
     }
 }
