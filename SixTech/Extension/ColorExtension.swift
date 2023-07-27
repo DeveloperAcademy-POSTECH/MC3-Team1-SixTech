@@ -29,4 +29,5 @@ extension Color {
     static let backgroundColor = Color(hexCode: "#B8E3D4")
     static let background2Color = Color(hexCode: "#DBEDE7")
     static let disableColor = Color(hexCode: "#B3B3B3")
+    static let buttonBackgroundColor = Color(hexCode: "F5F5F5")
 }

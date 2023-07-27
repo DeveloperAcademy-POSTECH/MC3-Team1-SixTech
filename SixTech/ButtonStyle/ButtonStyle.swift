@@ -38,3 +38,48 @@ struct DefaultButton: ButtonStyle {
             .opacity(configuration.isPressed ? 0.4 : 1)
     }
 }
+
+struct SmallButton: ButtonStyle {
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundColor(.white)
+            .frame(width: 155, height: 48)
+            .background(Color.defaultColor)
+            .cornerRadius(24)
+            .shadow(color: .black.opacity(0.25), radius: 10, x: 0, y: 4)
+            .font(.Jamsil.regular.font(size: 17))
+            .opacity(configuration.isPressed ? 0.4 : 1)
+    }
+}
+
+struct CircleButton: ButtonStyle {
+
+    @Binding var isTapped: Bool
+    
+    func makeBody(configuration: Configuration) -> some View {
+
+        configuration.label
+            .frame(width: 116, height: 116)
+            .clipShape(Circle())
+            .overlay(
+        
+                ZStack {
+                    
+                    Circle()
+                        .foregroundColor(isTapped ? Color.disableColor.opacity(0.7) : .clear)
+                    
+                    Circle()
+                        .stroke(style: StrokeStyle(lineWidth: 4))
+                    .foregroundColor(Color.defaultColor)
+                    
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 48))
+                        .foregroundColor(Color.defaultColor)
+                        .opacity(isTapped ? 1 : 0)
+                }
+                    )
+            .shadow(color: .black.opacity(0.25), radius: 10, x: 0, y: 4)
+        
+    }
+}
