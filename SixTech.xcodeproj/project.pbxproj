@@ -31,7 +31,7 @@
 		86E0143A2A690AB1007F3195 /* WaitingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E014392A690AB1007F3195 /* WaitingRoomView.swift */; };
 		86E0143E2A691097007F3195 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0143D2A691097007F3195 /* DismissButton.swift */; };
 		86E014402A6D50BC007F3195 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0143F2A6D50BC007F3195 /* MainView.swift */; };
-		86E058742A67F3DB00F86049 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0586F2A67F3DB00F86049 /* UIView.swift */; };
+		86E058742A67F3DB00F86049 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0586F2A67F3DB00F86049 /* UIViewExtension.swift */; };
 		86E058752A67F3DB00F86049 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E058702A67F3DB00F86049 /* MatchManager.swift */; };
 		86E058762A67F3DB00F86049 /* EngagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E058712A67F3DB00F86049 /* EngagementView.swift */; };
 		86E058782A67F3DB00F86049 /* CreateRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E058732A67F3DB00F86049 /* CreateRoomView.swift */; };
@@ -41,6 +41,7 @@
 		86F4A36F2A71461F00F780AB /* MyprofileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F4A36E2A71461E00F780AB /* MyprofileView.swift */; };
 		86F62EE32A7158C000A15076 /* MyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F62EE22A7158C000A15076 /* MyHistoryView.swift */; };
 		86F62EE52A715C5800A15076 /* 캘린더.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F62EE42A715C5800A15076 /* 캘린더.swift */; };
+		86F62EE72A72362200A15076 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F62EE62A72362200A15076 /* ViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +70,7 @@
 		86E014392A690AB1007F3195 /* WaitingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomView.swift; sourceTree = "<group>"; };
 		86E0143D2A691097007F3195 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		86E0143F2A6D50BC007F3195 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		86E0586F2A67F3DB00F86049 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		86E0586F2A67F3DB00F86049 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		86E058702A67F3DB00F86049 /* MatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
 		86E058712A67F3DB00F86049 /* EngagementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngagementView.swift; sourceTree = "<group>"; };
 		86E058732A67F3DB00F86049 /* CreateRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRoomView.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		86F4A36E2A71461E00F780AB /* MyprofileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyprofileView.swift; sourceTree = "<group>"; };
 		86F62EE22A7158C000A15076 /* MyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHistoryView.swift; sourceTree = "<group>"; };
 		86F62EE42A715C5800A15076 /* 캘린더.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "캘린더.swift"; sourceTree = "<group>"; };
+		86F62EE62A72362200A15076 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,8 @@
 			children = (
 				0BE598062A5FD31400D019EA /* ColorExtension.swift */,
 				0BE5983C2A62629600D019EA /* FontExtension.swift */,
+				86E0586F2A67F3DB00F86049 /* UIViewExtension.swift */,
+				86F62EE62A72362200A15076 /* ViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -191,9 +195,7 @@
 		86E0586E2A67F3DB00F86049 /* JerryTest */ = {
 			isa = PBXGroup;
 			children = (
-				86E0586F2A67F3DB00F86049 /* UIView.swift */,
-				86E058702A67F3DB00F86049 /* MatchManager.swift */,
-				86E058792A67FDFC00F86049 /* CustomMatchingViewController.swift */,
+				86F62EE82A72366300A15076 /* API */,
 				86E058712A67F3DB00F86049 /* EngagementView.swift */,
 				86E058732A67F3DB00F86049 /* CreateRoomView.swift */,
 				86E0587C2A6901D800F86049 /* PlayView.swift */,
@@ -206,6 +208,15 @@
 				86F62EE42A715C5800A15076 /* 캘린더.swift */,
 			);
 			path = JerryTest;
+			sourceTree = "<group>";
+		};
+		86F62EE82A72366300A15076 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				86E058702A67F3DB00F86049 /* MatchManager.swift */,
+				86E058792A67FDFC00F86049 /* CustomMatchingViewController.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,7 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86E058742A67F3DB00F86049 /* UIView.swift in Sources */,
+				86E058742A67F3DB00F86049 /* UIViewExtension.swift in Sources */,
 				0BE598112A5FE3D700D019EA /* OnBoarding2View.swift in Sources */,
 				86E0143A2A690AB1007F3195 /* WaitingRoomView.swift in Sources */,
 				0BE598152A5FE6FE00D019EA /* PageTabViewStyle.swift in Sources */,
@@ -334,6 +345,7 @@
 				0BE5983D2A62629600D019EA /* FontExtension.swift in Sources */,
 				0BE5980F2A5FDE2E00D019EA /* OnBoardingView.swift in Sources */,
 				86F62EE52A715C5800A15076 /* 캘린더.swift in Sources */,
+				86F62EE72A72362200A15076 /* ViewExtension.swift in Sources */,
 				86F4A36F2A71461F00F780AB /* MyprofileView.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
 				86E0587A2A67FDFC00F86049 /* CustomMatchingViewController.swift in Sources */,

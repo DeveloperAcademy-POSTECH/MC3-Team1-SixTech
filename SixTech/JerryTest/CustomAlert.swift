@@ -5,6 +5,13 @@
 //  Created by 주환 on 2023/07/25.
 //
 
+// .alert(title: "대기실 나가기", message: "메인 화면으로 돌아갑니다.",
+//       primaryButton: CustomAlertButton(title: "나가기", action: {
+//    matchManager.cancelMatchmaking()
+//    dismiss() }),
+//       secondaryButton: CustomAlertButton(title: "취소", action: { isAlert.toggle() }),
+//       isPresented: $isAlert) 대충 아시죠 ? 뭔뜻인지 센스껏..쓰십쇼
+
 import SwiftUI
 
 struct CustomAlert: View {
@@ -270,15 +277,3 @@ extension CustomAlertModifier {
     }
 }
 
-extension View {
-
-    func alert(title: String = "", message: String = "",
-               primaryButton: CustomAlertButton, secondaryButton: CustomAlertButton,
-               isPresented: Binding<Bool>) -> some View {
-        let title   = NSLocalizedString(title, comment: "")
-        let message = NSLocalizedString(message, comment: "")
-    
-        return modifier(CustomAlertModifier(title: title, message: message, primaryButton: primaryButton,
-                                            secondaryButton: secondaryButton, isPresented: isPresented))
-    }
-}
