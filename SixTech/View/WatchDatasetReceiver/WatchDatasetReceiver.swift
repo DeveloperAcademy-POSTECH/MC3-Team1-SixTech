@@ -69,18 +69,16 @@ class DataReceiver: NSObject, ObservableObject, WCSessionDelegate {
             writeToFile(header, fileURL: fileURL)
             
             DispatchQueue.main.async {
-                var currentTime: Double = 0.00
-                let timeStep: Double = 0.02
+                let startTime: Double = dataArray[0]["timestamp"] as? Double ?? 0
                 for data in dataArray {
                     if let timestamp = data["timestamp"] as? Double {
-                        currentTime += timeStep
                         var sensorData: [String: [String: Double]] = [:]
                         for (key, value) in data {
                             if key != "timestamp", let value = value as? [String: Double] {
                                 sensorData[key] = value
                             }
                         }
-                        self.receivedData.append((timestamp: currentTime, sensorData: sensorData))
+                        self.receivedData.append((timestamp: timestamp, sensorData: sensorData))
                         
                         // 데이터를 CSV 형식으로 작성하고, 파일에 추가
                         let acceleration = sensorData["userAcceleration"] ?? ["x": 0.0, "y": 0.0, "z": 0.0]
@@ -88,8 +86,7 @@ class DataReceiver: NSObject, ObservableObject, WCSessionDelegate {
                         let attitude = sensorData["attitude"] ?? ["pitch": 0.0, "roll": 0.0, "yaw": 0.0]
                         let gravity = sensorData["gravity"] ?? ["x": 0.0, "y": 0.0, "z": 0.0]
                         // Timestamp 소수점 둘째자리까지
-                        let currentTimeString = String(format: "%.2f", currentTime)
-                        let row = "\(currentTimeString),\(acceleration["x"]!),\(acceleration["y"]!),\(acceleration["z"]!),\(attitude["pitch"]!),\(attitude["roll"]!),\(attitude["yaw"]!),\(gravity["x"]!),\(gravity["y"]!),\(gravity["z"]!),\(rotation["x"]!),\(rotation["y"]!),\(rotation["z"]!)\n"
+                        let row = "\(timestamp-startTime),\(acceleration["x"]!),\(acceleration["y"]!),\(acceleration["z"]!),\(attitude["pitch"]!),\(attitude["roll"]!),\(attitude["yaw"]!),\(gravity["x"]!),\(gravity["y"]!),\(gravity["z"]!),\(rotation["x"]!),\(rotation["y"]!),\(rotation["z"]!)\n"
                         self.writeToFile(row, fileURL: fileURL)
                     }
                 }

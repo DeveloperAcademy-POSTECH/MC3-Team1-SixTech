@@ -9,6 +9,7 @@ import SwiftUI
 import CoreMotion
 import WatchConnectivity
 import WatchKit
+import HealthKit
 
 struct ContentView: View {
     @StateObject var motionManager = MotionManager()
@@ -30,7 +31,7 @@ struct ContentView: View {
                     motionManager.startCollectingData()
                 }
             }) {
-                Text(motionManager.isCollectingData ? "데이터 수집 중!" : "데이터 수집 시작 (6초간)")
+                Text(motionManager.isCollectingData ? "데이터 수집 중!" : "데이터 수집 시작 (10초간)")
             }
         }
         .onAppear {
@@ -44,7 +45,10 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
     private var motionManager: CMMotionManager?
     private var data: [(timestamp: TimeInterval, userAcceleration: CMAcceleration, rotationRate: CMRotationRate, attitude: CMAttitude, gravity: CMAcceleration)] = []
     private var timer: Timer? = nil
+    
     private var backgroundSession: WKExtendedRuntimeSession?
+    private var healthStore = HKHealthStore()
+    private var workoutSession: HKWorkoutSession?
     
     @Published var deviceMotion: CMDeviceMotion?
     @Published var isCollectingData = false
@@ -73,6 +77,7 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
             guard let data = data else { return }
             self.deviceMotion = data
         }
+    
     }
     
     func startCollectingData() {
@@ -80,12 +85,30 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
         self.backgroundSession = WKExtendedRuntimeSession()
         self.backgroundSession?.start()
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 50.0, repeats: true) { _ in
-            guard let motion = self.deviceMotion else { return }
-            self.data.append((timestamp: motion.timestamp, userAcceleration: motion.userAcceleration, rotationRate: motion.rotationRate, attitude: motion.attitude, gravity: motion.gravity))
+        let startTime = Date().timeIntervalSince1970
+        // Start the HealthKit workout session
+        let workoutConfiguration = HKWorkoutConfiguration()
+        workoutConfiguration.activityType = .running
+        do {
+            self.workoutSession = try HKWorkoutSession(healthStore: healthStore, configuration: workoutConfiguration)
+            self.workoutSession?.startActivity(with: Date())
+        } catch {
+            print("Failed to start workout session: \(error.localizedDescription)")
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 50.0, repeats: true) { _ in
+                guard let motion = self.deviceMotion else { return }
+                
+                let elapsed = Date().timeIntervalSince1970 - startTime
+                
+                self.data.append((timestamp: elapsed, userAcceleration: motion.userAcceleration, rotationRate: motion.rotationRate, attitude: motion.attitude, gravity: motion.gravity))
+            }
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) {
             self.stopCollectingData()
         }
     }
@@ -100,6 +123,10 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
         
         self.backgroundSession?.invalidate()
         self.backgroundSession = nil
+        // Stop the HealthKit workout session
+        self.workoutSession?.stopActivity(with: Date())
+        self.workoutSession?.end()
+        self.workoutSession = nil
     }
     
     func sendToiPhone() {
