@@ -20,9 +20,9 @@
 		0EB41DFE2A705940002929D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41DFD2A705940002929D9 /* Assets.xcassets */; };
 		0EB41E012A705940002929D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41E002A705940002929D9 /* Preview Assets.xcassets */; };
 		0EB41E052A705940002929D9 /* LetPlogWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7981B1F12A71656F00DA59D3 /* ResultWithPolylineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7981B1F02A71656F00DA59D3 /* ResultWithPolylineView.swift */; };
-		79F817CC2A711BFC00E5A4EA /* EndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F817CB2A711BFC00E5A4EA /* EndResultView.swift */; };
-		79F817D12A71439C00E5A4EA /* ResultWithPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F817D02A71439C00E5A4EA /* ResultWithPhotoView.swift */; };
+		7077986D2A72CE98000525B2 /* ResultWithPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986A2A72CE98000525B2 /* ResultWithPhotoView.swift */; };
+		7077986E2A72CE98000525B2 /* ResultWithPolylineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986B2A72CE98000525B2 /* ResultWithPolylineView.swift */; };
+		7077986F2A72CE98000525B2 /* EndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986C2A72CE98000525B2 /* EndResultView.swift */; };
 		709C76302A725CFE00C16313 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76032A725CFE00C16313 /* ImagePicker.swift */; };
 		709C76312A725CFE00C16313 /* ImagePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76052A725CFE00C16313 /* ImagePickView.swift */; };
 		709C76322A725CFE00C16313 /* PolaroidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76062A725CFE00C16313 /* PolaroidView.swift */; };
@@ -118,9 +118,9 @@
 		0EB41DFB2A70593F002929D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0EB41DFD2A705940002929D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EB41E002A705940002929D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7981B1F02A71656F00DA59D3 /* ResultWithPolylineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWithPolylineView.swift; sourceTree = "<group>"; };
-		79F817CB2A711BFC00E5A4EA /* EndResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndResultView.swift; sourceTree = "<group>"; };
-		79F817D02A71439C00E5A4EA /* ResultWithPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWithPhotoView.swift; sourceTree = "<group>"; };
+		7077986A2A72CE98000525B2 /* ResultWithPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultWithPhotoView.swift; sourceTree = "<group>"; };
+		7077986B2A72CE98000525B2 /* ResultWithPolylineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultWithPolylineView.swift; sourceTree = "<group>"; };
+		7077986C2A72CE98000525B2 /* EndResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndResultView.swift; sourceTree = "<group>"; };
 		709C76032A725CFE00C16313 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		709C76052A725CFE00C16313 /* ImagePickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickView.swift; sourceTree = "<group>"; };
 		709C76062A725CFE00C16313 /* PolaroidView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolaroidView.swift; sourceTree = "<group>"; };
@@ -266,23 +266,25 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		79F817CA2A711B8A00E5A4EA /* Result */ = {
+		707798692A72CE98000525B2 /* Result */ = {
 			isa = PBXGroup;
 			children = (
-				79F817CB2A711BFC00E5A4EA /* EndResultView.swift */,
-				79F817D02A71439C00E5A4EA /* ResultWithPhotoView.swift */,
-				7981B1F02A71656F00DA59D3 /* ResultWithPolylineView.swift */,
+				7077986A2A72CE98000525B2 /* ResultWithPhotoView.swift */,
+				7077986B2A72CE98000525B2 /* ResultWithPolylineView.swift */,
+				7077986C2A72CE98000525B2 /* EndResultView.swift */,
 			);
 			path = Result;
+			sourceTree = "<group>";
+		};
 		709C76002A725CFE00C16313 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				707798692A72CE98000525B2 /* Result */,
 				709C76012A725CFE00C16313 /* ImagePicker */,
 				709C76072A725CFE00C16313 /* CameraFilter */,
 				709C760D2A725CFE00C16313 /* ShareResult */,
 				709C76112A725CFE00C16313 /* CharacterCreate */,
 				709C76172A725CFE00C16313 /* Onboarding */,
-				79F817CA2A711B8A00E5A4EA /* Result */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -660,9 +662,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79F817D12A71439C00E5A4EA /* ResultWithPhotoView.swift in Sources */,
-				7981B1F12A71656F00DA59D3 /* ResultWithPolylineView.swift in Sources */,
-				79F817CC2A711BFC00E5A4EA /* EndResultView.swift in Sources */,
 				709C76802A725EDF00C16313 /* DismissButton.swift in Sources */,
 				709C76762A725EDF00C16313 /* MyprofileView.swift in Sources */,
 				709C767D2A725EDF00C16313 /* MainView.swift in Sources */,
@@ -674,11 +673,14 @@
 				709C76782A725EDF00C16313 /* CalenderView.swift in Sources */,
 				709C764B2A725CFE00C16313 /* ColorExtension.swift in Sources */,
 				709C763F2A725CFE00C16313 /* OnBoardingView.swift in Sources */,
+				7077986F2A72CE98000525B2 /* EndResultView.swift in Sources */,
+				7077986D2A72CE98000525B2 /* ResultWithPhotoView.swift in Sources */,
 				709C76862A725EDF00C16313 /* SnapshotManager.swift in Sources */,
 				709C76382A725CFE00C16313 /* CharacterCreateViewModel.swift in Sources */,
 				0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */,
 				709C76422A725CFE00C16313 /* history.xcdatamodeld in Sources */,
 				709C76882A725EDF00C16313 /* MKPolyline+Coordinates.swift in Sources */,
+				7077986E2A72CE98000525B2 /* ResultWithPolylineView.swift in Sources */,
 				709C76322A725CFE00C16313 /* PolaroidView.swift in Sources */,
 				709C76502A725E7000C16313 /* ViewExtension.swift in Sources */,
 				709C76822A725EDF00C16313 /* TestPhotoView.swift in Sources */,
@@ -863,6 +865,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "같이줍깅을 사용하기 위해 건강데이터가 필요해요";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "같이줍깅을 사용하기 위해 건강데이터가 필요해요";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -893,6 +901,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "같이줍깅을 사용하기 위해 건강데이터가 필요해요";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "같이줍깅을 사용하기 위해 건강데이터가 필요해요";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

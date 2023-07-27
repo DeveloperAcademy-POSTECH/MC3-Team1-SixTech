@@ -54,32 +54,34 @@ struct SmallButton: ButtonStyle {
 }
 
 struct CircleButton: ButtonStyle {
-
-    @Binding var isTapped: Bool
-    
-    func makeBody(configuration: Configuration) -> some View {
-
-        configuration.label
-            .frame(width: 116, height: 116)
-            .clipShape(Circle())
-            .overlay(
-        
-                ZStack {
-                    
-                    Circle()
-                        .foregroundColor(isTapped ? Color.disableColor.opacity(0.7) : .clear)
-                    
-                    Circle()
-                        .stroke(style: StrokeStyle(lineWidth: 4))
-                    .foregroundColor(Color.defaultColor)
-                    
-                    Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 48))
-                        .foregroundColor(Color.defaultColor)
-                        .opacity(isTapped ? 1 : 0)
-                }
-                    )
-            .shadow(color: .black.opacity(0.25), radius: 10, x: 0, y: 4)
+	
+	@Binding var isTapped: Bool
+	
+	func makeBody(configuration: Configuration) -> some View {
+		
+		configuration.label
+			.frame(width: 116, height: 116)
+			.clipShape(Circle())
+			.overlay(
+				
+				ZStack {
+					
+					Circle()
+						.foregroundColor(isTapped ? Color.disableColor.opacity(0.7) : .clear)
+					
+					Circle()
+						.stroke(style: StrokeStyle(lineWidth: 4))
+						.foregroundColor(Color.defaultColor)
+					
+					Image(systemName: "checkmark.circle.fill")
+						.font(.system(size: 48))
+						.foregroundColor(Color.defaultColor)
+						.opacity(isTapped ? 1 : 0)
+				}
+			)
+			.shadow(color: .black.opacity(0.25), radius: 10, x: 0, y: 4)
+	}
+}
         
 // 일반 버튼
 struct ButtonView: View {
