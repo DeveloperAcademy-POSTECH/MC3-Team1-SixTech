@@ -80,6 +80,10 @@
 		709C76872A725EDF00C16313 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C766F2A725EDF00C16313 /* LocationManager.swift */; };
 		709C76882A725EDF00C16313 /* MKPolyline+Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76712A725EDF00C16313 /* MKPolyline+Coordinates.swift */; };
 		709C76892A725EDF00C16313 /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76732A725EDF00C16313 /* ImageAnnotationView.swift */; };
+		7986625D2A72B09F00AB89ED /* DeveloperInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986625C2A72B09F00AB89ED /* DeveloperInfoView.swift */; };
+		7986625F2A72BA4300AB89ED /* IntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986625E2A72BA4300AB89ED /* IntroduceView.swift */; };
+		798662612A72BF0800AB89ED /* SelectFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798662602A72BF0800AB89ED /* SelectFoodView.swift */; };
+		798662652A72BF7B00AB89ED /* FoodCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798662642A72BF7B00AB89ED /* FoodCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +186,10 @@
 		709C766F2A725EDF00C16313 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		709C76712A725EDF00C16313 /* MKPolyline+Coordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKPolyline+Coordinates.swift"; sourceTree = "<group>"; };
 		709C76732A725EDF00C16313 /* ImageAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
+		7986625C2A72B09F00AB89ED /* DeveloperInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoView.swift; sourceTree = "<group>"; };
+		7986625E2A72BA4300AB89ED /* IntroduceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceView.swift; sourceTree = "<group>"; };
+		798662602A72BF0800AB89ED /* SelectFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFoodView.swift; sourceTree = "<group>"; };
+		798662642A72BF7B00AB89ED /* FoodCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +269,7 @@
 		0E94FABE2A5A83AF002A39FB /* SixTech */ = {
 			isa = PBXGroup;
 			children = (
+				7986625B2A72B05400AB89ED /* MyProfileDetail */,
 				0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */,
 				0E94FAC12A5A83AF002A39FB /* ContentView.swift */,
 				709C762D2A725CFE00C16313 /* ButtonStyle */,
@@ -564,6 +573,33 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		7986625B2A72B05400AB89ED /* MyProfileDetail */ = {
+			isa = PBXGroup;
+			children = (
+				798662632A72BF4C00AB89ED /* Food */,
+				798662622A72BF3300AB89ED /* Info */,
+			);
+			path = MyProfileDetail;
+			sourceTree = "<group>";
+		};
+		798662622A72BF3300AB89ED /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				7986625C2A72B09F00AB89ED /* DeveloperInfoView.swift */,
+				7986625E2A72BA4300AB89ED /* IntroduceView.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		798662632A72BF4C00AB89ED /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				798662602A72BF0800AB89ED /* SelectFoodView.swift */,
+				798662642A72BF7B00AB89ED /* FoodCardView.swift */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -705,6 +741,7 @@
 			files = (
 				709C76802A725EDF00C16313 /* DismissButton.swift in Sources */,
 				709C76762A725EDF00C16313 /* MyprofileView.swift in Sources */,
+				798662612A72BF0800AB89ED /* SelectFoodView.swift in Sources */,
 				709C767D2A725EDF00C16313 /* MainView.swift in Sources */,
 				709C76302A725CFE00C16313 /* ImagePicker.swift in Sources */,
 				709C767B2A725EDF00C16313 /* MatchManager.swift in Sources */,
@@ -725,6 +762,7 @@
 				709C76322A725CFE00C16313 /* PolaroidView.swift in Sources */,
 				709C76502A725E7000C16313 /* ViewExtension.swift in Sources */,
 				709C76822A725EDF00C16313 /* TestPhotoView.swift in Sources */,
+				7986625D2A72B09F00AB89ED /* DeveloperInfoView.swift in Sources */,
 				709C76752A725EDF00C16313 /* EngagementView.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
 				709C76412A725CFE00C16313 /* CoredataTest.swift in Sources */,
@@ -737,6 +775,7 @@
 				709C764D2A725CFE00C16313 /* ButtonStyle.swift in Sources */,
 				709C76392A725CFE00C16313 /* ImageMerger.swift in Sources */,
 				709C76562A725EB200C16313 /* User.xcdatamodeld in Sources */,
+				798662652A72BF7B00AB89ED /* FoodCardView.swift in Sources */,
 				709C76812A725EDF00C16313 /* InfoView.swift in Sources */,
 				709C76872A725EDF00C16313 /* LocationManager.swift in Sources */,
 				709C76892A725EDF00C16313 /* ImageAnnotationView.swift in Sources */,
@@ -749,6 +788,7 @@
 				709C76842A725EDF00C16313 /* MapUI.swift in Sources */,
 				709C767F2A725EDF00C16313 /* CustomAlert.swift in Sources */,
 				709C767C2A725EDF00C16313 /* CustomMatchingViewController.swift in Sources */,
+				7986625F2A72BA4300AB89ED /* IntroduceView.swift in Sources */,
 				0B5B27362A72833900703D56 /* Causel.swift in Sources */,
 				709C76772A725EDF00C16313 /* TestView.swift in Sources */,
 				709C76342A725CFE00C16313 /* Camera.swift in Sources */,
