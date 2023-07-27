@@ -1,0 +1,194 @@
+{
+  "__content" : [
+    {
+      "scenes" : [
+        {
+          "__content" : [
+            {
+              "arAnchorSpecification" : {
+                "alignment" : "horizontal",
+                "name" : "surface"
+              },
+              "behaviors" : [
+
+              ],
+              "gravity" : [
+                0,
+                -9.8000001907348633,
+                0
+              ],
+              "identifier" : "54F75B1B-7CBD-4DE9-9594-44E0BDE735FC",
+              "material" : "concrete",
+              "overrides" : {
+                "children" : {
+                  "4ECB1F6D-5657-4DB1-AB94-986FDC70F274" : null,
+                  "9484ACB3-50C3-48FB-AE10-2EBA41C80ACC" : null,
+                  "Cube" : null,
+                  "F5E5A749-B2D6-4843-AF3D-760BA035588C" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "item",
+                          {
+                            "typeName" : "String",
+                            "value" : "Earth"
+                          }
+                        ],
+                        [
+                          "material",
+                          {
+                            "typeName" : "String",
+                            "value" : "clayTerracotta"
+                          }
+                        ],
+                        [
+                          "style",
+                          {
+                            "typeName" : "String",
+                            "value" : "Stylized"
+                          }
+                        ]
+                      ],
+                      "children" : {
+                        "iconicItem" : {
+                          "overrides" : {
+                            "factory" : null,
+                            "runtimeAttributes" : [
+                              [
+                                "RuntimeIdentifier",
+                                {
+                                  "typeName" : "UUID",
+                                  "value" : "27593ECD-AD70-49A4-BFC2-AE5E309A772A"
+                                }
+                              ]
+                            ]
+                          }
+                        },
+                        "item" : {
+                          "overrides" : {
+                            "factory" : null,
+                            "runtimeAttributes" : [
+                              [
+                                "RuntimeIdentifier",
+                                {
+                                  "typeName" : "UUID",
+                                  "value" : "389B4E1F-9F95-465D-9BE9-BE7F0CAB1323"
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      },
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.Earth.402ff266-9a33-4622-9411-b72c32a7ea1d",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "4EDB90AE-C011-43EB-8652-9ECD881A260A"
+                          }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "earth"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        3.5494766235351562,
+                        0,
+                        0,
+                        0,
+                        0,
+                        3.5494766235351562,
+                        0,
+                        0,
+                        0,
+                        0,
+                        3.5494766235351562,
+                        0,
+                        0.0093478355556726456,
+                        0.26324829459190369,
+                        -0.17533363401889801,
+                        1
+                      ]
+                    }
+                  }
+                },
+                "factory" : null,
+                "runtimeAttributes" : [
+                  [
+                    "isAccessibilityEnabled",
+                    {
+                      "typeName" : "Bool",
+                      "value" : false
+                    }
+                  ]
+                ]
+              },
+              "physicsMode" : "grid",
+              "title" : "3d",
+              "viewTransform" : {
+                "cameraTransform" : [
+                  0.99417543411254883,
+                  3.1071123451908988e-09,
+                  -0.10777398198843002,
+                  0,
+                  -0.058894842863082886,
+                  0.83748155832290649,
+                  -0.54328280687332153,
+                  0,
+                  0.090258695185184479,
+                  0.54646587371826172,
+                  0.83260345458984375,
+                  0,
+                  0.12259829789400101,
+                  0.92854958772659302,
+                  1.323692798614502,
+                  1
+                ],
+                "sceneTransform" : [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          ],
+          "__version" : 5
+        }
+      ],
+      "tags" : {
+        "__content" : [
+          {
+            "tagsStore" : {
+
+            }
+          }
+        ],
+        "__version" : 1
+      }
+    }
+  ],
+  "__version" : 1
+}
