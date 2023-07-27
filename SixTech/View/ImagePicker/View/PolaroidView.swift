@@ -8,18 +8,8 @@
 import SwiftUI
 
 struct PolaroidView: View {
-    
-    @State private var imagePickerPresented = false
-    @Binding var selectedImage: UIImage?
     @Binding var isdisable: Bool
     @Binding var profileImage: Image?
-    
-    func loadImage() {
-        guard let selectedImage = selectedImage else { return }
-        profileImage = Image(uiImage: selectedImage)
-        isdisable = false
-        print("Image Pick Complete and isdisable false")
-    }
     
     var body: some View {
         ZStack {
@@ -28,10 +18,7 @@ struct PolaroidView: View {
                 .shadow(color: .black.opacity(0.3), radius: 10, x: 0)
             
             VStack {
-                Button {
-                    print("Image Picking")
-                    imagePickerPresented.toggle()
-                } label: {
+                Group {
                     if isdisable {
                         Rectangle()
                             .foregroundColor(.beforeImagePickColor)
@@ -47,22 +34,16 @@ struct PolaroidView: View {
                                 .foregroundColor(.beforeImagePickTextColor)
                             }
                     } else {
-                        // Image
-                        Image(uiImage: selectedImage!)
+                        profileImage!
                             .resizable()
                     }
                 }
                 .aspectRatio(1, contentMode: .fit)
                 .padding(.all, 12)
-                .sheet(isPresented: $imagePickerPresented,
-                       onDismiss: loadImage,
-                       content: { ImagePicker(image: $selectedImage) })
-                
                 Text("\(UserDefaults.standard.string(forKey: "username") ?? "")")
                 Text("Plz add Mission")
                 Spacer()
             }
         }
-        .padding(.horizontal, 45)
     }
 }

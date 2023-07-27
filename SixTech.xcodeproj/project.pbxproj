@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B5B27312A7268B600703D56 /* ShareImge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B27302A7268B600703D56 /* ShareImge.swift */; };
+		0B5B27362A72833900703D56 /* Causel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B27352A72833900703D56 /* Causel.swift */; };
+		0B5B273B2A72897600703D56 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B273A2A72897600703D56 /* Post.swift */; };
 		0BE598182A5FF23B00D019EA /* SwiftUIGIF in Frameworks */ = {isa = PBXBuildFile; productRef = 0BE598172A5FF23B00D019EA /* SwiftUIGIF */; };
 		0BE598392A60F9AC00D019EA /* OnboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */; };
 		0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */; };
@@ -102,6 +105,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B5B27302A7268B600703D56 /* ShareImge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareImge.swift; sourceTree = "<group>"; };
+		0B5B27352A72833900703D56 /* Causel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Causel.swift; sourceTree = "<group>"; };
+		0B5B273A2A72897600703D56 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0BE5980B2A5FD86F00D019EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = OnboardingGIF.gif; sourceTree = "<group>"; };
 		0E94FABC2A5A83AE002A39FB /* SixTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SixTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +199,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B5B272E2A72687B00703D56 /* ShareImage */ = {
+			isa = PBXGroup;
+			children = (
+				0B5B27372A7285C900703D56 /* Model */,
+				0B5B27322A7282FB00703D56 /* CaouselView */,
+				0B5B272F2A72689C00703D56 /* View */,
+			);
+			path = ShareImage;
+			sourceTree = "<group>";
+		};
+		0B5B272F2A72689C00703D56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B5B27302A7268B600703D56 /* ShareImge.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0B5B27322A7282FB00703D56 /* CaouselView */ = {
+			isa = PBXGroup;
+			children = (
+				0B5B27352A72833900703D56 /* Causel.swift */,
+			);
+			path = CaouselView;
+			sourceTree = "<group>";
+		};
+		0B5B27372A7285C900703D56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0B5B273A2A72897600703D56 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0E94FAB32A5A83AE002A39FB = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +305,7 @@
 		709C76002A725CFE00C16313 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0B5B272E2A72687B00703D56 /* ShareImage */,
 				709C76012A725CFE00C16313 /* ImagePicker */,
 				709C76072A725CFE00C16313 /* CameraFilter */,
 				709C760D2A725CFE00C16313 /* ShareResult */,
@@ -686,9 +727,11 @@
 				709C76402A725CFE00C16313 /* HistoryModel.swift in Sources */,
 				709C76512A725E7000C16313 /* UIViewExtension.swift in Sources */,
 				709C76312A725CFE00C16313 /* ImagePickView.swift in Sources */,
+				0B5B27312A7268B600703D56 /* ShareImge.swift in Sources */,
 				709C76842A725EDF00C16313 /* MapUI.swift in Sources */,
 				709C767F2A725EDF00C16313 /* CustomAlert.swift in Sources */,
 				709C767C2A725EDF00C16313 /* CustomMatchingViewController.swift in Sources */,
+				0B5B27362A72833900703D56 /* Causel.swift in Sources */,
 				709C76772A725EDF00C16313 /* TestView.swift in Sources */,
 				709C76342A725CFE00C16313 /* Camera.swift in Sources */,
 				709C76362A725CFE00C16313 /* ShareResultView.swift in Sources */,
@@ -696,6 +739,7 @@
 				709C76332A725CFE00C16313 /* CameraViewModel.swift in Sources */,
 				709C763C2A725CFE00C16313 /* PageTabViewStyle.swift in Sources */,
 				709C764C2A725CFE00C16313 /* ImageButton.swift in Sources */,
+				0B5B273B2A72897600703D56 /* Post.swift in Sources */,
 				709C76492A725CFE00C16313 /* FontExtension.swift in Sources */,
 				709C76352A725CFE00C16313 /* CameraView.swift in Sources */,
 			);
@@ -914,7 +958,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp.YOO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -944,7 +988,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp.YOO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

@@ -11,6 +11,14 @@ struct ImagePickView: View {
     @State private var isdisable: Bool = true
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
+    @State private var imagePickerPresented = false
+    
+    func loadImage() {
+        guard let selectedImage = selectedImage else { return }
+        profileImage = Image(uiImage: selectedImage)
+        isdisable = false
+        print("Image Pick Complete and isdisable false")
+    }
     // 미션
     var body: some View {
         VStack {
@@ -22,8 +30,16 @@ struct ImagePickView: View {
                 .multilineTextAlignment(.center)
                 .font(.Jamsil.light.font(size: 17))
                 .padding(.bottom, 30)
-            
-            PolaroidView(selectedImage: $selectedImage, isdisable: $isdisable, profileImage: $profileImage)
+            Button {
+                print("Image Picking")
+                imagePickerPresented.toggle()
+            } label: {
+                PolaroidView(isdisable: $isdisable, profileImage: $profileImage)
+            }
+            .sheet(isPresented: $imagePickerPresented,
+                   onDismiss: loadImage,
+                   content: { ImagePicker(image: $selectedImage) })
+            .padding(.horizontal, 45)
             
             ButtonView(text: "골랐어요!", isdisable: $isdisable) {
                     // Navigation -> ShareResultView
