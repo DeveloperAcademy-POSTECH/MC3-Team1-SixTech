@@ -38,3 +38,68 @@ struct DefaultButton: ButtonStyle {
             .opacity(configuration.isPressed ? 0.4 : 1)
     }
 }
+
+// 일반 버튼
+struct ButtonView: View {
+    let text: String
+    @Binding var isdisable: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            ButtonLabel(text: text, isdisable: $isdisable)
+        }
+        .disabled(isdisable)
+    }
+}
+
+// NavigationLink 버튼
+struct NavigationLinkView<Destination: View>: View {
+    let text: String
+    @Binding var isdisable: Bool
+    let destination: Destination
+
+    var body: some View {
+        NavigationLink {
+            destination
+        } label: {
+            ButtonLabel(text: text, isdisable: $isdisable)
+        }
+        .disabled(isdisable)
+    }
+}
+
+// 버튼 모양
+struct ButtonLabel: View {
+    let text: String
+    @Binding var isdisable: Bool
+    var body: some View {
+        Rectangle()
+            .cornerRadius(36)
+            .frame(height: 76)
+            .padding()
+            .foregroundColor(isdisable ? Color.disableColor : Color.defaultColor)
+            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+            .overlay {
+                Text(text)
+                    .foregroundColor(.white)
+                    .font(.Jamsil.bold.font(size: 24))
+            }
+    }
+}
+
+struct ButtonTest_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            VStack {
+                ButtonView(text: "Test", isdisable: Binding.constant(false)) {
+                    print("Test")
+                }
+                
+                NavigationLinkView(text: "TestNav", isdisable: Binding.constant(false), destination: CharacterCreateView())
+            }
+        }
+    }
+}
