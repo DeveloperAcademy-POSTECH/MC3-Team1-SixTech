@@ -23,6 +23,9 @@
 		0EB41DFE2A705940002929D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41DFD2A705940002929D9 /* Assets.xcassets */; };
 		0EB41E012A705940002929D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41E002A705940002929D9 /* Preview Assets.xcassets */; };
 		0EB41E052A705940002929D9 /* LetPlogWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7077986D2A72CE98000525B2 /* ResultWithPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986A2A72CE98000525B2 /* ResultWithPhotoView.swift */; };
+		7077986E2A72CE98000525B2 /* ResultWithPolylineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986B2A72CE98000525B2 /* ResultWithPolylineView.swift */; };
+		7077986F2A72CE98000525B2 /* EndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986C2A72CE98000525B2 /* EndResultView.swift */; };
 		709C76302A725CFE00C16313 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76032A725CFE00C16313 /* ImagePicker.swift */; };
 		709C76312A725CFE00C16313 /* ImagePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76052A725CFE00C16313 /* ImagePickView.swift */; };
 		709C76322A725CFE00C16313 /* PolaroidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76062A725CFE00C16313 /* PolaroidView.swift */; };
@@ -59,8 +62,7 @@
 		709C76742A725EDF00C16313 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76582A725EDE00C16313 /* PlayView.swift */; };
 		709C76752A725EDF00C16313 /* EngagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76592A725EDE00C16313 /* EngagementView.swift */; };
 		709C76762A725EDF00C16313 /* MyprofileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765A2A725EDE00C16313 /* MyprofileView.swift */; };
-		709C76772A725EDF00C16313 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765B2A725EDE00C16313 /* TestView.swift */; };
-		709C76782A725EDF00C16313 /* 캘린더.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765C2A725EDE00C16313 /* 캘린더.swift */; };
+		709C76782A725EDF00C16313 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765C2A725EDE00C16313 /* CalenderView.swift */; };
 		709C76792A725EDF00C16313 /* MyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765D2A725EDE00C16313 /* MyHistoryView.swift */; };
 		709C767A2A725EDF00C16313 /* WaitingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765E2A725EDE00C16313 /* WaitingRoomView.swift */; };
 		709C767B2A725EDF00C16313 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76602A725EDE00C16313 /* MatchManager.swift */; };
@@ -122,6 +124,9 @@
 		0EB41DFB2A70593F002929D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0EB41DFD2A705940002929D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EB41E002A705940002929D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7077986A2A72CE98000525B2 /* ResultWithPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultWithPhotoView.swift; sourceTree = "<group>"; };
+		7077986B2A72CE98000525B2 /* ResultWithPolylineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultWithPolylineView.swift; sourceTree = "<group>"; };
+		7077986C2A72CE98000525B2 /* EndResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndResultView.swift; sourceTree = "<group>"; };
 		709C76032A725CFE00C16313 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		709C76052A725CFE00C16313 /* ImagePickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickView.swift; sourceTree = "<group>"; };
 		709C76062A725CFE00C16313 /* PolaroidView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolaroidView.swift; sourceTree = "<group>"; };
@@ -159,8 +164,7 @@
 		709C76582A725EDE00C16313 /* PlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		709C76592A725EDE00C16313 /* EngagementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngagementView.swift; sourceTree = "<group>"; };
 		709C765A2A725EDE00C16313 /* MyprofileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyprofileView.swift; sourceTree = "<group>"; };
-		709C765B2A725EDE00C16313 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		709C765C2A725EDE00C16313 /* 캘린더.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "캘린더.swift"; sourceTree = "<group>"; };
+		709C765C2A725EDE00C16313 /* CalenderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 		709C765D2A725EDE00C16313 /* MyHistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHistoryView.swift; sourceTree = "<group>"; };
 		709C765E2A725EDE00C16313 /* WaitingRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingRoomView.swift; sourceTree = "<group>"; };
 		709C76602A725EDE00C16313 /* MatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
@@ -302,10 +306,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		707798692A72CE98000525B2 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				7077986A2A72CE98000525B2 /* ResultWithPhotoView.swift */,
+				7077986B2A72CE98000525B2 /* ResultWithPolylineView.swift */,
+				7077986C2A72CE98000525B2 /* EndResultView.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
 		709C76002A725CFE00C16313 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				0B5B272E2A72687B00703D56 /* ShareImage */,
+				707798692A72CE98000525B2 /* Result */,
 				709C76012A725CFE00C16313 /* ImagePicker */,
 				709C76072A725CFE00C16313 /* CameraFilter */,
 				709C760D2A725CFE00C16313 /* ShareResult */,
@@ -477,14 +492,13 @@
 		709C76572A725EDE00C16313 /* JerryTest */ = {
 			isa = PBXGroup;
 			children = (
+				709C765F2A725EDE00C16313 /* API */,
 				709C76582A725EDE00C16313 /* PlayView.swift */,
 				709C76592A725EDE00C16313 /* EngagementView.swift */,
 				709C765A2A725EDE00C16313 /* MyprofileView.swift */,
-				709C765B2A725EDE00C16313 /* TestView.swift */,
-				709C765C2A725EDE00C16313 /* 캘린더.swift */,
+				709C765C2A725EDE00C16313 /* CalenderView.swift */,
 				709C765D2A725EDE00C16313 /* MyHistoryView.swift */,
 				709C765E2A725EDE00C16313 /* WaitingRoomView.swift */,
-				709C765F2A725EDE00C16313 /* API */,
 				709C76622A725EDE00C16313 /* MainView.swift */,
 				709C76632A725EDE00C16313 /* CreateRoomView.swift */,
 				709C76642A725EDE00C16313 /* CustomAlert.swift */,
@@ -666,6 +680,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0EAD301E2A5C6F9A00E8A548 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -696,14 +711,17 @@
 				709C763E2A725CFE00C16313 /* OnBoarding2View.swift in Sources */,
 				709C763D2A725CFE00C16313 /* OnBoarding3View.swift in Sources */,
 				709C76832A725EDF00C16313 /* MapView.swift in Sources */,
-				709C76782A725EDF00C16313 /* 캘린더.swift in Sources */,
+				709C76782A725EDF00C16313 /* CalenderView.swift in Sources */,
 				709C764B2A725CFE00C16313 /* ColorExtension.swift in Sources */,
 				709C763F2A725CFE00C16313 /* OnBoardingView.swift in Sources */,
+				7077986F2A72CE98000525B2 /* EndResultView.swift in Sources */,
+				7077986D2A72CE98000525B2 /* ResultWithPhotoView.swift in Sources */,
 				709C76862A725EDF00C16313 /* SnapshotManager.swift in Sources */,
 				709C76382A725CFE00C16313 /* CharacterCreateViewModel.swift in Sources */,
 				0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */,
 				709C76422A725CFE00C16313 /* history.xcdatamodeld in Sources */,
 				709C76882A725EDF00C16313 /* MKPolyline+Coordinates.swift in Sources */,
+				7077986E2A72CE98000525B2 /* ResultWithPolylineView.swift in Sources */,
 				709C76322A725CFE00C16313 /* PolaroidView.swift in Sources */,
 				709C76502A725E7000C16313 /* ViewExtension.swift in Sources */,
 				709C76822A725EDF00C16313 /* TestPhotoView.swift in Sources */,
@@ -892,6 +910,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "같이줍깅을 사용하기 위해 건강데이터가 필요해요";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "같이줍깅을 사용하기 위해 건강데이터가 필요해요";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -922,6 +946,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "같이줍깅을 사용하기 위해 건강데이터가 필요해요";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "같이줍깅을 사용하기 위해 건강데이터가 필요해요";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

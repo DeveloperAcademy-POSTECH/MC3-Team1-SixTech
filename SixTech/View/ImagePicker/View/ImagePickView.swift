@@ -43,6 +43,7 @@ struct ImagePickView: View {
                    content: { ImagePicker(image: $selectedImage) })
             .padding(.horizontal, 45)
             
+            PolaroidView(selectedImage: $selectedImage, isdisable: $isdisable, profileImage: $profileImage)
             ButtonView(text: "골랐어요!", isdisable: $isdisable) {
                     // Navigation -> ShareResultView
             }
