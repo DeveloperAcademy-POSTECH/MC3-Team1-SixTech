@@ -276,4 +276,3 @@ extension CustomAlertModifier {
         _isPresented = isPresented
     }
 }
-
