@@ -56,7 +56,7 @@ struct PolaroidView: View {
                 .padding(.all, 12)
                 .sheet(isPresented: $imagePickerPresented,
                        onDismiss: loadImage,
-                       content: { ImagePicker(image: $selectedImage) })
+                       content: { ImagePicker(image: $selectedImage, sourceType: .photoLibrary) })
                 
                 Text("\(UserDefaults.standard.string(forKey: "username") ?? "")")
                 Text("Plz add Mission")

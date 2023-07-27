@@ -64,8 +64,9 @@ struct FilterCarouselView: View {
                                     )
                                     .overlay(getButtonOverlay(for: index))
                                 Text(filters[index % (filters.count / 2)])
-                                    .font(.system(size: 15))
+                                    .font(.Jamsil.light.font(size: 15))
                                     .foregroundColor(.white)
+                                    .padding(.top, 5)
                             }
                             .frame(width: geometry.size.width / 3)
                             .offset(x: self.dragOffset)
@@ -83,6 +84,7 @@ struct FilterCarouselView: View {
                                     })
                             )
                         }
+                        .foregroundColor(Color.white)
                     }
                 }
                 .padding(.top, 20)
@@ -96,11 +98,9 @@ struct FilterCarouselView: View {
     
     func getButtonOverlay(for index: Int) -> some View {
         return Circle()
-            .stroke(lineWidth: selectedIndex == index ? 2 : 0)
-//            .foregroundColor(.clear)
-            .frame(width: 100, height: 100)
+            .stroke(lineWidth: selectedIndex == index ? 5 : 0)
+            .frame(width: selectedIndex == index ? 90 : 0, height: selectedIndex == index ? 90 : 0)
             .foregroundColor(Color.backgroundColor)
-            .padding(.bottom, 5)
     }
     
     func takeScreenshotAndSave() {
