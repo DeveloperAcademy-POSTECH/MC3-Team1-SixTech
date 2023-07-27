@@ -31,6 +31,9 @@ extension Color {
     static let disableColor = Color(hexCode: "#B3B3B3")
     static let beforeImagePickColor = Color(hexCode: "#C4C4C4")
     static let beforeImagePickTextColor = Color(hexCode: "#1A8370")
+	static let fontColor = Color(hexCode: "#1A8370")
+	static let accentFontColor = Color(hexCode: "#106051")
+
 }
 
 struct Color_Previews: PreviewProvider {
