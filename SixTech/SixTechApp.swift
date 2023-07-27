@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct SixTechApp: App {
+    @StateObject var matchManager = MatchManager()
+    
     var body: some Scene {
         WindowGroup {
-            OnBoardingView()
+            MainView()
+                .environmentObject(matchManager)
         }
     }
 }
