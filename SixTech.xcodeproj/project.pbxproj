@@ -56,8 +56,7 @@
 		709C76742A725EDF00C16313 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76582A725EDE00C16313 /* PlayView.swift */; };
 		709C76752A725EDF00C16313 /* EngagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76592A725EDE00C16313 /* EngagementView.swift */; };
 		709C76762A725EDF00C16313 /* MyprofileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765A2A725EDE00C16313 /* MyprofileView.swift */; };
-		709C76772A725EDF00C16313 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765B2A725EDE00C16313 /* TestView.swift */; };
-		709C76782A725EDF00C16313 /* 캘린더.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765C2A725EDE00C16313 /* 캘린더.swift */; };
+		709C76782A725EDF00C16313 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765C2A725EDE00C16313 /* CalenderView.swift */; };
 		709C76792A725EDF00C16313 /* MyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765D2A725EDE00C16313 /* MyHistoryView.swift */; };
 		709C767A2A725EDF00C16313 /* WaitingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C765E2A725EDE00C16313 /* WaitingRoomView.swift */; };
 		709C767B2A725EDF00C16313 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76602A725EDE00C16313 /* MatchManager.swift */; };
@@ -153,8 +152,7 @@
 		709C76582A725EDE00C16313 /* PlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		709C76592A725EDE00C16313 /* EngagementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngagementView.swift; sourceTree = "<group>"; };
 		709C765A2A725EDE00C16313 /* MyprofileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyprofileView.swift; sourceTree = "<group>"; };
-		709C765B2A725EDE00C16313 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		709C765C2A725EDE00C16313 /* 캘린더.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "캘린더.swift"; sourceTree = "<group>"; };
+		709C765C2A725EDE00C16313 /* CalenderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 		709C765D2A725EDE00C16313 /* MyHistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHistoryView.swift; sourceTree = "<group>"; };
 		709C765E2A725EDE00C16313 /* WaitingRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingRoomView.swift; sourceTree = "<group>"; };
 		709C76602A725EDE00C16313 /* MatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
@@ -436,14 +434,13 @@
 		709C76572A725EDE00C16313 /* JerryTest */ = {
 			isa = PBXGroup;
 			children = (
+				709C765F2A725EDE00C16313 /* API */,
 				709C76582A725EDE00C16313 /* PlayView.swift */,
 				709C76592A725EDE00C16313 /* EngagementView.swift */,
 				709C765A2A725EDE00C16313 /* MyprofileView.swift */,
-				709C765B2A725EDE00C16313 /* TestView.swift */,
-				709C765C2A725EDE00C16313 /* 캘린더.swift */,
+				709C765C2A725EDE00C16313 /* CalenderView.swift */,
 				709C765D2A725EDE00C16313 /* MyHistoryView.swift */,
 				709C765E2A725EDE00C16313 /* WaitingRoomView.swift */,
-				709C765F2A725EDE00C16313 /* API */,
 				709C76622A725EDE00C16313 /* MainView.swift */,
 				709C76632A725EDE00C16313 /* CreateRoomView.swift */,
 				709C76642A725EDE00C16313 /* CustomAlert.swift */,
@@ -625,6 +622,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0EAD301E2A5C6F9A00E8A548 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -655,7 +653,7 @@
 				709C763E2A725CFE00C16313 /* OnBoarding2View.swift in Sources */,
 				709C763D2A725CFE00C16313 /* OnBoarding3View.swift in Sources */,
 				709C76832A725EDF00C16313 /* MapView.swift in Sources */,
-				709C76782A725EDF00C16313 /* 캘린더.swift in Sources */,
+				709C76782A725EDF00C16313 /* CalenderView.swift in Sources */,
 				709C764B2A725CFE00C16313 /* ColorExtension.swift in Sources */,
 				709C763F2A725CFE00C16313 /* OnBoardingView.swift in Sources */,
 				709C76862A725EDF00C16313 /* SnapshotManager.swift in Sources */,
@@ -689,7 +687,6 @@
 				709C76842A725EDF00C16313 /* MapUI.swift in Sources */,
 				709C767F2A725EDF00C16313 /* CustomAlert.swift in Sources */,
 				709C767C2A725EDF00C16313 /* CustomMatchingViewController.swift in Sources */,
-				709C76772A725EDF00C16313 /* TestView.swift in Sources */,
 				709C76342A725CFE00C16313 /* Camera.swift in Sources */,
 				709C76362A725CFE00C16313 /* ShareResultView.swift in Sources */,
 				709C764A2A725CFE00C16313 /* ImageURLExtension.swift in Sources */,

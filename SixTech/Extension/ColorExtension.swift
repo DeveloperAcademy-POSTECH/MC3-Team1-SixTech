@@ -33,7 +33,7 @@ extension Color {
     static let beforeImagePickTextColor = Color(hexCode: "#1A8370")
 	static let fontColor = Color(hexCode: "#1A8370")
 	static let accentFontColor = Color(hexCode: "#106051")
-
+    static let calendarNumberBackground = Color(hexCode: "#E5F9F5")
 }
 
 struct Color_Previews: PreviewProvider {
