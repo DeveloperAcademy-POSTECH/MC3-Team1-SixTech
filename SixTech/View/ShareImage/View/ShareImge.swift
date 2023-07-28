@@ -16,10 +16,6 @@ struct ShareImgeView: View {
     @Namespace var animation
 //    @State var capture: NSImage?
     
-    func saveImageToPhotos(image: UIImage) {
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        }
-    
     var body: some View {
         
         VStack {
@@ -28,7 +24,7 @@ struct ShareImgeView: View {
                 ImageButton(image: .right) {
                     print("")
                 }
-                .padding(.leading)
+                .padding(.trailing)
             }
             
             Text("플로깅이 끝났어요.")
@@ -44,8 +40,8 @@ struct ShareImgeView: View {
                 
                 GeometryReader { proxy in
                     let size = proxy.size
-                    PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(image.postImage), userName: .constant("User"), userMission: .constant("Mision"))
-                        .frame(width: size.width)
+                    PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(Image("face_dust_gray")), userName: .constant("User"), userMission: .constant("Mision"))
+//                        .frame(width: size.width)
                     
                 }
             }
@@ -53,7 +49,11 @@ struct ShareImgeView: View {
             Spacer()
             
             ButtonView(text: "로렌조가 만든 버튼으로 바꿀예정", isdisable: .constant(false)) {
+                let renderer = ImageRenderer(content: PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(Image("face_dust_gray")), userName: .constant("User"), userMission: .constant("Mision")))
                 
+                if let image = renderer.uiImage {
+                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                }
             }
             .padding(.top, 100)
         }
@@ -65,25 +65,11 @@ struct ShareImgeView: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         ShareImgeView(images: [
-            ShareImage(postImage: Image("face_dust_gray")), // Replace with your image names or URLs
+            ShareImage(postImage: Image("face_dust_gray")),
                         ShareImage(postImage: Image("face_dust_yellow")),
                         ShareImage(postImage: Image("face_can_gray")),
                         ShareImage(postImage: Image("face_bag_yellow")),
                         ShareImage(postImage: Image("face_pet_gray"))
         ])
-    }
-}
-
-struct SnapshotSaver<Content: View>: UIViewRepresentable {
-    let content: Content
-
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 400)) // 크기를 조정하거나 뷰에 맞게 설정
-        view.addSubview(UIHostingController(rootView: content).view)
-        return view
-    }
-
-    func updateUIView(_ uiView: UIView, context: Context) {
-        // Nothing to do here
     }
 }

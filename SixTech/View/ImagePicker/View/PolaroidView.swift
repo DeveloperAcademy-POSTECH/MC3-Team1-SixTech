@@ -53,11 +53,21 @@ struct PolaroidView: View {
                             .frame(width: 32, height: 32)
                     }
                     
-                    Text(userName ?? "")
+                    Text(userName ?? "Default")
+                        .foregroundColor(.black)
                 }
-                Text(userMission ?? "")
+                Text(userMission ?? "Default Mission")
+                    .foregroundColor(.black)
                 Spacer()
             }
         }
+//        .padding()
+        .aspectRatio(3/4, contentMode: .fit)
+    }
+}
+
+struct PolaPreview: PreviewProvider {
+    static var previews: some View {
+        PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(Image("face_dust_gray")), userName: .constant("User"), userMission: .constant("Mision"))
     }
 }

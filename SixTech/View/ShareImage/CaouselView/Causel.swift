@@ -32,10 +32,6 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
     var body: some View {
             
         GeometryReader { proxy in
-            
-            // Settings correct Width for snap Carousel...
-    
-            // One Sided Snap Carousel
             let width = proxy.size.width - ( trailingSpace - spacing )
             let adjustMentWidth = (trailingSpace / 2) - spacing
             
@@ -45,10 +41,7 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
                         .frame(width: proxy.size.width - trailingSpace)
                 }
             }
-            
-            // Spacing will be horizontal padding...
             .padding(.horizontal, spacing)
-            // Setting only after 0th index...
             .offset(x: (CGFloat(currentIndex) * -width) + adjustMentWidth + offset)
             .gesture(
                 DragGesture()
@@ -56,14 +49,7 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
                         out = value.translation.width
                     })
                     .onEnded({ value in
-                        
-                        // Updating Current Index....
                         let offsetX = value.translation.width
-                        
-                        // Were going to convert the tranlsation into progreess ( 0 - 1 )
-                        // and round the value...
-                        // based on the progress increasing or decreasing the currentInde....
-                        
                         let progress = -offsetX / width
                         let roundIndex = progress.rounded()
                     
@@ -74,19 +60,11 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
                         currentIndex = index
                     })
                     .onChanged({ value in
-                        // updating only index...
-                        
-                        // Updating Current Index....
                         let offsetX = value.translation.width
-                        
-                        // Were going to convert the tranlsation into progreess ( 0 - 1 )
-                        // and round the value...
-                        // based on the progress increasing or decreasing the currentInde....
                         
                         let progress = -offsetX / width
                         let roundIndex = progress.rounded()
-                    
-                        // setting max....
+
                         index = max(min(currentIndex + Int(roundIndex), list.count - 1), 0)
                     
                     })

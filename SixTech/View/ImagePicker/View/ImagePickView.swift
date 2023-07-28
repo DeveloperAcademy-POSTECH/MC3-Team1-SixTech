@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ImagePickView: View {
     @State private var isdisable: Bool = true
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
     @State private var imagePickerPresented = false
-    @State private var userName: String? = UserDefaults.standard.string(forKey:"username") ?? ""
+    @State private var userName: String? = UserDefaults.standard.string(forKey: "username") ?? ""
     @State private var userMission: String?
     
     func loadImage() {
@@ -43,7 +44,7 @@ struct ImagePickView: View {
                    content: { ImagePicker(image: $selectedImage) })
             .padding(.horizontal, 45)
             
-            PolaroidView(selectedImage: $selectedImage, isdisable: $isdisable, profileImage: $profileImage)
+//            PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission)
             ButtonView(text: "골랐어요!", isdisable: $isdisable) {
                     // Navigation -> ShareResultView
             }
@@ -57,3 +58,4 @@ struct ImagePickView_Previews: PreviewProvider {
         ImagePickView()
     }
 }
+

@@ -177,14 +177,6 @@ extension UIImage {
         
         return newImage
     }
-    
-    func resize(to newSize: CGSize) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        self.draw(in: CGRect(origin: .zero, size: newSize))
-        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return scaledImage ?? self
-    }
 
     func resizeAndCrop(to size: CGSize) -> UIImage? {
           let scale = max(size.width / self.size.width, size.height / self.size.height)
