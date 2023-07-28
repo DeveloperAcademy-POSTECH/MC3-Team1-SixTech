@@ -8,18 +8,11 @@
 import SwiftUI
 
 struct PolaroidView: View {
-    
-    @State private var imagePickerPresented = false
-    @Binding var selectedImage: UIImage?
     @Binding var isdisable: Bool
     @Binding var profileImage: Image?
-    
-    func loadImage() {
-        guard let selectedImage = selectedImage else { return }
-        profileImage = Image(uiImage: selectedImage)
-        isdisable = false
-        print("Image Pick Complete and isdisable false")
-    }
+    @Binding var userName: String?
+    @Binding var userMission: String?
+    @AppStorage("profileURL") var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!
     
     var body: some View {
         ZStack {
@@ -28,10 +21,7 @@ struct PolaroidView: View {
                 .shadow(color: .black.opacity(0.3), radius: 10, x: 0)
             
             VStack {
-                Button {
-                    print("Image Picking")
-                    imagePickerPresented.toggle()
-                } label: {
+                Group {
                     if isdisable {
                         Rectangle()
                             .foregroundColor(.beforeImagePickColor)
@@ -47,22 +37,27 @@ struct PolaroidView: View {
                                 .foregroundColor(.beforeImagePickTextColor)
                             }
                     } else {
-                        // Image
-                        Image(uiImage: selectedImage!)
+                        profileImage!
                             .resizable()
                     }
                 }
                 .aspectRatio(1, contentMode: .fit)
                 .padding(.all, 12)
-                .sheet(isPresented: $imagePickerPresented,
-                       onDismiss: loadImage,
-                       content: { ImagePicker(image: $selectedImage, sourceType: .photoLibrary) })
-                
-                Text("\(UserDefaults.standard.string(forKey: "username") ?? "")")
-                Text("Plz add Mission")
+                HStack(alignment: .center) {
+                    ZStack {
+                        Circle()
+                            .foregroundColor(.backgroundColor)
+                            .frame(width: 40, height: 40)
+                        Image(uiImage: loadImageFromURL(imageURL: profileImageURL))
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                    }
+                    
+                    Text(userName ?? "")
+                }
+                Text(userMission ?? "")
                 Spacer()
             }
         }
-        .padding(.horizontal, 45)
     }
 }

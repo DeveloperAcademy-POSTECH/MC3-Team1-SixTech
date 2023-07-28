@@ -14,7 +14,8 @@ struct SixTechApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+            ShareImgeView(images: [])
+            .frame(height: 200)
                 .environmentObject(matchManager)
         }
     }
