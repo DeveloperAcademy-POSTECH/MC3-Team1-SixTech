@@ -10,10 +10,10 @@ import CoreData
 
 @main
 struct SixTechApp: App {
-    @StateObject var matchManager = MatchManager()
-    @StateObject var historyManager = CoredataManager()
-    @StateObject var userInfo = UserInfo()
-    @AppStorage("onboarding") var isOnboardingActive: Bool = true
+    @StateObject private var matchManager = MatchManager()
+    @StateObject private var historyManager = CoredataManager()
+    @StateObject private var userInfo = UserInfo()
+    @AppStorage("onboarding") private var isOnboardingActive: Bool = true
     
     var body: some Scene {
         WindowGroup {
@@ -25,7 +25,7 @@ struct SixTechApp: App {
                 }
             }
             .environmentObject(matchManager).environmentObject(userInfo)
-//            .environmentObject(historyManager)
+            .environment(\.managedObjectContext, historyManager.container.viewContext)
         }
 
     }
