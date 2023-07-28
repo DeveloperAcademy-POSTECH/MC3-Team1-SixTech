@@ -21,6 +21,7 @@
 		576D75532A72AE5E002F977E /* earth.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 576D75522A72AE5D002F977E /* earth.rcproject */; };
 		576D75552A72AEBE002F977E /* FilterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D75542A72AEBE002F977E /* FilterCarouselView.swift */; };
 		576D755D2A72F220002F977E /* sneaker_pegasustrail.scn in Resources */ = {isa = PBXBuildFile; fileRef = 576D755C2A72F220002F977E /* sneaker_pegasustrail.scn */; };
+		576D75612A73A844002F977E /* stone.scn in Resources */ = {isa = PBXBuildFile; fileRef = 576D75602A73A844002F977E /* stone.scn */; };
 		709C76302A725CFE00C16313 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76032A725CFE00C16313 /* ImagePicker.swift */; };
 		709C76312A725CFE00C16313 /* ImagePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76052A725CFE00C16313 /* ImagePickView.swift */; };
 		709C76322A725CFE00C16313 /* PolaroidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76062A725CFE00C16313 /* PolaroidView.swift */; };
@@ -107,6 +108,7 @@
 		576D75522A72AE5D002F977E /* earth.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = earth.rcproject; sourceTree = "<group>"; };
 		576D75542A72AEBE002F977E /* FilterCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCarouselView.swift; sourceTree = "<group>"; };
 		576D755C2A72F220002F977E /* sneaker_pegasustrail.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = sneaker_pegasustrail.scn; sourceTree = "<group>"; };
+		576D75602A73A844002F977E /* stone.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = stone.scn; sourceTree = "<group>"; };
 		709C76032A725CFE00C16313 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		709C76052A725CFE00C16313 /* ImagePickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickView.swift; sourceTree = "<group>"; };
 		709C76062A725CFE00C16313 /* PolaroidView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolaroidView.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				576D754C2A72AD5C002F977E /* CameraFilterView.swift */,
 				576D75522A72AE5D002F977E /* earth.rcproject */,
 				576D755C2A72F220002F977E /* sneaker_pegasustrail.scn */,
+				576D75602A73A844002F977E /* stone.scn */,
 				576D754E2A72AD93002F977E /* CameraModel.swift */,
 				576D75502A72ADB7002F977E /* ARViewContainer.swift */,
 				576D75542A72AEBE002F977E /* FilterCarouselView.swift */,
@@ -562,6 +565,7 @@
 				576D755D2A72F220002F977E /* sneaker_pegasustrail.scn in Resources */,
 				709C76482A725CFE00C16313 /* TheJamsilOTF6ExtraBold.otf in Resources */,
 				709C76442A725CFE00C16313 /* TheJamsilOTF3Regular.otf in Resources */,
+				576D75612A73A844002F977E /* stone.scn in Resources */,
 				0BE598392A60F9AC00D019EA /* OnboardingGIF.gif in Resources */,
 				0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */,
 			);

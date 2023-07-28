@@ -9,23 +9,31 @@ import RealityKit
 import PhotosUI
 
 struct CameraFilterView : View {
-    @State private var isCameraPresented = false
     @State private var isAlbumPresented = false
     @State private var isboltClicked = false
     @State private var capturedImage: UIImage? = nil
     @State private var useFrontCamera = false
+    @State private var currentIndex: Int = 0
     
     @StateObject private var cameraModel = CameraModel()
     
     var body: some View {
         ZStack {
-//            ARViewContainer().edgesIgnoringSafeArea(.all)
-            ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel)
+//            ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel)
+            if (currentIndex == 0 || currentIndex == 3) {
+                // Display 2D View here
+            }
+            else if (currentIndex == 1 || currentIndex == 4) {
+                ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel)
+            }
+            else if (currentIndex == 2 || currentIndex == 5) {
+                ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel)
+            }
             VStack {
                 VStack{
                     HStack{
                         Button(action: {
-                            
+                            print(currentIndex)
                         }) {
                             Image(systemName: "xmark")
                                 .resizable()
@@ -63,7 +71,8 @@ struct CameraFilterView : View {
                     })
                 //camera
                 VStack{
-                    FilterCarouselView(capturedImage: $capturedImage)
+                    FilterCarouselView(capturedImage: $capturedImage, currentIndex: $currentIndex, spacing: 10, trailingSpace: 20)
+
                         .padding(.bottom, 1)
                     HStack {
                         Button(action: {

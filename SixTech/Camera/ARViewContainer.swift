@@ -20,6 +20,8 @@ struct ARViewContainer: UIViewRepresentable {
         let arView = ARSCNView()
         arView.delegate = context.coordinator
         arView.session.delegate = context.coordinator
+        let tapRecognizer = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
+        arView.addGestureRecognizer(tapRecognizer)
         return arView
     }
     
@@ -35,16 +37,27 @@ struct ARViewContainer: UIViewRepresentable {
             self.parent = parent
         }
         
+        @objc func handleTap(_ gesture: UITapGestureRecognizer) {
+            guard let arView = gesture.view as? ARSCNView else { return }
+            let touchLocation = gesture.location(in: arView)
+            let hitTestResults = arView.hitTest(touchLocation, types: .estimatedHorizontalPlane)
+            guard let hitTestResult = hitTestResults.first else { return }
+            let transform = hitTestResult.worldTransform
+            let position = SCNVector3(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+            addARObject(at: position, to: arView)
+        }
+        
+        func addARObject(at position: SCNVector3, to arView: ARSCNView) {
+            let yourSCNFile = SCNScene(named: "stone.scn")
+            guard let scnNode = yourSCNFile?.rootNode else { return }
+            scnNode.position = position
+            scnNode.scale = SCNVector3(1, 1, 1)
+            arView.scene.rootNode.addChildNode(scnNode)
+        }
+        
         func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-            // Check if the added anchor is an ARFaceAnchor when using ARFaceTrackingConfiguration
             if let faceAnchor = anchor as? ARFaceAnchor, parent.useFrontCamera {
-                // Load your SCN file and add it to the node
-                let yourSCNFile = SCNScene(named: "sneaker_pegasustrail.scn")
-                let scnNode = yourSCNFile?.rootNode
-                node.addChildNode(scnNode!)
-            } else {
-                // Load your SCN file and add it to the node
-                let yourSCNFile = SCNScene(named: "sneaker_pegasustrail.scn")
+                let yourSCNFile = SCNScene(named: "stone.scn")
                 let scnNode = yourSCNFile?.rootNode
                 node.addChildNode(scnNode!)
             }
