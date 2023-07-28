@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftUIGIF
 
 struct OnBoardingView: View {
+    
     @State private var currentPage = 1
     
     var body: some View {
@@ -36,7 +37,3 @@ struct OnBoardingView_Previews: PreviewProvider {
         OnBoardingView()
     }
 }
-
-// NavigationLink("확인했어요") {
-//    CharacterCreateView()
-// }.buttonStyle(DefaultButton(isdisable: false))

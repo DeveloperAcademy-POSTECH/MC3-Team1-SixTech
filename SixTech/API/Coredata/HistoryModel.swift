@@ -8,10 +8,10 @@
 import CoreData
 
 class CoredataManager: ObservableObject {
-    let container = NSPersistentContainer(name: "History")
+    let container = NSPersistentContainer(name: "history")
     
     init() {
-        container.loadPersistentStores { desc, error in
+        container.loadPersistentStores { _, error in
             if let error = error {
                 print("Nooooooooooo? \(error.localizedDescription)")
             }
@@ -27,15 +27,15 @@ class CoredataManager: ObservableObject {
         }
     }
     
-    func addHistory(date: Date, image: URL, trash: String, steps: String, kilometer: String, kcal: Int16, context: NSManagedObjectContext) {
+    func addHistory(hist: History, context: NSManagedObjectContext) {
         let history = History(context: context)
         history.uuid = UUID()
-        history.date = date
-        history.image = image
-        history.trash = trash
-        history.steps = steps
-        history.kilometer = kilometer
-        history.kcal = kcal
+        history.date = hist.date
+        history.image = hist.image
+        history.trash = hist.trash
+        history.steps = hist.steps
+        history.kilometer = hist.kilometer
+        history.kcal = hist.kcal
         
         saveHistory(context: context)
     }

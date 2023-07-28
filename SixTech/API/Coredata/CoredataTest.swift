@@ -20,30 +20,30 @@ struct CoredataTest: View {
     @State private var trash: String = "100"
     @State private var kcal: Int16 = 300
     @State private var image: URL? = URL(string: "file:///Users/a_mcflurry/Library/Developer/Xcode/UserData/Previews/Simulator%20Devices/9C22CA36-B077-4ADB-AE51-F31615D8E474/data/Containers/Data/Application/EB164961-9917-422D-867E-1D8A093325CB/Documents/F3174D90-0F91-41F7-A3E4-A70F91269D53.png")
-    
+
     var body: some View {
         NavigationView {
             VStack {
                 DatePicker("Date", selection: $date, displayedComponents: .date)
                     .datePickerStyle(WheelDatePickerStyle())
-                
+
                 TextField("Kilometer", text: $kilometer)
                 TextField("Steps", text: $steps)
                 TextField("Trash", text: $trash)
                 TextField("Kcal", value: $kcal, formatter: NumberFormatter())
-                
+
                 NavigationLinkView(text: "PrintTestView"
                                    , isdisable: Binding.constant(false)
                                    , destination: CoredataFetchTestView())
                 .simultaneousGesture(TapGesture().onEnded {
-                    CoredataManager().addHistory(date: date, image: image!, trash: trash, steps: steps, kilometer: kilometer, kcal: kcal, context: managedObjContext)
+//                    CoredataManager().addHistory(date: date, image: image!, trash: trash, steps: steps, kilometer: kilometer, kcal: kcal, context: managedObjContext)
                 })
-                
+
                 NavigationLinkView(text: "ListTestView"
                                    , isdisable: Binding.constant(false)
                                    , destination: CoredataListView())
                 .simultaneousGesture(TapGesture().onEnded {
-                    CoredataManager().addHistory(date: date, image: image!, trash: trash, steps: steps, kilometer: kilometer, kcal: kcal, context: managedObjContext)
+//                    CoredataManager().addHistory(date: date, image: image!, trash: trash, steps: steps, kilometer: kilometer, kcal: kcal, context: managedObjContext)
                 })
             }
         }
@@ -60,13 +60,13 @@ struct CoredataTest_Previews: PreviewProvider {
 struct CoredataFetchTestView: View {
 // 불러오기만 할떄는 환경 변수 말고 이렇게 CoredataManager만 대리고 오면 됩니다.
     let coredataManager = CoredataManager()
-    
+
     var body: some View {
         VStack {
             Button("Fetch Data") {
                 let targetDate = coredataManager.createDate(year: 2023, month: 8, days: 15)
                 let historyForDate = coredataManager.fetchHistory(targetDate: targetDate)
-                
+
                 if historyForDate.isEmpty {
                     print("No data")
                 } else {
@@ -83,10 +83,10 @@ struct CoredataFetchTestView: View {
                     }
                 }
             }
-            
+
             Button("Fetch ALL Data") {
                 let allHistory = coredataManager.fetchAllHistory()
-                
+
                 if allHistory.isEmpty {
                     print("No data")
                 } else {
@@ -103,7 +103,7 @@ struct CoredataFetchTestView: View {
                     }
                 }
             }
-            
+
             Button("Delete Data") {
                 coredataManager.deleteAllData()
             }
@@ -118,7 +118,7 @@ struct CoredataListView: View {
     var targetDate: Date {
         coredataManager.createDate(year: 2023, month: 8, days: 15)
         }
-    
+
     var body: some View {
         let historyForDate = coredataManager.fetchHistory(targetDate: targetDate)
         List {

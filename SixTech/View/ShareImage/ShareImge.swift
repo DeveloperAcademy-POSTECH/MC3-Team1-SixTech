@@ -44,7 +44,7 @@ struct ShareImgeView: View {
                 
                 GeometryReader { proxy in
                     let size = proxy.size
-                    PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(image.postImage), userName: .constant("User"), userMission: .constant("Mision"))
+                    PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(image.postImage), userMission: .constant("Mision"))
                         .frame(width: size.width)
                     
                 }

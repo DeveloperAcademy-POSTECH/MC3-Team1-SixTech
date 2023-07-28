@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WaitingRoomView: View {
+    @EnvironmentObject var userInfo: UserInfo
     @EnvironmentObject var matchManager: MatchManager
     @Environment(\.dismiss) var dismiss
     
@@ -24,7 +25,7 @@ struct WaitingRoomView: View {
                 Text("모두 도착할 때까지 기다려요.")
                     .font(.Jamsil.light.font(size: 20))
                 
-                Image("onboarding_character")
+                Image(uiImage: loadImageFromURL(imageURL: userInfo.profileImageURL))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 136, height: 136)
@@ -34,16 +35,15 @@ struct WaitingRoomView: View {
                     )
                     .padding()
                 
-                Text("들린매스크")
+                Text(userInfo.name)
                     .font(.Jamsil.bold.font(size: 25))
                     .padding()
                 
                 ScrollView {
-                    PlayerCellView(image: "onboarding_character"
-                                   , nickName: matchManager.localPlayer.displayName)
+                    PlayerCellView(image: userInfo.profileImageURL, nickName: userInfo.name)
                     if matchManager.otherPlayer != nil {
                         ForEach(matchManager.otherPlayer!, id: \.self) { _ in
-                            PlayerCellView(image: "onboarding_character", nickName: matchManager.lastData)
+                            PlayerCellView(image: userInfo.profileImageURL, nickName: matchManager.lastData)
                         }
                     }
                 }.background(
@@ -94,12 +94,12 @@ struct WaitingRoomView: View {
 }
 
 struct PlayerCellView: View {
-    let image: String
+    let image: URL
     let nickName: String
     
     var body: some View {
         HStack {
-            Image(image)
+            Image(uiImage: loadImageFromURL(imageURL: image))
                 .resizable()
                 .frame(width: 80, height: 80)
                 .scaledToFill()

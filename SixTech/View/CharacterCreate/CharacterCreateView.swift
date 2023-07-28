@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct CharacterCreateView: View {
+    @AppStorage("onboarding") var isOnboardingActive: Bool = true
+    
     @StateObject private var viewModel = CharacterCreateViewModel()
     @State private var isButtonTap = false
+    
     var body: some View {
         VStack {
             Spacer()
@@ -48,13 +51,12 @@ struct CharacterCreateView: View {
             Spacer()
             Spacer()
                             
-            NavigationLinkView(text: "선택하기"
-                               , isdisable: Binding.constant(viewModel.isdisable)
-                               , destination: MainView())
+            ButtonView(text: "선택하기", isdisable: Binding.constant(false), action: {
+                isOnboardingActive = false
+            })
             .simultaneousGesture(TapGesture().onEnded {
                 viewModel.saveUserDefault()
             })
-            
                 }
         .navigationBarBackButtonHidden()
     }

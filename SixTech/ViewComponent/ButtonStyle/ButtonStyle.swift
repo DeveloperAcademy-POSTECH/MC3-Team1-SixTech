@@ -39,6 +39,24 @@ struct DefaultButton: ButtonStyle {
     }
 }
 
+struct ProfileButton: ButtonStyle {
+    @State var isdisable: Bool
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundColor(.fontColor)
+            .frame(width: 342, height: 76)
+            .background(isdisable ? Color.disableColor : Color.white)
+            .cornerRadius(36)
+            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+            .font(.Jamsil.bold.font(size: 24))
+            .opacity(configuration.isPressed ? 0.4 : 1)
+            .background {
+                RoundedRectangle(cornerRadius: 36)
+                    .stroke(Color.defaultColor, lineWidth: 5)
+            }
+    }
+}
+
 struct SmallButton: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {

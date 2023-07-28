@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ImagePickView: View {
+    @EnvironmentObject var userInfo: UserInfo
+    
     @State private var isdisable: Bool = true
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
     @State private var imagePickerPresented = false
-    @State private var userName: String? = UserDefaults.standard.string(forKey:"username") ?? ""
     @State private var userMission: String?
     
     func loadImage() {
@@ -37,7 +38,7 @@ struct ImagePickView: View {
                 print("Image Picking")
                 imagePickerPresented.toggle()
             } label: {
-                PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission)
+                PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userMission: $userMission)
             }
             .sheet(isPresented: $imagePickerPresented,
                    onDismiss: loadImage,
@@ -55,5 +56,6 @@ struct ImagePickView: View {
 struct ImagePickView_Previews: PreviewProvider {
     static var previews: some View {
         ImagePickView()
+            .environmentObject(UserInfo())
     }
 }

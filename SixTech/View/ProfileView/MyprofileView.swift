@@ -9,13 +9,14 @@ import SwiftUI
 
 struct MyprofileView: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var userInfo: UserInfo
     
     @State var nickName: String = "" // 추후 텍스트필드 적용할 것.
     
     var body: some View {
         
         VStack(spacing: 18) {
-            textBackgroundView(st1: "닉네임", st2: "들린매스크")
+            textBackgroundView(st1: "닉네임", st2: userInfo.name)
             textBackgroundView(st1: "캐릭터", nextView: Text("gogo"))
             textBackgroundView(st1: "이전기록", nextView: MyHistoryView())
             Spacer()
@@ -81,5 +82,6 @@ struct MyprofileView: View {
 struct MyprofileView_Previews: PreviewProvider {
     static var previews: some View {
         MyprofileView()
+            .environmentObject(UserInfo())
     }
 }

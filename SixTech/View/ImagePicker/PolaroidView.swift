@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct PolaroidView: View {
+    @EnvironmentObject var userInfo: UserInfo
+    
     @Binding var isdisable: Bool
     @Binding var profileImage: Image?
-    @Binding var userName: String?
     @Binding var userMission: String?
-    @AppStorage("profileURL") var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!
     
     var body: some View {
         ZStack {
@@ -48,12 +48,12 @@ struct PolaroidView: View {
                         Circle()
                             .foregroundColor(.backgroundColor)
                             .frame(width: 40, height: 40)
-                        Image(uiImage: loadImageFromURL(imageURL: profileImageURL))
+                        Image(uiImage: loadImageFromURL(imageURL: userInfo.profileImageURL))
                             .resizable()
                             .frame(width: 32, height: 32)
                     }
                     
-                    Text(userName ?? "")
+                    Text(userInfo.name)
                 }
                 Text(userMission ?? "")
                 Spacer()

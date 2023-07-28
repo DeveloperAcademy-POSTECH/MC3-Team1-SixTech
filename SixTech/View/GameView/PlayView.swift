@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIGIF
 
 struct PloggingPlayView: View {
     @EnvironmentObject var matchManager: MatchManager
@@ -91,10 +92,9 @@ struct FrontView: View {
                 .fill(Color.background2Color)
                 .shadow(radius: 13)
             VStack {
-                Image("onboarding_character")
-                    .resizable()
+                GIFImage(name: "OnboardingGIF")
                     .scaledToFill()
-                    .frame(width: 200, height: 200)
+                    .frame(width: 300, height: 300)
                 Text("환경을 지키는 우리의 노력이 세상을 바꿉니다. \n오늘도 플로깅 화이팅하세요!")
                     .multilineTextAlignment(.center)
                     .font(.Jamsil.light.font(size: 16))
@@ -129,47 +129,38 @@ struct BackView: View {
                 Text("같이줍깅 가이드")
                     .font(.Jamsil.bold.font(size: 20))
                 HStack {
-                    Image("onboarding_character")
+                    Image("GU1")
                         .resizable()
-                        .frame(width: 55, height: 55)
-                        .scaledToFit()
-                        .background(
-                            Circle()
-                                .fill(Color.backgroundColor)
-                                .frame(width: 65, height: 65)
-                        )
+                        .frame(width: 60, height: 60)
+                        .scaledToFill()
                     Text("방장은 방을 생성한 후 \n팀원들에게 참여코드를 공유해요.")
                         .font(.Jamsil.light.font(size: 16))
 
                 }
                 HStack {
-                    Image("onboarding_character")
+                    Image("GU2")
                         .resizable()
-                        .frame(width: 55, height: 55)
-                        .scaledToFit()
-                        .background(
-                            Circle()
-                                .fill(Color.backgroundColor)
-                                .frame(width: 65, height: 65)
-                        )
+                        .frame(width: 60, height: 60)
+                        .scaledToFill()
                     Text("팀원들은 참여코드를 입력하여\n플로깅 팀에 참여해요.")
                         .font(.Jamsil.light.font(size: 16))
 
                 }
                 HStack {
-                    Image("onboarding_character")
+                    Image("GU3")
                         .resizable()
-                        .frame(width: 55, height: 55)
+                        .frame(width: 46, height: 47)
                         .scaledToFit()
+                        .clipped()
                         .background(
                             Circle()
                                 .fill(Color.backgroundColor)
-                                .frame(width: 65, height: 65)
+                                .frame(width: 60, height: 60)
                         )
                     Text("플로깅의 경험을 공유하기 위해 \n사진 미션을 수행해요.")
                         .font(.Jamsil.light.font(size: 16))
-
-                }
+                        .padding(.leading, 10)
+                }.padding(.leading, 7)
             }
         }
         .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 10, z: 0))

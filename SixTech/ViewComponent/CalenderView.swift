@@ -73,7 +73,6 @@ struct CalenderView: View {
                     }
                 }
             
-            
             HStack {
                 ForEach(Self.weekdaySymbols, id: \.self) { symbol in
                     Text(symbol.uppercased())

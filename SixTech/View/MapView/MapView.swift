@@ -13,6 +13,8 @@ struct MapView: View {
 	@State private var snapshottedMap = UIImage()
     @State var isNextView = false
 
+    @State var isAlert = false
+
     var body: some View {
         
         ZStack {
@@ -34,7 +36,9 @@ struct MapView: View {
                     .padding()
                 }
                 Spacer()
-                ActivityDataView(isShow: $isNextView)
+                ActivityDataView(alert: { isalert in
+                    self.isAlert = isalert
+                })
                     .padding(.bottom)
                     .padding(.bottom)
                 
@@ -54,10 +58,10 @@ struct MapView: View {
                 NavigationLink("dfdf", isActive: $isNextView) {
                     ImagePickView()
                 }
-                
                 .navigationBarBackButtonHidden()
             }
         }
+        .alert(title: "플로깅 완료", message: "플로깅을 끝내시겠어요?", primaryButton: CustomAlertButton(title: "완료", action: { isNextView = true}), secondaryButton: CustomAlertButton(title: "취소", action: { isAlert = false }), isPresented: $isAlert)
     }
 	
 	private func locationIcon(mode: UserTrackingMode) -> String {
