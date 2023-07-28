@@ -21,10 +21,8 @@ struct SelectFoodView: View {
        
     @State private var selectedFoodIndex: Int? = nil
     
-//    var isCardSelected: Bool
-    
     let columns = [
-            //추가 하면 할수록 화면에 보여지는 개수가 변함
+            // 추가 하면 할수록 화면에 보여지는 개수가 변함
             GridItem(.flexible(), spacing: nil, alignment: nil),
             GridItem(.flexible(), spacing: nil, alignment: nil)
         ]

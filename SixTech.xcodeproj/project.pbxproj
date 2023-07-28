@@ -24,11 +24,6 @@
 		576D75532A72AE5E002F977E /* earth.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 576D75522A72AE5D002F977E /* earth.rcproject */; };
 		576D75552A72AEBE002F977E /* FilterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D75542A72AEBE002F977E /* FilterCarouselView.swift */; };
 		576D755D2A72F220002F977E /* sneaker_pegasustrail.scn in Resources */ = {isa = PBXBuildFile; fileRef = 576D755C2A72F220002F977E /* sneaker_pegasustrail.scn */; };
-		0EB41DFA2A70593F002929D9 /* LetPlogWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB41DF92A70593F002929D9 /* LetPlogWatchApp.swift */; };
-		0EB41DFC2A70593F002929D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB41DFB2A70593F002929D9 /* ContentView.swift */; };
-		0EB41DFE2A705940002929D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41DFD2A705940002929D9 /* Assets.xcassets */; };
-		0EB41E012A705940002929D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41E002A705940002929D9 /* Preview Assets.xcassets */; };
-		0EB41E052A705940002929D9 /* LetPlogWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7077986D2A72CE98000525B2 /* ResultWithPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986A2A72CE98000525B2 /* ResultWithPhotoView.swift */; };
 		7077986E2A72CE98000525B2 /* ResultWithPolylineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986B2A72CE98000525B2 /* ResultWithPolylineView.swift */; };
 		7077986F2A72CE98000525B2 /* EndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986C2A72CE98000525B2 /* EndResultView.swift */; };
@@ -86,6 +81,8 @@
 		709C76872A725EDF00C16313 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C766F2A725EDF00C16313 /* LocationManager.swift */; };
 		709C76882A725EDF00C16313 /* MKPolyline+Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76712A725EDF00C16313 /* MKPolyline+Coordinates.swift */; };
 		709C76892A725EDF00C16313 /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76732A725EDF00C16313 /* ImageAnnotationView.swift */; };
+		796F30042A74355900138FB2 /* CheckMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796F30032A74355900138FB2 /* CheckMissionView.swift */; };
+		796F30072A7435F100138FB2 /* MissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796F30062A7435F100138FB2 /* MissionViewModel.swift */; };
 		7986625D2A72B09F00AB89ED /* DeveloperInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986625C2A72B09F00AB89ED /* DeveloperInfoView.swift */; };
 		7986625F2A72BA4300AB89ED /* IntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986625E2A72BA4300AB89ED /* IntroduceView.swift */; };
 		798662612A72BF0800AB89ED /* SelectFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798662602A72BF0800AB89ED /* SelectFoodView.swift */; };
@@ -124,11 +121,6 @@
 		576D75522A72AE5D002F977E /* earth.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = earth.rcproject; sourceTree = "<group>"; };
 		576D75542A72AEBE002F977E /* FilterCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCarouselView.swift; sourceTree = "<group>"; };
 		576D755C2A72F220002F977E /* sneaker_pegasustrail.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = sneaker_pegasustrail.scn; sourceTree = "<group>"; };
-		0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LetPlogWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EB41DF92A70593F002929D9 /* LetPlogWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetPlogWatchApp.swift; sourceTree = "<group>"; };
-		0EB41DFB2A70593F002929D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0EB41DFD2A705940002929D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0EB41E002A705940002929D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7077986A2A72CE98000525B2 /* ResultWithPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultWithPhotoView.swift; sourceTree = "<group>"; };
 		7077986B2A72CE98000525B2 /* ResultWithPolylineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultWithPolylineView.swift; sourceTree = "<group>"; };
 		7077986C2A72CE98000525B2 /* EndResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndResultView.swift; sourceTree = "<group>"; };
@@ -187,6 +179,8 @@
 		709C766F2A725EDF00C16313 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		709C76712A725EDF00C16313 /* MKPolyline+Coordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKPolyline+Coordinates.swift"; sourceTree = "<group>"; };
 		709C76732A725EDF00C16313 /* ImageAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
+		796F30032A74355900138FB2 /* CheckMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMissionView.swift; sourceTree = "<group>"; };
+		796F30062A7435F100138FB2 /* MissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewModel.swift; sourceTree = "<group>"; };
 		7986625C2A72B09F00AB89ED /* DeveloperInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoView.swift; sourceTree = "<group>"; };
 		7986625E2A72BA4300AB89ED /* IntroduceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceView.swift; sourceTree = "<group>"; };
 		798662602A72BF0800AB89ED /* SelectFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFoodView.swift; sourceTree = "<group>"; };
@@ -261,6 +255,7 @@
 		0E94FABE2A5A83AF002A39FB /* SixTech */ = {
 			isa = PBXGroup;
 			children = (
+				796F30052A7435A500138FB2 /* Mission */,
 				576D754B2A72ACA5002F977E /* Camera */,
 				7986625B2A72B05400AB89ED /* MyProfileDetail */,
 				0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */,
@@ -560,6 +555,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		796F30052A7435A500138FB2 /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				796F30032A74355900138FB2 /* CheckMissionView.swift */,
+				796F30062A7435F100138FB2 /* MissionViewModel.swift */,
+			);
+			path = Mission;
+			sourceTree = "<group>";
+		};
 		7986625B2A72B05400AB89ED /* MyProfileDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +714,7 @@
 				709C76782A725EDF00C16313 /* CalenderView.swift in Sources */,
 				709C764B2A725CFE00C16313 /* ColorExtension.swift in Sources */,
 				709C763F2A725CFE00C16313 /* OnBoardingView.swift in Sources */,
+				796F30042A74355900138FB2 /* CheckMissionView.swift in Sources */,
 				7077986F2A72CE98000525B2 /* EndResultView.swift in Sources */,
 				7077986D2A72CE98000525B2 /* ResultWithPhotoView.swift in Sources */,
 				709C76862A725EDF00C16313 /* SnapshotManager.swift in Sources */,
@@ -750,13 +755,13 @@
 				709C767C2A725EDF00C16313 /* CustomMatchingViewController.swift in Sources */,
 				7986625F2A72BA4300AB89ED /* IntroduceView.swift in Sources */,
 				0B5B27362A72833900703D56 /* Causel.swift in Sources */,
-				709C76772A725EDF00C16313 /* TestView.swift in Sources */,
 				709C76342A725CFE00C16313 /* Camera.swift in Sources */,
 				709C76362A725CFE00C16313 /* ShareResultView.swift in Sources */,
 				709C764A2A725CFE00C16313 /* ImageURLExtension.swift in Sources */,
 				709C76332A725CFE00C16313 /* CameraViewModel.swift in Sources */,
 				576D75552A72AEBE002F977E /* FilterCarouselView.swift in Sources */,
 				576D754F2A72AD93002F977E /* CameraModel.swift in Sources */,
+				796F30072A7435F100138FB2 /* MissionViewModel.swift in Sources */,
 				709C763C2A725CFE00C16313 /* PageTabViewStyle.swift in Sources */,
 				709C764C2A725CFE00C16313 /* ImageButton.swift in Sources */,
 				0B5B273B2A72897600703D56 /* Post.swift in Sources */,
@@ -951,66 +956,6 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		0EB41E062A705940002929D9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"LetPlogWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = GSD6RCY68C;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = LetPlogWatch;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTech;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp.YOO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.4;
-			};
-			name = Debug;
-		};
-		0EB41E072A705940002929D9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"LetPlogWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = GSD6RCY68C;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = LetPlogWatch;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTech;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp.YOO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Release;
 		};
