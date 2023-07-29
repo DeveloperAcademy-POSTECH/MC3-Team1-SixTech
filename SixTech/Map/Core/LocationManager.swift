@@ -18,6 +18,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 	@Published var trackUser: UserTrackingMode = .follow
 	@Published var userLocations = [CLLocationCoordinate2D]()
 	@Published var region = MKCoordinateRegion()
+	@Published var movedDistance: Double = 0.0
 
 	override init() {
 		super.init()
@@ -27,6 +28,12 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 			
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		guard let location = locations.last else { return }
+
+		if let lastLocation = userLocations.last {
+			let distance = location.distance(from: CLLocation(latitude: lastLocation.latitude, longitude: lastLocation.longitude))
+			self.movedDistance += distance
+		}
+		
 		userLocations.append(location.coordinate)
 		let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
 											longitude: location.coordinate.longitude)
@@ -34,9 +41,6 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 		region = MKCoordinateRegion(center: center, span: span)
 		
 		addPolylineToMap()
-//		print(trackUser)
-//		print("lat = \(location.coordinate.latitude)")
-//		print("lng = \(location.coordinate.longitude)")
 	}
 	
 	func addPolylineToMap() {
