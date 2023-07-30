@@ -229,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				576D754B2A72ACA5002F977E /* Camera */,
-				7986625B2A72B05400AB89ED /* MyProfileDetail */,
 				0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */,
 				0E94FAC12A5A83AF002A39FB /* ContentView.swift */,
 				709C76002A725CFE00C16313 /* View */,
@@ -285,6 +284,7 @@
 				709C76112A725CFE00C16313 /* CharacterCreate */,
 				86B9D3EA2A72E5B300A2ED24 /* MainView */,
 				86B9D3EB2A72E62400A2ED24 /* ProfileView */,
+				7986625B2A72B05400AB89ED /* MyProfileDetail */,
 				86B9D3ED2A72E66500A2ED24 /* GameView */,
 				86B9D3F12A72E88E00A2ED24 /* MapView */,
 				0B5B272E2A72687B00703D56 /* ShareImage */,
@@ -431,8 +431,7 @@
 				798662632A72BF4C00AB89ED /* Food */,
 				798662622A72BF3300AB89ED /* Info */,
 			);
-			name = MyProfileDetail;
-			path = View/ProfileView/MyProfileDetail;
+			path = MyProfileDetail;
 			sourceTree = "<group>";
 		};
 		798662622A72BF3300AB89ED /* Info */ = {
