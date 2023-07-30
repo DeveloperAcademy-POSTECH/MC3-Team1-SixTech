@@ -11,7 +11,8 @@ import SwiftUI
 struct LetPlogWatch: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            Text("메롱")
         }
     }
 }
