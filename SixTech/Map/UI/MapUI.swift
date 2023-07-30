@@ -23,12 +23,11 @@ struct MapUI: UIViewRepresentable {
 		default:
 			break
 		}
-		updateOverlays(from: uiView)
+//		updateOverlays(from: uiView)
 	}
 
 	private func updateOverlays(from mapView: MKMapView) {
-		let locations = locationManager.userLocations
-		let polyline = MKPolyline(coordinates: locations, count: locations.count)
-		mapView.addOverlay(polyline)
+		let multiPolyline = MKMultiPolyline(locationManager.userLocations.map { MKPolyline(coordinates: $0, count: $0.count) })
+		mapView.addOverlay(multiPolyline)
 	}
 }

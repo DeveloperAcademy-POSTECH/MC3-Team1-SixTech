@@ -9,7 +9,8 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-	@ObservedObject var locationManager = LocationManager()
+	@EnvironmentObject var locationManager: LocationManager
+	@EnvironmentObject var ploggingManager: PloggingManager
 	@State private var snapshottedMap = UIImage()
 
 	var body: some View {
@@ -36,10 +37,9 @@ struct MapView: View {
 					ActivityDataView()
 						.padding(.bottom)
 						.padding(.bottom)
-					
 					Button {
 						SnapshotManager.takeSnapshot(mapView: locationManager.mapView,
-													 polyline: locationManager.polylines) { image in
+													 multiPolyline: MKMultiPolyline(locationManager.userLocations.map { MKPolyline(coordinates: $0, count: $0.count) })) { image in
 							if let image = image {
 								snapshottedMap = image
 							} else { return }

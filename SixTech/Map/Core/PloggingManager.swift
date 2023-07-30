@@ -9,8 +9,17 @@ import CoreMotion
 
 class PloggingManager: ObservableObject {
 	private var pedometer = CMPedometer()
+	private var timer: Timer?
+	
 	@Published var steps: Int = 0
-	@Published var time: TimeInterval?
+	@Published var elapsedTime: TimeInterval = 0.0
+
+	var formattedElapsedTime: String {
+		let hours = Int(elapsedTime) / 3600
+		let minutes = Int(elapsedTime) / 60 % 60
+		let seconds = Int(elapsedTime) % 60
+		return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+	}
 	
 	init() {
 		startPedometer()
@@ -30,5 +39,15 @@ class PloggingManager: ObservableObject {
 		} else {
 			print("걸음수 카운트안됨")
 		}
+		timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+			self.elapsedTime += 1.0
+		}
+	}
+	
+	func stopPedometer() {
+		self.steps = 0
+		pedometer.stopUpdates()
+		self.timer?.invalidate()
+		self.timer = nil
 	}
 }
