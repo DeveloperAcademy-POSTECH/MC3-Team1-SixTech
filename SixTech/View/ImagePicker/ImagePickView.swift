@@ -42,7 +42,7 @@ struct ImagePickView: View {
             }
             .sheet(isPresented: $imagePickerPresented,
                    onDismiss: loadImage,
-                   content: { ImagePicker(image: $selectedImage, sourceType: .camera) })
+                   content: { ImagePicker(image: $selectedImage, sourceType: .photoLibrary) })
             .padding(.horizontal, 45)
             //                PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission)
             NavigationLinkView(text: "골랐어요!", isdisable: $isdisable, destination: EndResultView())

@@ -46,9 +46,6 @@ struct WaitingRoomView: View {
                         ForEach(matchManager.otherPlayerInfo!) { info in
                             PlayerCellView(image: info.profileImageURL, nickName: info.name, uiimage: info.profileImage)
                         }
-//                        ForEach(matchManager.otherPlayerInfo!, id: \.self) { info in
-//                            PlayerCellView(image: info.profileImageURL, nickName: matchManager.lastData)
-//                        }
                     }
                 }.background(
                     RoundedRectangle(cornerRadius: 40).fill(Color.background2Color)
@@ -98,14 +95,15 @@ struct WaitingRoomView: View {
 }
 
 struct PlayerCellView: View {
-    let image: URL
+    var image: URL
     let nickName: String
-    var uiimage: UIImage?
+    var uiimage: [Int]?
+    let viewModel = CharacterCreateViewModel()
     
     var body: some View {
         HStack {
-            if let uiimage = uiimage {
-                Image(uiImage: uiimage)
+            if let index = uiimage {
+                Image(uiImage: viewModel.imageMerger.merge("\(viewModel.faceArray[index[0]] + viewModel.colorArray[index[1]])", with: "\(viewModel.emotionArray[index[2]])"))
                     .resizable()
                     .frame(width: 80, height: 80)
                     .scaledToFill()
@@ -127,10 +125,16 @@ struct PlayerCellView: View {
                     )
                     .padding(.all, 20)
             }
+            
             Text(nickName)
                 .font(.Jamsil.regular.font(size: 25))
             Spacer()
             
         }.frame(width: 342)
+            .onAppear {
+                if let uiimage = uiimage {
+                    print("\(uiimage)")
+                }
+            }
     }
 }

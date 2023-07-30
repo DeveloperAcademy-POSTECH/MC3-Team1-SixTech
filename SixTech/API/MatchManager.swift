@@ -19,6 +19,8 @@ enum PlayerAuthState: String {
 
 class MatchManager: NSObject, ObservableObject {
     
+    static let shared = MatchManager()
+    
     private var matchRequest: GKMatchRequest = GKMatchRequest()
     private var matchmakingMode: GKMatchmakingMode = .default
     private var matchmaker: GKMatchmaker?
@@ -49,7 +51,7 @@ class MatchManager: NSObject, ObservableObject {
     func startMatchmaking(_ maxPlayer: Int?) {
         let request = GKMatchRequest()
         request.minPlayers = 2
-        request.maxPlayers = maxPlayer ?? 2
+        request.maxPlayers = maxPlayer ?? 3
         request.playerGroup = Int(groupNumber)!
         matchRequest = request
         
@@ -143,9 +145,6 @@ extension MatchManager: GKMatchDelegate {
             DispatchQueue.main.async {
                 self.otherPlayerInfo?.append(content)                
             }
-            print("있는 url == \(localPlayerInfo?.profileImageURL)")
-            print("받은 url == \(content.profileImageURL)")
-            print("\(content.name) 정보받음 @@")
         }
 //        if content.starts(with: "strData") {
 //            let message = content.replacing("strData:", with: "")

@@ -12,12 +12,13 @@ final class UserInfo: ObservableObject, Identifiable {
     @Published var uuid = UUID()
     @Published var name = UserDefaults.standard.string(forKey: "username") ?? ""
     @Published var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "onboarding2img")!
-    @Published var profileImage: UIImage = UIImage()
+    @Published var profileImage: [Int] = (UserDefaults.standard.array(forKey: "profileArr") as? [Int]) ?? []
     @Published var userHistory = UserHistory()
     
     func updateUserInfo() {
         self.name = UserDefaults.standard.string(forKey: "username") ?? ""
         self.profileImageURL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "onboarding2img")!
+        self.profileImage = (UserDefaults.standard.array(forKey: "profileArr") as? [Int])!
         
         print("userinfo update = \(name), \(profileImageURL)!!")
     }
@@ -48,9 +49,7 @@ extension UserInfo: Codable {
         try container.encode(uuid, forKey: .uuid)
         try container.encode(name, forKey: .name)
         try container.encode(profileImageURL, forKey: .profileImageURL)
-        if let imageData = profileImage.jpegData(compressionQuality: 0.8) {
-                   try container.encode(imageData, forKey: .profileImage)
-               }
+        try container.encode(profileImage, forKey: .profileImage)
         try container.encode(userHistory, forKey: .userHistory)
     }
 
@@ -61,9 +60,7 @@ extension UserInfo: Codable {
         uuid = try container.decode(UUID.self, forKey: .uuid)
         name = try container.decode(String.self, forKey: .name)
         profileImageURL = try container.decode(URL.self, forKey: .profileImageURL)
-        if let imageData = try container.decode(Data?.self, forKey: .profileImage) {
-                    profileImage = UIImage(data: imageData) ?? UIImage()
-                }
+        profileImage = try container.decode([Int].self, forKey: .profileImage)
         userHistory = try container.decode(UserHistory.self, forKey: .userHistory)
     }
 }

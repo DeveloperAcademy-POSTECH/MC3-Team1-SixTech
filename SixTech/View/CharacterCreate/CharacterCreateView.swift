@@ -57,7 +57,14 @@ struct CharacterCreateView: View {
             })
             .simultaneousGesture(TapGesture().onEnded {
                 viewModel.saveUserDefault()
-                userInfo.profileImage = viewModel.imageMerger.merge("\(viewModel.faceArray[viewModel.characterFace] + viewModel.colorArray[viewModel.characterColor])", with: "\(viewModel.emotionArray[viewModel.characterEmotion])")
+                userInfo.profileImage = [ viewModel.characterFace,
+                                          viewModel.characterColor,
+                                          viewModel.characterEmotion
+                ]
+                UserDefaults.standard.set([ viewModel.characterFace,
+                                            viewModel.characterColor,
+                                            viewModel.characterEmotion
+                  ], forKey: "profileArr")
             })
                 }
         .navigationBarBackButtonHidden()
