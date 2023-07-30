@@ -29,11 +29,13 @@ class MatchManager: NSObject, ObservableObject {
     @Published var lastData = ""
     @Published var groupNumber = ""
     @Published var otherPlayer: [GKPlayer]?
-
+    @Published var otherPlayerInfo: [UserInfo]? = []
+    
+    var localPlayerInfo: UserInfo?
     var match: GKMatch?
     var localPlayer = GKLocalPlayer.local
     private var playerUUIDKey = UUID().uuidString
-    
+
     private var rootViewController: UIViewController? {
         let windowsence = UIApplication.shared.connectedScenes.first as? UIWindowScene
         return windowsence?.windows.first?.rootViewController
@@ -127,24 +129,51 @@ class MatchManager: NSObject, ObservableObject {
             break
         }
     }
+    
+    func receivedData(_ imageUrl: URL) {
+//        otherPlayerInfo
+    }
 
 }
 
 // MARK: GKMatchDelegate
 extension MatchManager: GKMatchDelegate {
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
-        let content = String(decoding: data, as: UTF8.self)
-        if content.starts(with: "strData") {
-            let message = content.replacing("strData:", with: "")
-            receivedString(message)
-        } else {
-            // 만약 깨진 데이터 받아서 이상해지면.... -> lastData로 처리해주는 로직대충 만들기
+        if let content = decodeUserInfo(data) {
+            DispatchQueue.main.async {
+                self.otherPlayerInfo?.append(content)                
+            }
+            print("있는 url == \(localPlayerInfo?.profileImageURL)")
+            print("받은 url == \(content.profileImageURL)")
+            print("\(content.name) 정보받음 @@")
         }
+//        if content.starts(with: "strData") {
+//            let message = content.replacing("strData:", with: "")
+//            receivedString(message)
+//        } else {
+//            if let imgdata = URL(dataRepresentation: data, relativeTo: nil) {
+//                // Data를 URL로 변환 성공 시 처리
+//                // 변환된 URL을 이용하여 다른 작업을 수행할 수 있습니다.
+//                self.otherPlayerInfo?.first?.profileImageURL = imgdata
+//            } else {
+//                // Data를 URL로 변환 실패 시 처리
+//                print("Data를 URL로 변환하는데 실패하였습니다.")
+//            }
+//
+//            // 만약 깨진 데이터 받아서 이상해지면.... -> lastData로 처리해주는 로직대충 만들기
+//        }
     }
     
     func sendString(_ message: String) {
         guard let encoded = "strData:\(message)".data(using: .utf8) else { return }
         sendData(encoded, mode: .reliable)
+    }
+    
+    func sendImageUrl() {
+        guard let info = localPlayerInfo else { return }
+        if let data = encodeUserInfo(info) {
+            sendData(data, mode: .reliable)
+        }
     }
     
     func sendData(_ data: Data, mode: GKMatch.SendDataMode) {
@@ -156,11 +185,13 @@ extension MatchManager: GKMatchDelegate {
     }
     
     func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
+//        guard let user = localPlayerInfo else { return }
         switch state {
         case .connected:
             DispatchQueue.main.async {
-                self.otherPlayer?.append(player)
-                self.sendString("began: \(self.playerUUIDKey)")
+//                self.otherPlayer?.append(player)
+//                self.sendString("began: \(user.name)")
+                self.sendImageUrl()
             }
         case .disconnected:
             print("플레이어\(player.displayName)의 연결이 끊김")

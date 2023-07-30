@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct WaitingRoomView: View {
     @EnvironmentObject var userInfo: UserInfo
@@ -41,10 +42,13 @@ struct WaitingRoomView: View {
                 
                 ScrollView {
                     PlayerCellView(image: userInfo.profileImageURL, nickName: userInfo.name)
-                    if matchManager.otherPlayer != nil {
-                        ForEach(matchManager.otherPlayer!, id: \.self) { _ in
-                            PlayerCellView(image: userInfo.profileImageURL, nickName: matchManager.lastData)
+                    if matchManager.otherPlayerInfo != nil {
+                        ForEach(matchManager.otherPlayerInfo!) { info in
+                            PlayerCellView(image: info.profileImageURL, nickName: info.name, uiimage: info.profileImage)
                         }
+//                        ForEach(matchManager.otherPlayerInfo!, id: \.self) { info in
+//                            PlayerCellView(image: info.profileImageURL, nickName: matchManager.lastData)
+//                        }
                     }
                 }.background(
                     RoundedRectangle(cornerRadius: 40).fill(Color.background2Color)
@@ -96,19 +100,33 @@ struct WaitingRoomView: View {
 struct PlayerCellView: View {
     let image: URL
     let nickName: String
+    var uiimage: UIImage?
     
     var body: some View {
         HStack {
-            Image(uiImage: loadImageFromURL(imageURL: image))
-                .resizable()
-                .frame(width: 80, height: 80)
-                .scaledToFill()
-                .background(
-                    Circle()
-                        .fill(Color.backgroundColor)
-                        .frame(width: 100, height: 100)
-                )
-                .padding(.all, 20)
+            if let uiimage = uiimage {
+                Image(uiImage: uiimage)
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .scaledToFill()
+                    .background(
+                        Circle()
+                            .fill(Color.backgroundColor)
+                            .frame(width: 100, height: 100)
+                    )
+                    .padding(.all, 20)
+            } else {
+                Image(uiImage: loadImageFromURL(imageURL: image))
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .scaledToFill()
+                    .background(
+                        Circle()
+                            .fill(Color.backgroundColor)
+                            .frame(width: 100, height: 100)
+                    )
+                    .padding(.all, 20)
+            }
             Text(nickName)
                 .font(.Jamsil.regular.font(size: 25))
             Spacer()
