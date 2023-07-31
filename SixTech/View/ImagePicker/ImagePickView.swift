@@ -53,9 +53,6 @@ struct ImagePickView: View {
 				   ShareImage(postImage: Image("MissionTestImage")),
 				   ShareImage(postImage: Image("MissionTestImage"))
 			   ]))
-//            ButtonView(text: "골랐어요!", isdisable: $isdisable) {
-//                    // Navigation -> ShareResultView
-//            }
             .padding(.top, 100)
         }
     }

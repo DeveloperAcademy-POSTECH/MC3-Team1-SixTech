@@ -81,7 +81,7 @@ struct FilterCarouselView: View {
                                 .frame(width: itemWidth, height: itemWidth)
                                 .foregroundColor(Color.white)
                                 .id(index)
-                                .position(x: itemGeometry.size.width/2, y:itemGeometry.size.height/2)
+                                .position(x: itemGeometry.size.width/2, y: itemGeometry.size.height/2)
                             }
                             .frame(width: geometry.size.width / 2.8)
                         }

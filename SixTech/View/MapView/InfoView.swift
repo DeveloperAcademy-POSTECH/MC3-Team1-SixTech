@@ -31,7 +31,7 @@ import SwiftUI
 //				Spacer()
 //
 //				Text("\(ploggingManager.steps)")
-//				ActivityDataView()
+//				ActivityDataView(isAlert: .constant(false))
 //			}
 //		}
 //	}
@@ -93,9 +93,10 @@ struct ActivityDataView: View {
 				}
 			}
 		}
+//		.background(.thinMaterial, in: RoundedRectangle(cornerRadius: 40))
 		.background {
 			RoundedRectangle(cornerRadius: 40)
-				.foregroundColor(.white)
+				.foregroundColor(.white.opacity(0.8))
 				.shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 4)
 		}
 	}
@@ -159,7 +160,7 @@ struct MissionView: View {
 	var body: some View {
 		VStack {
 			Text("나의 같이줍깅 미션")
-				.font(.Jamsil.light.font(size: 12))
+				.font(.Jamsil.light.font(size: 16))
 				.padding(.top)
 			Spacer()
 			RoundedRectangle(cornerRadius: 10)
