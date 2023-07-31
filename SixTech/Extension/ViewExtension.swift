@@ -8,7 +8,6 @@
 import SwiftUI
 
 extension View {
-
     func alert(title: String = "", message: String = "",
                primaryButton: CustomAlertButton, secondaryButton: CustomAlertButton,
                isPresented: Binding<Bool>) -> some View {

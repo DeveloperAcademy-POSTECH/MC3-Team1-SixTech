@@ -1,8 +1,8 @@
 import SwiftUI
 import AVFoundation
+import Photos
 
-// 너무 야매여서 일단 넘어가고 뷰 자체를 캡쳐 하는 .snapshot 모디파이어가 있는데, 일단 카메라는 이대로 두고 다른 거 하다가 시간 괜찮으면 다시 작업하겠습니다 ㅠㅠㅠㅠㅠㅠㅠ
-// 아에 새로 다시 만들고 싶어요. 하 ㅠㅠㅠ 일단 완성이 우선이라고 생각해서... 너무 맘에 안드는데 이대로 두겠습니다...
+// 아무리 삽질해도 제가 생각하던 방식으로 구현이 안되더라구요.. 돌고 돌아 원래 코드 그대로 돌아왔습니다..
 
 struct CameraView: View {
         @ObservedObject var viewModel: CameraViewModel
@@ -12,7 +12,7 @@ struct CameraView: View {
             
             Group {
                 viewModel.cameraPreview
-                        .frame(height: UIScreen.main.bounds.width)
+                    .frame(height: UIScreen.main.bounds.width)
                         .onAppear {
                             viewModel.configure()
                         }
@@ -35,6 +35,7 @@ struct CameraView: View {
                 ZStack {
                     Button {
                         viewModel.capturePhoto()
+//                        screenShot()
                     } label: {
                         ShutterButton()
                     }
@@ -66,28 +67,28 @@ struct CameraPreviewView: UIViewRepresentable {
         override class var layerClass: AnyClass {
             AVCaptureVideoPreviewLayer.self
         }
-        
+
         var videoPreviewLayer: AVCaptureVideoPreviewLayer {
             return layer as! AVCaptureVideoPreviewLayer
         }
     }
-    
+
     let session: AVCaptureSession
-    
+
     func makeUIView(context: Context) -> VideoPreviewView {
         let view = VideoPreviewView()
-        
+
         view.videoPreviewLayer.session = session
         view.backgroundColor = .black
         view.videoPreviewLayer.videoGravity = .resizeAspectFill
         view.videoPreviewLayer.cornerRadius = 0
         view.videoPreviewLayer.connection?.videoOrientation = .portrait
-        
+
         return view
     }
-    
+
     func updateUIView(_ uiView: VideoPreviewView, context: Context) {
-        
+
     }
 }
 
@@ -109,3 +110,49 @@ struct ShutterButton: View {
         }
     }
 }
+
+extension CameraView {
+    func screenShot() {
+        let screenshot = body.takeScreenshot(origin: UIScreen.main.bounds.origin, size: UIScreen.main.bounds.size)
+            .resizeAndCrop(to: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))!
+        
+        UIImageWriteToSavedPhotosAlbum(screenshot, self, nil, nil)
+    }
+}
+
+//struct CameraPreviewView: UIViewControllerRepresentable {
+//    let session: AVCaptureSession
+//        class VideoPreviewView: UIView {
+//            override class var layerClass: AnyClass {
+//                AVCaptureVideoPreviewLayer.self
+//            }
+//
+//            var videoPreviewLayer: AVCaptureVideoPreviewLayer {
+//                return layer as! AVCaptureVideoPreviewLayer
+//            }
+//        }
+//
+//    func makeUIViewController(context: Context) -> UIViewController {
+//        let viewController = UIViewController()
+//        let videoPreviewView = VideoPreviewView()
+//
+//        videoPreviewView.videoPreviewLayer.session = session
+//        videoPreviewView.backgroundColor = .black
+//        videoPreviewView.videoPreviewLayer.videoGravity = .resizeAspectFill
+//        videoPreviewView.videoPreviewLayer.cornerRadius = 0
+//        videoPreviewView.videoPreviewLayer.connection?.videoOrientation = .portrait
+//
+//        viewController.view.addSubview(videoPreviewView)
+//        videoPreviewView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            videoPreviewView.leadingAnchor.constraint(equalTo: viewController.view.leadingAnchor),
+//            videoPreviewView.trailingAnchor.constraint(equalTo: viewController.view.trailingAnchor),
+//            videoPreviewView.topAnchor.constraint(equalTo: viewController.view.topAnchor),
+//            videoPreviewView.bottomAnchor.constraint(equalTo: viewController.view.bottomAnchor)
+//        ])
+//
+//        return viewController
+//    }
+//
+//    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+//}

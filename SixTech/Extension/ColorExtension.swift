@@ -35,6 +35,7 @@ extension Color {
     static let fontColor = Color(hexCode: "#1A8370")
     static let accentFontColor = Color(hexCode: "#106051")
     static let calendarNumberBackground = Color(hexCode: "#E5F9F5")
+    static let countDownColor = Color(hexCode: "#1A8370")
 }
 
 struct Color_Previews: PreviewProvider {

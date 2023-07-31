@@ -4,7 +4,7 @@ import Combine
 
 class CameraViewModel: ObservableObject {
     let model: Camera
-    private let session: AVCaptureSession
+    let session: AVCaptureSession
     private var subscriptions = Set<AnyCancellable>()
     private var isCameraBusy = false
     let cameraPreview: AnyView

@@ -13,10 +13,12 @@ struct SixTechApp: App {
     @StateObject var matchManager = MatchManager()
     
     var body: some Scene {
-        WindowGroup {
-            ShareImgeView(images: [])
-            .frame(height: 200)
-                .environmentObject(matchManager)
+        
+            WindowGroup {
+                NavigationView {
+                    CameraView(viewModel: CameraViewModel())
+                    .environmentObject(matchManager)
+            }
         }
     }
 }

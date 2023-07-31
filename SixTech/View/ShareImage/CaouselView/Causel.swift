@@ -34,7 +34,6 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
         GeometryReader { proxy in
             let width = proxy.size.width - ( trailingSpace - spacing )
             let adjustMentWidth = (trailingSpace / 2) - spacing
-            
             HStack(spacing: spacing) {
                 ForEach(list) { item in
                     content(item)
@@ -80,7 +79,7 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
 
 struct SnapCarousel_Previews: PreviewProvider {
     static var previews: some View {
-        ShareImgeView(images: [
+        ShareImageView(images: [
                     ShareImage(postImage: Image("face_dust_gray")),
                     ShareImage(postImage: Image("face_dust_gray")),
                     ShareImage(postImage: Image("face_dust_gray")),
