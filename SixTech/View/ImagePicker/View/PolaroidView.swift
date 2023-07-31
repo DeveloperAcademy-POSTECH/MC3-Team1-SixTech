@@ -12,6 +12,7 @@ struct PolaroidView: View {
     @Binding var profileImage: Image?
     @Binding var userName: String?
     @Binding var userMission: String?
+    @Binding var isButtonPressed: Bool
     @AppStorage("profileURL") var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!
     
     var body: some View {
@@ -61,13 +62,53 @@ struct PolaroidView: View {
                 Spacer()
             }
         }
-//        .padding()
+        .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.width * 4 / 3)
         .aspectRatio(3/4, contentMode: .fit)
+        .onChange(of: isButtonPressed) { _ in
+            if isButtonPressed == true {
+                isButtonPressed.toggle()
+                screenShot()
+            }
+        }
+        
     }
 }
 
 struct PolaPreview: PreviewProvider {
     static var previews: some View {
-        PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(Image("face_dust_gray")), userName: .constant("User"), userMission: .constant("Mision"))
+        PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(Image("MissionTestImage")), userName: .constant("User"), userMission: .constant("Mision"), isButtonPressed: .constant(false))
+    }
+}
+
+extension UIView {
+    var screenShot: UIImage {
+        let rect = self.bounds
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        let context: CGContext = UIGraphicsGetCurrentContext()!
+        self.layer.render(in: context)
+        let capturedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        return capturedImage
+    }
+}
+
+// View에 ScreenShot을 넣기 위함
+extension View {
+    func takeScreenshot(origin: CGPoint, size: CGSize) -> UIImage {
+        let window = UIWindow(frame: CGRect(origin: origin, size: size))
+        // UIHostingController: SwiftUI View들을 관리하기 위한 ViewController
+        let hosting = UIHostingController(rootView: self)
+        hosting.view.frame = window.frame
+        window.addSubview(hosting.view)
+        window.makeKeyAndVisible()
+        return hosting.view.screenShot
+    }
+}
+
+extension PolaroidView {
+    func screenShot() {
+        let screenshot = body.takeScreenshot(origin: UIScreen.main.bounds.origin, size: UIScreen.main.bounds.size)
+            .resizeAndCrop(to: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 4 / 3))!
+        
+        UIImageWriteToSavedPhotosAlbum(screenshot, self, nil, nil)
     }
 }

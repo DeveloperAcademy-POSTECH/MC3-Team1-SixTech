@@ -37,7 +37,7 @@ struct ImagePickView: View {
                 print("Image Picking")
                 imagePickerPresented.toggle()
             } label: {
-                PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission)
+                PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission, isButtonPressed: .constant(false))
             }
             .sheet(isPresented: $imagePickerPresented,
                    onDismiss: loadImage,
