@@ -70,7 +70,6 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
             )
             
         }
-        // Animatiing when offset = 0
         .animation(.easeInOut, value: offset == 0)
         
     }
