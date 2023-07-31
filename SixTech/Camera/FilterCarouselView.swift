@@ -40,7 +40,7 @@ struct FilterCarouselView: View {
         self.itemWidth = itemWidth
     }
     
-    let baseFilters = ["2D", "기본", "3D"]
+    let baseFilters = ["2D", "default", "3D"]
     var filters: [String] {
         Array(repeating: baseFilters, count: 20).flatMap { $0 }
     }
@@ -98,7 +98,7 @@ struct FilterCarouselView: View {
         }
         .onAppear {
             DispatchQueue.main.async {
-                currentIndex = baseFilters.firstIndex(of: "기본") ?? 0
+                currentIndex = baseFilters.firstIndex(of: "default") ?? 0
                 selectedIndex = baseFilters.count
             }
         }

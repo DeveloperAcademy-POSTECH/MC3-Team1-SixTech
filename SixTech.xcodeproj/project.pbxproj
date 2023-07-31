@@ -16,7 +16,6 @@
 		0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */; };
 		0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FAC12A5A83AF002A39FB /* ContentView.swift */; };
 		0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC32A5A83B0002A39FB /* Assets.xcassets */; };
-		0E94FAC72A5A83B0002A39FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */; };
 		0EAD30212A5C6FE700E8A548 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */; };
 		0EAD30232A5C711500E8A548 /* .pre-commit-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0EAD30222A5C711500E8A548 /* .pre-commit-config.yaml */; };
 		576D754D2A72AD5C002F977E /* CameraFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D754C2A72AD5C002F977E /* CameraFilterView.swift */; };
@@ -25,6 +24,7 @@
 		576D75552A72AEBE002F977E /* FilterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D75542A72AEBE002F977E /* FilterCarouselView.swift */; };
 		576D755D2A72F220002F977E /* sneaker_pegasustrail.scn in Resources */ = {isa = PBXBuildFile; fileRef = 576D755C2A72F220002F977E /* sneaker_pegasustrail.scn */; };
 		576D75612A73A844002F977E /* stone.scn in Resources */ = {isa = PBXBuildFile; fileRef = 576D75602A73A844002F977E /* stone.scn */; };
+		70666FEF2A779E3C00485955 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70666FEE2A779E3C00485955 /* Preview Assets.xcassets */; };
 		7077986D2A72CE98000525B2 /* ResultWithPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986A2A72CE98000525B2 /* ResultWithPhotoView.swift */; };
 		7077986E2A72CE98000525B2 /* ResultWithPolylineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986B2A72CE98000525B2 /* ResultWithPolylineView.swift */; };
 		7077986F2A72CE98000525B2 /* EndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077986C2A72CE98000525B2 /* EndResultView.swift */; };
@@ -113,7 +113,6 @@
 		0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixTechApp.swift; sourceTree = "<group>"; };
 		0E94FAC12A5A83AF002A39FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0E94FAC32A5A83B0002A39FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		0EAD30222A5C711500E8A548 /* .pre-commit-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = ".pre-commit-config.yaml"; sourceTree = "<group>"; };
 		576D754C2A72AD5C002F977E /* CameraFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFilterView.swift; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		576D75542A72AEBE002F977E /* FilterCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCarouselView.swift; sourceTree = "<group>"; };
 		576D755C2A72F220002F977E /* sneaker_pegasustrail.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = sneaker_pegasustrail.scn; sourceTree = "<group>"; };
 		576D75602A73A844002F977E /* stone.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = stone.scn; sourceTree = "<group>"; };
+		70666FEE2A779E3C00485955 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7077986A2A72CE98000525B2 /* ResultWithPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultWithPhotoView.swift; sourceTree = "<group>"; };
 		7077986B2A72CE98000525B2 /* ResultWithPolylineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultWithPolylineView.swift; sourceTree = "<group>"; };
 		7077986C2A72CE98000525B2 /* EndResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndResultView.swift; sourceTree = "<group>"; };
@@ -250,17 +250,9 @@
 				86B9D3E92A72E27700A2ED24 /* Utills */,
 				0E94FAC32A5A83B0002A39FB /* Assets.xcassets */,
 				0BE5980B2A5FD86F00D019EA /* Info.plist */,
-				0E94FAC52A5A83B0002A39FB /* Preview Content */,
+				70666FED2A779E3C00485955 /* Preview Content */,
 			);
 			path = SixTech;
-			sourceTree = "<group>";
-		};
-		0E94FAC52A5A83B0002A39FB /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		576D754B2A72ACA5002F977E /* Camera */ = {
@@ -274,6 +266,14 @@
 				576D75542A72AEBE002F977E /* FilterCarouselView.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		70666FED2A779E3C00485955 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				70666FEE2A779E3C00485955 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		707798692A72CE98000525B2 /* Result */ = {
@@ -316,19 +316,9 @@
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
-		709C76072A725CFE00C16313 /* CameraFilter */ = {
-			isa = PBXGroup;
-			children = (
-				709C760C2A725CFE00C16313 /* CameraView.swift */,
-			);
-			path = CameraFilter;
-			sourceTree = "<group>";
-		};
 		709C76082A725CFE00C16313 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				709C760A2A725CFE00C16313 /* Camera.swift */,
-				709C76092A725CFE00C16313 /* CameraViewModel.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -629,7 +619,6 @@
 			files = (
 				709C76432A725CFE00C16313 /* TheJamsilOTF1Thin.otf in Resources */,
 				0EAD30212A5C6FE700E8A548 /* .swiftlint.yml in Resources */,
-				0E94FAC72A5A83B0002A39FB /* Preview Assets.xcassets in Resources */,
 				709C76472A725CFE00C16313 /* TheJamsilOTF2Light.otf in Resources */,
 				709C76462A725CFE00C16313 /* TheJamsilOTF4Medium.otf in Resources */,
 				0EAD30232A5C711500E8A548 /* .pre-commit-config.yaml in Resources */,
@@ -638,7 +627,8 @@
 				709C76482A725CFE00C16313 /* TheJamsilOTF6ExtraBold.otf in Resources */,
 				709C76442A725CFE00C16313 /* TheJamsilOTF3Regular.otf in Resources */,
 				576D75612A73A844002F977E /* stone.scn in Resources */,
-				0BE598392A60F9AC00D019EA /* OnboardingGIF.gif in Resources */,
+				70666FEF2A779E3C00485955 /* Preview Assets.xcassets in Resources */,
+				0BE598392A60F9AC00D019EA /* onboardingGIF.gif in Resources */,
 				0BE598392A60F9AC00D019EA /* onboardingGIF.gif in Resources */,
 				0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */,
 			);
@@ -678,7 +668,6 @@
 				709C767D2A725EDF00C16313 /* MainView.swift in Sources */,
 				709C76302A725CFE00C16313 /* ImagePicker.swift in Sources */,
 				86B9D3F62A736BE500A2ED24 /* UserInfo.swift in Sources */,
-				576D75532A72AE5E002F977E /* earth.rcproject in Sources */,
 				709C767B2A725EDF00C16313 /* MatchManager.swift in Sources */,
 				576D75512A72ADB7002F977E /* ARViewContainer.swift in Sources */,
 				709C763E2A725CFE00C16313 /* OnBoarding2View.swift in Sources */,
@@ -730,7 +719,6 @@
 				7986625F2A72BA4300AB89ED /* IntroduceView.swift in Sources */,
 				86B9D3F32A730B2B00A2ED24 /* NavigationHelper.swift in Sources */,
 				0B5B27362A72833900703D56 /* Causel.swift in Sources */,
-				709C76342A725CFE00C16313 /* Camera.swift in Sources */,
 				709C76362A725CFE00C16313 /* ShareResultView.swift in Sources */,
 				709C764A2A725CFE00C16313 /* ImageURLExtension.swift in Sources */,
 				576D75552A72AEBE002F977E /* FilterCarouselView.swift in Sources */,
@@ -870,7 +858,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = M75X2R2UVV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -890,7 +877,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech;
 				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -909,7 +895,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = M75X2R2UVV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -929,7 +914,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech;
 				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
