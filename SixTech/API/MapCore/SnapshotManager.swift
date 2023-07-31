@@ -51,7 +51,7 @@ class SnapshotManager {
 				}
 			}
 
-			UIColor.blue.setStroke()
+			UIColor(red: 40/255, green: 203/255, blue: 174/255, alpha: 1).setStroke()
 			path.lineWidth = 5
 			path.stroke()
 		}

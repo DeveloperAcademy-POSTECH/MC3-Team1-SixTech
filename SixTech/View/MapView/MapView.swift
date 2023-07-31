@@ -37,19 +37,6 @@ struct MapView: View {
 					ActivityDataView()
 						.padding(.bottom)
 						.padding(.bottom)
-					Button {
-						SnapshotManager.takeSnapshot(mapView: locationManager.mapView,
-													 multiPolyline: MKMultiPolyline(locationManager.userLocations.map { MKPolyline(coordinates: $0, count: $0.count) })) { image in
-							if let image = image {
-								snapshottedMap = image
-							} else { return }
-						}
-					} label: {
-						Text("Snapshot")
-					}
-					NavigationLink(destination: TestPhotoView(snapshot: $snapshottedMap)) {
-						Text("gotosnapshot")
-					}
 				}
 			}
 		}
