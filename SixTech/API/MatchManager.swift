@@ -142,8 +142,10 @@ class MatchManager: NSObject, ObservableObject {
 extension MatchManager: GKMatchDelegate {
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
         if let content = decodeUserInfo(data) {
-            DispatchQueue.main.async {
-                self.otherPlayerInfo?.append(content)                
+            DispatchQueue.main.async { [self] in
+                if !(otherPlayerInfo?.contains(where: { $0.uuid == content.uuid }))! {
+                    otherPlayerInfo?.append(content)
+                }
             }
         }
 //        if content.starts(with: "strData") {
