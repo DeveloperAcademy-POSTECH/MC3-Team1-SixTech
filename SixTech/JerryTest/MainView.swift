@@ -29,7 +29,9 @@ struct MainView: View {
                     .padding()
                 
                 NavigationLink("플로깅 플레이") {
-                    PloggingPlayView()
+//                    PloggingPlayView()
+//                    CameraFilterView()
+                    CharacterCreateView()
                 }.buttonStyle(DefaultButton(isdisable: false))
                     .padding()
                 

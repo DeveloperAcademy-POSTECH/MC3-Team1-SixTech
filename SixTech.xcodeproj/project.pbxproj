@@ -18,16 +18,12 @@
 		576D754D2A72AD5C002F977E /* CameraFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D754C2A72AD5C002F977E /* CameraFilterView.swift */; };
 		576D754F2A72AD93002F977E /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D754E2A72AD93002F977E /* CameraModel.swift */; };
 		576D75512A72ADB7002F977E /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D75502A72ADB7002F977E /* ARViewContainer.swift */; };
-		576D75532A72AE5E002F977E /* earth.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 576D75522A72AE5D002F977E /* earth.rcproject */; };
 		576D75552A72AEBE002F977E /* FilterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D75542A72AEBE002F977E /* FilterCarouselView.swift */; };
 		576D755D2A72F220002F977E /* sneaker_pegasustrail.scn in Resources */ = {isa = PBXBuildFile; fileRef = 576D755C2A72F220002F977E /* sneaker_pegasustrail.scn */; };
 		576D75612A73A844002F977E /* stone.scn in Resources */ = {isa = PBXBuildFile; fileRef = 576D75602A73A844002F977E /* stone.scn */; };
 		709C76302A725CFE00C16313 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76032A725CFE00C16313 /* ImagePicker.swift */; };
 		709C76312A725CFE00C16313 /* ImagePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76052A725CFE00C16313 /* ImagePickView.swift */; };
 		709C76322A725CFE00C16313 /* PolaroidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76062A725CFE00C16313 /* PolaroidView.swift */; };
-		709C76332A725CFE00C16313 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76092A725CFE00C16313 /* CameraViewModel.swift */; };
-		709C76342A725CFE00C16313 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C760A2A725CFE00C16313 /* Camera.swift */; };
-		709C76352A725CFE00C16313 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C760C2A725CFE00C16313 /* CameraView.swift */; };
 		709C76362A725CFE00C16313 /* ShareResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C760F2A725CFE00C16313 /* ShareResultView.swift */; };
 		709C76372A725CFE00C16313 /* ImageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76102A725CFE00C16313 /* ImageTabView.swift */; };
 		709C76382A725CFE00C16313 /* CharacterCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76132A725CFE00C16313 /* CharacterCreateViewModel.swift */; };
@@ -105,16 +101,12 @@
 		576D754C2A72AD5C002F977E /* CameraFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFilterView.swift; sourceTree = "<group>"; };
 		576D754E2A72AD93002F977E /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		576D75502A72ADB7002F977E /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
-		576D75522A72AE5D002F977E /* earth.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = earth.rcproject; sourceTree = "<group>"; };
 		576D75542A72AEBE002F977E /* FilterCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCarouselView.swift; sourceTree = "<group>"; };
 		576D755C2A72F220002F977E /* sneaker_pegasustrail.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = sneaker_pegasustrail.scn; sourceTree = "<group>"; };
 		576D75602A73A844002F977E /* stone.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = stone.scn; sourceTree = "<group>"; };
 		709C76032A725CFE00C16313 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		709C76052A725CFE00C16313 /* ImagePickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickView.swift; sourceTree = "<group>"; };
 		709C76062A725CFE00C16313 /* PolaroidView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolaroidView.swift; sourceTree = "<group>"; };
-		709C76092A725CFE00C16313 /* CameraViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
-		709C760A2A725CFE00C16313 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
-		709C760C2A725CFE00C16313 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		709C760F2A725CFE00C16313 /* ShareResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareResultView.swift; sourceTree = "<group>"; };
 		709C76102A725CFE00C16313 /* ImageTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTabView.swift; sourceTree = "<group>"; };
 		709C76132A725CFE00C16313 /* CharacterCreateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCreateViewModel.swift; sourceTree = "<group>"; };
@@ -232,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				576D754C2A72AD5C002F977E /* CameraFilterView.swift */,
-				576D75522A72AE5D002F977E /* earth.rcproject */,
 				576D755C2A72F220002F977E /* sneaker_pegasustrail.scn */,
 				576D75602A73A844002F977E /* stone.scn */,
 				576D754E2A72AD93002F977E /* CameraModel.swift */,
@@ -246,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				709C76012A725CFE00C16313 /* ImagePicker */,
-				709C76072A725CFE00C16313 /* CameraFilter */,
 				709C760D2A725CFE00C16313 /* ShareResult */,
 				709C76112A725CFE00C16313 /* CharacterCreate */,
 				709C76172A725CFE00C16313 /* Onboarding */,
@@ -276,32 +266,6 @@
 			children = (
 				709C76052A725CFE00C16313 /* ImagePickView.swift */,
 				709C76062A725CFE00C16313 /* PolaroidView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		709C76072A725CFE00C16313 /* CameraFilter */ = {
-			isa = PBXGroup;
-			children = (
-				709C76082A725CFE00C16313 /* Model */,
-				709C760B2A725CFE00C16313 /* View */,
-			);
-			path = CameraFilter;
-			sourceTree = "<group>";
-		};
-		709C76082A725CFE00C16313 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				709C76092A725CFE00C16313 /* CameraViewModel.swift */,
-				709C760A2A725CFE00C16313 /* Camera.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		709C760B2A725CFE00C16313 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				709C760C2A725CFE00C16313 /* CameraView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -602,7 +566,6 @@
 				709C76762A725EDF00C16313 /* MyprofileView.swift in Sources */,
 				709C767D2A725EDF00C16313 /* MainView.swift in Sources */,
 				709C76302A725CFE00C16313 /* ImagePicker.swift in Sources */,
-				576D75532A72AE5E002F977E /* earth.rcproject in Sources */,
 				709C767B2A725EDF00C16313 /* MatchManager.swift in Sources */,
 				576D75512A72ADB7002F977E /* ARViewContainer.swift in Sources */,
 				709C763E2A725CFE00C16313 /* OnBoarding2View.swift in Sources */,
@@ -644,16 +607,13 @@
 				709C767F2A725EDF00C16313 /* CustomAlert.swift in Sources */,
 				709C767C2A725EDF00C16313 /* CustomMatchingViewController.swift in Sources */,
 				709C76772A725EDF00C16313 /* TestView.swift in Sources */,
-				709C76342A725CFE00C16313 /* Camera.swift in Sources */,
 				709C76362A725CFE00C16313 /* ShareResultView.swift in Sources */,
 				709C764A2A725CFE00C16313 /* ImageURLExtension.swift in Sources */,
-				709C76332A725CFE00C16313 /* CameraViewModel.swift in Sources */,
 				576D75552A72AEBE002F977E /* FilterCarouselView.swift in Sources */,
 				576D754F2A72AD93002F977E /* CameraModel.swift in Sources */,
 				709C763C2A725CFE00C16313 /* PageTabViewStyle.swift in Sources */,
 				709C764C2A725CFE00C16313 /* ImageButton.swift in Sources */,
 				709C76492A725CFE00C16313 /* FontExtension.swift in Sources */,
-				709C76352A725CFE00C16313 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

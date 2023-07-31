@@ -11,6 +11,7 @@ import ARKit
 struct ARViewContainer: UIViewRepresentable {
     @Binding var useFrontCamera: Bool
     @ObservedObject var cameraModel: CameraModel
+    @Binding var currentIndex: Int
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -26,17 +27,23 @@ struct ARViewContainer: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: ARSCNView, context: Context) {
-        let configuration = useFrontCamera ? ARFaceTrackingConfiguration() : ARWorldTrackingConfiguration()
-        uiView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        if useFrontCamera {
+            let configuration = ARFaceTrackingConfiguration()
+            uiView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        } else {
+            let configuration = ARWorldTrackingConfiguration()
+            uiView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        }
     }
     
     class Coordinator: NSObject, ARSCNViewDelegate, ARSessionDelegate {
         var parent: ARViewContainer
-        
         init(_ parent: ARViewContainer) {
             self.parent = parent
         }
-        
+        var filterIndex: Int {
+            parent.currentIndex % 3
+        }
         @objc func handleTap(_ gesture: UITapGestureRecognizer) {
             guard let arView = gesture.view as? ARSCNView else { return }
             let touchLocation = gesture.location(in: arView)
@@ -48,18 +55,28 @@ struct ARViewContainer: UIViewRepresentable {
         }
         
         func addARObject(at position: SCNVector3, to arView: ARSCNView) {
-            let yourSCNFile = SCNScene(named: "stone.scn")
-            guard let scnNode = yourSCNFile?.rootNode else { return }
-            scnNode.position = position
-            scnNode.scale = SCNVector3(1, 1, 1)
-            arView.scene.rootNode.addChildNode(scnNode)
+            if filterIndex == 2 {
+                let yourSCNFile = SCNScene(named: "stone.scn")
+                guard let scnNode = yourSCNFile?.rootNode else { return }
+                
+                scnNode.position = position
+                scnNode.scale = SCNVector3(1, 1, 1)
+                arView.scene.rootNode.addChildNode(scnNode)
+            }
         }
         
-        func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-            if let faceAnchor = anchor as? ARFaceAnchor, parent.useFrontCamera {
+        func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+            guard let faceAnchor = anchor as? ARFaceAnchor, parent.useFrontCamera else {
+                return nil
+            }
+            if filterIndex == 2 {
                 let yourSCNFile = SCNScene(named: "stone.scn")
-                let scnNode = yourSCNFile?.rootNode
-                node.addChildNode(scnNode!)
+                guard let scnNode = yourSCNFile?.rootNode else { return nil }
+                scnNode.position = SCNVector3(faceAnchor.leftEyeTransform.columns.3.x, faceAnchor.leftEyeTransform.columns.3.y, faceAnchor.leftEyeTransform.columns.3.z)
+                scnNode.scale = SCNVector3(0.1, 0.1, 0.1)
+                return scnNode
+            } else {
+                return nil
             }
         }
     }
