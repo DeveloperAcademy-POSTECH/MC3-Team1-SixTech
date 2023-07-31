@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CheckMissionView: View {
 
-    @StateObject private var missionViewModel = SelectMission()
+    @StateObject private var selectMission = SelectMission()
 
     var body: some View {
         VStack {
@@ -51,7 +51,7 @@ struct CheckMissionView: View {
                         RoundedRectangle(cornerRadius: 25)
                             .foregroundColor(.white)
 
-                        Text(missionViewModel.selectedMission)
+                        Text(selectMission.selectedMission)
                             .font(.Jamsil.regular.font(size: 17))
                     }
                     .frame(width: 294, height: 105)
@@ -65,7 +65,7 @@ struct CheckMissionView: View {
 
             HStack {
                 Button {
-                    missionViewModel.selectedMission = missionViewModel.getRandomMission()
+                    selectMission.selectedMission = selectMission.getRandomMission()
                 } label: {
                     VStack {
                         Image(systemName: "arrow.clockwise")
