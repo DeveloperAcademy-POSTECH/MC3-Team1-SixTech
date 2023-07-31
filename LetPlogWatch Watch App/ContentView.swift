@@ -10,6 +10,7 @@ import CoreMotion
 import WatchConnectivity
 import WatchKit
 import HealthKit
+import CoreML
 
 struct ContentView: View {
     @StateObject var motionManager = MotionManager()
@@ -31,7 +32,7 @@ struct ContentView: View {
                     motionManager.startCollectingData()
                 }
             }) {
-                Text(motionManager.isCollectingData ? "데이터 수집 중!" : "데이터 수집 시작 (10초간)")
+                Text(motionManager.isCollectingData ? "데이터 수집 중!" : "예측 시작")
             }
         }
         .onAppear {
@@ -53,7 +54,18 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
     @Published var deviceMotion: CMDeviceMotion?
     @Published var isCollectingData = false
     
+    // Core ML model 관련 변수
+    private let model: WatchMotionClassifier
+    private var predictionCounter = 0
+    private var canPredict = true
+    
     override init() {
+        // 모델 로드
+        guard let model = try? WatchMotionClassifier(configuration: MLModelConfiguration()) else {
+            fatalError("Failed to load ML model.")
+        }
+        self.model = model
+        
         super.init()
         
         if CMMotionManager().isDeviceMotionAvailable {
@@ -77,7 +89,7 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
             guard let data = data else { return }
             self.deviceMotion = data
         }
-    
+        
     }
     
     func startCollectingData() {
@@ -96,20 +108,61 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
             print("Failed to start workout session: \(error.localizedDescription)")
         }
         
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 50.0, repeats: true) { _ in
-                guard let motion = self.deviceMotion else { return }
-                
-                let elapsed = Date().timeIntervalSince1970 - startTime
-                
-                self.data.append((timestamp: elapsed, userAcceleration: motion.userAcceleration, rotationRate: motion.rotationRate, attitude: motion.attitude, gravity: motion.gravity))
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 50.0, repeats: true) { _ in
+            guard let motion = self.deviceMotion else { return }
+            
+            let elapsed = Date().timeIntervalSince1970 - startTime
+            
+            self.data.append((timestamp: elapsed, userAcceleration: motion.userAcceleration, rotationRate: motion.rotationRate, attitude: motion.attitude, gravity: motion.gravity))
+            
+            // 실시간으로 데이터를 모델에 제공하고 예측 결과를 처리
+            if self.canPredict {
+                self.makePrediction(with: motion)
             }
         }
         
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        //            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 50.0, repeats: true) { _ in
+        //                guard let motion = self.deviceMotion else { return }
+        //
+        //                let elapsed = Date().timeIntervalSince1970 - startTime
+        //
+        //                self.data.append((timestamp: elapsed, userAcceleration: motion.userAcceleration, rotationRate: motion.rotationRate, attitude: motion.attitude, gravity: motion.gravity))
+        //            }
+        //        }
+        //
+        //
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) {
+        //            self.stopCollectingData()
+        //        }
+    }
+    
+    // Core ML 모델을 사용하여 예측 수행
+    private func makePrediction(with motion: CMDeviceMotion) {
+        // featureValues 생성
+        let featureValues = [motion.userAcceleration.x, motion.userAcceleration.y, motion.userAcceleration.z, motion.rotationRate.x, motion.rotationRate.y, motion.rotationRate.z]
+        guard let mlArray = try? MLMultiArray(shape: [NSNumber(value: featureValues.count)], dataType: .double) else {
+            print("Failed to create MLMultiArray.")
+            return
+        }
+        for (index, element) in featureValues.enumerated() {
+            mlArray[index] = NSNumber(value: element)
+        }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) {
-            self.stopCollectingData()
+        // 예측 수행
+        guard let prediction = try? self.model.prediction(input: WatchMotionClassifierInput(sensorData: mlArray)) else {
+            print("Failed to make prediction.")
+            return
+        }
+        
+        if prediction.classLabelProbs[prediction.classLabel] ?? 0 > 0.8 {
+            self.predictionCounter += 1
+            self.canPredict = false
+            
+            // 2초 동안 예측 중단
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.canPredict = true
+            }
         }
     }
     
