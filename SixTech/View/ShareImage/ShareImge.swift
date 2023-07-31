@@ -7,18 +7,13 @@
 
 import SwiftUI
 import UIKit
+import Photos
 
-struct ShareImgeView: View {
-    
+struct ShareImageView: View {
     @State var currentIndex: Int = 0
     @State var images: [ShareImage]
-    @State var currectTab = "Slide Show"
-    @Namespace var animation
-//    @State var capture: NSImage?
-    
-    func saveImageToPhotos(image: UIImage) {
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        }
+//    @State var sizeToImage: CGSize = CGSize(width: 0, height: 0)
+    @State var isButtonPressed: Bool = false
     
     var body: some View {
         
@@ -28,7 +23,7 @@ struct ShareImgeView: View {
                 ImageButton(image: .right) {
                     print("")
                 }
-                .padding(.leading)
+                .padding(.trailing)
             }
             
             Text("플로깅이 끝났어요.")
@@ -42,48 +37,44 @@ struct ShareImgeView: View {
             
             SnapCarousel(index: $currentIndex, items: images) { image in
                 
-                GeometryReader { proxy in
-                    let size = proxy.size
-                    PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(image.postImage), userMission: .constant("Mision"))
-                        .frame(width: size.width)
-                    
-                }
+                PolaroidView(isdisable: .constant(false), profileImage: .constant(image.postImage), userName: .constant("User"), userMission: .constant("Mision"), isButtonPressed: $isButtonPressed)
+//                .background(
+//                    GeometryReader { proxy in
+//                        Color.red
+//                            .preference(key: SizePreferenceKey.self, value: proxy.size)
+//                            .onAppear {
+//                                sizeToImage = CGSize(width: proxy.size.width, height: proxy.size.height)
+//                            }
+//                    })
             }
             
             Spacer()
             
             ButtonView(text: "로렌조가 만든 버튼으로 바꿀예정", isdisable: .constant(false)) {
-                
+                isButtonPressed.toggle()
             }
             .padding(.top, 100)
+            
         }
-        .frame(maxHeight: .infinity, alignment: .top)
-        
+        .navigationBarBackButtonHidden()
     }
 }
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        ShareImgeView(images: [
-            ShareImage(postImage: Image("face_dust_gray")), // Replace with your image names or URLs
-                        ShareImage(postImage: Image("face_dust_yellow")),
-                        ShareImage(postImage: Image("face_can_gray")),
-                        ShareImage(postImage: Image("face_bag_yellow")),
-                        ShareImage(postImage: Image("face_pet_gray"))
+        ShareImageView(images: [
+            ShareImage(postImage: Image("MissionTestImage")),
+            ShareImage(postImage: Image("MissionTestImage")),
+            ShareImage(postImage: Image("MissionTestImage")),
+            ShareImage(postImage: Image("MissionTestImage")),
+            ShareImage(postImage: Image("MissionTestImage"))
         ])
     }
 }
 
-struct SnapshotSaver<Content: View>: UIViewRepresentable {
-    let content: Content
 
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 400)) // 크기를 조정하거나 뷰에 맞게 설정
-        view.addSubview(UIHostingController(rootView: content).view)
-        return view
-    }
-
-    func updateUIView(_ uiView: UIView, context: Context) {
-        // Nothing to do here
-    }
-}
+//                let renderer = ImageRenderer(content: PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(images[currentIndex].postImage), userName: .constant("User"), userMission: .constant("Mision")))
+//
+//                if let image = renderer.uiImage {
+//                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+//                }

@@ -10,6 +10,7 @@
 		0B5B27312A7268B600703D56 /* ShareImge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B27302A7268B600703D56 /* ShareImge.swift */; };
 		0B5B27362A72833900703D56 /* Causel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B27352A72833900703D56 /* Causel.swift */; };
 		0B5B273B2A72897600703D56 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B273A2A72897600703D56 /* Post.swift */; };
+		0B8374352A77974600292F2B /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8374342A77974600292F2B /* CountDownView.swift */; };
 		0BE598182A5FF23B00D019EA /* SwiftUIGIF in Frameworks */ = {isa = PBXBuildFile; productRef = 0BE598172A5FF23B00D019EA /* SwiftUIGIF */; };
 		0BE598392A60F9AC00D019EA /* onboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* onboardingGIF.gif */; };
 		0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */; };
@@ -105,6 +106,7 @@
 		0B5B27302A7268B600703D56 /* ShareImge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareImge.swift; sourceTree = "<group>"; };
 		0B5B27352A72833900703D56 /* Causel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Causel.swift; sourceTree = "<group>"; };
 		0B5B273A2A72897600703D56 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		0B8374342A77974600292F2B /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		0BE5980B2A5FD86F00D019EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BE598382A60F9AC00D019EA /* onboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = onboardingGIF.gif; path = ../onboardingGIF.gif; sourceTree = "<group>"; };
 		0E94FABC2A5A83AE002A39FB /* SixTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SixTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +208,14 @@
 			path = ShareImage;
 			sourceTree = "<group>";
 		};
+		0B8374332A77973700292F2B /* CountDown */ = {
+			isa = PBXGroup;
+			children = (
+				0B8374342A77974600292F2B /* CountDownView.swift */,
+			);
+			path = CountDown;
+			sourceTree = "<group>";
+		};
 		0E94FAB32A5A83AE002A39FB = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +289,7 @@
 		709C76002A725CFE00C16313 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0B8374332A77973700292F2B /* CountDown */,
 				796F30082A77828100138FB2 /* Mission */,
 				709C76172A725CFE00C16313 /* Onboarding */,
 				709C76112A725CFE00C16313 /* CharacterCreate */,
@@ -689,6 +700,7 @@
 				709C76822A725EDF00C16313 /* TestPhotoView.swift in Sources */,
 				576D754D2A72AD5C002F977E /* CameraFilterView.swift in Sources */,
 				707798792A778495000525B2 /* PloggingManager.swift in Sources */,
+				0B8374352A77974600292F2B /* CountDownView.swift in Sources */,
 				7986625D2A72B09F00AB89ED /* DeveloperInfoView.swift in Sources */,
 				709C76752A725EDF00C16313 /* EngagementView.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
