@@ -15,7 +15,7 @@ extension UIView {
             layer.render(in: rendererContext.cgContext)
         }
     }
-
+    
     func takeScreenshotAndSaveToAlbum(in rect: CGRect) {
         let image = self.asImage(in: rect)
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
@@ -23,127 +23,141 @@ extension UIView {
 }
 
 struct FilterCarouselView: View {
-    @Binding var capturedImage: UIImage?
+    @State private var width: CGFloat = 0
     @State private var selectedIndex = 1
-    @State private var isButtonClicked = false
-    @State private var dragOffset: CGFloat = 0
-    init(capturedImage: Binding<UIImage?>) {
+    @Binding var currentIndex: Int
+    @Binding var capturedImage: UIImage?
+    
+    var itemWidth: CGFloat
+    var spacing: CGFloat
+    var trailingSpace: CGFloat
+    
+    init(capturedImage: Binding<UIImage?>, currentIndex: Binding<Int>, spacing: CGFloat, trailingSpace: CGFloat, itemWidth: CGFloat) {
         _capturedImage = capturedImage
+        _currentIndex = currentIndex
+        self.spacing = spacing
+        self.trailingSpace = trailingSpace
+        self.itemWidth = itemWidth
     }
-    let filters = ["2d", "3d", "기본", "2d", "3d", "기본"]
+    
+    let baseFilters = ["2D", "기본", "3D"]
+    var filters: [String] {
+        Array(repeating: baseFilters, count: 20).flatMap { $0 }
+    }
     let feedbackGenerator = UINotificationFeedbackGenerator()
     
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 1) {
-                    ForEach(0..<filters.count, id: \.self) { index in
-                        Button(action: {
-                            withAnimation {
-                                if selectedIndex == index && isButtonClicked {
-                                    takeScreenshotAndSave()
-                                    feedbackGenerator.notificationOccurred(.success)
-                                    isButtonClicked = false
-                                    
-                                } else {
-                                    selectedIndex = index
-                                    isButtonClicked = true
+                ScrollViewReader { value in
+                    LazyHStack(alignment: .bottom, spacing: spacing) {
+                        ForEach(0..<filters.count, id: \.self) { index in
+                            GeometryReader { itemGeometry in
+                                let ratio = getRatio(for: itemGeometry, in: geometry)
+                                Button(action: {
+                                    if currentIndex == index {
+                                        takeScreenshotAndSave()
+                                        feedbackGenerator.notificationOccurred(.success)
+                                    } else {
+                                        currentIndex = index
+                                    }
+                                }) {
+                                    VStack{
+                                        let isSelected = (currentIndex == index)
+                                        Circle()
+                                            .overlay(
+                                                Image(filters[index % baseFilters.count])
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width: 50, height: 50)
+                                            )
+                                            .overlay(getButtonOverlay(for: index, ratio: ratio, isSelected: currentIndex == index))
+                                        Text(filters[index])
+                                            .font(.Jamsil.light.font(size: 15))
+                                            .foregroundColor(.white)
+                                            .padding(.top, 5)
+                                    }
                                 }
+                                .frame(width: itemWidth, height: itemWidth)
+                                .foregroundColor(Color.white)
+                                .id(index)
+                                .position(x: itemGeometry.size.width/2, y:itemGeometry.size.height/2)
                             }
-                        }) {
-                            VStack{
-                                Circle()
-                                    .frame(width: getButtonSize(for: index), height: getButtonSize(for: index))
-                                
-                                    .overlay(
-                                        Image(filters[index])
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 50, height: 50)
-                                            
-                                    )
-                                    .overlay(getButtonOverlay(for: index))
-                                Text(filters[index % (filters.count / 2)])
-                                    .font(.Jamsil.light.font(size: 15))
-                                    .foregroundColor(.white)
-                                    .padding(.top, 5)
-                            }
-                            .frame(width: geometry.size.width / 3)
-                            .offset(x: self.dragOffset)
-                            .gesture(DragGesture()
-                                .onChanged({ (value) in
-                                    self.dragOffset = value.translation.width
-                                })
-                                    .onEnded({ (value) in
-                                        withAnimation {
-                                            self.dragOffset = 0
-                                        }
-                                        if index == self.selectedIndex {
-                                            self.feedbackGenerator.notificationOccurred(.success)
-                                        }
-                                    })
-                            )
+                            .frame(width: geometry.size.width / 2.8)
                         }
-                        .foregroundColor(Color.white)
+                    }
+                    .padding(.top, 20)
+                    .background(Color.black)
+                    .onChange(of: currentIndex) { _ in
+                        value.scrollTo(currentIndex, anchor: .center)
                     }
                 }
-                .padding(.top, 20)
+            }
+            .position(x: geometry.size.width/2, y: geometry.size.height/2)
+            .scrollDisabled(true)
+        }
+        .onAppear {
+            DispatchQueue.main.async {
+                currentIndex = baseFilters.firstIndex(of: "기본") ?? 0
+                selectedIndex = baseFilters.count
             }
         }
     }
-    
-    func getButtonSize(for index: Int) -> CGFloat {
-        return selectedIndex == index ? 75 : 55
+   
+    func getRatio(for itemGeometry: GeometryProxy, in geometry: GeometryProxy) -> CGFloat {
+        let itemFrame = itemGeometry.frame(in: .global)
+        let scrollViewFrame = geometry.frame(in: .global)
+        let distanceFromCenter = abs((itemFrame.midX - scrollViewFrame.midX))
+        let ratio = 1 - (distanceFromCenter / scrollViewFrame.width / 2)
+        
+        return ratio
     }
-    
-    func getButtonOverlay(for index: Int) -> some View {
+
+    func getButtonSize(for index: Int, ratio: CGFloat, isSelected: Bool) -> CGFloat {
+        let minSize: CGFloat = 55
+        let maxSize: CGFloat = 75
+        if isSelected || (ratio > 0.95) {
+            return maxSize * ratio
+        } else {
+            return minSize * ratio
+        }
+    }
+
+    func getButtonOverlay(for index: Int, ratio: CGFloat, isSelected: Bool) -> some View {
         return Circle()
-            .stroke(lineWidth: selectedIndex == index ? 5 : 0)
-            .frame(width: selectedIndex == index ? 90 : 0, height: selectedIndex == index ? 90 : 0)
+            .stroke(lineWidth: (isSelected || (ratio > 0.95) ? 5 : 0))
+            .frame(width: (isSelected || (ratio > 0.95)) ? 90 : 0, height: (isSelected || (ratio > 0.95)) ? 90 : 0)
             .foregroundColor(Color.backgroundColor)
     }
-    
+
     func takeScreenshotAndSave() {
         print("takeScreenshotAndSave")
-        if isButtonClicked {
-            if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
-                // 화면 크기로 그래픽 컨텍스트 생성
-                UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, false, 0)
-
-                // 전체 뷰 계층 구조를 현재 컨텍스트에 렌더링
-                rootViewController.view.drawHierarchy(in: UIScreen.main.bounds, afterScreenUpdates: true)
-
-                // 스크린샷 이미지 가져오기
-                let fullScreenshot = UIGraphicsGetImageFromCurrentImageContext()
-
-                // 그래픽 컨텍스트 종료
-                UIGraphicsEndImageContext()
-
-                if let fullScreenshot = fullScreenshot {
-                    let scale = fullScreenshot.scale
-                    let cropRect = CGRect(x: 0,
-                                          y: (fullScreenshot.size.height / 6) * scale,
-                                          width: fullScreenshot.size.width * scale,
-                                          height: (fullScreenshot.size.height / 2.2) * scale)
-                    if let croppedImage = fullScreenshot.cgImage?.cropping(to: cropRect) {
-                        let croppedUIImage = UIImage(cgImage: croppedImage, scale: scale, orientation: .up)
-
-                        // 잘린 스크린샷을 앨범에 저장
-                        UIImageWriteToSavedPhotosAlbum(croppedUIImage, nil, nil, nil)
-                    }
+        if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
+            UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, false, 0)
+            rootViewController.view.drawHierarchy(in: UIScreen.main.bounds, afterScreenUpdates: true)
+            let fullScreenshot = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            if let fullScreenshot = fullScreenshot {
+                let scale = fullScreenshot.scale
+                let cropRect = CGRect(x: 0,
+                                      y: (fullScreenshot.size.height / 6) * scale,
+                                      width: fullScreenshot.size.width * scale,
+                                      height: (fullScreenshot.size.width * scale))
+                if let croppedImage = fullScreenshot.cgImage?.cropping(to: cropRect) {
+                    let croppedUIImage = UIImage(cgImage: croppedImage, scale: scale, orientation: .up)
+                    UIImageWriteToSavedPhotosAlbum(croppedUIImage, nil, nil, nil)
                 }
-
             }
-
-            isButtonClicked = false
         }
     }
-
-
 }
 
 struct FilterCarouselView_Previews: PreviewProvider {
+    @State static var dummyImage: UIImage? = nil
+    @State static var currentIndex: Int = 2
+    
     static var previews: some View {
-        FilterCarouselView(capturedImage: .constant(nil))
+        FilterCarouselView(capturedImage: $dummyImage, currentIndex: $currentIndex, spacing: 10, trailingSpace: 20, itemWidth: 100)
     }
 }

@@ -9,23 +9,38 @@ import RealityKit
 import PhotosUI
 
 struct CameraFilterView : View {
-    @State private var isCameraPresented = false
     @State private var isAlbumPresented = false
     @State private var isboltClicked = false
     @State private var capturedImage: UIImage? = nil
     @State private var useFrontCamera = false
+    @State private var currentIndex: Int = 0
+    @State private var dummyImage: UIImage? = nil
     
     @StateObject private var cameraModel = CameraModel()
+    @AppStorage("profileURL") var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!
     
     var body: some View {
+        let filterIndex = currentIndex % 3
         ZStack {
-//            ARViewContainer().edgesIgnoringSafeArea(.all)
-            ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel)
+            if filterIndex == 0 {
+                ZStack{
+                    ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel, currentIndex: $currentIndex)
+                    Image(uiImage: loadImageFromURL(imageURL: profileImageURL))
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                }
+            }
+            else if filterIndex == 1 {
+                ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel, currentIndex: $currentIndex)
+            }
+            else if filterIndex == 2 {
+                ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel, currentIndex: $currentIndex)
+            }
             VStack {
                 VStack{
                     HStack{
                         Button(action: {
-                            
+                            //map으로 연결
                         }) {
                             Image(systemName: "xmark")
                                 .resizable()
@@ -63,7 +78,8 @@ struct CameraFilterView : View {
                     })
                 //camera
                 VStack{
-                    FilterCarouselView(capturedImage: $capturedImage)
+                    FilterCarouselView(capturedImage: $dummyImage, currentIndex: $currentIndex, spacing: 10, trailingSpace: 20, itemWidth: 100)
+
                         .padding(.bottom, 1)
                     HStack {
                         Button(action: {
@@ -80,7 +96,6 @@ struct CameraFilterView : View {
                         .padding(.trailing)
                         Spacer()
                         Button(action: {
-//                            cameraModel.toggleCamera()
                             useFrontCamera.toggle()
                         }) {
                             Image(systemName: "arrow.triangle.2.circlepath.camera")
@@ -102,7 +117,6 @@ struct CameraFilterView : View {
             ImagePicker(image: $capturedImage, sourceType: .photoLibrary)
         }
     }
-    // 사진을 앨범에 저장하는 함수
     private func saveImageToAlbum() {
         print("save image to album")
         guard let image = capturedImage else { return }
