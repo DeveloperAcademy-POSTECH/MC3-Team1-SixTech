@@ -50,7 +50,6 @@ struct CharacterCreateView: View {
                             
             NavigationLinkView(text: "선택하기"
                                , isdisable: Binding.constant(viewModel.isdisable)
-//                               , destination: CameraView(viewModel: CameraViewModel()))
                                , destination: CameraFilterView())
             .simultaneousGesture(TapGesture().onEnded {
                 viewModel.saveUserDefault()
