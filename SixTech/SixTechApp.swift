@@ -14,7 +14,7 @@ struct SixTechApp: App {
     @StateObject private var historyManager = CoredataManager()
     @StateObject private var userInfo = UserInfo()
 	@StateObject var ploggingManager = PloggingManager()
-	@StateObject var mapManager = MapManager.shared
+	@StateObject var locationManager = LocationManager()
 
     @AppStorage("onboarding") private var isOnboardingActive: Bool = true
     
@@ -28,7 +28,7 @@ struct SixTechApp: App {
                 }
             }
             .environmentObject(matchManager).environmentObject(userInfo)
-			.environmentObject(ploggingManager).environmentObject(mapManager)
+			.environmentObject(ploggingManager).environmentObject(locationManager)
             .environment(\.managedObjectContext, historyManager.container.viewContext)
         }
 
