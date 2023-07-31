@@ -30,9 +30,6 @@
 		709C76302A725CFE00C16313 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76032A725CFE00C16313 /* ImagePicker.swift */; };
 		709C76312A725CFE00C16313 /* ImagePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76052A725CFE00C16313 /* ImagePickView.swift */; };
 		709C76322A725CFE00C16313 /* PolaroidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76062A725CFE00C16313 /* PolaroidView.swift */; };
-		709C76332A725CFE00C16313 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76092A725CFE00C16313 /* CameraViewModel.swift */; };
-		709C76342A725CFE00C16313 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C760A2A725CFE00C16313 /* Camera.swift */; };
-		709C76352A725CFE00C16313 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C760C2A725CFE00C16313 /* CameraView.swift */; };
 		709C76362A725CFE00C16313 /* ShareResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C760F2A725CFE00C16313 /* ShareResultView.swift */; };
 		709C76372A725CFE00C16313 /* ImageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76102A725CFE00C16313 /* ImageTabView.swift */; };
 		709C76382A725CFE00C16313 /* CharacterCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76132A725CFE00C16313 /* CharacterCreateViewModel.swift */; };
@@ -132,9 +129,6 @@
 		709C76032A725CFE00C16313 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		709C76052A725CFE00C16313 /* ImagePickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickView.swift; sourceTree = "<group>"; };
 		709C76062A725CFE00C16313 /* PolaroidView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolaroidView.swift; sourceTree = "<group>"; };
-		709C76092A725CFE00C16313 /* CameraViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
-		709C760A2A725CFE00C16313 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
-		709C760C2A725CFE00C16313 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		709C760F2A725CFE00C16313 /* ShareResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareResultView.swift; sourceTree = "<group>"; };
 		709C76102A725CFE00C16313 /* ImageTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTabView.swift; sourceTree = "<group>"; };
 		709C76132A725CFE00C16313 /* CharacterCreateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCreateViewModel.swift; sourceTree = "<group>"; };
@@ -333,7 +327,6 @@
 				0B5B272E2A72687B00703D56 /* ShareImage */,
 				707798692A72CE98000525B2 /* Result */,
 				709C76012A725CFE00C16313 /* ImagePicker */,
-				709C76072A725CFE00C16313 /* CameraFilter */,
 				709C760D2A725CFE00C16313 /* ShareResult */,
 				709C76112A725CFE00C16313 /* CharacterCreate */,
 				709C76172A725CFE00C16313 /* Onboarding */,
@@ -363,32 +356,6 @@
 			children = (
 				709C76052A725CFE00C16313 /* ImagePickView.swift */,
 				709C76062A725CFE00C16313 /* PolaroidView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		709C76072A725CFE00C16313 /* CameraFilter */ = {
-			isa = PBXGroup;
-			children = (
-				709C76082A725CFE00C16313 /* Model */,
-				709C760B2A725CFE00C16313 /* View */,
-			);
-			path = CameraFilter;
-			sourceTree = "<group>";
-		};
-		709C76082A725CFE00C16313 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				709C76092A725CFE00C16313 /* CameraViewModel.swift */,
-				709C760A2A725CFE00C16313 /* Camera.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		709C760B2A725CFE00C16313 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				709C760C2A725CFE00C16313 /* CameraView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -762,15 +729,12 @@
 				709C767F2A725EDF00C16313 /* CustomAlert.swift in Sources */,
 				709C767C2A725EDF00C16313 /* CustomMatchingViewController.swift in Sources */,
 				0B5B27362A72833900703D56 /* Causel.swift in Sources */,
-				709C76342A725CFE00C16313 /* Camera.swift in Sources */,
 				709C76362A725CFE00C16313 /* ShareResultView.swift in Sources */,
 				709C764A2A725CFE00C16313 /* ImageURLExtension.swift in Sources */,
-				709C76332A725CFE00C16313 /* CameraViewModel.swift in Sources */,
 				709C763C2A725CFE00C16313 /* PageTabViewStyle.swift in Sources */,
 				709C764C2A725CFE00C16313 /* ImageButton.swift in Sources */,
 				0B5B273B2A72897600703D56 /* Post.swift in Sources */,
 				709C76492A725CFE00C16313 /* FontExtension.swift in Sources */,
-				709C76352A725CFE00C16313 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

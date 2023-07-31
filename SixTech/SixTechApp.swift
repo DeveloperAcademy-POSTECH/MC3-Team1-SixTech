@@ -16,7 +16,7 @@ struct SixTechApp: App {
         
             WindowGroup {
                 NavigationView {
-                    CameraView(viewModel: CameraViewModel())
+                    OnBoardingView()
                     .environmentObject(matchManager)
             }
         }
