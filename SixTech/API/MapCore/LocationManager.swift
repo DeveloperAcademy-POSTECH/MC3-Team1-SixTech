@@ -12,66 +12,49 @@ import CoreLocation
 
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, MKMapViewDelegate {
 	var locationManager: CLLocationManager?
-	var polylines: MKPolyline { MKPolyline(coordinates: userLocations, count: userLocations.count) }
-	
+	var userLocations = [[CLLocationCoordinate2D]]()
+	var isStop = false
+
 	@Published var mapView: MKMapView = MKMapView()
 	@Published var trackUser: UserTrackingMode = .follow
-	@Published var userLocations = [CLLocationCoordinate2D]()
 	@Published var region = MKCoordinateRegion()
+	@Published var movedDistance: Double = 0.0
 
 	override init() {
 		super.init()
 		setupLocationManager()
 		updateRegion()
 	}
-			
+	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		guard let location = locations.last else { return }
-		userLocations.append(location.coordinate)
+
+		if let lastLocation = userLocations.last?.last, !isStop {
+			let distance = location.distance(from: CLLocation(latitude: lastLocation.latitude, longitude: lastLocation.longitude))
+			self.movedDistance += distance
+		}
+
+		if userLocations.isEmpty {
+			userLocations.append([location.coordinate])
+		} else {
+			userLocations[userLocations.count - 1].append(location.coordinate)
+		}
+
 		let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
 											longitude: location.coordinate.longitude)
 		let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
 		region = MKCoordinateRegion(center: center, span: span)
-		
+	}
+	
+	func drawPolyline() {
+		let overlays = mapView.overlays
+		mapView.removeOverlays(overlays)
 		addPolylineToMap()
-//		print(trackUser)
-//		print("lat = \(location.coordinate.latitude)")
-//		print("lng = \(location.coordinate.longitude)")
 	}
 	
-	func addPolylineToMap() {
-		let polyline = MKPolyline(coordinates: userLocations, count: userLocations.count)
+	private func addPolylineToMap() {
+		let polyline = MKMultiPolyline(userLocations.map { MKPolyline(coordinates: $0, count: $0.count) })
 		mapView.addOverlay(polyline)
-	}
-	
-	func addPolaroidAnnotation() {
-		if let image = UIImage(named: "testImage") {
-			let newImage = drawPolaroidOnImage(image: image)
-			let imageAnnotation = ImageAnnotation(image: newImage, coordinate: locationManager!.location!.coordinate)
-			mapView.addAnnotation(imageAnnotation)
-		}
-	}
-	
-	func drawPolaroidOnImage(image: UIImage) -> UIImage {
-		let imageSize = image.size
-		let padding: CGFloat = 10
-		let totalSize = CGSize(width: imageSize.width + 2 * padding, height: imageSize.height + 2 * padding + 30)
-		let renderer = UIGraphicsImageRenderer(size: totalSize)
-		
-		let newImage = renderer.image { context in
-			let rectangleColor = UIColor.white
-			let rectangleRect = CGRect(x: 0, y: 0, width: totalSize.width, height: totalSize.height)
-			
-			context.cgContext.setFillColor(rectangleColor.cgColor)
-			context.cgContext.setStrokeColor(rectangleColor.cgColor)
-			context.cgContext.setLineWidth(10)
-			context.cgContext.addRect(rectangleRect)
-			context.cgContext.drawPath(using: .fillStroke)
-			
-			image.draw(at: CGPoint(x: padding, y: padding))
-		}
-		
-		return newImage
 	}
 	
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -96,10 +79,12 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 	
 	func startUpdating() {
 		locationManager?.startUpdatingLocation()
+		isStop = false
 	}
 	
 	func stopUpdating() {
-		locationManager?.stopUpdatingLocation()
+//		locationManager?.stopUpdatingLocation()
+		isStop = true
 	}
 	
 	func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
@@ -115,11 +100,11 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 	func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
 		
 	}
-	
+
 	func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-		if let polylineOverlay = overlay as? MKPolyline {
-			let renderer = MKPolylineRenderer(polyline: polylineOverlay)
-			renderer.strokeColor = .blue
+		if let multiPolyline = overlay as? MKMultiPolyline {
+			let renderer = MKMultiPolylineRenderer(multiPolyline: multiPolyline)
+			renderer.strokeColor = UIColor(red: 40/255, green: 203/255, blue: 174/255, alpha: 1)
 			renderer.lineWidth = 5
 			return renderer
 		}
@@ -129,12 +114,13 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 	private func setupLocationManager() {
 		self.locationManager = CLLocationManager()
 		self.locationManager!.delegate = self
+		self.locationManager!.distanceFilter = 10.0
 		self.locationManager!.requestWhenInUseAuthorization()
 		self.locationManager!.startUpdatingLocation()
-		
+
 		self.mapView.delegate = self
 		self.mapView.showsUserLocation = true
-		self.mapView.userTrackingMode = .none		
+		self.mapView.userTrackingMode = .none
 	}
 	
 	private func updateRegion() {
@@ -182,6 +168,36 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 		case .followWithHeading:
 			mapView.userTrackingMode = .followWithHeading
 		}
+	}
+	
+	func addPolaroidAnnotation() {
+		if let image = UIImage(named: "testImage") {
+			let newImage = drawPolaroidOnImage(image: image)
+			let imageAnnotation = ImageAnnotation(image: newImage, coordinate: locationManager!.location!.coordinate)
+			mapView.addAnnotation(imageAnnotation)
+		}
+	}
+	
+	func drawPolaroidOnImage(image: UIImage) -> UIImage {
+		let imageSize = image.size
+		let padding: CGFloat = 10
+		let totalSize = CGSize(width: imageSize.width + 2 * padding, height: imageSize.height + 2 * padding + 30)
+		let renderer = UIGraphicsImageRenderer(size: totalSize)
+		
+		let newImage = renderer.image { context in
+			let rectangleColor = UIColor.white
+			let rectangleRect = CGRect(x: 0, y: 0, width: totalSize.width, height: totalSize.height)
+			
+			context.cgContext.setFillColor(rectangleColor.cgColor)
+			context.cgContext.setStrokeColor(rectangleColor.cgColor)
+			context.cgContext.setLineWidth(10)
+			context.cgContext.addRect(rectangleRect)
+			context.cgContext.drawPath(using: .fillStroke)
+			
+			image.draw(at: CGPoint(x: padding, y: padding))
+		}
+		
+		return newImage
 	}
 }
 
