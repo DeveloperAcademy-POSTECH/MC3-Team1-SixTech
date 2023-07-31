@@ -11,7 +11,7 @@
 		0B5B27362A72833900703D56 /* Causel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B27352A72833900703D56 /* Causel.swift */; };
 		0B5B273B2A72897600703D56 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B273A2A72897600703D56 /* Post.swift */; };
 		0BE598182A5FF23B00D019EA /* SwiftUIGIF in Frameworks */ = {isa = PBXBuildFile; productRef = 0BE598172A5FF23B00D019EA /* SwiftUIGIF */; };
-		0BE598392A60F9AC00D019EA /* OnboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */; };
+		0BE598392A60F9AC00D019EA /* onboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* onboardingGIF.gif */; };
 		0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */; };
 		0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FAC12A5A83AF002A39FB /* ContentView.swift */; };
 		0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC32A5A83B0002A39FB /* Assets.xcassets */; };
@@ -109,7 +109,7 @@
 		0B5B27352A72833900703D56 /* Causel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Causel.swift; sourceTree = "<group>"; };
 		0B5B273A2A72897600703D56 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0BE5980B2A5FD86F00D019EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = OnboardingGIF.gif; sourceTree = "<group>"; };
+		0BE598382A60F9AC00D019EA /* onboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = onboardingGIF.gif; path = ../onboardingGIF.gif; sourceTree = "<group>"; };
 		0E94FABC2A5A83AE002A39FB /* SixTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SixTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixTechApp.swift; sourceTree = "<group>"; };
 		0E94FAC12A5A83AF002A39FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -525,7 +525,7 @@
 		86B9D3EE2A72E77700A2ED24 /* ViewComponent */ = {
 			isa = PBXGroup;
 			children = (
-				0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */,
+				0BE598382A60F9AC00D019EA /* onboardingGIF.gif */,
 				709C76222A725CFE00C16313 /* Fonts */,
 				709C762D2A725CFE00C16313 /* ButtonStyle */,
 				709C76642A725EDE00C16313 /* CustomAlert.swift */,
@@ -633,7 +633,7 @@
 				576D755D2A72F220002F977E /* sneaker_pegasustrail.scn in Resources */,
 				709C76482A725CFE00C16313 /* TheJamsilOTF6ExtraBold.otf in Resources */,
 				709C76442A725CFE00C16313 /* TheJamsilOTF3Regular.otf in Resources */,
-				0BE598392A60F9AC00D019EA /* OnboardingGIF.gif in Resources */,
+				0BE598392A60F9AC00D019EA /* onboardingGIF.gif in Resources */,
 				0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
