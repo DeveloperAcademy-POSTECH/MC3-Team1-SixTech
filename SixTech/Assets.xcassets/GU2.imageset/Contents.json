@@ -1,15 +1,11 @@
 {
   "images" : [
     {
-<<<<<<< HEAD
-      "filename" : "기본.svg",
-=======
-      "filename" : "기본 1.svg",
->>>>>>> main
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "GU2.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },

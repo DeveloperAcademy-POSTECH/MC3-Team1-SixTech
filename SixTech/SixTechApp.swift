@@ -10,13 +10,27 @@ import CoreData
 
 @main
 struct SixTechApp: App {
-    @StateObject var matchManager = MatchManager()
+    @StateObject private var matchManager = MatchManager.shared
+    @StateObject private var historyManager = CoredataManager()
+    @StateObject private var userInfo = UserInfo()
+	@StateObject var ploggingManager = PloggingManager()
+	@StateObject var locationManager = LocationManager()
+
+    @AppStorage("onboarding") private var isOnboardingActive: Bool = true
     
     var body: some Scene {
         WindowGroup {
-            ShareImgeView(images: [])
-            .frame(height: 200)
-                .environmentObject(matchManager)
+            NavigationView {
+                if isOnboardingActive {
+                    OnBoardingView()
+                } else {
+                    MainView()
+                }
+            }
+            .environmentObject(matchManager).environmentObject(userInfo)
+			.environmentObject(ploggingManager).environmentObject(locationManager)
+            .environment(\.managedObjectContext, historyManager.container.viewContext)
         }
+
     }
 }
