@@ -18,7 +18,7 @@ final class UserInfo: ObservableObject, Identifiable {
     func updateUserInfo() {
         self.name = UserDefaults.standard.string(forKey: "username") ?? ""
         self.profileImageURL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "onboarding2img")!
-        self.profileImage = (UserDefaults.standard.array(forKey: "profileArr") as? [Int])!
+        self.profileImage = (UserDefaults.standard.array(forKey: "profileArr") as? [Int]) ?? []
         
         print("userinfo update = \(name), \(profileImageURL)!!")
     }
