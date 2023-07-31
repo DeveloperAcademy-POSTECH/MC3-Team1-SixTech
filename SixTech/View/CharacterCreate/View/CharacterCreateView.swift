@@ -50,7 +50,13 @@ struct CharacterCreateView: View {
                             
             NavigationLinkView(text: "선택하기"
                                , isdisable: Binding.constant(viewModel.isdisable)
-                               , destination: CameraView(viewModel: CameraViewModel()))
+                               , destination: ShareImageView(images: [
+                                ShareImage(postImage: Image("MissionTestImage")),
+                                            ShareImage(postImage: Image("MissionTestImage")),
+                                            ShareImage(postImage: Image("MissionTestImage")),
+                                            ShareImage(postImage: Image("MissionTestImage")),
+                                            ShareImage(postImage: Image("MissionTestImage"))
+                            ]))
             .simultaneousGesture(TapGesture().onEnded {
                 viewModel.saveUserDefault()
             })
