@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CharacterCreateView: View {
     @AppStorage("onboarding") var isOnboardingActive: Bool = true
+    @EnvironmentObject var userInfo: UserInfo
     
     @StateObject private var viewModel = CharacterCreateViewModel()
     @State private var isButtonTap = false
@@ -56,6 +57,14 @@ struct CharacterCreateView: View {
             })
             .simultaneousGesture(TapGesture().onEnded {
                 viewModel.saveUserDefault()
+                userInfo.profileImage = [ viewModel.characterFace,
+                                          viewModel.characterColor,
+                                          viewModel.characterEmotion
+                ]
+                UserDefaults.standard.set([ viewModel.characterFace,
+                                            viewModel.characterColor,
+                                            viewModel.characterEmotion
+                  ], forKey: "profileArr")
             })
                 }
         .navigationBarBackButtonHidden()

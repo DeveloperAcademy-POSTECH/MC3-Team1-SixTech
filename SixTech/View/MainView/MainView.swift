@@ -42,6 +42,8 @@ struct MainView: View {
         .onAppear {
             if isFirst {
                 matchManager.authenticateUser()
+                matchManager.localPlayerInfo = userInfo
+                
                 isFirst = false
             }
             userInfo.updateUserInfo()

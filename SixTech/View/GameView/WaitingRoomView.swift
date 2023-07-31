@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct WaitingRoomView: View {
     @EnvironmentObject var userInfo: UserInfo
@@ -41,9 +42,9 @@ struct WaitingRoomView: View {
                 
                 ScrollView {
                     PlayerCellView(image: userInfo.profileImageURL, nickName: userInfo.name)
-                    if matchManager.otherPlayer != nil {
-                        ForEach(matchManager.otherPlayer!, id: \.self) { _ in
-                            PlayerCellView(image: userInfo.profileImageURL, nickName: matchManager.lastData)
+                    if matchManager.otherPlayerInfo != nil {
+                        ForEach(matchManager.otherPlayerInfo!) { info in
+                            PlayerCellView(image: info.profileImageURL, nickName: info.name, uiimage: info.profileImage)
                         }
                     }
                 }.background(
@@ -94,25 +95,46 @@ struct WaitingRoomView: View {
 }
 
 struct PlayerCellView: View {
-    let image: URL
+    var image: URL
     let nickName: String
+    var uiimage: [Int]?
+    let viewModel = CharacterCreateViewModel()
     
     var body: some View {
         HStack {
-            Image(uiImage: loadImageFromURL(imageURL: image))
-                .resizable()
-                .frame(width: 80, height: 80)
-                .scaledToFill()
-                .background(
-                    Circle()
-                        .fill(Color.backgroundColor)
-                        .frame(width: 100, height: 100)
-                )
-                .padding(.all, 20)
+            if let index = uiimage {
+                Image(uiImage: viewModel.imageMerger.merge("\(viewModel.faceArray[index[0]] + viewModel.colorArray[index[1]])", with: "\(viewModel.emotionArray[index[2]])"))
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .scaledToFill()
+                    .background(
+                        Circle()
+                            .fill(Color.backgroundColor)
+                            .frame(width: 100, height: 100)
+                    )
+                    .padding(.all, 20)
+            } else {
+                Image(uiImage: loadImageFromURL(imageURL: image))
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .scaledToFill()
+                    .background(
+                        Circle()
+                            .fill(Color.backgroundColor)
+                            .frame(width: 100, height: 100)
+                    )
+                    .padding(.all, 20)
+            }
+            
             Text(nickName)
                 .font(.Jamsil.regular.font(size: 25))
             Spacer()
             
         }.frame(width: 342)
+            .onAppear {
+                if let uiimage = uiimage {
+                    print("\(uiimage)")
+                }
+            }
     }
 }
