@@ -72,7 +72,6 @@ struct Home_Previews: PreviewProvider {
     }
 }
 
-
 //                let renderer = ImageRenderer(content: PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(images[currentIndex].postImage), userName: .constant("User"), userMission: .constant("Mision")))
 //
 //                if let image = renderer.uiImage {

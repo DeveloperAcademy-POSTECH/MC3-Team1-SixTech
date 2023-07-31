@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-
 struct CheckMissionView: View {
-
+	
     @StateObject private var selectMission = SelectMission()
 
     var body: some View {

@@ -66,7 +66,6 @@ class CameraModel: NSObject, ObservableObject {
         captureSession?.commitConfiguration()
         isUsingFrontCamera.toggle()
     }
-
     
     private func switchToFrontCamera() {
         guard let frontCamera = frontCamera else { return }

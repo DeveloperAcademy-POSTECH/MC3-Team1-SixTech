@@ -40,6 +40,7 @@ struct MapView: View {
 				}
 			}
 		}
+		.navigationBarBackButtonHidden()
 	}
 	
 	private func locationIcon(mode: UserTrackingMode) -> String {
