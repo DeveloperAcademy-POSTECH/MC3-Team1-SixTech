@@ -37,7 +37,7 @@ class PloggingManager: ObservableObject {
 				}
 			}
 		} else {
-			print("걸음수 카운트안됨")
+			print("StepCounting is not Available.")
 		}
 		timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
 			self.elapsedTime += 1.0

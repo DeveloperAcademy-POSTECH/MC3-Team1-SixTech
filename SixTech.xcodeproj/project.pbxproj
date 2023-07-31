@@ -517,6 +517,7 @@
 				709C76642A725EDE00C16313 /* CustomAlert.swift */,
 				709C765C2A725EDE00C16313 /* CalenderView.swift */,
 				709C76652A725EDE00C16313 /* DismissButton.swift */,
+				709C766C2A725EDF00C16313 /* RectangleView.swift */,
 			);
 			path = ViewComponent;
 			sourceTree = "<group>";
@@ -538,7 +539,6 @@
 				709C76692A725EDF00C16313 /* TestPhotoView.swift */,
 				709C766A2A725EDF00C16313 /* MapView.swift */,
 				709C766B2A725EDF00C16313 /* MapUI.swift */,
-				709C766C2A725EDF00C16313 /* RectangleView.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
