@@ -17,17 +17,18 @@ struct MainView: View {
         VStack {
             Text("환영해요 ! \(userInfo.name) !")
                 .font(.Jamsil.bold.font(size: 20))
+                .padding(.top, 30)
             
             Text("오늘도 지구를 위해 함께 달려요!")
                 .font(.Jamsil.light.font(size: 17))
                 .padding()
-            
+            Spacer()
             Image(uiImage: loadImageFromURL(imageURL: userInfo.profileImageURL))
                 .resizable()
                 .frame(width: 200, height: 200)
                 .scaledToFill()
                 .padding()
-            
+            Spacer()
             NavigationLink("플로깅 플레이") {
                 PloggingPlayView()
             }.buttonStyle(DefaultButton(isdisable: false))
@@ -36,7 +37,12 @@ struct MainView: View {
             NavigationLink("내 프로필") {
                 MyprofileView()
             }.buttonStyle(ProfileButton(isdisable: false))
+                .padding(.bottom)
             
+        }
+        .background {
+            Image("MainBack")
+                .offset(y: -7)
         }
         .navigationBarBackButtonHidden()
         .onAppear {

@@ -14,7 +14,7 @@ struct OnBoarding1View: View {
             Text("나의 플로깅 발자취를 한눈에\n ")
                 .font(.Jamsil.regular.font(size: 20))
             Spacer()
-            GIFImage(name: "onboardingGIF")
+            Image("onboarding1img")
         }
     }
 }

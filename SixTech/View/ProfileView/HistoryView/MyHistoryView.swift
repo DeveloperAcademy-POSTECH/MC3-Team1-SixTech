@@ -8,20 +8,35 @@
 import SwiftUI
 
 struct MyHistoryView: View {
+    
+    @Environment(\.dismiss) var dismiss
+    
     @State var selectedDate: Date = Date()
+//    @State var isShow = false
+    
     let meeeelong = ["2", "3"]
+    
     var body: some View {
-        NavigationView {
-            ScrollView {
-                myCalView()
-                    .padding(.horizontal)
-                    .padding(.horizontal)
-                CalenderView(month: selectedDate)
-                    .padding(.horizontal)
-                
-                myhistoryView(meeeelong)
+        ScrollView {
+            myCalView()
+                .padding(.horizontal)
+                .padding(.horizontal)
+            CalenderView(month: selectedDate)
+                .padding(.horizontal)
+            
+            myhistoryView(meeeelong)
+        }
+//        sheet(isPresented: $isShow) {
+//            SelectFoodView()
+//        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                dismissButton(sfName: "chevron.backward") {
+                    dismiss()
+                }
             }
         }
+        .navigationBarBackButtonHidden()
     }
     
     func myCalView() -> some View {
@@ -36,6 +51,9 @@ struct MyHistoryView: View {
                     .background(
                         Circle().fill(Color.init(hexCode: "#F5F5F5"))
                     )
+                    .onTapGesture {
+//                        isShow = true
+                    }
             }
             HStack {
                 Text("9013")

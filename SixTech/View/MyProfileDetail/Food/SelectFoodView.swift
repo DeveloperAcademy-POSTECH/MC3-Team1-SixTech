@@ -44,7 +44,7 @@ struct SelectFoodView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(.defaultColor)
                             .padding()
-                            .background(Color.gray)
+                            .background(Color.buttonBackgroundColor)
                             .clipShape(Circle())
                 }
                     Spacer()
@@ -94,6 +94,7 @@ struct SelectFoodView: View {
         }
         .padding(.horizontal, 24)
         .padding(.bottom)
+        .navigationBarBackButtonHidden()
     }
     
     private func selectFood(_ selectedFood: Food) {

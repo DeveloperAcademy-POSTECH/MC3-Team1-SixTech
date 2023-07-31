@@ -33,6 +33,7 @@ class MatchManager: NSObject, ObservableObject {
     @Published var otherPlayer: [GKPlayer]?
     @Published var otherPlayerInfo: [UserInfo]? = []
     
+    var maxPlayer: Int = 2
     var localPlayerInfo: UserInfo?
     var match: GKMatch?
     var localPlayer = GKLocalPlayer.local
@@ -48,10 +49,10 @@ class MatchManager: NSObject, ObservableObject {
         groupNumber = String(format: "%04d", randomNumber)
     }
     
-    func startMatchmaking(_ maxPlayer: Int?) {
+    func startMatchmaking() {
         let request = GKMatchRequest()
         request.minPlayers = 2
-        request.maxPlayers = maxPlayer ?? 3
+        request.maxPlayers = maxPlayer
         request.playerGroup = Int(groupNumber)!
         matchRequest = request
         

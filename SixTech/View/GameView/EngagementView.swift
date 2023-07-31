@@ -12,6 +12,7 @@ struct EngagementView: View {
     @EnvironmentObject var matchManager: MatchManager
     
     @State private var numberText = "    "
+    @State var isDisable = true
     
     var body: some View {
         
@@ -29,10 +30,7 @@ struct EngagementView: View {
             
             CustomNumberPad(text: $numberText)
                 .padding()
-            
-            NavigationLink("참여하기") {
-                WaitingRoomView(groupCode: numberText)
-            }.buttonStyle(DefaultButton(isdisable: false))
+            NavigationLinkView(text: "참여하기", isdisable: $isDisable, destination: WaitingRoomView(groupCode: numberText))
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -42,6 +40,10 @@ struct EngagementView: View {
             }
         }
         .navigationBarBackButtonHidden()
+        .onChange(of: numberText) { newValue in
+            isDisable = newValue.containsWhitespace()
+            print("\(isDisable)")
+        }
     }
 }
 

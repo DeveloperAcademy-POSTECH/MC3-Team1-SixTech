@@ -20,11 +20,6 @@ struct WaitingRoomView: View {
     var body: some View {
         ZStack {
             VStack {
-                Text("대기실")
-                    .font(.Jamsil.bold.font(size: 24))
-                
-                Text("모두 도착할 때까지 기다려요.")
-                    .font(.Jamsil.light.font(size: 20))
                 
                 Image(uiImage: loadImageFromURL(imageURL: userInfo.profileImageURL))
                     .resizable()
@@ -41,6 +36,11 @@ struct WaitingRoomView: View {
                     .padding()
                 
                 ScrollView {
+                    Text("\(1 + (matchManager.otherPlayerInfo?.count ?? 1))/\(matchManager.maxPlayer)")
+                        .font(.Jamsil.light.font(size: 20))
+                        .foregroundColor(.fontColor)
+                        .padding(.top)
+                    
                     PlayerCellView(image: userInfo.profileImageURL, nickName: userInfo.name)
                     if matchManager.otherPlayerInfo != nil {
                         ForEach(matchManager.otherPlayerInfo!) { info in
@@ -53,6 +53,7 @@ struct WaitingRoomView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 40))
                 
             }
+            .padding(.top)
             .overlay {
                 VStack {
                     Text("􀁜 모든 멤버가 입장하면 시작할 수 있어요.")
@@ -60,7 +61,7 @@ struct WaitingRoomView: View {
                         .foregroundColor(.gray)
                         .offset(y: 300)
                     NavigationLink("시작하기") {
-                        MapView()
+                        CountDownView()
                     }.buttonStyle(DefaultButton(isdisable: false))
                         .offset(y: 300)
                 }
@@ -71,6 +72,15 @@ struct WaitingRoomView: View {
                         isAlert = true
                     }
                 }
+                ToolbarItem(placement: .principal) {
+                    VStack {
+                        Text("대기실")
+                            .font(.Jamsil.bold.font(size: 24))
+                        
+                        Text("모두 도착할 때까지 기다려요.")
+                            .font(.Jamsil.light.font(size: 20))
+                    }
+                }
             }
             .navigationBarBackButtonHidden()
         }
@@ -78,10 +88,10 @@ struct WaitingRoomView: View {
         .onAppear {
             if let playCode = groupCode, isFirst {
                 matchManager.groupNumber = playCode
-                matchManager.startMatchmaking(nil)
+                matchManager.startMatchmaking()
                 isFirst = false
             } else if isFirst {
-                matchManager.startMatchmaking(nil)
+                matchManager.startMatchmaking()
                 isFirst = false
             }
         }

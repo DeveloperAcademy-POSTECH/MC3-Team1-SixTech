@@ -18,14 +18,13 @@ struct DeveloperInfoView: View {
                         Button {
                             dismiss()
                         } label: {
-                            
                             // 버튼 배경색이 아직 안들어와있어서 회색으로 대체...
                             Image(systemName: "chevron.backward")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.defaultColor)
                                 .padding()
-                                .background(Color.gray)
+                                .background(Color.buttonBackgroundColor)
                                 .clipShape(Circle())
                         }
                         Spacer()

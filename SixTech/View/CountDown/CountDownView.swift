@@ -38,7 +38,7 @@ struct CountDownView: View {
                         timerFinished = true
                     }
                 }
-            NavigationLink("", destination: Text("하핫 코딩은 즐거워"), isActive: $timerFinished)
+            NavigationLink("", destination: MapView(), isActive: $timerFinished)
         }
     }
 }

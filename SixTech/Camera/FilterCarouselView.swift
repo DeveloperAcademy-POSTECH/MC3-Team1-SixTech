@@ -54,16 +54,15 @@ struct FilterCarouselView: View {
                         ForEach(0..<filters.count, id: \.self) { index in
                             GeometryReader { itemGeometry in
                                 let ratio = getRatio(for: itemGeometry, in: geometry)
-                                Button(action: {
+                                Button {
                                     if currentIndex == index {
                                         takeScreenshotAndSave()
                                         feedbackGenerator.notificationOccurred(.success)
                                     } else {
                                         currentIndex = index
                                     }
-                                }) {
-                                    VStack{
-                                        let isSelected = (currentIndex == index)
+                                } label: {
+                                    VStack {
                                         Circle()
                                             .overlay(
                                                 Image(filters[index % baseFilters.count])
@@ -81,7 +80,7 @@ struct FilterCarouselView: View {
                                 .frame(width: itemWidth, height: itemWidth)
                                 .foregroundColor(Color.white)
                                 .id(index)
-                                .position(x: itemGeometry.size.width/2, y:itemGeometry.size.height/2)
+                                .position(x: itemGeometry.size.width/2, y: itemGeometry.size.height/2)
                             }
                             .frame(width: geometry.size.width / 2.8)
                         }
@@ -154,7 +153,7 @@ struct FilterCarouselView: View {
 }
 
 struct FilterCarouselView_Previews: PreviewProvider {
-    @State static var dummyImage: UIImage? = nil
+    @State static var dummyImage: UIImage?
     @State static var currentIndex: Int = 2
     
     static var previews: some View {

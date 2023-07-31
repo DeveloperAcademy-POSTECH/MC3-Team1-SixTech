@@ -68,7 +68,7 @@ struct CameraPreviewView: UIViewRepresentable {
         }
         
         var videoPreviewLayer: AVCaptureVideoPreviewLayer {
-            return layer as! AVCaptureVideoPreviewLayer
+            return layer as? AVCaptureVideoPreviewLayer
         }
     }
     
