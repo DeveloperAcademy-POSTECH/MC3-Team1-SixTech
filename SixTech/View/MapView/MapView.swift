@@ -12,6 +12,8 @@ struct MapView: View {
 	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var ploggingManager: PloggingManager
 	@State private var snapshottedMap = UIImage()
+	@State private var isAlert = false
+	@State private var isNextView = false
 
 	var body: some View {
 		NavigationView {
@@ -34,13 +36,25 @@ struct MapView: View {
 						.padding()
 					}
 					Spacer()
-					ActivityDataView()
+					ActivityDataView(isAlert: $isAlert)
 						.padding(.bottom)
 						.padding(.bottom)
+					NavigationLink("", isActive: $isNextView) {
+						ImagePickView()
+					}
+					.navigationBarBackButtonHidden()
 				}
 			}
 		}
 		.navigationBarBackButtonHidden()
+		.alert(title: "플로깅 완료", message: "플로깅을 끝내시겠어요?",
+			   primaryButton: CustomAlertButton(title: "완료",
+												action: { isNextView = true
+			isAlert = false
+		}),
+			   secondaryButton: CustomAlertButton(title: "취소",
+												  action: { isAlert = false }),
+			   isPresented: $isAlert)
 	}
 	
 	private func locationIcon(mode: UserTrackingMode) -> String {

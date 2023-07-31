@@ -15,6 +15,7 @@ struct CameraFilterView : View {
     @State private var useFrontCamera = false
     @State private var currentIndex: Int = 0
     @State private var dummyImage: UIImage? = nil
+	@Environment(\.dismiss) var dismiss
     
     @StateObject private var cameraModel = CameraModel()
     @AppStorage("profileURL") var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!
@@ -40,7 +41,7 @@ struct CameraFilterView : View {
                 VStack{
                     HStack{
                         Button(action: {
-                            //map으로 연결
+							dismiss()
                         }) {
                             Image(systemName: "xmark")
                                 .resizable()

@@ -45,9 +45,17 @@ struct ImagePickView: View {
             .padding(.horizontal, 45)
             
 //            PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission)
-            ButtonView(text: "골랐어요!", isdisable: $isdisable) {
-                    // Navigation -> ShareResultView
-            }
+
+			NavigationLinkView(text: "골랐어요!", isdisable: $isdisable, destination: ShareImageView(images: [
+				ShareImage(postImage: Image("MissionTestImage")),
+				   ShareImage(postImage: Image("MissionTestImage")),
+				   ShareImage(postImage: Image("MissionTestImage")),
+				   ShareImage(postImage: Image("MissionTestImage")),
+				   ShareImage(postImage: Image("MissionTestImage"))
+			   ]))
+//            ButtonView(text: "골랐어요!", isdisable: $isdisable) {
+//                    // Navigation -> ShareResultView
+//            }
             .padding(.top, 100)
         }
     }

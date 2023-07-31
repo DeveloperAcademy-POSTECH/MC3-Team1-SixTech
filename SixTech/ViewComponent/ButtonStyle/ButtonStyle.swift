@@ -130,6 +130,7 @@ struct NavigationLinkView<Destination: View>: View {
             ButtonLabel(text: text, isdisable: $isdisable)
         }
         .disabled(isdisable)
+		.navigationBarBackButtonHidden()
     }
 }
 

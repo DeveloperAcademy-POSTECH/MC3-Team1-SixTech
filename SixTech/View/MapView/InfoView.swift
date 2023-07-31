@@ -7,41 +7,42 @@
 
 import SwiftUI
 
-struct InfoView: View {
-	private var ploggingManager = PloggingManager()
-	
-	var body: some View {
-		ZStack {
-			Color.gray.ignoresSafeArea()
-			VStack {
-				HStack {
-					Spacer()
-					Image(systemName: "scope")
-						.font(.system(size: 25))
-						.foregroundColor(.gray)
-						.padding(10)
-						.background {
-							Circle()
-								.foregroundColor(.white)
-								.shadow(radius: 0, x: 1, y: 1)
-					}
-				}
-				.padding()
-
-				Spacer()
-
-				Text("\(ploggingManager.steps)")
-				ActivityDataView()
-			}
-		}
-	}
-}
+//struct InfoView: View {
+//	private var ploggingManager = PloggingManager()
+//
+//	var body: some View {
+//		ZStack {
+//			Color.gray.ignoresSafeArea()
+//			VStack {
+//				HStack {
+//					Spacer()
+//					Image(systemName: "scope")
+//						.font(.system(size: 25))
+//						.foregroundColor(.gray)
+//						.padding(10)
+//						.background {
+//							Circle()
+//								.foregroundColor(.white)
+//								.shadow(radius: 0, x: 1, y: 1)
+//					}
+//				}
+//				.padding()
+//
+//				Spacer()
+//
+//				Text("\(ploggingManager.steps)")
+//				ActivityDataView()
+//			}
+//		}
+//	}
+//}
 
 struct ActivityDataView: View {
 	@EnvironmentObject var ploggingManager: PloggingManager
 	@EnvironmentObject var locationManager: LocationManager
 	@State private var pauseTapped = false
 	@State private var tempSteps = 0
+	@Binding var isAlert: Bool
 
 	var body: some View {
 		ZStack {
@@ -68,7 +69,7 @@ struct ActivityDataView: View {
 				if pauseTapped {
 					HStack {
 						ControlButtonView(buttonType: .stop) {
-							
+							isAlert = true
 						}
 						.padding(.bottom)
 						.padding(.horizontal)
@@ -178,12 +179,16 @@ struct MissionView: View {
 				.padding(.horizontal)
 				.padding(.horizontal)
 				.overlay {
-					HStack {
-						Image(systemName: "camera.fill")
-						Text("미션 하러 가기")
-							.font(.Jamsil.bold.font(size: 14))
+					NavigationLink {
+						CameraFilterView()
+					} label: {
+						HStack {
+							Image(systemName: "camera.fill")
+							Text("미션 하러 가기")
+								.font(.Jamsil.bold.font(size: 14))
+						}
+						.foregroundColor(.white)
 					}
-					.foregroundColor(.white)
 				}
 			Spacer()
 		}
@@ -226,8 +231,8 @@ private enum ControlButtonType {
 	}
 }
 
-struct InfoView_Previews: PreviewProvider {
-	static var previews: some View {
-		InfoView()
-	}
-}
+//struct InfoView_Previews: PreviewProvider {
+//	static var previews: some View {
+//		InfoView()
+//	}
+//}
