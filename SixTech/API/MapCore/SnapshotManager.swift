@@ -8,8 +8,8 @@
 import MapKit
 
 class SnapshotManager {
-	static func takeSnapshot(mapView: MKMapView, polyline: MKPolyline, completion: @escaping (UIImage?) -> Void) {
-		let options = configureSnapshotterOptions(mapView: mapView, polyline: polyline)
+	static func takeSnapshot(mapView: MKMapView, multiPolyline: MKMultiPolyline, completion: @escaping (UIImage?) -> Void) {
+		let options = configureSnapshotterOptions(mapView: mapView, multiPolyline: multiPolyline)
 		let snapshotter = MKMapSnapshotter(options: options)
 		snapshotter.start { snapshot, error in
 			guard let snapshot = snapshot else {
@@ -17,46 +17,49 @@ class SnapshotManager {
 				completion(nil)
 				return
 			}
-			let image = renderSnapshotImage(options: options, snapshot: snapshot, polyline: polyline)
+			let image = renderSnapshotImage(options: options, snapshot: snapshot, multiPolyline: multiPolyline)
 			completion(image)
 		}
 	}
 	
-	private static func configureSnapshotterOptions(mapView: MKMapView, polyline: MKPolyline) -> MKMapSnapshotter.Options {
+	private static func configureSnapshotterOptions(mapView: MKMapView, multiPolyline: MKMultiPolyline) -> MKMapSnapshotter.Options {
 		let options = MKMapSnapshotter.Options()
-		options.region = region(for: polyline)
+		options.region = region(for: multiPolyline)
 		options.size = mapView.frame.size
 		options.scale = UIScreen.main.scale
 		return options
 	}
 
-	private static func renderSnapshotImage(options: MKMapSnapshotter.Options, snapshot: MKMapSnapshotter.Snapshot, polyline: MKPolyline) -> UIImage {
+	private static func renderSnapshotImage(options: MKMapSnapshotter.Options, snapshot: MKMapSnapshotter.Snapshot, multiPolyline: MKMultiPolyline) -> UIImage {
 		let renderer = UIGraphicsImageRenderer(size: options.size)
 		let image = renderer.image { _ in
 			snapshot.image.draw(at: CGPoint.zero)
-			drawPolyline(polyline, snapshot: snapshot)
+			drawMultiPolyline(multiPolyline, snapshot: snapshot)
 		}
 		return image
 	}
 
-	private static func drawPolyline(_ polyline: MKPolyline, snapshot: MKMapSnapshotter.Snapshot) {
-		let path = UIBezierPath()
-		for (index, coordinate) in polyline.coordinates.enumerated() {
-			let point = snapshot.point(for: coordinate)
-			if index == 0 {
-				path.move(to: point)
-			} else {
-				path.addLine(to: point)
+	private static func drawMultiPolyline(_ multiPolyline: MKMultiPolyline, snapshot: MKMapSnapshotter.Snapshot) {
+		for polyline in multiPolyline.polylines {
+			let path = UIBezierPath()
+			for (index, coordinate) in polyline.coordinates.enumerated() {
+				let point = snapshot.point(for: coordinate)
+				if index == 0 {
+					path.move(to: point)
+				} else {
+					path.addLine(to: point)
+				}
 			}
-		}
 
-		UIColor.blue.setStroke()
-		path.lineWidth = 5
-		path.stroke()
+			UIColor(red: 40/255, green: 203/255, blue: 174/255, alpha: 1).setStroke()
+			path.lineWidth = 5
+			path.stroke()
+		}
 	}
 
-	private static func region(for polyline: MKPolyline) -> MKCoordinateRegion {
-		var regionRect = polyline.boundingMapRect
+	private static func region(for multiPolyline: MKMultiPolyline) -> MKCoordinateRegion {
+		var regionRect = multiPolyline.boundingMapRect
+
 		let wPadding = regionRect.size.width * 0.5
 		let hPadding = regionRect.size.height * 0.5
 

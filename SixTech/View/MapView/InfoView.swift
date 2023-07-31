@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct InfoView: View {
+	private var ploggingManager = PloggingManager()
+	
 	var body: some View {
 		ZStack {
 			Color.gray.ignoresSafeArea()
@@ -27,18 +29,19 @@ struct InfoView: View {
 				.padding()
 
 				Spacer()
-				
-//				ActivityDataView()
+
+				Text("\(ploggingManager.steps)")
+				ActivityDataView()
 			}
 		}
 	}
 }
 
 struct ActivityDataView: View {
+	@EnvironmentObject var ploggingManager: PloggingManager
+	@EnvironmentObject var locationManager: LocationManager
 	@State private var pauseTapped = false
-    @State private var isAlert = false
-    
-    var alert: ((Bool) -> Void)?
+	@State private var tempSteps = 0
 
 	var body: some View {
 		ZStack {
@@ -46,14 +49,16 @@ struct ActivityDataView: View {
 				RectangleView {
 					VStack {
 						Spacer()
-						TrackingInfoView(kilometer: "10.1", steps: "1,100", pickups: "1,111")
+						TrackingInfoView(kilometer: String(format: "%.1f", locationManager.movedDistance / 1000),
+										 steps: "\(tempSteps + ploggingManager.steps)",
+										 pickups: "1")
 						Spacer()
 						if pauseTapped {
-							ElapsedTimeView(time: "12:34:56")
+							ElapsedTimeView(time: ploggingManager.formattedElapsedTime)
 						}
 					}
 				}
-				.frame(height: pauseTapped ? 150 : 70)
+				.frame(maxHeight: pauseTapped ? 150 : 70)
 				if pauseTapped {
 					RectangleView {
 						MissionView(mission: "길가에 핀 꽃 사진찍기")
@@ -63,14 +68,15 @@ struct ActivityDataView: View {
 				if pauseTapped {
 					HStack {
 						ControlButtonView(buttonType: .stop) {
-                            isAlert.toggle()
-                            alert!(isAlert)
+							
 						}
 						.padding(.bottom)
 						.padding(.horizontal)
 						
 						ControlButtonView(buttonType: .play) {
 							self.pauseTapped = false
+							ploggingManager.startPedometer()
+							locationManager.startUpdating()
 						}
 						.padding(.bottom)
 						.padding(.horizontal)
@@ -78,6 +84,9 @@ struct ActivityDataView: View {
 				} else {
 					ControlButtonView(buttonType: .pause) {
 						self.pauseTapped = true
+						self.tempSteps += ploggingManager.steps
+						ploggingManager.stopPedometer()
+						locationManager.stopUpdating()
 					}
 					.padding(.bottom)
 				}
@@ -101,7 +110,7 @@ struct TrackingInfoView: View {
 			Spacer()
 			VStack {
 				Text(kilometer)
-					.font(.Jamsil.extraBold.font(size: 25))
+					.font(.Jamsil.medium.font(size: 25))
 					.foregroundColor(.fontColor)
 				Text("km")
 					.font(.Jamsil.light.font(size: 12))
@@ -136,7 +145,6 @@ struct ElapsedTimeView: View {
 				.font(.Jamsil.bold.font(size: 40))
 				.kerning(4)
 				.foregroundColor(.accentFontColor)
-			.bold()
 			Text("경과 시간")
 				.font(.Jamsil.light.font(size: 12))
 				.padding(.bottom)
@@ -219,7 +227,7 @@ private enum ControlButtonType {
 }
 
 struct InfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        InfoView()
-    }
+	static var previews: some View {
+		InfoView()
+	}
 }
