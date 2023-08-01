@@ -23,9 +23,9 @@ struct ResultWithPolylineView: View {
                 .foregroundColor(.clear)
                 .shadow(radius: 10, y: 4)
                 .overlay(
-					Image(uiImage: polylineMapImage)
-						.resizable()
-						.scaledToFit()
+                  Image(uiImage: polylineMapImage)
+                  .resizable()
+                  .scaledToFit()
                 )
 
             // 데이터 부분

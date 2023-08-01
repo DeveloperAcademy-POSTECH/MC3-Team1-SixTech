@@ -28,16 +28,19 @@ struct ShareImageView: View {
             
             Text("플로깅이 끝났어요.")
                 .font(.Jamsil.bold.font(size: 24))
-				.padding(.bottom)
+                .padding(.bottom)
             Text("미션 결과를 팀원들과 공유해요.")
                 .font(.Jamsil.light.font(size: 20))
             
-            Text("\(currentIndex+1) / \(1 + matchManager.otherPlayerInfo!.count)")
-                .font(.Jamsil.light.font(size: 17))
-                .padding()
-            
-            SnapCarousel(index: $currentIndex, items: matchManager.otherPlayerInfo!) { info in
-                PolaroidView(isButtonPressed: $isButtonPressed, isdisable: .constant(false), userName: info.name, userMission: info.myMission, image: nil, uiimage: info.myMissionPhoto, profileImage: info.profileImage)
+            if let playersInfo = matchManager.otherPlayerInfo {
+                Text("\(currentIndex+1) / \(1 + playersInfo.count)")
+                    .font(.Jamsil.light.font(size: 17))
+                    .padding()
+            }
+            if let playersInfo = matchManager.otherPlayerInfo {
+                SnapCarousel(index: $currentIndex, items: playersInfo) { info in
+                    PolaroidView(isButtonPressed: $isButtonPressed, isdisable: .constant(false), userName: info.name, userMission: info.myMission, image: nil, uiimage: info.myMissionPhoto, profileImage: info.profileImage)
+                }
             }
             
             Spacer()
