@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EndResultView: View {
     @Environment(\.presentationMode) var prsent
-    
+	
     @State var userImage: String = "ploggingphoto"
     @State var mapImage: String = "usermap"
     

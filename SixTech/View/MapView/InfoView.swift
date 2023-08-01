@@ -11,8 +11,21 @@ struct ActivityDataView: View {
 	@EnvironmentObject var ploggingManager: PloggingManager
 	@EnvironmentObject var locationManager: LocationManager
 	@State private var pauseTapped = false
-	@State private var tempSteps = 0
 	@Binding var isAlert: Bool
+	
+	var movedDistance: String {
+		(locationManager.movedDistance / 1000).formatWithDot
+	}
+	
+	var steps: String {
+		(ploggingManager.totalStep + ploggingManager.currentStep).formatWithDot
+	}
+	
+	var pickedCount: String {
+		ploggingManager.pickedCount.formatWithDot
+	}
+
+	var ploogingCount: String = 1000.formatWithDot
 
 	var body: some View {
 		ZStack {
@@ -20,9 +33,9 @@ struct ActivityDataView: View {
 				RectangleView {
 					VStack {
 						Spacer()
-						TrackingInfoView(kilometer: String(format: "%.1f", locationManager.movedDistance / 1000),
-										 steps: "\(tempSteps + ploggingManager.steps)",
-										 pickups: "1")
+						TrackingInfoView(kilometer: movedDistance,
+										 steps: steps,
+										 pickups: pickedCount)
 						Spacer()
 						if pauseTapped {
 							ElapsedTimeView(time: ploggingManager.formattedElapsedTime)
@@ -39,6 +52,12 @@ struct ActivityDataView: View {
 				if pauseTapped {
 					HStack {
 						ControlButtonView(buttonType: .stop) {
+							SnapshotManager.takeSnapshot(mapView: locationManager.mapView,
+														 multiPolyline: locationManager.polylines) { image in
+								if let image = image {
+									ploggingManager.snapshottedMap = image
+								}
+							}
 							isAlert = true
 						}
 						.padding(.bottom)
@@ -55,7 +74,7 @@ struct ActivityDataView: View {
 				} else {
 					ControlButtonView(buttonType: .pause) {
 						self.pauseTapped = true
-						self.tempSteps += ploggingManager.steps
+						ploggingManager.totalStep += ploggingManager.currentStep
 						ploggingManager.stopPedometer()
 						locationManager.stopUpdating()
 					}
@@ -63,7 +82,6 @@ struct ActivityDataView: View {
 				}
 			}
 		}
-//		.background(.thinMaterial, in: RoundedRectangle(cornerRadius: 40))
 		.background {
 			RoundedRectangle(cornerRadius: 40)
 				.foregroundColor(.white.opacity(0.8))
@@ -145,7 +163,7 @@ struct MissionView: View {
 			Spacer()
 			RoundedRectangle(cornerRadius: 35)
 				.frame(maxWidth: 270, maxHeight: 50)
-				.shadow(color: .defaultColor, radius: 2.5, x: 0, y: 3)
+				.shadow(color: .gray, radius: 2.5, x: 0, y: 3)
 				.foregroundColor(.defaultColor)
 				.padding(.horizontal)
 				.padding(.horizontal)
