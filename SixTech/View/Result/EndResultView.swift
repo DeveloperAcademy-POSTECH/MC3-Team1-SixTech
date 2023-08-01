@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EndResultView: View {
     @Environment(\.presentationMode) var prsent
+    @EnvironmentObject var matchManager: MatchManager
     
     @State var userImage: String = "ploggingphoto"
     @State var mapImage: String = "usermap"
@@ -134,7 +135,9 @@ struct EndResultView: View {
                             내 프로필에서 기륵을
                             확인할 수 있어요
                             """,
-               primaryButton: CustomAlertButton(title: "확인", action: { NavigationUtil.popToRootView() }),
+               primaryButton: CustomAlertButton(title: "확인", action: {
+            matchManager.cancelMatchmaking()
+            NavigationUtil.popToRootView() }),
                secondaryButton: CustomAlertButton(title: "취소", action: { isAlert = false }),
                isPresented: $isAlert)
         .navigationBarBackButtonHidden()
