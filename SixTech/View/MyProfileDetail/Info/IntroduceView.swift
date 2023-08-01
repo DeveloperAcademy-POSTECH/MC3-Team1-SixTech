@@ -25,7 +25,7 @@ struct LeftImageIntroduceView: View {
                 Text(title)
                     .font(.Jamsil.thin.font(size: 15))
                 Text(developer)
-                    .font(.Jamsil.regular.font(size: 15))
+                    .font(.Jamsil.regular.font(size: 20))
             }
         }
         .padding(.horizontal, 11)

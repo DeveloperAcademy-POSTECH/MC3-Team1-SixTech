@@ -19,7 +19,7 @@ struct CalenderView: View {
         }.background(
             RoundedRectangle(cornerRadius: 30)
                 .fill(Color.white)
-                .shadow(radius: 5)
+                .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 2)
         )
         .padding()
         .gesture(
@@ -64,10 +64,10 @@ struct CalenderView: View {
                         } label: {
                             Image(systemName: "square.and.arrow.up")
                                 .foregroundColor(.beforeImagePickTextColor)
-                                .fontWeight(.bold)
-                                .padding(.all, 5)
+                                .fontWeight(.medium)
+                                .padding(.all, 7)
                                 .background(
-                                    Circle().fill(Color.backgroundColor)
+                                    Circle().fill(Color.background2Color)
                                 )
                         }.padding(.bottom)
                     }

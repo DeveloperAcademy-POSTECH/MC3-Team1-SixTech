@@ -20,14 +20,14 @@ struct FoodCardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(isSelected ? .white : .backgroundColor) // 여기도 색이 없어서 일단 흰색으로 해뒀습니다
-                .shadow(radius: 10, y: 1)
+                .shadow(radius: 5, y: 1)
             
             HStack {
                 Text(foodEmoji)
                     .font(.system(size: 50))
                 VStack {
                     Text(foodName)
-                        .font(.Jamsil.regular.font(size: 16))
+                        .font(.Jamsil.regular.font(size: 17))
                         .foregroundColor(.black)
                     
                     Text(foodKcal)
@@ -36,6 +36,6 @@ struct FoodCardView: View {
                 }
             }
         }
-        .frame(width: 142, height: 62)
+        .frame(width: 150, height: 70)
     }
 }

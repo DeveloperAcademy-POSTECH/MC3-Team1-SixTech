@@ -49,15 +49,14 @@ struct SelectFoodView: View {
                 }
                     Spacer()
                 }
-                
                 Text("칼로리 기준")
-                    .font(.Jamsil.medium.font(size: 20))
+                    .font(.Jamsil.bold.font(size: 20))
             }
             .padding(.bottom)
             
             Text("좋아하는 음식으로 칼로리를 계산해줄게요.")
                 .font(.Jamsil.regular.font(size: 17))
-            
+                .padding(.bottom)
             Text("음식 1개 기준 대략적인 칼로리입니다:)")
                 .font(.Jamsil.thin.font(size: 14))
                 .padding(.bottom)
