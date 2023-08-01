@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CheckMissionView: View {
-
+	
     @StateObject private var selectMission = SelectMission()
 
     var body: some View {
@@ -85,27 +85,49 @@ struct CheckMissionView: View {
                 }
 
                 Spacer()
-
-                Button {
+				
+				VStack {
+					VStack {
+						NavigationLink {
+							MapView()
+						} label: {
+							Image(systemName: "checkmark")
+								.frame(width: 70, height: 70)
+								.font(.system(size: 50))
+								.fontWeight(.semibold)
+								.foregroundColor(.buttonBackgroundColor)
+								.padding()
+								.background(Color.defaultColor)
+								.clipShape(Circle())
+								.shadow(color: .black.opacity(0.25), radius: 10, y: 1)
+						}
+						Text("미션 확인")
+							.font(.Jamsil.light.font(size: 17))
+							.padding(.bottom)
+							.foregroundColor(.black)
+					}
+				}
+				
+//                Button {
                     // 넘어가는 기능
-                } label: {
-                    VStack {
-                        Image(systemName: "checkmark")
-                            .frame(width: 70, height: 70)
-                            .font(.system(size: 50))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.buttonBackgroundColor)
-                            .padding()
-                            .background(Color.defaultColor)
-                            .clipShape(Circle())
-                        .shadow(color: .black.opacity(0.25), radius: 10, y: 1)
-
-                        Text("미션 확인!")
-                            .font(.Jamsil.light.font(size: 17))
-                            .padding(.bottom)
-                            .foregroundColor(.black)
-                    }
-                }
+//                } label: {
+//                    VStack {
+//                        Image(systemName: "checkmark")
+//                            .frame(width: 70, height: 70)
+//                            .font(.system(size: 50))
+//                            .fontWeight(.semibold)
+//                            .foregroundColor(.buttonBackgroundColor)
+//                            .padding()
+//                            .background(Color.defaultColor)
+//                            .clipShape(Circle())
+//                        .shadow(color: .black.opacity(0.25), radius: 10, y: 1)
+//
+//                        Text("미션 확인!")
+//                            .font(.Jamsil.light.font(size: 17))
+//                            .padding(.bottom)
+//                            .foregroundColor(.black)
+//                    }
+//                }
             }
             .padding(.horizontal, 40)
             .padding(.vertical)

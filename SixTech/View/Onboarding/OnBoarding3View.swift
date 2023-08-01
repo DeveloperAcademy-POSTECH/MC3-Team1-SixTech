@@ -15,8 +15,7 @@ struct OnBoarding3View: View {
                 .multilineTextAlignment(.center)
                 .font(.Jamsil.regular.font(size: 20))
             Spacer()
-//            GIFImage(name: "OnboardingGIF")
-            GIFImage(name: "")
+			GIFImage(name: "onboardingGIF")
         }
     }
 }

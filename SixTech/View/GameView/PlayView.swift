@@ -92,7 +92,7 @@ struct FrontView: View {
                 .fill(Color.background2Color)
                 .shadow(radius: 13)
             VStack {
-                GIFImage(name: "")
+                GIFImage(name: "onboardingGIF")
                     .scaledToFill()
                     .frame(width: 300, height: 300)
                 Text("환경을 지키는 우리의 노력이 세상을 바꿉니다. \n오늘도 플로깅 화이팅하세요!")

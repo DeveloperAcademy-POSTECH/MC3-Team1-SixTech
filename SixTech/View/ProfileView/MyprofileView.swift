@@ -17,7 +17,7 @@ struct MyprofileView: View {
         
         VStack(spacing: 18) {
             textBackgroundView(st1: "닉네임", st2: userInfo.name)
-            textBackgroundView(st1: "캐릭터", nextView: Text("준비중"))
+            textBackgroundView(st1: "프로필 변경", nextView: CharacterChangeView())
             textBackgroundView(st1: "이전기록", nextView: MyHistoryView())
             Spacer()
             textBackgroundView(st1: "이용 약관 및 개인정보 처리방침", nextView: Text("준비중"))

@@ -858,25 +858,26 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = M75X2R2UVV;
+				DEVELOPMENT_TEAM = 3FD7AHY7SL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "같이줍깅을 사용하기 위해 카메라 접근이 필요해요";
+				INFOPLIST_KEY_NSCameraUsageDescription = "미션 사진을 찍기 위해 카메라에 대한 접근이 필요해요";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
-				INFOPLIST_KEY_NSMotionUsageDescription = "같이줍깅을 사용하기 위해 모션 데이터가 필요해요";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "같이줍깅을 사용하기 위해 갤러리 접근 권한이 필요해요";
+				INFOPLIST_KEY_NSMotionUsageDescription = "걸음수를 세기 위해 모션 데이터에 대한 액세스가 필요해요";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "미션 사진을 고르기 위해 사진 라이브러리에 대한 접근이 필요해요";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech1;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsPlogging.SixTech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -894,25 +895,26 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = M75X2R2UVV;
+				DEVELOPMENT_TEAM = 3FD7AHY7SL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "같이줍깅을 사용하기 위해 카메라 접근이 필요해요";
+				INFOPLIST_KEY_NSCameraUsageDescription = "미션 사진을 찍기 위해 카메라에 대한 접근이 필요해요";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
-				INFOPLIST_KEY_NSMotionUsageDescription = "같이줍깅을 사용하기 위해 모션 데이터가 필요해요";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "같이줍깅을 사용하기 위해 갤러리 접근 권한이 필요해요";
+				INFOPLIST_KEY_NSMotionUsageDescription = "걸음수를 세기 위해 모션 데이터에 대한 액세스가 필요해요";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "미션 사진을 고르기 위해 사진 라이브러리에 대한 접근이 필요해요";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech1;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsPlogging.SixTech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

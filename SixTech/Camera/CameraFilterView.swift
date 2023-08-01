@@ -15,6 +15,7 @@ struct CameraFilterView: View {
     @State private var useFrontCamera = false
     @State private var currentIndex: Int = 0
     @State private var dummyImage: UIImage?
+    @Environment(\.dismiss) var dismiss
     
     @StateObject private var cameraModel = CameraModel()
     @AppStorage("profileURL") var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!
@@ -37,30 +38,31 @@ struct CameraFilterView: View {
             VStack {
                 VStack {
                     HStack {
-                        Button {
-                            // map으로 연결
-                        } label: {
-                            Image(systemName: "xmark")
-                                .resizable()
-                                .font(.system(size: 25))
-                                .frame(width: 25, height: 25)
-                                .padding(30)
-                                .foregroundColor(.white)
-                        }
+						Button {
+							dismiss()
+						} label: {
+							Image(systemName: "xmark")
+								.resizable()
+								.font(.system(size: 25))
+								.frame(width: 25, height: 25)
+								.padding(30)
+								.foregroundColor(.white)
+						}
                         .padding(.trailing)
+						
                         Spacer()
-                        Button {
-                            isboltClicked.toggle()
-                            cameraModel.toggleFlash()
-                        } label: {
-                            Image(systemName: isboltClicked ? "bolt.slash.fill" : "bolt.fill")
-                                .resizable()
-                                .font(.system(size: 25))
-                                .frame(width: 25, height: 30)
-                                .padding(30)
-                                .foregroundColor(.white)
-                            
-                        }
+                      
+						Button {
+							isboltClicked.toggle()
+							cameraModel.toggleFlash()
+						} label: {
+							Image(systemName: isboltClicked ? "bolt.slash.fill" : "bolt.fill")
+								.resizable()
+								.font(.system(size: 25))
+								.frame(width: 25, height: 30)
+								.padding(30)
+								.foregroundColor(.white)
+						}
                         .padding(.leading)
                     }
                 }
@@ -73,35 +75,36 @@ struct CameraFilterView: View {
                             capturedImage = UIApplication.shared.windows.first?.rootViewController?.view.asImage(in: rect)
                         }
                     })
-                // camera
+				// Camera
                 VStack {
                     FilterCarouselView(capturedImage: $dummyImage, currentIndex: $currentIndex, spacing: 10, trailingSpace: 20, itemWidth: 100)
 
                         .padding(.bottom, 1)
                     HStack {
-                        Button {
-                            isAlbumPresented = true
-                        } label: {
-                            Image(systemName: "photo.on.rectangle")
-                                .resizable()
-                                .font(.system(size: 24))
-                                .frame(width: 30, height: 24)
-                                .padding(20)
-                                .foregroundColor(.white)
-                            
-                        }
+						Button {
+							isAlbumPresented = true
+						} label: {
+							Image(systemName: "photo.on.rectangle")
+								.resizable()
+								.font(.system(size: 24))
+								.frame(width: 30, height: 24)
+								.padding(20)
+								.foregroundColor(.white)
+						}
                         .padding(.trailing)
+						
                         Spacer()
-                        Button {
-                            useFrontCamera.toggle()
-                        } label: {
-                            Image(systemName: "arrow.triangle.2.circlepath.camera")
-                                .resizable()
-                                .frame(width: 30, height: 24)
-                                .font(.system(size: 24))
-                                .padding(20)
-                                .foregroundColor(.white)
-                        }
+                      
+						Button {
+							useFrontCamera.toggle()
+						} label: {
+							Image(systemName: "arrow.triangle.2.circlepath.camera")
+								.resizable()
+								.frame(width: 30, height: 24)
+								.font(.system(size: 24))
+								.padding(20)
+								.foregroundColor(.white)
+						}
                         .padding(.leading)
                     }
                     .padding(.bottom)

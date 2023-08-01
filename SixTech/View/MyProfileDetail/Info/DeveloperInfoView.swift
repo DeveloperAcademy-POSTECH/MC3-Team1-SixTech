@@ -59,7 +59,7 @@ struct DeveloperInfoView: View {
                         
                         RightImageIntroduceView(imagename: "jerry", developer: "제리", title: "코코집사")
                         
-                        LeftImageIntroduceView(imagename: "junyoo", developer: "준유", title: "문구를\n입력해주세요")
+                        LeftImageIntroduceView(imagename: "junyoo", developer: "준유", title: "타코러버")
                         
                         RightImageIntroduceView(imagename: "lorenzo", developer: "로렌조", title: "이 뷰 만든이")
                     }

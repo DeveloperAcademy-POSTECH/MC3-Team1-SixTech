@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct MyHistoryView: View {
-    
-    @Environment(\.dismiss) var dismiss
-    
+    @Environment(\.dismiss) var dismiss    
     @State var selectedDate: Date = Date()
-//    @State var isShow = false
-    
+//    @State var isShow = false    
+
     let meeeelong = ["2", "3"]
     
     var body: some View {
@@ -36,7 +34,20 @@ struct MyHistoryView: View {
                 }
             }
         }
-        .navigationBarBackButtonHidden()
+		.toolbar {
+			ToolbarItem(placement: .navigationBarLeading) {
+				dismissButton(sfName: "chevron.backward") {
+					dismiss()
+				}
+			}
+			
+			ToolbarItem(placement: .principal) {
+				Text("내 프로필")
+					.font(.Jamsil.bold.font(size: 20))
+			}
+			
+		}
+		.navigationBarBackButtonHidden()
     }
     
     func myCalView() -> some View {

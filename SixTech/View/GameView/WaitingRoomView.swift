@@ -61,7 +61,8 @@ struct WaitingRoomView: View {
                         .foregroundColor(.gray)
                         .offset(y: 300)
                     NavigationLink("시작하기") {
-                        CountDownView()
+						CheckMissionView()
+							.navigationBarBackButtonHidden()
                     }.buttonStyle(DefaultButton(isdisable: false))
                         .offset(y: 300)
                 }
