@@ -18,10 +18,10 @@ struct CountDownView: View {
             Color.background2Color.ignoresSafeArea()
             
             VStack {
-                Text("플로깅을 시작해요")
+                Text("플로깅을 시작해요.")
                     .font(.Jamsil.bold.font(size: 24))
 					.padding(.bottom)
-                Text("모든 플로깅을 응원해요.\n함께 달려봐요!")
+                Text("모든 플로깅을 응원해요.\n함께 걸어봐요!")
                     .multilineTextAlignment(.center)
                     .font(.Jamsil.light.font(size: 20))
                 Spacer()

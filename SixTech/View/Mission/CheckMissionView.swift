@@ -45,6 +45,7 @@ struct CheckMissionView: View {
                         .font(.Jamsil.regular.font(size: 20))
                         .foregroundColor(.beforeImagePickTextColor)
                         .padding(.vertical)
+                    
 
                     ZStack {
                         RoundedRectangle(cornerRadius: 25)
@@ -52,8 +53,14 @@ struct CheckMissionView: View {
 
                         Text(selectMission.selectedMission)
                             .font(.Jamsil.regular.font(size: 20))
+                            .multilineTextAlignment(.center)
+//                        Text(selectMission.selectedMission)
+//                            .font(.Jamsil.regular.font(size: 20))
+//                            .padding(.all, 40)
                     }
                     .frame(width: 294, height: 105)
+//                    .padding(.leading)
+//                    .padding(.trailing)
 
                 }
             }
@@ -68,14 +75,13 @@ struct CheckMissionView: View {
                 } label: {
                     VStack {
                         Image(systemName: "arrow.clockwise")
-//                            .frame(width: 40, height: 40)
                             .font(.system(size: 36))
                             .fontWeight(.semibold)
                             .foregroundColor(.defaultColor)
                             .padding()
                             .background(Color.buttonBackgroundColor)
                             .clipShape(Circle())
-                        .shadow(color: .black.opacity(0.25), radius: 10, y: 1)
+                            .shadow(color: .black.opacity(0.25), radius: 5, y: 2)
 
                         Text("다시 고를래요!")
                             .font(.Jamsil.light.font(size: 17))
@@ -93,19 +99,18 @@ struct CheckMissionView: View {
 								.navigationBarBackButtonHidden()
 						} label: {
 							Image(systemName: "checkmark")
-//								.frame(width: 40, height: 40)
 								.font(.system(size: 36))
 								.fontWeight(.semibold)
 								.foregroundColor(.buttonBackgroundColor)
 								.padding()
 								.background(Color.defaultColor)
 								.clipShape(Circle())
-								.shadow(color: .black.opacity(0.25), radius: 10, y: 1)
+                                .shadow(color: .black.opacity(0.25), radius: 5, y: 2)
 						}
                         .simultaneousGesture(TapGesture().onEnded({ _ in
                             userInfo.myMission = selectMission.selectedMission
                         }))
-						Text("미션 확인")
+						Text("미션 확인!")
 							.font(.Jamsil.light.font(size: 17))
 							.padding(.bottom)
 							.foregroundColor(.black)

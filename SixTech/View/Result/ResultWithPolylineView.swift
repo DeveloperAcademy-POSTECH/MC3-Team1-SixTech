@@ -43,9 +43,9 @@ struct ResultWithPolylineView: View {
             Rectangle()
                 .foregroundColor(.clear)
                 .shadow(radius: 10, y: 4)
-                .overlay(
-                    Image(mapImage)
-                )
+//                .overlay(
+//                    Image(mapImage)
+//                )
 
             // 데이터 부분
             VStack {

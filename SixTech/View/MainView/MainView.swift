@@ -29,6 +29,7 @@ struct MainView: View {
                 .scaledToFill()
                 .padding()
             Spacer()
+            Spacer()
             NavigationLink("플로깅 플레이") {
                 PloggingPlayView()
             }.buttonStyle(DefaultButton(isdisable: false))
@@ -37,8 +38,8 @@ struct MainView: View {
             NavigationLink("내 프로필") {
                 MyprofileView()
             }.buttonStyle(ProfileButton(isdisable: false))
-                .padding(.bottom)
-            
+//                .padding(.bottom)
+            Spacer()
         }
         .background {
             Image("MainBack")
