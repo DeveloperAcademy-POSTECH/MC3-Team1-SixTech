@@ -15,7 +15,7 @@ final class UserInfo: ObservableObject, Identifiable {
     @Published var profileImage: [Int] = (UserDefaults.standard.array(forKey: "profileArr") as? [Int]) ?? []
     @Published var myMissionPhoto: UIImage? = UIImage(named: "GU2")
     @Published var myMission: String = ""
-    @Published var userHistory = UserHistory()
+//    @Published var userHistory = UserHistory()
     
     func updateUserInfo() {
         self.name = UserDefaults.standard.string(forKey: "username") ?? ""
@@ -45,7 +45,7 @@ extension UserInfo: Codable {
         case profileImage
         case myMissionPhoto
         case myMisssion
-        case userHistory
+//        case userHistory
     }
 
     func encode(to encoder: Encoder) throws {
@@ -58,7 +58,7 @@ extension UserInfo: Codable {
             try container.encode(imageData, forKey: .myMissionPhoto)
         }
         try container.encode(myMission, forKey: .myMisssion)
-        try container.encode(userHistory, forKey: .userHistory)
+//        try container.encode(userHistory, forKey: .userHistory)
     }
 
     convenience init(from decoder: Decoder) throws {
@@ -73,7 +73,7 @@ extension UserInfo: Codable {
                     myMissionPhoto = UIImage(data: imageData) ?? UIImage()
                 }
         myMission = try container.decode(String.self, forKey: .myMisssion)
-        userHistory = try container.decode(UserHistory.self, forKey: .userHistory)
+//        userHistory = try container.decode(UserHistory.self, forKey: .userHistory)
     }
 }
 
