@@ -28,9 +28,10 @@ struct ShareImageView: View {
             }
             
             Text("플로깅이 끝났어요.")
-                .font(.Jamsil.bold.font(size: 20))
-            Text("미션결과를 팀원들과 공유해요.")
-                .font(.Jamsil.light.font(size: 17))
+                .font(.Jamsil.bold.font(size: 24))
+				.padding(.bottom)
+            Text("미션 결과를 팀원들과 공유해요.")
+                .font(.Jamsil.light.font(size: 20))
             
             Text("\(currentIndex+1) / \(images.count)")
                 .font(.Jamsil.light.font(size: 17))
@@ -49,13 +50,14 @@ struct ShareImageView: View {
 				// 저장하는 기능
 			} label: {
 				HStack {
-					Image(systemName: "square.and.arrow.up")
+					Image(systemName: "square.and.arrow.down")
 						.fontWeight(.bold)
 						.font(.system(size: 24))
 						.padding(.trailing)
 					
 					Text("저장하기")
 						.padding(.trailing)
+						.font(.Jamsil.regular.font(size: 17))
 				}
 			}
 			.buttonStyle(SmallButton())
@@ -80,9 +82,3 @@ struct Home_Previews: PreviewProvider {
         ])
     }
 }
-
-//                let renderer = ImageRenderer(content: PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(images[currentIndex].postImage), userName: .constant("User"), userMission: .constant("Mision")))
-//
-//                if let image = renderer.uiImage {
-//                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-//                }

@@ -16,6 +16,7 @@ struct OnBoarding3View: View {
                 .font(.Jamsil.regular.font(size: 20))
             Spacer()
 			GIFImage(name: "onboardingGIF")
+				.padding()
         }
     }
 }

@@ -16,11 +16,11 @@ struct CheckMissionView: View {
             Spacer()
 
             Text("나의 미션 확인하기")
-                .font(.Jamsil.bold.font(size: 20))
+                .font(.Jamsil.bold.font(size: 24))
                 .padding(.bottom, 8)
 
             Text("플로깅 중 수행할 미션을 확인해요.")
-                .font(.Jamsil.light.font(size: 17))
+                .font(.Jamsil.light.font(size: 20))
                 .padding(.bottom)
 
             ZStack {
@@ -51,7 +51,7 @@ struct CheckMissionView: View {
                             .foregroundColor(.white)
 
                         Text(selectMission.selectedMission)
-                            .font(.Jamsil.regular.font(size: 17))
+                            .font(.Jamsil.regular.font(size: 20))
                     }
                     .frame(width: 294, height: 105)
 
@@ -68,8 +68,8 @@ struct CheckMissionView: View {
                 } label: {
                     VStack {
                         Image(systemName: "arrow.clockwise")
-                            .frame(width: 70, height: 70)
-                            .font(.system(size: 50))
+//                            .frame(width: 40, height: 40)
+                            .font(.system(size: 36))
                             .fontWeight(.semibold)
                             .foregroundColor(.defaultColor)
                             .padding()
@@ -93,8 +93,8 @@ struct CheckMissionView: View {
 								.navigationBarBackButtonHidden()
 						} label: {
 							Image(systemName: "checkmark")
-								.frame(width: 70, height: 70)
-								.font(.system(size: 50))
+//								.frame(width: 40, height: 40)
+								.font(.system(size: 36))
 								.fontWeight(.semibold)
 								.foregroundColor(.buttonBackgroundColor)
 								.padding()

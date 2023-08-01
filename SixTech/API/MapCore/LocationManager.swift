@@ -19,6 +19,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 	@Published var trackUser: UserTrackingMode = .follow
 	@Published var region = MKCoordinateRegion()
 	@Published var movedDistance: Double = 0.0
+	@Published var polylines: MKMultiPolyline = MKMultiPolyline()
 
 	override init() {
 		super.init()
@@ -39,17 +40,24 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 		} else {
 			userLocations[userLocations.count - 1].append(location.coordinate)
 		}
-
+		
 		let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
 											longitude: location.coordinate.longitude)
 		let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
 		region = MKCoordinateRegion(center: center, span: span)
+		
+		updatePolyline()
 	}
 	
 	func drawPolyline() {
 		let overlays = mapView.overlays
 		mapView.removeOverlays(overlays)
 		addPolylineToMap()
+	}
+	
+	private func updatePolyline() {
+		let polylines = userLocations.map { MKPolyline(coordinates: $0, count: $0.count) }
+		self.polylines = MKMultiPolyline(polylines)
 	}
 	
 	private func addPolylineToMap() {

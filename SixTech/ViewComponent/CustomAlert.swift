@@ -78,7 +78,7 @@ struct CustomAlert: View {
         if !message.isEmpty {
             Text("\(message)")
                 .font(.Jamsil.light.font(size: 20))
-                .foregroundColor(title.isEmpty ? .black : .gray)
+                .foregroundColor(.black)
                 .lineSpacing(24 - UIFont.systemFont(ofSize: title.isEmpty ? 18 : 16).lineHeight)
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity, alignment: .center)

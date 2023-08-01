@@ -21,30 +21,13 @@ struct EndResultView: View {
         
         HStack {
             VStack {
-                HStack {
-                    
-                    Spacer()
-                    
-                    Button {
-                        isAlert = true
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .padding()
-                            .background(Color.buttonBackgroundColor)
-                            .foregroundColor(Color.defaultColor)
-                            .clipShape(Circle())
-                    }
-                }
-                
-                Text("오늘의 플로깅 기록")
-                    .font(.Jamsil.bold.font(size: 20))
-                    .padding(.bottom, 8)
-                
+				
+				Spacer()
+
                 Text("플로깅 완료를 축하합니다!\n 마음에 드는 기록을 공유/저장해요")
-                    .font(.Jamsil.light.font(size: 17))
+                    .font(.Jamsil.light.font(size: 20))
                     .multilineTextAlignment(.center)
+					.padding(.top)
                 
                 Spacer()
                 
@@ -93,7 +76,7 @@ struct EndResultView: View {
                         // 저장하는 기능
                     } label: {
                         HStack {
-                            Image(systemName: "square.and.arrow.up")
+                            Image(systemName: "square.and.arrow.down")
                                 .fontWeight(.bold)
                                 .font(.system(size: 24))
                                 .padding(.trailing)
@@ -110,12 +93,13 @@ struct EndResultView: View {
                         // 공유하는 기능
                     } label: {
                         HStack {
-                            Image(systemName: "square.and.arrow.down")
+                            Image(systemName: "square.and.arrow.up")
                                 .fontWeight(.bold)
                                 .font(.system(size: 24))
                                 .padding(.trailing)
                             
                             Text("공유하기")
+								.font(.Jamsil.regular.font(size: 17))
                                 .padding(.trailing)
                         }
                     }
@@ -125,6 +109,17 @@ struct EndResultView: View {
             }
             .padding(.top, 47)
         }
+		.toolbar {
+			ToolbarItem(placement: .navigationBarTrailing) {
+				dismissButton(sfName: "xmark") {
+					isAlert = true
+				}
+			}
+			ToolbarItem(placement: .principal) {
+				Text("오늘의 플로깅 기록")
+					.font(.Jamsil.bold.font(size: 24))
+			}
+		}
         .edgesIgnoringSafeArea(.all)
         .padding(.horizontal, 24)
         .alert(title: "플로깅 완료",

@@ -15,9 +15,9 @@ struct MainView: View {
     
     var body: some View {
         VStack {
-            Text("환영해요 ! \(userInfo.name) !")
-                .font(.Jamsil.bold.font(size: 20))
-                .padding(.top, 30)
+            Text("환영해요! \(userInfo.name)!")
+                .font(.Jamsil.bold.font(size: 24))
+                .padding(.top, 50)
             
             Text("오늘도 지구를 위해 함께 달려요!")
                 .font(.Jamsil.light.font(size: 17))

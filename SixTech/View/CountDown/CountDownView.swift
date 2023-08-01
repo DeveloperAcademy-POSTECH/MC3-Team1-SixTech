@@ -20,6 +20,7 @@ struct CountDownView: View {
             VStack {
                 Text("플로깅을 시작해요")
                     .font(.Jamsil.bold.font(size: 24))
+					.padding(.bottom)
                 Text("모든 플로깅을 응원해요.\n함께 달려봐요!")
                     .multilineTextAlignment(.center)
                     .font(.Jamsil.light.font(size: 20))
@@ -32,7 +33,7 @@ struct CountDownView: View {
                 .font(.Jamsil.extraBold.font(size: 150))
                 .animation(.easeInOut(duration: 0.5))
                 .onReceive(timer) { _ in
-                    if self.timeRemaining > 0 {
+                    if self.timeRemaining > 1 {
                         self.timeRemaining -= 1
                     } else {
                         timer.upstream.connect().cancel()
