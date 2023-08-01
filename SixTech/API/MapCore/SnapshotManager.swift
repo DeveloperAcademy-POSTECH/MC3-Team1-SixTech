@@ -24,9 +24,12 @@ class SnapshotManager {
 	
 	private static func configureSnapshotterOptions(mapView: MKMapView, multiPolyline: MKMultiPolyline) -> MKMapSnapshotter.Options {
 		let options = MKMapSnapshotter.Options()
-		options.region = region(for: multiPolyline)
-		options.size = mapView.frame.size
+		
+		let width = UIScreen.main.bounds.width
+		options.size = CGSize(width: width, height: width)
 		options.scale = UIScreen.main.scale
+		
+		options.region = region(for: multiPolyline)
 		return options
 	}
 
