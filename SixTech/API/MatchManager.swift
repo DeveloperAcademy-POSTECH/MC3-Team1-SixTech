@@ -70,6 +70,7 @@ class MatchManager: NSObject, ObservableObject {
     func cancelMatchmaking() {
         matchmaker?.cancel()
         otherPlayer = nil
+        otherPlayerInfo = nil
         print("매치 취소!")
     }
     
