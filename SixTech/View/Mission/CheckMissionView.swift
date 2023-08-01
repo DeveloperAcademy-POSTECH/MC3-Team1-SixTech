@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CheckMissionView: View {
-	
+    @EnvironmentObject var userInfo: UserInfo
     @StateObject private var selectMission = SelectMission()
 
     var body: some View {
@@ -102,6 +102,9 @@ struct CheckMissionView: View {
 								.clipShape(Circle())
 								.shadow(color: .black.opacity(0.25), radius: 10, y: 1)
 						}
+                        .simultaneousGesture(TapGesture().onEnded({ _ in
+                            userInfo.myMission = selectMission.selectedMission
+                        }))
 						Text("미션 확인")
 							.font(.Jamsil.light.font(size: 17))
 							.padding(.bottom)

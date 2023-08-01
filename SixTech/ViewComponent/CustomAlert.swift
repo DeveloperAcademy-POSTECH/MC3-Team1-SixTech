@@ -36,14 +36,8 @@ struct CustomAlert: View {
     var body: some View {
         ZStack {
             alertView
-//                .scaleEffect(scale)
-//                .opacity(opacity)
         }
-//        .ignoresSafeArea()
-//        .transition(.opacity)
-//        .task {
-//            animate(isShown: true)
-//        }
+
     }
 
     // MARK: Private

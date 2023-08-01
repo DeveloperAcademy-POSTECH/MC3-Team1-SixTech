@@ -78,12 +78,7 @@ struct SnapCarousel<Content: View, T: Identifiable>: View {
 
 struct SnapCarousel_Previews: PreviewProvider {
     static var previews: some View {
-        ShareImageView(images: [
-                    ShareImage(postImage: Image("face_dust_gray")),
-                    ShareImage(postImage: Image("face_dust_gray")),
-                    ShareImage(postImage: Image("face_dust_gray")),
-                    ShareImage(postImage: Image("face_dust_gray")),
-                    ShareImage(postImage: Image("face_dust_gray"))
-                ])
+        ShareImageView()
+            .environmentObject(MatchManager())
     }
 }
