@@ -49,7 +49,7 @@ struct ShareImageView: View {
                 // 저장하는 기능
             } label: {
                 HStack {
-                    Image(systemName: "square.and.arrow.up")
+                    Image(systemName: "square.and.arrow.down")
                         .fontWeight(.bold)
                         .font(.system(size: 24))
                         .padding(.trailing)
