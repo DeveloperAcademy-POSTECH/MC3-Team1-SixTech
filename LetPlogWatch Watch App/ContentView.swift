@@ -17,15 +17,20 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("User Acceleration:")
-            Text("X: \(String(format: "%.2f", motionManager.deviceMotion?.userAcceleration.x ?? 0))")
-            Text("Y: \(String(format: "%.2f", motionManager.deviceMotion?.userAcceleration.y ?? 0))")
-            Text("Z: \(String(format: "%.2f", motionManager.deviceMotion?.userAcceleration.z ?? 0))")
-            
-            Text("Rotation Rate:")
-            Text("X: \(String(format: "%.2f", motionManager.deviceMotion?.rotationRate.x ?? 0))")
-            Text("Y: \(String(format: "%.2f", motionManager.deviceMotion?.rotationRate.y ?? 0))")
-            Text("Z: \(String(format: "%.2f", motionManager.deviceMotion?.rotationRate.z ?? 0))")
+//            Text("User Acceleration:")
+//            Text("X: \(String(format: "%.2f", motionManager.deviceMotion?.userAcceleration.x ?? 0))")
+//            Text("Y: \(String(format: "%.2f", motionManager.deviceMotion?.userAcceleration.y ?? 0))")
+//            Text("Z: \(String(format: "%.2f", motionManager.deviceMotion?.userAcceleration.z ?? 0))")
+//
+//            Text("Rotation Rate:")
+//            Text("X: \(String(format: "%.2f", motionManager.deviceMotion?.rotationRate.x ?? 0))")
+//            Text("Y: \(String(format: "%.2f", motionManager.deviceMotion?.rotationRate.y ?? 0))")
+//            Text("Z: \(String(format: "%.2f", motionManager.deviceMotion?.rotationRate.z ?? 0))")
+            Text("\(motionManager.predictionCounter)")
+//            Text("Prediction Label: \(motionManager.predictionLabel)")
+//            Text("Prediction Probability: \(motionManager.predictionProbability)")
+//            Text("Predictions: \(motionManager.numOfPrediction)")
+            Text("Error: \(motionManager.predictionErrorMessage)")
             
             Button(action: {
                 if !motionManager.isCollectingData{
@@ -56,8 +61,23 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
     
     // Core ML model 관련 변수
     private let model: WatchMotionClassifier
-    private var predictionCounter = 0
+    var predictionCounter: Int = 0
+    var numOfPrediction: Int = 0
+    var predictionErrorMessage = ""
     private var canPredict = true
+    private var previousStateOut: MLMultiArray?
+    var predictionLabel = ""
+    var predictionProbability: Double = 0.0
+    
+    
+    // Core ML 예측 데이터 (Double형의 100개짜리 MLMultiArray)
+    private var acceleration_x = [Double]()
+    private var acceleration_y = [Double]()
+    private var acceleration_z = [Double]()
+    private var rotation_x = [Double]()
+    private var rotation_y = [Double]()
+    private var rotation_z = [Double]()
+    private var timestamps = [Double]()
     
     override init() {
         // 모델 로드
@@ -97,6 +117,15 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
         self.backgroundSession = WKExtendedRuntimeSession()
         self.backgroundSession?.start()
         
+        // CoreML Input Data
+        self.acceleration_x = []
+        self.acceleration_y = []
+        self.acceleration_z = []
+        self.rotation_x = []
+        self.rotation_y = []
+        self.rotation_z = []
+        self.timestamps = []
+        
         let startTime = Date().timeIntervalSince1970
         // Start the HealthKit workout session
         let workoutConfiguration = HKWorkoutConfiguration()
@@ -115,54 +144,77 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
             
             self.data.append((timestamp: elapsed, userAcceleration: motion.userAcceleration, rotationRate: motion.rotationRate, attitude: motion.attitude, gravity: motion.gravity))
             
+            // for prediction
+            self.appendDataKeepingSizeLimit(motion.userAcceleration.x, to: &self.acceleration_x)
+            self.appendDataKeepingSizeLimit(motion.userAcceleration.y, to: &self.acceleration_y)
+            self.appendDataKeepingSizeLimit(motion.userAcceleration.z, to: &self.acceleration_z)
+            self.appendDataKeepingSizeLimit(motion.rotationRate.x, to: &self.rotation_x)
+            self.appendDataKeepingSizeLimit(motion.rotationRate.y, to: &self.rotation_y)
+            self.appendDataKeepingSizeLimit(motion.rotationRate.z, to: &self.rotation_z)
+            self.appendDataKeepingSizeLimit(elapsed, to: &self.timestamps)
+                        
             // 실시간으로 데이터를 모델에 제공하고 예측 결과를 처리
-            if self.canPredict {
+            if self.canPredict && self.acceleration_x.count >= 100 {
                 self.makePrediction(with: motion)
             }
         }
+    }
+    
+    func appendDataKeepingSizeLimit(_ value: Double, to array: inout [Double]) {
+        array.append(value)
         
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-        //            self.timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 50.0, repeats: true) { _ in
-        //                guard let motion = self.deviceMotion else { return }
-        //
-        //                let elapsed = Date().timeIntervalSince1970 - startTime
-        //
-        //                self.data.append((timestamp: elapsed, userAcceleration: motion.userAcceleration, rotationRate: motion.rotationRate, attitude: motion.attitude, gravity: motion.gravity))
-        //            }
-        //        }
-        //
-        //
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) {
-        //            self.stopCollectingData()
-        //        }
+        while array.count > 100 {
+            array.remove(at: 0)
+        }
     }
     
     // Core ML 모델을 사용하여 예측 수행
     private func makePrediction(with motion: CMDeviceMotion) {
-        // featureValues 생성
-        let featureValues = [motion.userAcceleration.x, motion.userAcceleration.y, motion.userAcceleration.z, motion.rotationRate.x, motion.rotationRate.y, motion.rotationRate.z]
-        guard let mlArray = try? MLMultiArray(shape: [NSNumber(value: featureValues.count)], dataType: .double) else {
+        // MLMultiArray로 예측 데이터 parsing.
+        guard let accel_x = try? MLMultiArray(self.acceleration_x),
+              let accel_y = try? MLMultiArray(self.acceleration_y),
+              let accel_z = try? MLMultiArray(self.acceleration_z),
+              let rot_x = try? MLMultiArray(self.rotation_x),
+              let rot_y = try? MLMultiArray(self.rotation_y),
+              let rot_z = try? MLMultiArray(self.rotation_z),
+              let timestamp = try? MLMultiArray(self.timestamps) else {
             print("Failed to create MLMultiArray.")
             return
         }
-        for (index, element) in featureValues.enumerated() {
-            mlArray[index] = NSNumber(value: element)
+        let defaultState = try? MLMultiArray(shape:[100], dataType:MLMultiArrayDataType.double)
+
+        for i in 0..<defaultState!.count {
+            defaultState![i] = 0.0
         }
-        
-        // 예측 수행
-        guard let prediction = try? self.model.prediction(input: WatchMotionClassifierInput(sensorData: mlArray)) else {
-            print("Failed to make prediction.")
+
+        let stateIn = self.previousStateOut ?? defaultState
+        guard let safeStateIn = stateIn else {
+            self.predictionErrorMessage = "stateIn is nil."
             return
         }
         
-        if prediction.classLabelProbs[prediction.classLabel] ?? 0 > 0.8 {
-            self.predictionCounter += 1
-            self.canPredict = false
+        // WatchMotionClassifierOutput (MLFeatureProvider protocol)
+        do {
+            let prediction = try self.model.prediction(acceleration_x: accel_x, acceleration_y: accel_y, acceleration_z: accel_z, rotation_x: rot_x, rotation_y: rot_y, rotation_z: rot_z, timestamp: timestamp, stateIn: stateIn!)
             
-            // 2초 동안 예측 중단
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                self.canPredict = true
+            self.predictionLabel = prediction.label
+            self.predictionProbability = prediction.labelProbability[prediction.label, default: 0.0]
+            if prediction.labelProbability[prediction.label, default: 0.0] > 0.75 {
+                self.predictionCounter += 1
+                self.canPredict = false
+                
+                // 2초 동안 예측 중단
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self.canPredict = true
+                }
+                
+                // 이전 예측의 상태 저장
+                self.previousStateOut = prediction.stateOut
             }
+        } catch {
+            self.predictionErrorMessage = error.localizedDescription
+            self.numOfPrediction += 1
+            return
         }
     }
     
