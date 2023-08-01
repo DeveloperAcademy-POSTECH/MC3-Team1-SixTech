@@ -19,7 +19,7 @@ struct EndResultView: View {
 	}
 	
 	private var movedDistance: String {
-		Int((locationManager.movedDistance / 1000)).formatWithDot
+		String(format: "%.1f", locationManager.movedDistance / 1000)
 	}
 	
 	private var steps: String {

@@ -15,7 +15,7 @@ struct ActivityDataView: View {
 	@Binding var isAlert: Bool
 	
 	var movedDistance: String {
-		Int((locationManager.movedDistance / 1000)).formatWithDot
+		String(format: "%.1f", locationManager.movedDistance / 1000)
 	}
 	
 	var steps: String {

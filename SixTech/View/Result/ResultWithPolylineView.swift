@@ -37,22 +37,19 @@ struct ResultWithPolylineView: View {
                     
                     Spacer()
                     
-					Image(uiImage: profileImage)
-                        .resizable()
-                        .frame(width: 36, height: 36)
-						.background(Circle().foregroundColor(.backgroundColor))
+					VStack {
+						Image(uiImage: profileImage)
+							.resizable()
+							.frame(width: 36, height: 36)
+							.background(Circle().foregroundColor(.backgroundColor))
+						Text("같이줍깅")
+							.foregroundColor(.black)
+							.font(.Jamsil.light.font(size: 12))
+
+					}
                 }
                 .padding()
                 .foregroundColor(.black)
-                
-                HStack {
-                    
-                    Spacer()
-                    
-                    Text("같이줍깅")
-                        .foregroundColor(.black)
-                        .font(.Jamsil.light.font(size: 12))
-                }
                 
                 Spacer()
                 
@@ -108,9 +105,3 @@ struct ResultWithPolylineView: View {
         .frame(width: 320, height: 337)
     }
 }
-
-//struct ResultLogView2_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ResultWithPolylineView()
-//    }
-//}

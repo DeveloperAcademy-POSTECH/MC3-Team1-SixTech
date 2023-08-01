@@ -53,11 +53,11 @@ struct ResultWithPhotoView: View {
                     
                     ZStack {
                         Circle()
-                            .frame(width: 70, height: 70)
-                        .foregroundColor(.white)
+							.frame(width: 70, height: 70)
+							.foregroundColor(.white)
                         Circle()
                             .frame(width: 60, height: 60)
-                            .foregroundColor(.white)
+                            .foregroundColor(.backgroundColor)
                             .overlay(
                                 Image(uiImage: profileImage)
                                     .resizable()
@@ -115,9 +115,3 @@ struct ResultWithPhotoView: View {
             .frame(width: 320, height: 337)
         }
 }
-
-//struct ResultLogStyle_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ResultWithPhotoView()
-//    }
-//}
