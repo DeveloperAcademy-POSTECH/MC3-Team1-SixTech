@@ -9,12 +9,12 @@ import SwiftUI
 import UIKit
 
 struct ImagePickView: View {
+    @EnvironmentObject var userInfo: UserInfo
+    
     @State private var isdisable: Bool = true
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
     @State private var imagePickerPresented = false
-    @State private var userName: String? = UserDefaults.standard.string(forKey: "username") ?? ""
-    @State private var userMission: String?
     
     func loadImage() {
         guard let selectedImage = selectedImage else { return }
@@ -37,7 +37,7 @@ struct ImagePickView: View {
                 print("Image Picking")
                 imagePickerPresented.toggle()
             } label: {
-                PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission, isButtonPressed: .constant(false))
+                PolaroidView(isdisable: $isdisable, isButtonPressed: .constant(false))
             }
             .sheet(isPresented: $imagePickerPresented,
                    onDismiss: loadImage,

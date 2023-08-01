@@ -10,9 +10,9 @@ import UIKit
 import Photos
 
 struct ShareImageView: View {
+    
     @State var currentIndex: Int = 0
     @State var images: [ShareImage]
-//    @State var sizeToImage: CGSize = CGSize(width: 0, height: 0)
     @State var isButtonPressed: Bool = false
 	@State private var isNextView = false
     
@@ -37,10 +37,7 @@ struct ShareImageView: View {
                 .padding()
             
             SnapCarousel(index: $currentIndex, items: images) { image in
-				PolaroidView(isdisable: .constant(false),
-							 profileImage: .constant(image.postImage),
-							 userName: .constant("User"), userMission: .constant("Mision"),
-							 isButtonPressed: $isButtonPressed)
+				PolaroidView(isdisable: .constant(false), isButtonPressed: $isButtonPressed)
 			}
 			
             Spacer()
@@ -80,9 +77,3 @@ struct Home_Previews: PreviewProvider {
         ])
     }
 }
-
-//                let renderer = ImageRenderer(content: PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(images[currentIndex].postImage), userName: .constant("User"), userMission: .constant("Mision")))
-//
-//                if let image = renderer.uiImage {
-//                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-//                }

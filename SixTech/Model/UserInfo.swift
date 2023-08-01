@@ -13,6 +13,8 @@ final class UserInfo: ObservableObject, Identifiable {
     @Published var name = UserDefaults.standard.string(forKey: "username") ?? ""
     @Published var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "onboarding2img")!
     @Published var profileImage: [Int] = (UserDefaults.standard.array(forKey: "profileArr") as? [Int]) ?? []
+    @Published var myMissionPhoto: UIImage?
+    @Published var myMission: String = ""
     @Published var userHistory = UserHistory()
     
     func updateUserInfo() {
@@ -20,7 +22,7 @@ final class UserInfo: ObservableObject, Identifiable {
         self.profileImageURL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "onboarding2img")!
         self.profileImage = (UserDefaults.standard.array(forKey: "profileArr") as? [Int]) ?? []
         
-        print("userinfo update = \(name), \(profileImageURL)!!")
+//        print("userinfo update = \(name), \(profileImageURL)!!")
     }
 }
 
@@ -41,6 +43,8 @@ extension UserInfo: Codable {
         case name
         case profileImageURL
         case profileImage
+        case myMissionPhoto
+        case myMisssion
         case userHistory
     }
 
@@ -50,6 +54,10 @@ extension UserInfo: Codable {
         try container.encode(name, forKey: .name)
         try container.encode(profileImageURL, forKey: .profileImageURL)
         try container.encode(profileImage, forKey: .profileImage)
+        if let imageData = myMissionPhoto?.jpegData(compressionQuality: 0.8) {
+            try container.encode(imageData, forKey: .myMissionPhoto)
+        }
+        try container.encode(myMission, forKey: .myMisssion)
         try container.encode(userHistory, forKey: .userHistory)
     }
 
@@ -61,6 +69,10 @@ extension UserInfo: Codable {
         name = try container.decode(String.self, forKey: .name)
         profileImageURL = try container.decode(URL.self, forKey: .profileImageURL)
         profileImage = try container.decode([Int].self, forKey: .profileImage)
+        if let imageData = try container.decode(Data?.self, forKey: .myMissionPhoto) {
+                    myMissionPhoto = UIImage(data: imageData) ?? UIImage()
+                }
+        myMission = try container.decode(String.self, forKey: .myMisssion)
         userHistory = try container.decode(UserHistory.self, forKey: .userHistory)
     }
 }

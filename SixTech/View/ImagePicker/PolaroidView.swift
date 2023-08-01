@@ -9,11 +9,10 @@ import SwiftUI
 
 struct PolaroidView: View {
     @EnvironmentObject var userInfo: UserInfo
+    
     @Binding var isdisable: Bool
-    @Binding var profileImage: Image?
-    @Binding var userName: String?
-    @Binding var userMission: String?
     @Binding var isButtonPressed: Bool
+    
         var body: some View {
             ZStack {
                 Rectangle()
@@ -37,8 +36,8 @@ struct PolaroidView: View {
                                     .foregroundColor(.beforeImagePickTextColor)
                                 }
                         } else {
-                            profileImage!
-                                .resizable()
+//                            profileImage!
+//                                .resizable()
                         }
                     }
                     .aspectRatio(1, contentMode: .fit)
@@ -53,11 +52,11 @@ struct PolaroidView: View {
                                 .frame(width: 32, height: 32)
                         }
                         
-                        Text(userName ?? "Default")
+                        Text(userInfo.name)
                             .foregroundColor(.black)
                     }
-                    Text(userMission ?? "Default Mission")
-                        .foregroundColor(.black)
+//                    Text(userMission ?? "Default Mission")
+//                        .foregroundColor(.black)
                     Spacer()
                 }
             }
@@ -73,11 +72,11 @@ struct PolaroidView: View {
         }
     }
 
-    struct PolaPreview: PreviewProvider {
-        static var previews: some View {
-            PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(Image("MissionTestImage")), userName: .constant("User"), userMission: .constant("Mision"), isButtonPressed: .constant(false))
-        }
-    }
+//    struct PolaPreview: PreviewProvider {
+//        static var previews: some View {
+////            PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(Image("MissionTestImage")), userName: .constant("User"), userMission: .constant("Mision"), isButtonPressed: .constant(false))
+//        }
+//    }
 
     extension UIView {
         var screenShot: UIImage {

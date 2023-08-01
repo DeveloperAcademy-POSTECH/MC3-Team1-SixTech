@@ -123,9 +123,9 @@ class MatchManager: NSObject, ObservableObject {
                 sendString("began:\(playerUUIDKey)")
                 break
             } else {
-                DispatchQueue.main.async {
-                    self.lastData = parameter
-                }
+//                DispatchQueue.main.async {
+//                    self.lastData = parameter
+//                }
             }
 //            inGame = true // 게임중이라는 거 여기다 다표시해주기
         default:
@@ -175,6 +175,16 @@ extension MatchManager: GKMatchDelegate {
         guard let info = localPlayerInfo else { return }
         if let data = encodeUserInfo(info) {
             sendData(data, mode: .reliable)
+        }
+    }
+    
+    func sendMissionImage() {
+        if let info = localPlayerInfo {
+            if let myphoto = localPlayerInfo?.myMissionPhoto {
+                if let data = encodeUserInfo(info) {
+                    sendData(data, mode: .reliable)
+                }
+            }
         }
     }
     
