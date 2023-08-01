@@ -20,9 +20,7 @@ struct PloggingPlayView: View {
     
     var body: some View {
         VStack {
-            Text("플로깅 플레이")
-                .font(.Jamsil.bold.font(size: 20))
-            
+			Spacer()
             ZStack {
                 FrontView(degree: $frontDegree)
                     .padding(.top)
@@ -31,7 +29,6 @@ struct PloggingPlayView: View {
             }.onTapGesture {
                 flipCard()
             }
-            Spacer()
             NavigationLink("방 만들기") {
                 CreateRoomView()
             }.buttonStyle(DefaultButton(isdisable: false))
@@ -49,7 +46,11 @@ struct PloggingPlayView: View {
                     dismiss()
                 }
             }
-        }
+			ToolbarItem(placement: .principal) {
+				Text("플로깅 플레이")
+					.font(.Jamsil.bold.font(size: 24))
+			}
+       }
         .navigationBarBackButtonHidden()
         
     }
@@ -90,26 +91,24 @@ struct FrontView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 50)
                 .fill(Color.background2Color)
-                .shadow(radius: 13)
+				.shadow(color: .gray, radius: 4, x: 0, y: 4)
             VStack {
                 GIFImage(name: "onboardingGIF")
                     .scaledToFill()
                     .frame(width: 300, height: 300)
                 Text("환경을 지키는 우리의 노력이 세상을 바꿉니다. \n오늘도 플로깅 화이팅하세요!")
                     .multilineTextAlignment(.center)
-                    .font(.Jamsil.light.font(size: 16))
+                    .font(.Jamsil.regular.font(size: 16))
                     .padding()
                 
-                    HStack {
-                        Text("같이줍깅 가이드 보러가기 ")
-                            .font(.Jamsil.light.font(size: 14))
-                        
-                        Image(systemName: "chevron.right")
-                        
-                    }
-                    .foregroundColor(.init(hexCode: "#1A8370"))
-                    .padding()
-
+				HStack {
+					Text("같이줍깅 가이드 보러가기 ")
+						.font(.Jamsil.light.font(size: 14))
+					
+					Image(systemName: "chevron.right")
+				}
+				.foregroundColor(.init(hexCode: "#1A8370"))
+				.padding()
             }
         }
         .frame(width: 342, height: 450)
@@ -124,7 +123,7 @@ struct BackView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 50)
                 .fill(Color.white)
-                .shadow(radius: 13)
+				.shadow(color: .gray, radius: 4, x: 0, y: 4)
             VStack(alignment: .leading, spacing: 33) {
                 Text("같이줍깅 가이드")
                     .font(.Jamsil.bold.font(size: 20))
@@ -160,7 +159,8 @@ struct BackView: View {
                     Text("플로깅의 경험을 공유하기 위해 \n사진 미션을 수행해요.")
                         .font(.Jamsil.light.font(size: 16))
                         .padding(.leading, 10)
-                }.padding(.leading, 7)
+                }
+				.padding(.leading, 7)
             }
         }
         .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 10, z: 0))

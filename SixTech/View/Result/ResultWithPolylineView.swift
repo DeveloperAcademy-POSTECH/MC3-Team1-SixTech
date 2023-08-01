@@ -8,17 +8,33 @@
 import SwiftUI
 
 struct ResultWithPolylineView: View {
-        
-    // 플로깅 데이터
-    @State var kcal: Int = 130
-    @State var userkm: Double = 5.0
-    @State var steps: Int =  13332
-    @State var date: String = "2023.03.15"
-    @State var ploogingCount: Int = 1233
-    
-    // 지도 이미지
-    @State var mapImage: String = "usermap"
-    
+	
+	@EnvironmentObject var ploggingManager: PloggingManager
+	@EnvironmentObject var locationManager: LocationManager
+	
+	var kcal: String {
+		(Double(ploggingManager.totalStep) * 0.04).formatWithDot
+	}
+	
+	var movedDistance: String {
+		(locationManager.movedDistance / 1000).formatWithDot
+	}
+	
+	var steps: String {
+		ploggingManager.totalStep.formatWithDot
+	}
+
+	var ploogingCount: String {
+		ploggingManager.pickedCount.formatWithDot
+	}
+
+	var date: String {
+		let currentDate = Date()
+		let formatter = DateFormatter()
+		formatter.dateFormat = "yyyy.MM.dd"
+		return formatter.string(from: currentDate)
+	}
+	
     // 유저 프로필 사진
     @State var userProfileImage: String = "userprofile"
 
@@ -64,7 +80,7 @@ struct ResultWithPolylineView: View {
                     Spacer()
                     
                     VStack {
-                        Text("\(userkm)")
+                        Text(movedDistance)
                             .font(.Jamsil.medium.font(size: 20))
                         
                         Text("km")
@@ -73,7 +89,7 @@ struct ResultWithPolylineView: View {
                     Spacer()
                     
                     VStack {
-                        Text("\(steps)")
+						Text(steps)
                             .font(.Jamsil.medium.font(size: 20))
                         
                         Text("steps")
@@ -83,7 +99,7 @@ struct ResultWithPolylineView: View {
                     Spacer()
                     
                     VStack {
-                        Text("\(ploogingCount)")
+                        Text(ploogingCount)
                             .font(.Jamsil.medium.font(size: 20))
                         
                         Text("줍깅")
@@ -93,7 +109,7 @@ struct ResultWithPolylineView: View {
                     Spacer()
                     
                     VStack {
-                        Text("\(kcal)")
+						Text(kcal)
                             .font(.Jamsil.medium.font(size: 20))
                         
                         Text("kcal")

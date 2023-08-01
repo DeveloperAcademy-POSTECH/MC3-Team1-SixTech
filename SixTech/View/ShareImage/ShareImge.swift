@@ -27,9 +27,10 @@ struct ShareImageView: View {
             }
             
             Text("플로깅이 끝났어요.")
-                .font(.Jamsil.bold.font(size: 20))
-            Text("미션결과를 팀원들과 공유해요.")
-                .font(.Jamsil.light.font(size: 17))
+                .font(.Jamsil.bold.font(size: 24))
+				.padding(.bottom)
+            Text("미션 결과를 팀원들과 공유해요.")
+                .font(.Jamsil.light.font(size: 20))
             
             Text("\(currentIndex+1) / \(1 + matchManager.otherPlayerInfo!.count)")
                 .font(.Jamsil.light.font(size: 17))

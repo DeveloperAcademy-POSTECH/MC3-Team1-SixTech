@@ -14,7 +14,10 @@ struct OnBoarding2View: View {
                 .multilineTextAlignment(.center)
                 .font(.Jamsil.regular.font(size: 20))
             Spacer()
-            Image("onboarding2img")            
+            Image("onboarding2img")
+				.resizable()
+				.scaledToFit()
+				.padding(.bottom)
         }
     }
 }

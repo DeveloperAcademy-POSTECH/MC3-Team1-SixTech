@@ -20,6 +20,9 @@ struct WaitingRoomView: View {
     var body: some View {
         ZStack {
             VStack {
+				
+				Text("모두 도착할 때까지 기다려요.")
+					.font(.Jamsil.light.font(size: 20))
                 
                 Image(uiImage: loadImageFromURL(imageURL: userInfo.profileImageURL))
                     .resizable()
@@ -77,9 +80,6 @@ struct WaitingRoomView: View {
                     VStack {
                         Text("대기실")
                             .font(.Jamsil.bold.font(size: 24))
-                        
-                        Text("모두 도착할 때까지 기다려요.")
-                            .font(.Jamsil.light.font(size: 20))
                     }
                 }
             }

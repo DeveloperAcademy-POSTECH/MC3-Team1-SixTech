@@ -26,7 +26,6 @@ struct CreateRoomView: View {
                     Text("\(selection)")
                         .font(.Jamsil.bold.font(size: 20))
                         .foregroundColor(.defaultColor)
-                        .padding(.trailing)
                 }
                 .frame(height: 40)
                 .pickerStyle(.wheel)
@@ -73,20 +72,28 @@ struct CreateRoomView: View {
                     .font(.Jamsil.bold.font(size: 34))
                     .foregroundColor(.defaultColor)
                 Spacer()
-                Image(systemName: "doc.on.doc.fill")
-                    .foregroundColor(.defaultColor)
-                    .padding(.trailing)
+//                Image(systemName: "doc.on.doc.fill")
+//                    .foregroundColor(.defaultColor)
+//                    .padding(.trailing)
             } // MARK: 참여코드 복사 뷰 스택
             .frame(width: 342, height: 76)
             .background(
                 RoundedRectangle(cornerRadius: 15)
                     .fill(Color.init(hexCode: "#F5F5F5"))
+					.overlay(alignment: .trailing, content: {
+						Spacer()
+						Image(systemName: "doc.on.doc.fill")
+							.foregroundColor(.defaultColor)
+							.padding(.trailing)
+					})
             )
             
             HStack {
                 Image(systemName: "questionmark.circle")
+					.foregroundColor(.gray)
                 Text("다른 팀원들은 참여코드가 있어야 입장할 수 있어요.")
                     .font(.Jamsil.light.font(size: 14))
+					.foregroundColor(.gray)
             }// MARK: 팁스택
             
             Spacer()
@@ -103,7 +110,7 @@ struct CreateRoomView: View {
             
             ToolbarItem(placement: .principal) {
                 Text("방 만들기")
-                    .font(.Jamsil.bold.font(size: 30))
+                    .font(.Jamsil.bold.font(size: 24))
             }
         } // MARK: 네비게이션 바뷰
         

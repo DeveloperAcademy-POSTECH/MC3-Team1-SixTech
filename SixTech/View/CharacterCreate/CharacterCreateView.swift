@@ -16,10 +16,10 @@ struct CharacterCreateView: View {
     
     var body: some View {
         VStack {
-            Spacer()
-            
             Text("캐릭터를 생성해주세요.")
                 .font(.Jamsil.bold.font(size: 20))
+				.padding(.vertical)
+				.padding(.top)
             Text("같이줍깅을 하려면 캐릭터가 필요해요")
                 .font(.Jamsil.light.font(size: 17))
             HStack {
@@ -48,25 +48,35 @@ struct CharacterCreateView: View {
                     RoundedRectangle(cornerRadius: 23)
                         .stroke(Color.defaultColor, lineWidth: 2)
                 }
+			HStack {
+				Image(systemName: "questionmark.circle")
+					.foregroundColor(.gray)
+					.padding(.leading)
+					.padding(.leading)
+				Text("최대 6글자 이내, 특수문자 사용 불가")
+					.foregroundColor(.gray)
+					.font(.Jamsil.light.font(size: 12))
+				Spacer()
+			}
 
             Spacer()
             Spacer()
                             
-            ButtonView(text: "선택하기", isdisable: Binding.constant(false), action: {
-                isOnboardingActive = false
-            })
-            .simultaneousGesture(TapGesture().onEnded {
-                viewModel.saveUserDefault()
-                userInfo.profileImage = [ viewModel.characterFace,
-                                          viewModel.characterColor,
-                                          viewModel.characterEmotion
-                ]
-                UserDefaults.standard.set([ viewModel.characterFace,
-                                            viewModel.characterColor,
-                                            viewModel.characterEmotion
-                  ], forKey: "profileArr")
-            })
-                }
+			ButtonView(text: "선택하기", isdisable: Binding.constant(false), action: {
+				isOnboardingActive = false
+			})
+			.simultaneousGesture(TapGesture().onEnded {
+				viewModel.saveUserDefault()
+				userInfo.profileImage = [ viewModel.characterFace,
+										  viewModel.characterColor,
+										  viewModel.characterEmotion
+				]
+				UserDefaults.standard.set([ viewModel.characterFace,
+											viewModel.characterColor,
+											viewModel.characterEmotion
+										  ], forKey: "profileArr")
+			})
+		}
         .navigationBarBackButtonHidden()
     }
 }

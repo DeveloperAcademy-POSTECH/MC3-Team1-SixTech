@@ -6,13 +6,17 @@
 //
 
 import CoreMotion
+import SwiftUI
 
 class PloggingManager: ObservableObject {
 	private var pedometer = CMPedometer()
 	private var timer: Timer?
 	
-	@Published var steps: Int = 0
+	@Published var snapshottedMap: UIImage = UIImage()
+	@Published var totalStep: Int = 0
+	@Published var currentStep: Int = 0
 	@Published var elapsedTime: TimeInterval = 0.0
+	@Published var pickedCount: Int = 100
 
 	var formattedElapsedTime: String {
 		let hours = Int(elapsedTime) / 3600
@@ -29,7 +33,7 @@ class PloggingManager: ObservableObject {
 					return
 				}
 				DispatchQueue.main.async {
-					self.steps = data?.numberOfSteps.intValue ?? 0
+					self.currentStep = data?.numberOfSteps.intValue ?? 0
 				}
 			}
 		} else {
@@ -41,7 +45,7 @@ class PloggingManager: ObservableObject {
 	}
 	
 	func stopPedometer() {
-		self.steps = 0
+		self.currentStep = 0
 		pedometer.stopUpdates()
 		self.timer?.invalidate()
 		self.timer = nil

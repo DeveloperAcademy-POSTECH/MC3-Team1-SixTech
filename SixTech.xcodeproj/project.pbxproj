@@ -77,6 +77,7 @@
 		709C76872A725EDF00C16313 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C766F2A725EDF00C16313 /* LocationManager.swift */; };
 		709C76882A725EDF00C16313 /* MKPolyline+Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76712A725EDF00C16313 /* MKPolyline+Coordinates.swift */; };
 		709C76892A725EDF00C16313 /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C76732A725EDF00C16313 /* ImageAnnotationView.swift */; };
+		70C727812A79500000EAA895 /* Numeric+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C727802A79500000EAA895 /* Numeric+Format.swift */; };
 		796F300B2A7782B200138FB2 /* SelectMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796F30092A7782B200138FB2 /* SelectMission.swift */; };
 		796F300C2A7782B200138FB2 /* CheckMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796F300A2A7782B200138FB2 /* CheckMissionView.swift */; };
 		7986625D2A72B09F00AB89ED /* DeveloperInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986625C2A72B09F00AB89ED /* DeveloperInfoView.swift */; };
@@ -173,6 +174,7 @@
 		709C766F2A725EDF00C16313 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		709C76712A725EDF00C16313 /* MKPolyline+Coordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKPolyline+Coordinates.swift"; sourceTree = "<group>"; };
 		709C76732A725EDF00C16313 /* ImageAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
+		70C727802A79500000EAA895 /* Numeric+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+Format.swift"; sourceTree = "<group>"; };
 		796F30092A7782B200138FB2 /* SelectMission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectMission.swift; sourceTree = "<group>"; };
 		796F300A2A7782B200138FB2 /* CheckMissionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMissionView.swift; sourceTree = "<group>"; };
 		7986625C2A72B09F00AB89ED /* DeveloperInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoView.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 			children = (
 				709C76712A725EDF00C16313 /* MKPolyline+Coordinates.swift */,
 				709C762A2A725CFE00C16313 /* FontExtension.swift */,
+				70C727802A79500000EAA895 /* Numeric+Format.swift */,
 				709C762B2A725CFE00C16313 /* ImageURLExtension.swift */,
 				709C762C2A725CFE00C16313 /* ColorExtension.swift */,
 				709C764F2A725E7000C16313 /* UIViewExtension.swift */,
@@ -682,6 +685,7 @@
 				709C76412A725CFE00C16313 /* CoredataTest.swift in Sources */,
 				709C767A2A725EDF00C16313 /* WaitingRoomView.swift in Sources */,
 				796F300C2A7782B200138FB2 /* CheckMissionView.swift in Sources */,
+				70C727812A79500000EAA895 /* Numeric+Format.swift in Sources */,
 				709C76792A725EDF00C16313 /* MyHistoryView.swift in Sources */,
 				709C767E2A725EDF00C16313 /* CreateRoomView.swift in Sources */,
 				709C763B2A725CFE00C16313 /* Onboarding1View.swift in Sources */,
