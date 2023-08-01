@@ -20,11 +20,7 @@ class PloggingManager: ObservableObject {
 		let seconds = Int(elapsedTime) % 60
 		return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
 	}
-	
-	init() {
-		startPedometer()
-	}
-	
+		
 	func startPedometer() {
 		if CMPedometer.isStepCountingAvailable() {
 			pedometer.startUpdates(from: Date()) { data, error in

@@ -11,6 +11,7 @@ struct CountDownView: View {
     @State var timeRemaining = 3
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var timerFinished = false
+	@EnvironmentObject var ploggingManager: PloggingManager
 
     var body: some View {
         ZStack {
@@ -39,6 +40,9 @@ struct CountDownView: View {
                     }
                 }
             NavigationLink("", destination: MapView(), isActive: $timerFinished)
+				.onChange(of: timerFinished) { _ in
+					ploggingManager.startPedometer()
+				}
         }
     }
 }

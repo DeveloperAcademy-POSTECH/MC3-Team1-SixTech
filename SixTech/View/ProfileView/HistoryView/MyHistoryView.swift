@@ -27,20 +27,12 @@ struct MyHistoryView: View {
 //        sheet(isPresented: $isShow) {
 //            SelectFoodView()
 //        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                dismissButton(sfName: "chevron.backward") {
-                    dismiss()
-                }
-            }
-        }
 		.toolbar {
 			ToolbarItem(placement: .navigationBarLeading) {
 				dismissButton(sfName: "chevron.backward") {
 					dismiss()
 				}
 			}
-			
 			ToolbarItem(placement: .principal) {
 				Text("내 프로필")
 					.font(.Jamsil.bold.font(size: 20))
