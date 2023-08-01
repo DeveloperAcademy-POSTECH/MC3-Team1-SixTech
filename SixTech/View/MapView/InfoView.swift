@@ -10,11 +10,12 @@ import SwiftUI
 struct ActivityDataView: View {
 	@EnvironmentObject var ploggingManager: PloggingManager
 	@EnvironmentObject var locationManager: LocationManager
+	@EnvironmentObject var userInfo: UserInfo
 	@State private var pauseTapped = false
 	@Binding var isAlert: Bool
 	
 	var movedDistance: String {
-		(locationManager.movedDistance / 1000).formatWithDot
+		Int((locationManager.movedDistance / 1000)).formatWithDot
 	}
 	
 	var steps: String {
@@ -45,7 +46,7 @@ struct ActivityDataView: View {
 				.frame(maxHeight: pauseTapped ? 150 : 70)
 				if pauseTapped {
 					RectangleView {
-						MissionView(mission: "길가에 핀 꽃 사진찍기")
+						MissionView(mission: userInfo.myMission)
 					}
 				}
 				
