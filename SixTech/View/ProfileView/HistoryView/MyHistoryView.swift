@@ -10,12 +10,14 @@ import SwiftUI
 struct MyHistoryView: View {
     @Environment(\.dismiss) var dismiss    
     @State var selectedDate: Date = Date()
-//    @State var isShow = false    
+    @State var isShow = false
 
     let meeeelong = ["2", "3"]
     
     var body: some View {
         ScrollView {
+            Spacer()
+            Spacer()
             myCalView()
                 .padding(.horizontal)
                 .padding(.horizontal)
@@ -24,9 +26,10 @@ struct MyHistoryView: View {
             
             myhistoryView(meeeelong)
         }
-//        sheet(isPresented: $isShow) {
-//            SelectFoodView()
-//        }
+        .sheet(isPresented: $isShow) {
+            Spacer()
+            SelectFoodView()
+        }
 		.toolbar {
 			ToolbarItem(placement: .navigationBarLeading) {
 				dismissButton(sfName: "chevron.backward") {
@@ -34,7 +37,7 @@ struct MyHistoryView: View {
 				}
 			}
 			ToolbarItem(placement: .principal) {
-				Text("내 프로필")
+				Text("이전 기록")
 					.font(.Jamsil.bold.font(size: 20))
 			}
 			
@@ -50,35 +53,36 @@ struct MyHistoryView: View {
                 Spacer()
                 Image(systemName: "pencil")
                     .foregroundColor(.defaultColor)
-                    .padding(.all, 5)
+                    .font(.system(size: 17))
+                    .padding(.all, 10)
                     .background(
                         Circle().fill(Color.init(hexCode: "#F5F5F5"))
                     )
                     .onTapGesture {
-//                        isShow = true
+                        isShow = true
                     }
             }
             HStack {
-                Text("9013")
+                Text("1850")
                     .foregroundColor(.defaultColor)
                     .font(.Jamsil.extraBold.font(size: 24))
                 Text("kcal")
-                    .font(.Jamsil.light.font(size: 17))
+                    .font(.Jamsil.regular.font(size: 17))
                 Spacer()
             }
             HStack {
-                Text("라멘 20그릇")
+                Text("라멘 9그릇")
                     .font(.Jamsil.extraBold.font(size: 20))
                     .foregroundColor(.fontColor)
                 Spacer()
             }.padding(.top, 1)
-            Text("🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜🍜")
+            Text("🍜🍜🍜🍜🍜🍜🍜🍜🍜")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .lineLimit(50)
                 .padding(.top, 5)
             HStack {
-                Text("만큼 칼로리를 소비했어요.")
-                    .font(.Jamsil.light.font(size: 17))
+                Text("만큼의 칼로리를 소비했어요.")
+                    .font(.Jamsil.regular.font(size: 17))
                 Spacer()
             }.padding(.vertical, 7)
         }.padding()
@@ -105,7 +109,9 @@ struct MyHistoryView: View {
                         Text("17")
                             .font(.Jamsil.regular.font(size: 17))
                     }.foregroundColor(.fontColor)
-                    Divider().padding(.vertical, 2)
+                    Divider()
+                        .background(Color.fontColor)
+                        .padding(.vertical, 2)
                     VStack(alignment: .listRowSeparatorLeading) {
                         Text("7월 17일 같이줍깅")
                             .font(.Jamsil.regular.font(size: 17))
@@ -118,7 +124,7 @@ struct MyHistoryView: View {
                     .background(
                         RoundedRectangle(cornerRadius: 26)
                             .fill(Color.background2Color)
-                            .shadow(radius: 3)
+                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 2)
                     )
                     .padding(.bottom)
             }
