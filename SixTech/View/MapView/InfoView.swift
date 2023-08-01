@@ -7,41 +7,42 @@
 
 import SwiftUI
 
-struct InfoView: View {
-	private var ploggingManager = PloggingManager()
-	
-	var body: some View {
-		ZStack {
-			Color.gray.ignoresSafeArea()
-			VStack {
-				HStack {
-					Spacer()
-					Image(systemName: "scope")
-						.font(.system(size: 25))
-						.foregroundColor(.gray)
-						.padding(10)
-						.background {
-							Circle()
-								.foregroundColor(.white)
-								.shadow(radius: 0, x: 1, y: 1)
-					}
-				}
-				.padding()
-
-				Spacer()
-
-				Text("\(ploggingManager.steps)")
-				ActivityDataView()
-			}
-		}
-	}
-}
+//struct InfoView: View {
+//	private var ploggingManager = PloggingManager()
+//
+//	var body: some View {
+//		ZStack {
+//			Color.gray.ignoresSafeArea()
+//			VStack {
+//				HStack {
+//					Spacer()
+//					Image(systemName: "scope")
+//						.font(.system(size: 25))
+//						.foregroundColor(.gray)
+//						.padding(10)
+//						.background {
+//							Circle()
+//								.foregroundColor(.white)
+//								.shadow(radius: 0, x: 1, y: 1)
+//					}
+//				}
+//				.padding()
+//
+//				Spacer()
+//
+//				Text("\(ploggingManager.steps)")
+//				ActivityDataView(isAlert: .constant(false))
+//			}
+//		}
+//	}
+//}
 
 struct ActivityDataView: View {
 	@EnvironmentObject var ploggingManager: PloggingManager
 	@EnvironmentObject var locationManager: LocationManager
 	@State private var pauseTapped = false
 	@State private var tempSteps = 0
+	@Binding var isAlert: Bool
 
 	var body: some View {
 		ZStack {
@@ -68,7 +69,7 @@ struct ActivityDataView: View {
 				if pauseTapped {
 					HStack {
 						ControlButtonView(buttonType: .stop) {
-							
+							isAlert = true
 						}
 						.padding(.bottom)
 						.padding(.horizontal)
@@ -92,9 +93,10 @@ struct ActivityDataView: View {
 				}
 			}
 		}
+//		.background(.thinMaterial, in: RoundedRectangle(cornerRadius: 40))
 		.background {
 			RoundedRectangle(cornerRadius: 40)
-				.foregroundColor(.white)
+				.foregroundColor(.white.opacity(0.8))
 				.shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 4)
 		}
 	}
@@ -158,7 +160,7 @@ struct MissionView: View {
 	var body: some View {
 		VStack {
 			Text("나의 같이줍깅 미션")
-				.font(.Jamsil.light.font(size: 12))
+				.font(.Jamsil.light.font(size: 16))
 				.padding(.top)
 			Spacer()
 			RoundedRectangle(cornerRadius: 10)
@@ -178,12 +180,16 @@ struct MissionView: View {
 				.padding(.horizontal)
 				.padding(.horizontal)
 				.overlay {
-					HStack {
-						Image(systemName: "camera.fill")
-						Text("미션 하러 가기")
-							.font(.Jamsil.bold.font(size: 14))
+					NavigationLink {
+						CameraFilterView()
+					} label: {
+						HStack {
+							Image(systemName: "camera.fill")
+							Text("미션 하러 가기")
+								.font(.Jamsil.bold.font(size: 14))
+						}
+						.foregroundColor(.white)
 					}
-					.foregroundColor(.white)
 				}
 			Spacer()
 		}
@@ -226,8 +232,8 @@ private enum ControlButtonType {
 	}
 }
 
-struct InfoView_Previews: PreviewProvider {
-	static var previews: some View {
-		InfoView()
-	}
-}
+//struct InfoView_Previews: PreviewProvider {
+//	static var previews: some View {
+//		InfoView()
+//	}
+//}

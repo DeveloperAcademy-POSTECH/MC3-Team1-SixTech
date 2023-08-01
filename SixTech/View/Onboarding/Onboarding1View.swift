@@ -11,10 +11,10 @@ import SwiftUIGIF
 struct OnBoarding1View: View {
     var body: some View {
         VStack {
-            Text("나의 플로깅 발자취를 한눈에\n ")
+            Text("나의 플로깅 발자취를 한눈에")
                 .font(.Jamsil.regular.font(size: 20))
             Spacer()
-            GIFImage(name: "onboardingGIF")
+			Image("onboarding1img")
         }
     }
 }

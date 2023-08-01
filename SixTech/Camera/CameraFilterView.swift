@@ -8,13 +8,14 @@ import SwiftUI
 import RealityKit
 import PhotosUI
 
-struct CameraFilterView : View {
+struct CameraFilterView: View {
     @State private var isAlbumPresented = false
     @State private var isboltClicked = false
     @State private var capturedImage: UIImage? = nil
     @State private var useFrontCamera = false
     @State private var currentIndex: Int = 0
     @State private var dummyImage: UIImage? = nil
+	@Environment(\.dismiss) var dismiss
     
     @StateObject private var cameraModel = CameraModel()
     @AppStorage("profileURL") var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!
@@ -23,47 +24,45 @@ struct CameraFilterView : View {
         let filterIndex = currentIndex % 3
         ZStack {
             if filterIndex == 0 {
-                ZStack{
+                ZStack {
                     ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel, currentIndex: $currentIndex)
                     Image(uiImage: loadImageFromURL(imageURL: profileImageURL))
                         .resizable()
                         .frame(width: 200, height: 200)
                 }
-            }
-            else if filterIndex == 1 {
+            } else if filterIndex == 1 {
                 ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel, currentIndex: $currentIndex)
-            }
-            else if filterIndex == 2 {
+            } else if filterIndex == 2 {
                 ARViewContainer(useFrontCamera: $useFrontCamera, cameraModel: cameraModel, currentIndex: $currentIndex)
             }
             VStack {
-                VStack{
-                    HStack{
-                        Button(action: {
-                            //map으로 연결
-                        }) {
-                            Image(systemName: "xmark")
-                                .resizable()
-                                .font(.system(size: 25))
-                                .frame(width: 25, height: 25)
-                                .padding(30)
-                                .foregroundColor(.white)
-                            
-                        }
+                VStack {
+                    HStack {
+						Button {
+							dismiss()
+						} label: {
+							Image(systemName: "xmark")
+								.resizable()
+								.font(.system(size: 25))
+								.frame(width: 25, height: 25)
+								.padding(30)
+								.foregroundColor(.white)
+						}
                         .padding(.trailing)
+						
                         Spacer()
-                        Button(action: {
-                            isboltClicked.toggle()
-                            cameraModel.toggleFlash()
-                        }) {
-                            Image(systemName: isboltClicked ? "bolt.slash.fill" : "bolt.fill")
-                                .resizable()
-                                .font(.system(size: 25))
-                                .frame(width: 25, height: 30)
-                                .padding(30)
-                                .foregroundColor(.white)
-                            
-                        }
+						
+						Button {
+							isboltClicked.toggle()
+							cameraModel.toggleFlash()
+						} label: {
+							Image(systemName: isboltClicked ? "bolt.slash.fill" : "bolt.fill")
+								.resizable()
+								.font(.system(size: 25))
+								.frame(width: 25, height: 30)
+								.padding(30)
+								.foregroundColor(.white)
+						}
                         .padding(.leading)
                     }
                 }
@@ -76,35 +75,36 @@ struct CameraFilterView : View {
                             capturedImage = UIApplication.shared.windows.first?.rootViewController?.view.asImage(in: rect)
                         }
                     })
-                //camera
-                VStack{
+				// Camera
+                VStack {
                     FilterCarouselView(capturedImage: $dummyImage, currentIndex: $currentIndex, spacing: 10, trailingSpace: 20, itemWidth: 100)
 
                         .padding(.bottom, 1)
                     HStack {
-                        Button(action: {
-                            isAlbumPresented = true
-                        }) {
-                            Image(systemName: "photo.on.rectangle")
-                                .resizable()
-                                .font(.system(size: 24))
-                                .frame(width: 30, height: 24)
-                                .padding(20)
-                                .foregroundColor(.white)
-                            
-                        }
+						Button {
+							isAlbumPresented = true
+						} label: {
+							Image(systemName: "photo.on.rectangle")
+								.resizable()
+								.font(.system(size: 24))
+								.frame(width: 30, height: 24)
+								.padding(20)
+								.foregroundColor(.white)
+						}
                         .padding(.trailing)
+						
                         Spacer()
-                        Button(action: {
-                            useFrontCamera.toggle()
-                        }) {
-                            Image(systemName: "arrow.triangle.2.circlepath.camera")
-                                .resizable()
-                                .frame(width: 30, height: 24)
-                                .font(.system(size: 24))
-                                .padding(20)
-                                .foregroundColor(.white)
-                        }
+						
+						Button {
+							useFrontCamera.toggle()
+						} label: {
+							Image(systemName: "arrow.triangle.2.circlepath.camera")
+								.resizable()
+								.frame(width: 30, height: 24)
+								.font(.system(size: 24))
+								.padding(20)
+								.foregroundColor(.white)
+						}
                         .padding(.leading)
                     }
                     .padding(.bottom)
@@ -124,7 +124,7 @@ struct CameraFilterView : View {
     }
 }
 
-struct CameraFilterView_Previews : PreviewProvider {
+struct CameraFilterView_Previews: PreviewProvider {
     static var previews: some View {
         CameraFilterView()
     }

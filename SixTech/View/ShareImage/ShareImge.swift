@@ -14,6 +14,7 @@ struct ShareImageView: View {
     @State var images: [ShareImage]
 //    @State var sizeToImage: CGSize = CGSize(width: 0, height: 0)
     @State var isButtonPressed: Bool = false
+	@State private var isNextView = false
     
     var body: some View {
         
@@ -21,7 +22,7 @@ struct ShareImageView: View {
             HStack {
                 Spacer()
                 ImageButton(image: .right) {
-                    print("")
+					isNextView = true
                 }
                 .padding(.trailing)
             }
@@ -36,25 +37,33 @@ struct ShareImageView: View {
                 .padding()
             
             SnapCarousel(index: $currentIndex, items: images) { image in
-                
-                PolaroidView(isdisable: .constant(false), profileImage: .constant(image.postImage), userName: .constant("User"), userMission: .constant("Mision"), isButtonPressed: $isButtonPressed)
-//                .background(
-//                    GeometryReader { proxy in
-//                        Color.red
-//                            .preference(key: SizePreferenceKey.self, value: proxy.size)
-//                            .onAppear {
-//                                sizeToImage = CGSize(width: proxy.size.width, height: proxy.size.height)
-//                            }
-//                    })
-            }
-            
+				PolaroidView(isdisable: .constant(false),
+							 profileImage: .constant(image.postImage),
+							 userName: .constant("User"), userMission: .constant("Mision"),
+							 isButtonPressed: $isButtonPressed)
+			}
+			
             Spacer()
-            
-            ButtonView(text: "로렌조가 만든 버튼으로 바꿀예정", isdisable: .constant(false)) {
-                isButtonPressed.toggle()
-            }
+			
+			Button {
+				// 저장하는 기능
+			} label: {
+				HStack {
+					Image(systemName: "square.and.arrow.up")
+						.fontWeight(.bold)
+						.font(.system(size: 24))
+						.padding(.trailing)
+					
+					Text("저장하기")
+						.padding(.trailing)
+				}
+			}
+			.buttonStyle(SmallButton())
             .padding(.top, 100)
-            
+
+			NavigationLink("", isActive: $isNextView) {
+				EndResultView()
+			}
         }
         .navigationBarBackButtonHidden()
     }
@@ -71,7 +80,6 @@ struct Home_Previews: PreviewProvider {
         ])
     }
 }
-
 
 //                let renderer = ImageRenderer(content: PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(images[currentIndex].postImage), userName: .constant("User"), userMission: .constant("Mision")))
 //
