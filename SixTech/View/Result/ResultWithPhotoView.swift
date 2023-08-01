@@ -9,18 +9,13 @@ import SwiftUI
 
 struct ResultWithPhotoView: View {
     
-    // 플로깅 데이터... 나중에 데이터 받는 방법 수정해보겠습니다
-    @State var kcal: Int = 130
-    @State var userkm: Double = 5.0
-    @State var steps: Int =  13332
-    @State var date: String = "2023.03.15"
-    @State var ploogingCount: Int = 1233
-    
-    // 플로깅 중 찍은 사진
-    @State var userImage: String = "ploggingphoto"
-    
-    // 유저 프로필 사진
-    @State var userProfileImage: String = "userprofile"
+	let kcal: String
+	let movedDistance: String
+	let steps: String
+	let ploogingCount: String
+	let date: String
+	let userTakeImage: UIImage
+	let profileImage: UIImage
     
     var body: some View {
             ZStack(alignment: .top) {
@@ -28,7 +23,7 @@ struct ResultWithPhotoView: View {
                     .foregroundColor(.white)
                     .shadow(radius: 10, y: 1)
                 
-                Image(userImage)
+				Image(uiImage: userTakeImage)
                     .resizable()
                     .frame(width: 294, height: 294)
                     .padding(.top)
@@ -58,13 +53,13 @@ struct ResultWithPhotoView: View {
                     
                     ZStack {
                         Circle()
-                            .frame(width: 70, height: 70)
-                        .foregroundColor(.white)
+							.frame(width: 70, height: 70)
+							.foregroundColor(.white)
                         Circle()
                             .frame(width: 60, height: 60)
-                            .foregroundColor(.white)
+                            .foregroundColor(.backgroundColor)
                             .overlay(
-                                Image(userProfileImage)
+                                Image(uiImage: profileImage)
                                     .resizable()
                                     .scaledToFit()
                             )
@@ -74,7 +69,7 @@ struct ResultWithPhotoView: View {
                         Spacer()
                         
                         VStack {
-                            Text("\(userkm)")
+                            Text(movedDistance)
                                 .font(.Jamsil.medium.font(size: 20))
                             
                             Text("km")
@@ -84,7 +79,7 @@ struct ResultWithPhotoView: View {
                         Spacer()
                         
                         VStack {
-                            Text("\(steps)")
+                            Text(steps)
                                 .font(.Jamsil.medium.font(size: 20))
                             
                             Text("steps")
@@ -94,7 +89,7 @@ struct ResultWithPhotoView: View {
                         Spacer()
                         
                         VStack {
-                            Text("\(ploogingCount)")
+                            Text(ploogingCount)
                                 .font(.Jamsil.medium.font(size: 20))
                             
                             Text("줍깅")
@@ -104,7 +99,7 @@ struct ResultWithPhotoView: View {
                         Spacer()
                         
                         VStack {
-                            Text("\(kcal)")
+                            Text(kcal)
                                 .font(.Jamsil.medium.font(size: 20))
                             
                             Text("kcal")
@@ -119,10 +114,4 @@ struct ResultWithPhotoView: View {
             }
             .frame(width: 320, height: 337)
         }
-}
-
-struct ResultLogStyle_Previews: PreviewProvider {
-    static var previews: some View {
-        ResultWithPhotoView()
-    }
 }

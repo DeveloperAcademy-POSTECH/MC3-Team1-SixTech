@@ -8,87 +8,87 @@
 import SwiftUI
 
 struct ActivityDataView: View {
-    @EnvironmentObject var ploggingManager: PloggingManager
-    @EnvironmentObject var locationManager: LocationManager
-    @EnvironmentObject var userInfo: UserInfo
-    @State private var pauseTapped = false
-    @Binding var isAlert: Bool
-    
-    var movedDistance: String {
-        String(format: "%.1f", locationManager.movedDistance / 1000)
-    }
-    
-    var steps: String {
-        (ploggingManager.totalStep + ploggingManager.currentStep).formatWithDot
-    }
-    
-    var pickedCount: String {
-        ploggingManager.pickedCount.formatWithDot
-    }
+	@EnvironmentObject var ploggingManager: PloggingManager
+	@EnvironmentObject var locationManager: LocationManager
+	@EnvironmentObject var userInfo: UserInfo
+	@State private var pauseTapped = false
+	@Binding var isAlert: Bool
+	
+	var movedDistance: String {
+		String(format: "%.1f", locationManager.movedDistance / 1000)
+	}
+	
+	var steps: String {
+		(ploggingManager.totalStep + ploggingManager.currentStep).formatWithDot
+	}
+	
+	var pickedCount: String {
+		ploggingManager.pickedCount.formatWithDot
+	}
 
     var ploogingCount: String = 1000.formatWithDot
 
-    var body: some View {
-        ZStack {
-            VStack {
-                RectangleView {
-                    VStack {
-                        Spacer()
-                        TrackingInfoView(kilometer: movedDistance,
-                                         steps: steps,
-                                         pickups: pickedCount)
-                        Spacer()
-                        if pauseTapped {
-                            ElapsedTimeView(time: ploggingManager.formattedElapsedTime)
-                        }
-                    }
-                }
-                .frame(maxHeight: pauseTapped ? 170 : 70)
-                if pauseTapped {
-                    RectangleView {
-                        MissionView(mission: userInfo.myMission)
-                    }
-                }
-                
-                if pauseTapped {
-                    HStack {
-                        ControlButtonView(buttonType: .stop) {
-                            SnapshotManager.takeSnapshot(mapView: locationManager.mapView,
-                                                         multiPolyline: locationManager.polylines) { image in
-                                if let image = image {
-                                    ploggingManager.snapshottedMap = image
-                                }
-                            }
-                            isAlert = true
-                        }
-                        .padding(.bottom)
-                        .padding(.horizontal)
-                        
-                        ControlButtonView(buttonType: .play) {
-                            self.pauseTapped = false
-                            ploggingManager.startPedometer()
-                            locationManager.startUpdating()
-                        }
-                        .padding(.bottom)
-                        .padding(.horizontal)
-                    }
-                } else {
-                    ControlButtonView(buttonType: .pause) {
-                        self.pauseTapped = true
-                        ploggingManager.totalStep += ploggingManager.currentStep
-                        ploggingManager.stopPedometer()
-                        locationManager.stopUpdating()
-                    }
-                    .padding(.bottom)
-                }
-            }
-        }
-        .background {
-            RoundedRectangle(cornerRadius: 40)
-                .foregroundColor(.white.opacity(0.8))
-                .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 4)
-        }
-    }
+	var body: some View {
+		ZStack {
+			VStack {
+				RectangleView {
+					VStack {
+						Spacer()
+						TrackingInfoView(kilometer: movedDistance,
+										 steps: steps,
+										 pickups: pickedCount)
+						Spacer()
+						if pauseTapped {
+							ElapsedTimeView(time: ploggingManager.formattedElapsedTime)
+						}
+					}
+				}
+				.frame(maxHeight: pauseTapped ? 150 : 70)
+				if pauseTapped {
+					RectangleView {
+						MissionView(mission: userInfo.myMission)
+					}
+				}
+				
+				if pauseTapped {
+					HStack {
+						ControlButtonView(buttonType: .stop) {
+							SnapshotManager.takeSnapshot(mapView: locationManager.mapView,
+														 multiPolyline: locationManager.polylines) { image in
+								if let image = image {
+									ploggingManager.snapshottedMap = image
+								}
+							}
+							isAlert = true
+						}
+						.padding(.bottom)
+						.padding(.horizontal)
+						
+						ControlButtonView(buttonType: .play) {
+							self.pauseTapped = false
+							ploggingManager.startPedometer()
+							locationManager.startUpdating()
+						}
+						.padding(.bottom)
+						.padding(.horizontal)
+					}
+				} else {
+					ControlButtonView(buttonType: .pause) {
+						self.pauseTapped = true
+						ploggingManager.totalStep += ploggingManager.currentStep
+						ploggingManager.stopPedometer()
+						locationManager.stopUpdating()
+					}
+					.padding(.bottom)
+				}
+			}
+		}
+		.background {
+			RoundedRectangle(cornerRadius: 40)
+				.foregroundColor(.white.opacity(0.8))
+				.shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 4)
+		}
+	}
 }
 
 struct TrackingInfoView: View {

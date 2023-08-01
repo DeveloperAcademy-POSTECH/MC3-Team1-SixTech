@@ -33,7 +33,7 @@ class MatchManager: NSObject, ObservableObject {
     @Published var otherPlayer: [GKPlayer]?
     @Published var otherPlayerInfo: [UserInfo]? = []
     
-    var maxPlayer: Int = 2
+    var maxPlayer: Int = 10
     var localPlayerInfo: UserInfo?
     var match: GKMatch?
     var localPlayer = GKLocalPlayer.local

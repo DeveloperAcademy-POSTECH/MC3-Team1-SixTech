@@ -148,7 +148,7 @@ struct PlayerCellView: View {
         }.frame(width: 342)
             .onAppear {
                 if let uiimage = uiimage {
-//                    print("\(uiimage)")
+                    print("\(uiimage)")
                 }
             }
     }

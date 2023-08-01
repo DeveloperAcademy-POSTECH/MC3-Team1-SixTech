@@ -10,9 +10,44 @@ import SwiftUI
 struct EndResultView: View {
     @Environment(\.presentationMode) var prsent
     @EnvironmentObject var matchManager: MatchManager
-    @State var userImage: String = "ploggingphoto"
-    @State var mapImage: String = "usermap"
-    
+	@EnvironmentObject var ploggingManager: PloggingManager
+	@EnvironmentObject var locationManager: LocationManager
+	@EnvironmentObject var userInfo: UserInfo
+	
+	private var kcal: String {
+		(Double(ploggingManager.totalStep) * 0.04).formatWithDot
+	}
+	
+	private var movedDistance: String {
+		String(format: "%.1f", locationManager.movedDistance / 1000)
+	}
+	
+	private var steps: String {
+		ploggingManager.totalStep.formatWithDot
+	}
+
+	private var ploggingCount: String {
+		ploggingManager.pickedCount.formatWithDot
+	}
+
+	private var ploggingDate: String {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "yyyy.MM.dd"
+		return formatter.string(from: Date())
+	}
+	
+	private var userTakeImage: UIImage? {
+		userInfo.myMissionPhoto
+	}
+	
+	private var polylineMapImage: UIImage {
+		ploggingManager.snapshottedMap
+	}
+	
+	private var profileImage: UIImage {
+		loadImageFromURL(imageURL: userInfo.profileImageURL)
+	}
+
     @State var isRightTapped: Bool = false
     @State var isLeftTapped: Bool = true
     @State var isAlert = false
@@ -47,10 +82,22 @@ struct EndResultView: View {
 //                Spacer()
                 
                 if isLeftTapped {
-                    ResultWithPhotoView()
+                    ResultWithPhotoView(kcal: kcal,
+										movedDistance: movedDistance,
+										steps: steps,
+										ploogingCount: ploggingCount,
+										date: ploggingDate,
+										userTakeImage: userTakeImage!,
+										profileImage: profileImage)
                         .padding(.vertical)
                 } else {
-                    ResultWithPolylineView()
+                    ResultWithPolylineView(kcal: kcal,
+										   movedDistance: movedDistance,
+										   steps: steps,
+										   ploogingCount: ploggingCount,
+										   date: ploggingCount,
+										   polylineMapImage: polylineMapImage,
+										   profileImage: profileImage)
                         .padding(.vertical)
                 }
                 
@@ -61,7 +108,7 @@ struct EndResultView: View {
                         isLeftTapped = true
                         isRightTapped = false
                     } label: {
-                        Image(userImage)
+						Image(uiImage: userTakeImage!)
                             .resizable()
                             .scaledToFill()
                     }
@@ -73,7 +120,8 @@ struct EndResultView: View {
                         isRightTapped = true
                         isLeftTapped = false
                     } label: {
-                        Image(mapImage)
+                  
+						Image(uiImage: ploggingManager.snapshottedMap)
                             .resizable()
                             .scaledToFill()
                     }

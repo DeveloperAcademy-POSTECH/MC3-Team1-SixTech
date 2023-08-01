@@ -9,43 +9,24 @@ import SwiftUI
 
 struct ResultWithPolylineView: View {
 	
-	@EnvironmentObject var ploggingManager: PloggingManager
-	@EnvironmentObject var locationManager: LocationManager
+	let kcal: String
+	let movedDistance: String
+	let steps: String
+	let ploogingCount: String
+	let date: String
+	let polylineMapImage: UIImage
+	let profileImage: UIImage
 	
-	var kcal: String {
-		(Double(ploggingManager.totalStep) * 0.04).formatWithDot
-	}
-	
-	var movedDistance: String {
-		(locationManager.movedDistance / 1000).formatWithDot
-	}
-	
-	var steps: String {
-		ploggingManager.totalStep.formatWithDot
-	}
-
-	var ploogingCount: String {
-		ploggingManager.pickedCount.formatWithDot
-	}
-
-	var date: String {
-		let currentDate = Date()
-		let formatter = DateFormatter()
-		formatter.dateFormat = "yyyy.MM.dd"
-		return formatter.string(from: currentDate)
-	}
-	
-    // 유저 프로필 사진
-    @State var userProfileImage: String = "userprofile"
-
     var body: some View {
         ZStack {
             Rectangle()
                 .foregroundColor(.clear)
                 .shadow(radius: 10, y: 4)
-//                .overlay(
-//                    Image(mapImage)
-//                )
+                .overlay(
+                  Image(uiImage: polylineMapImage)
+                  .resizable()
+                  .scaledToFit()
+                )
 
             // 데이터 부분
             VStack {
@@ -56,22 +37,19 @@ struct ResultWithPolylineView: View {
                     
                     Spacer()
                     
-                    Image(userProfileImage)
-                        .resizable()
-                        .frame(width: 36, height: 36)
+					VStack {
+						Image(uiImage: profileImage)
+							.resizable()
+							.frame(width: 36, height: 36)
+							.background(Circle().foregroundColor(.backgroundColor))
+						Text("같이줍깅")
+							.foregroundColor(.black)
+							.font(.Jamsil.light.font(size: 12))
+
+					}
                 }
-                .padding(.horizontal)
-                .foregroundColor(.white)
-                
-                HStack {
-                    
-                    Spacer()
-                    
-                    Text("같이줍깅")
-                        .foregroundColor(.white)
-                        .font(.Jamsil.light.font(size: 12))
-                }
-                .padding(.trailing)
+                .padding()
+                .foregroundColor(.black)
                 
                 Spacer()
                 
@@ -120,16 +98,10 @@ struct ResultWithPolylineView: View {
             
                 }
                 .shadow(radius: 2, y: 1)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
                 .padding(.bottom)
             }
         }
         .frame(width: 320, height: 337)
-    }
-}
-
-struct ResultLogView2_Previews: PreviewProvider {
-    static var previews: some View {
-        ResultWithPolylineView()
     }
 }
