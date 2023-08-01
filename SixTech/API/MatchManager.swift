@@ -123,9 +123,9 @@ class MatchManager: NSObject, ObservableObject {
                 sendString("began:\(playerUUIDKey)")
                 break
             } else {
-                DispatchQueue.main.async {
-                    self.lastData = parameter
-                }
+//                DispatchQueue.main.async {
+//                    self.lastData = parameter
+//                }
             }
 //            inGame = true // 게임중이라는 거 여기다 다표시해주기
         default:
@@ -144,7 +144,11 @@ extension MatchManager: GKMatchDelegate {
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
         if let content = decodeUserInfo(data) {
             DispatchQueue.main.async { [self] in
-                if !(otherPlayerInfo?.contains(where: { $0.uuid == content.uuid }))! {
+                if let index = otherPlayerInfo?.firstIndex(where: { $0.uuid == content.uuid }) {
+                    // If an element with the same uuid exists, replace it
+                    otherPlayerInfo?[index] = content
+                } else {
+                    // If the uuid doesn't exist, append the new element
                     otherPlayerInfo?.append(content)
                 }
             }
@@ -173,8 +177,20 @@ extension MatchManager: GKMatchDelegate {
     
     func sendImageUrl() {
         guard let info = localPlayerInfo else { return }
+//        info.myMissionPhoto
         if let data = encodeUserInfo(info) {
             sendData(data, mode: .reliable)
+        }
+    }
+    
+    func sendMissionImage() {
+        if let info = localPlayerInfo {
+            if  info.myMissionPhoto != nil {
+                if let data = encodeUserInfo(info) {
+                    sendData(data, mode: .reliable)
+                    print("DEBUG: data send sucessfully")
+                }
+            }
         }
     }
     

@@ -10,19 +10,18 @@ import UIKit
 import Photos
 
 struct ShareImageView: View {
+    @EnvironmentObject var matchManager: MatchManager
+    
     @State var currentIndex: Int = 0
-    @State var images: [ShareImage]
-//    @State var sizeToImage: CGSize = CGSize(width: 0, height: 0)
     @State var isButtonPressed: Bool = false
-	@State private var isNextView = false
+    @State private var isNextView = false
     
     var body: some View {
-        
         VStack {
             HStack {
                 Spacer()
                 ImageButton(image: .right) {
-					isNextView = true
+                    isNextView = true
                 }
                 .padding(.trailing)
             }
@@ -32,38 +31,35 @@ struct ShareImageView: View {
             Text("미션결과를 팀원들과 공유해요.")
                 .font(.Jamsil.light.font(size: 17))
             
-            Text("\(currentIndex+1) / \(images.count)")
+            Text("\(currentIndex+1) / \(1 + matchManager.otherPlayerInfo!.count)")
                 .font(.Jamsil.light.font(size: 17))
                 .padding()
             
-            SnapCarousel(index: $currentIndex, items: images) { image in
-				PolaroidView(isdisable: .constant(false),
-							 profileImage: .constant(image.postImage),
-							 userName: .constant("User"), userMission: .constant("Mision"),
-							 isButtonPressed: $isButtonPressed)
-			}
-			
+            SnapCarousel(index: $currentIndex, items: matchManager.otherPlayerInfo!) { info in
+                PolaroidView(isButtonPressed: $isButtonPressed, isdisable: .constant(false), userName: info.name, userMission: info.myMission, image: nil, uiimage: info.myMissionPhoto, profileImage: info.profileImage)
+            }
+            
             Spacer()
-			
-			Button {
-				// 저장하는 기능
-			} label: {
-				HStack {
-					Image(systemName: "square.and.arrow.up")
-						.fontWeight(.bold)
-						.font(.system(size: 24))
-						.padding(.trailing)
-					
-					Text("저장하기")
-						.padding(.trailing)
-				}
-			}
-			.buttonStyle(SmallButton())
+            
+            Button {
+                // 저장하는 기능
+            } label: {
+                HStack {
+                    Image(systemName: "square.and.arrow.up")
+                        .fontWeight(.bold)
+                        .font(.system(size: 24))
+                        .padding(.trailing)
+                    
+                    Text("저장하기")
+                        .padding(.trailing)
+                }
+            }
+            .buttonStyle(SmallButton())
             .padding(.top, 100)
-
-			NavigationLink("", isActive: $isNextView) {
-				EndResultView()
-			}
+            
+            NavigationLink("", isActive: $isNextView) {
+                EndResultView()
+            }
         }
         .navigationBarBackButtonHidden()
     }
@@ -71,18 +67,7 @@ struct ShareImageView: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        ShareImageView(images: [
-            ShareImage(postImage: Image("MissionTestImage")),
-            ShareImage(postImage: Image("MissionTestImage")),
-            ShareImage(postImage: Image("MissionTestImage")),
-            ShareImage(postImage: Image("MissionTestImage")),
-            ShareImage(postImage: Image("MissionTestImage"))
-        ])
+        ShareImageView()
+            .environmentObject(MatchManager())
     }
 }
-
-//                let renderer = ImageRenderer(content: PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(images[currentIndex].postImage), userName: .constant("User"), userMission: .constant("Mision")))
-//
-//                if let image = renderer.uiImage {
-//                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-//                }

@@ -9,11 +9,19 @@ import SwiftUI
 
 struct PolaroidView: View {
     @EnvironmentObject var userInfo: UserInfo
-    @Binding var isdisable: Bool
-    @Binding var profileImage: Image?
-    @Binding var userName: String?
-    @Binding var userMission: String?
+    @EnvironmentObject var matchManager: MatchManager
+    
     @Binding var isButtonPressed: Bool
+    @Binding var isdisable: Bool
+    
+    let viewModel = CharacterCreateViewModel()
+    
+    var userName: String
+    var userMission: String
+    var image: Image?
+    var uiimage: UIImage?
+    var profileImage: [Int]?
+    
         var body: some View {
             ZStack {
                 Rectangle()
@@ -37,8 +45,13 @@ struct PolaroidView: View {
                                     .foregroundColor(.beforeImagePickTextColor)
                                 }
                         } else {
-                            profileImage!
-                                .resizable()
+                            if let image = uiimage {
+                                Image(uiImage: image)
+                                    .resizable()
+                            } else {
+                                image!
+                                    .resizable()
+                            }
                         }
                     }
                     .aspectRatio(1, contentMode: .fit)
@@ -48,15 +61,21 @@ struct PolaroidView: View {
                             Circle()
                                 .foregroundColor(.backgroundColor)
                                 .frame(width: 40, height: 40)
-                            Image(uiImage: loadImageFromURL(imageURL: userInfo.profileImageURL))
-                                .resizable()
-                                .frame(width: 32, height: 32)
+                            if let image = profileImage {
+                                Image(uiImage: viewModel.imageMerger.merge("\(viewModel.faceArray[image[0]] + viewModel.colorArray[image[1]])", with: "\(viewModel.emotionArray[image[2]])"))
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
+                            } else {
+                                Image(uiImage: loadImageFromURL(imageURL: userInfo.profileImageURL))
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
+                            }
                         }
                         
-                        Text(userName ?? "Default")
+                        Text(userName)
                             .foregroundColor(.black)
                     }
-                    Text(userMission ?? "Default Mission")
+                    Text(userMission)
                         .foregroundColor(.black)
                     Spacer()
                 }
@@ -73,11 +92,13 @@ struct PolaroidView: View {
         }
     }
 
-    struct PolaPreview: PreviewProvider {
-        static var previews: some View {
-            PolaroidView(isdisable: .constant(false), profileImage: Binding.constant(Image("MissionTestImage")), userName: .constant("User"), userMission: .constant("Mision"), isButtonPressed: .constant(false))
-        }
-    }
+//    struct PolaPreview: PreviewProvider {
+//        static var previews: some View {
+//            PolaroidView(userInfo: "User", matchManager: .constant(false), isButtonPressed: "Mision", isdisable: Image("GU1"), userName: .constant(false))
+//                .environmentObject(MatchManager())
+//                .environmentObject(UserInfo())
+//        }
+//    }
 
     extension UIView {
         var screenShot: UIImage {

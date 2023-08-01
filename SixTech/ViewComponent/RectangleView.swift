@@ -18,8 +18,6 @@ struct RectangleView<Content: View>: View {
 		RoundedRectangle(cornerRadius: 20)
 			.frame(maxWidth: 320, maxHeight: 160)
 			.foregroundColor(.backgroundColor)
-//			.opacity(0.2)
-//			.shadow(radius: 0, x: 2, y: 2)
 			.overlay(content)
 			.padding(.top)
 			.padding(.horizontal)

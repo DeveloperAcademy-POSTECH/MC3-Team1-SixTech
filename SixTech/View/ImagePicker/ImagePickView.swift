@@ -9,16 +9,18 @@ import SwiftUI
 import UIKit
 
 struct ImagePickView: View {
+    @EnvironmentObject var userInfo: UserInfo
+    @EnvironmentObject var matchManager: MatchManager
+    
     @State private var isdisable: Bool = true
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
     @State private var imagePickerPresented = false
-    @State private var userName: String? = UserDefaults.standard.string(forKey: "username") ?? ""
-    @State private var userMission: String?
     
     func loadImage() {
         guard let selectedImage = selectedImage else { return }
         profileImage = Image(uiImage: selectedImage)
+        matchManager.localPlayerInfo?.myMissionPhoto = selectedImage
         isdisable = false
         print("Image Pick Complete and isdisable false")
     }
@@ -37,7 +39,7 @@ struct ImagePickView: View {
                 print("Image Picking")
                 imagePickerPresented.toggle()
             } label: {
-                PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission, isButtonPressed: .constant(false))
+                PolaroidView(isButtonPressed: .constant(false), isdisable: $isdisable, userName: userInfo.name, userMission: userInfo.myMission, image: profileImage, uiimage: userInfo.myMissionPhoto)
             }
             .sheet(isPresented: $imagePickerPresented,
                    onDismiss: loadImage,
@@ -46,14 +48,14 @@ struct ImagePickView: View {
             
 //            PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission)
 
-			NavigationLinkView(text: "골랐어요!", isdisable: $isdisable, destination: ShareImageView(images: [
-				ShareImage(postImage: Image("MissionTestImage")),
-				   ShareImage(postImage: Image("MissionTestImage")),
-				   ShareImage(postImage: Image("MissionTestImage")),
-				   ShareImage(postImage: Image("MissionTestImage")),
-				   ShareImage(postImage: Image("MissionTestImage"))
-			   ]))
+			NavigationLinkView(text: "골랐어요!", isdisable: $isdisable, destination: ShareImageView())
             .padding(.top, 100)
+        }
+        .onDisappear {
+            matchManager.sendMissionImage()
+            if matchManager.match?.players.count == matchManager.otherPlayerInfo?.count {
+                matchManager.otherPlayerInfo?.insert(matchManager.localPlayerInfo!, at: 0)
+            }
         }
     }
 }
@@ -61,5 +63,7 @@ struct ImagePickView: View {
 struct ImagePickView_Previews: PreviewProvider {
     static var previews: some View {
         ImagePickView()
+            .environmentObject(MatchManager())
+            .environmentObject(UserInfo())
     }
 }
