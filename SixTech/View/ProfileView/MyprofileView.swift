@@ -20,7 +20,7 @@ struct MyprofileView: View {
             textBackgroundView(st1: "프로필 변경", nextView: CharacterChangeView())
             textBackgroundView(st1: "이전기록", nextView: MyHistoryView())
             Spacer()
-            textBackgroundView(st1: "이용 약관 및 개인정보 처리방침", nextView: Text("gogo"))
+            textBackgroundView(st1: "이용 약관 및 개인정보 처리방침", nextView: Text("준비중"))
             textBackgroundView(st1: "개발자 정보", nextView: DeveloperInfoView())
             Spacer()
             

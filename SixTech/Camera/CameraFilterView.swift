@@ -11,11 +11,11 @@ import PhotosUI
 struct CameraFilterView: View {
     @State private var isAlbumPresented = false
     @State private var isboltClicked = false
-    @State private var capturedImage: UIImage? = nil
+    @State private var capturedImage: UIImage?
     @State private var useFrontCamera = false
     @State private var currentIndex: Int = 0
-    @State private var dummyImage: UIImage? = nil
-	@Environment(\.dismiss) var dismiss
+    @State private var dummyImage: UIImage?
+    @Environment(\.dismiss) var dismiss
     
     @StateObject private var cameraModel = CameraModel()
     @AppStorage("profileURL") var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "")!
@@ -51,7 +51,7 @@ struct CameraFilterView: View {
                         .padding(.trailing)
 						
                         Spacer()
-						
+                      
 						Button {
 							isboltClicked.toggle()
 							cameraModel.toggleFlash()
@@ -94,7 +94,7 @@ struct CameraFilterView: View {
                         .padding(.trailing)
 						
                         Spacer()
-						
+                      
 						Button {
 							useFrontCamera.toggle()
 						} label: {

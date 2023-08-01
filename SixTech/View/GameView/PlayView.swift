@@ -31,7 +31,7 @@ struct PloggingPlayView: View {
             }.onTapGesture {
                 flipCard()
             }
-            
+            Spacer()
             NavigationLink("방 만들기") {
                 CreateRoomView()
             }.buttonStyle(DefaultButton(isdisable: false))
@@ -40,7 +40,7 @@ struct PloggingPlayView: View {
                 EngagementView()
             }.buttonStyle(DefaultButton(isdisable: false))
                 .padding()
-            Spacer().frame(height: 60)
+//            Spacer().frame(height: 60)
             
         }
         .toolbar {

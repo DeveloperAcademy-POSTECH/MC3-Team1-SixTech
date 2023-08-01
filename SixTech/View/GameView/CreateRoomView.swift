@@ -11,12 +11,13 @@ struct CreateRoomView: View {
     @EnvironmentObject var matchManager: MatchManager
     @Environment(\.dismiss) var dismiss
     
-    @State private var selection = 1
+    @State private var selection = 0
     @State private var isPickerView = false
+    @State private var isDisable = true
     
     var body: some View {
-        
         VStack {
+            Spacer()
             HStack {
                 Text("인원 수")
                     .font(.Jamsil.bold.font(size: 20))
@@ -40,11 +41,12 @@ struct CreateRoomView: View {
                     .font(.Jamsil.bold.font(size: 20))
             } // MARK: 인원수 뷰 스택
             .padding([.leading, .trailing])
+            .padding(.top)
             
             if isPickerView {
                 HStack {
                     Picker("", selection: $selection) {
-                        ForEach(1...10, id: \.self) { number in
+                        ForEach(0...10, id: \.self) { number in
                             Text("\(number)").tag(number)
                                 .font(.Jamsil.bold.font(size: 23))
                                 .foregroundColor(.defaultColor)
@@ -65,7 +67,6 @@ struct CreateRoomView: View {
                     .padding(.leading)
                 Spacer()
             } // MARK: 참여코드 헤드라인 뷰 스택
-            
             HStack {
                 Spacer()
                 Text(matchManager.groupNumber.isEmpty ? "0000": matchManager.groupNumber)
@@ -89,10 +90,8 @@ struct CreateRoomView: View {
             }// MARK: 팁스택
             
             Spacer()
-            
-            NavigationLink("방 만들기") {
-                WaitingRoomView()
-            }.buttonStyle(DefaultButton(isdisable: false)) // 버튼 뷰
+            Spacer()
+            NavigationLinkView(text: "방 만들기", isdisable: $isDisable, destination: WaitingRoomView())
             
         }
         .toolbar {
@@ -111,6 +110,14 @@ struct CreateRoomView: View {
         .onAppear {
             matchManager.generateRandomPlayCode()
         }
+        .onChange(of: selection, perform: { newValue in
+            if newValue > 0 {
+                isDisable = false
+            } else {
+                isDisable = true
+            }
+            matchManager.maxPlayer = newValue
+        })
         .navigationBarBackButtonHidden()
     }
 }

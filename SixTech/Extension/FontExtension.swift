@@ -37,3 +37,9 @@ struct Font_Previews: PreviewProvider {
         
     }
 }
+
+extension String {
+    func containsWhitespace() -> Bool {
+        return contains { $0.isWhitespace }
+    }
+}

@@ -59,8 +59,8 @@ struct CalenderView: View {
                     HStack {
                         Spacer().frame(width: 270)
                         
-                        Button {
-//                            메롱롱롱롱롱롱롱롱로올올ㄷ오롱롱롱로올오
+                        NavigationLink {
+//                            SelectFoodView()
                         } label: {
                             Image(systemName: "square.and.arrow.up")
                                 .foregroundColor(.beforeImagePickTextColor)
