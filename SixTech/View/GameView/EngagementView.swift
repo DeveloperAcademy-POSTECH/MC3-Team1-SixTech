@@ -42,7 +42,6 @@ struct EngagementView: View {
         .navigationBarBackButtonHidden()
         .onChange(of: numberText) { newValue in
             isDisable = newValue.containsWhitespace()
-            print("\(isDisable)")
         }
     }
 }

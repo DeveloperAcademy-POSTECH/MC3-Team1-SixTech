@@ -13,7 +13,7 @@ final class UserInfo: ObservableObject, Identifiable {
     @Published var name = UserDefaults.standard.string(forKey: "username") ?? ""
     @Published var profileImageURL: URL = UserDefaults.standard.url(forKey: "profileURL") ?? URL(string: "onboarding2img")!
     @Published var profileImage: [Int] = (UserDefaults.standard.array(forKey: "profileArr") as? [Int]) ?? []
-    @Published var myMissionPhoto: UIImage?
+    @Published var myMissionPhoto: UIImage? = UIImage(named: "GU2")
     @Published var myMission: String = ""
     @Published var userHistory = UserHistory()
     

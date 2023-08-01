@@ -144,7 +144,11 @@ extension MatchManager: GKMatchDelegate {
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
         if let content = decodeUserInfo(data) {
             DispatchQueue.main.async { [self] in
-                if !(otherPlayerInfo?.contains(where: { $0.uuid == content.uuid }))! {
+                if let index = otherPlayerInfo?.firstIndex(where: { $0.uuid == content.uuid }) {
+                    // If an element with the same uuid exists, replace it
+                    otherPlayerInfo?[index] = content
+                } else {
+                    // If the uuid doesn't exist, append the new element
                     otherPlayerInfo?.append(content)
                 }
             }
@@ -173,6 +177,7 @@ extension MatchManager: GKMatchDelegate {
     
     func sendImageUrl() {
         guard let info = localPlayerInfo else { return }
+//        info.myMissionPhoto
         if let data = encodeUserInfo(info) {
             sendData(data, mode: .reliable)
         }
@@ -180,9 +185,10 @@ extension MatchManager: GKMatchDelegate {
     
     func sendMissionImage() {
         if let info = localPlayerInfo {
-            if let myphoto = localPlayerInfo?.myMissionPhoto {
+            if  info.myMissionPhoto != nil {
                 if let data = encodeUserInfo(info) {
                     sendData(data, mode: .reliable)
+                    print("DEBUG: data send sucessfully")
                 }
             }
         }
