@@ -9,30 +9,26 @@ import SwiftUI
 import SwiftUIGIF
 
 struct OnBoardingView: View {
-    let circleSize: CGFloat = 15
+    
+    @State private var currentPage = 1
     
     var body: some View {
-        GeometryReader { geometry in
-            NavigationView {
-                VStack {
-                    Spacer()
-                        Text("나의 플로깅 발자취를 한눈에\n ")
-                        .font(.Jamsil.regular.font(size: 24))
-                    Spacer()
-                    
-                    VStack {
-                        GIFImage(name: "OnboardingGIF")
-                        PageTabViewStyle(pageNumber: 1)
-                    }
-                    .frame(height: geometry.size.height/1.6)
-                        
-                    Spacer()
-                    NavigationLink("확인했어요") {
-                        OnBoarding2View()
-                    }.buttonStyle(DefaultButton(isdisable: false))
-                }
-            }.navigationBarBackButtonHidden()
+        VStack {
+            TabView(selection: $currentPage) {
+                OnBoarding1View()
+                    .tag(1)
+                OnBoarding2View()
+                    .tag(2)
+                OnBoarding3View()
+                    .tag(3)
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .padding(.top, 50)
+            
+            PageTabViewStyle(pageNumber: currentPage, totalPageNumber: 3)
+            NavigationLinkView(text: "확인했어요", isdisable: Binding.constant(false), destination: CharacterCreateView())
         }
+        
     }
 }
 
