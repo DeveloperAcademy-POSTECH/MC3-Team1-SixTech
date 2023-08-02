@@ -18,6 +18,10 @@ class PloggingManager: ObservableObject {
 	@Published var elapsedTime: TimeInterval = 0.0
 	@Published var pickedCount: Int = 100
 
+	var kcal: Int {
+		Int(Double(totalStep) * 0.04)
+	}
+
 	var formattedElapsedTime: String {
 		let hours = Int(elapsedTime) / 3600
 		let minutes = Int(elapsedTime) / 60 % 60
