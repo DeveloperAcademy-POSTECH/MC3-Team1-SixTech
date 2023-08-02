@@ -22,11 +22,11 @@
 		0BE598372A60F3E600D019EA /* TheJamsilOTF5Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598312A60F3E600D019EA /* TheJamsilOTF5Bold.otf */; };
 		0BE598392A60F9AC00D019EA /* OnboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */; };
 		0BE5983D2A62629600D019EA /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5983C2A62629600D019EA /* FontExtension.swift */; };
-		0E7BF1D62A73B64900E58CFF /* WatchMotionClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0E7BF1D52A73B64900E58CFF /* WatchMotionClassifier.mlmodel */; };
 		0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */; };
 		0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FAC12A5A83AF002A39FB /* ContentView.swift */; };
 		0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC32A5A83B0002A39FB /* Assets.xcassets */; };
 		0E94FAC72A5A83B0002A39FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */; };
+		0EA665712A7974660045BBAB /* WatchMotionClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0EA665702A7974660045BBAB /* WatchMotionClassifier.mlmodel */; };
 		0EAD30212A5C6FE700E8A548 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */; };
 		0EAD30232A5C711500E8A548 /* .pre-commit-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0EAD30222A5C711500E8A548 /* .pre-commit-config.yaml */; };
 		0EB41DFA2A70593F002929D9 /* LetPlogWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB41DF92A70593F002929D9 /* LetPlogWatchApp.swift */; };
@@ -78,12 +78,12 @@
 		0BE598382A60F9AC00D019EA /* OnboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = OnboardingGIF.gif; sourceTree = "<group>"; };
 		0BE5983C2A62629600D019EA /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		0E4F91462A72613A00278D48 /* LetPlogWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "LetPlogWatch Watch App.entitlements"; sourceTree = "<group>"; };
-		0E7BF1D52A73B64900E58CFF /* WatchMotionClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WatchMotionClassifier.mlmodel; sourceTree = SOURCE_ROOT; };
 		0E94FABC2A5A83AE002A39FB /* SixTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SixTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixTechApp.swift; sourceTree = "<group>"; };
 		0E94FAC12A5A83AF002A39FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0E94FAC32A5A83B0002A39FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0EA665702A7974660045BBAB /* WatchMotionClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WatchMotionClassifier.mlmodel; sourceTree = SOURCE_ROOT; };
 		0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		0EAD30222A5C711500E8A548 /* .pre-commit-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = ".pre-commit-config.yaml"; sourceTree = "<group>"; };
 		0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LetPlogWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,7 +212,7 @@
 		0EB41DF82A70593F002929D9 /* LetPlogWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				0E7BF1D52A73B64900E58CFF /* WatchMotionClassifier.mlmodel */,
+				0EA665702A7974660045BBAB /* WatchMotionClassifier.mlmodel */,
 				0E4F91462A72613A00278D48 /* LetPlogWatch Watch App.entitlements */,
 				0EB637262A70FA9F005A44FB /* LetPlogWatch-Watch-App-Info.plist */,
 				0EB41DF92A70593F002929D9 /* LetPlogWatchApp.swift */,
@@ -396,7 +396,7 @@
 			files = (
 				0EB41DFC2A70593F002929D9 /* ContentView.swift in Sources */,
 				0EB41DFA2A70593F002929D9 /* LetPlogWatchApp.swift in Sources */,
-				0E7BF1D62A73B64900E58CFF /* WatchMotionClassifier.mlmodel in Sources */,
+				0EA665712A7974660045BBAB /* WatchMotionClassifier.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
