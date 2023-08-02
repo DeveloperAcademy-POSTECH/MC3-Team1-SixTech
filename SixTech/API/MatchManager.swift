@@ -218,8 +218,7 @@ extension MatchManager: GKMatchDelegate {
         case .disconnected:
             print("플레이어\(player.displayName)의 연결이 끊김")
         case .unknown:
-            // 연결 상태를 알 수 없을 때 처리
-            break
+            print("\(player.displayName)의 연결상태 모름")
         @unknown default:
             break
         }
