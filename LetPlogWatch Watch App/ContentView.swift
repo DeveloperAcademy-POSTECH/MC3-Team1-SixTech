@@ -292,7 +292,7 @@ class MotionManager: NSObject, ObservableObject, WCSessionDelegate {
                     "y": $0.gravity.y,
                     "z": $0.gravity.z
                 ]
-            ]
+            ] as [String : Any]
         }
         
         let _ = WCSession.default.transferUserInfo(["sensorData": dataToSend])
