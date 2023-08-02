@@ -19,7 +19,7 @@ struct MainView: View {
                 .font(.Jamsil.bold.font(size: 24))
                 .padding(.top, 50)
             
-            Text("오늘도 지구를 위해 함께 달려요!")
+            Text("오늘도 지구를 위해 함께 걸어요!")
                 .font(.Jamsil.light.font(size: 17))
                 .padding()
             Spacer()

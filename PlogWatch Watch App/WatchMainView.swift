@@ -9,7 +9,13 @@ import SwiftUI
 
 struct WatchMainView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("같이줍깅")
+                .font(.Jamsil.bold.font(size: 18))
+            
+            Text("오늘도 지구를 위해 함께 걸어요!")
+                .font(.Jamsil.light.font(size: 14))
+        }
     }
 }
 

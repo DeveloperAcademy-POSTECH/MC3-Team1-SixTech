@@ -14,12 +14,21 @@
 		0BE598182A5FF23B00D019EA /* SwiftUIGIF in Frameworks */ = {isa = PBXBuildFile; productRef = 0BE598172A5FF23B00D019EA /* SwiftUIGIF */; };
 		0BE598392A60F9AC00D019EA /* onboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* onboardingGIF.gif */; };
 		0E3598E22A7A46D4005A15F5 /* WatchMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3598E12A7A46D4005A15F5 /* WatchMainView.swift */; };
+		0E3598E32A7A6967005A15F5 /* TheJamsilOTF5Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 709C76252A725CFE00C16313 /* TheJamsilOTF5Bold.otf */; };
+		0E3598E42A7A6967005A15F5 /* TheJamsilOTF3Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 709C76242A725CFE00C16313 /* TheJamsilOTF3Regular.otf */; };
+		0E3598E52A7A6967005A15F5 /* TheJamsilOTF2Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 709C76272A725CFE00C16313 /* TheJamsilOTF2Light.otf */; };
+		0E3598E62A7A6967005A15F5 /* TheJamsilOTF6ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 709C76282A725CFE00C16313 /* TheJamsilOTF6ExtraBold.otf */; };
+		0E3598E72A7A6967005A15F5 /* TheJamsilOTF1Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 709C76232A725CFE00C16313 /* TheJamsilOTF1Thin.otf */; };
+		0E3598E82A7A6967005A15F5 /* TheJamsilOTF4Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 709C76262A725CFE00C16313 /* TheJamsilOTF4Medium.otf */; };
+		0E3598E92A7A696D005A15F5 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C762A2A725CFE00C16313 /* FontExtension.swift */; };
+		0E3598EA2A7A69EA005A15F5 /* onboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* onboardingGIF.gif */; };
 		0E7D7ECF2A7A39B400EC40E7 /* PlogWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D7ECE2A7A39B400EC40E7 /* PlogWatchApp.swift */; };
 		0E7D7ED12A7A39B400EC40E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D7ED02A7A39B400EC40E7 /* ContentView.swift */; };
 		0E7D7ED32A7A39B500EC40E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E7D7ED22A7A39B500EC40E7 /* Assets.xcassets */; };
 		0E7D7ED62A7A39B500EC40E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E7D7ED52A7A39B500EC40E7 /* Preview Assets.xcassets */; };
 		0E7D7ED92A7A39B500EC40E7 /* PlogWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0E7D7ECC2A7A39B400EC40E7 /* PlogWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0E7D7EDE2A7A3C2F00EC40E7 /* WatchMotionClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D7EDD2A7A3C2F00EC40E7 /* WatchMotionClassifier.mlmodel */; };
+		0E817D872A7A731E0036605F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C762C2A725CFE00C16313 /* ColorExtension.swift */; };
 		0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */; };
 		0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FAC12A5A83AF002A39FB /* ContentView.swift */; };
 		0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC32A5A83B0002A39FB /* Assets.xcassets */; };
@@ -685,7 +694,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E3598EA2A7A69EA005A15F5 /* onboardingGIF.gif in Resources */,
 				0E7D7ED62A7A39B500EC40E7 /* Preview Assets.xcassets in Resources */,
+				0E3598E32A7A6967005A15F5 /* TheJamsilOTF5Bold.otf in Resources */,
+				0E3598E72A7A6967005A15F5 /* TheJamsilOTF1Thin.otf in Resources */,
+				0E3598E42A7A6967005A15F5 /* TheJamsilOTF3Regular.otf in Resources */,
+				0E3598E52A7A6967005A15F5 /* TheJamsilOTF2Light.otf in Resources */,
+				0E3598E82A7A6967005A15F5 /* TheJamsilOTF4Medium.otf in Resources */,
+				0E3598E62A7A6967005A15F5 /* TheJamsilOTF6ExtraBold.otf in Resources */,
 				0E7D7ED32A7A39B500EC40E7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -739,8 +755,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E3598E92A7A696D005A15F5 /* FontExtension.swift in Sources */,
 				0E7D7ED12A7A39B400EC40E7 /* ContentView.swift in Sources */,
 				0E3598E22A7A46D4005A15F5 /* WatchMainView.swift in Sources */,
+				0E817D872A7A731E0036605F /* ColorExtension.swift in Sources */,
 				0E7D7ECF2A7A39B400EC40E7 /* PlogWatchApp.swift in Sources */,
 				0E7D7EDE2A7A3C2F00EC40E7 /* WatchMotionClassifier.mlmodel in Sources */,
 			);

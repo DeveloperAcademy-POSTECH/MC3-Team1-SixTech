@@ -35,6 +35,8 @@ extension Color {
     static let fontColor = Color(hexCode: "#1A8370")
     static let accentFontColor = Color(hexCode: "#106051")
     static let calendarNumberBackground = Color(hexCode: "#E5F9F5")
+    // Color of Watch
+    static let watchCharacterBackground = Color(hexCode: "#62D8AD")
 }
 
 struct Color_Previews: PreviewProvider {

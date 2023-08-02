@@ -4,6 +4,17 @@
 <dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Cafe24Ssurround-v2.0.otf</string>
+		<string>Cafe24SsurroundAir-v1.1.otf</string>
+		<string>TheJamsilOTF1Thin.otf</string>
+		<string>TheJamsilOTF3Regular.otf</string>
+		<string>TheJamsilOTF2Light.otf</string>
+		<string>TheJamsilOTF4Medium.otf</string>
+		<string>TheJamsilOTF5Bold.otf</string>
+		<string>TheJamsilOTF6ExtraBold.otf</string>
+	</array>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchScreen</key>
