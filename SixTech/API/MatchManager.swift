@@ -144,6 +144,7 @@ class MatchManager: NSObject, ObservableObject {
 extension MatchManager: GKMatchDelegate {
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
         if let content = decodeUserInfo(data) {
+            print("\(content.name) 의 정보 받음")
             DispatchQueue.main.async { [self] in
                 if let index = otherPlayerInfo?.firstIndex(where: { $0.uuid == content.uuid }) {
                     // If an element with the same uuid exists, replace it
@@ -153,6 +154,8 @@ extension MatchManager: GKMatchDelegate {
                     otherPlayerInfo?.append(content)
                 }
             }
+        } else {
+            sendImageUrl()
         }
 //        if content.starts(with: "strData") {
 //            let message = content.replacing("strData:", with: "")
