@@ -13,6 +13,12 @@
 		0B8374352A77974600292F2B /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8374342A77974600292F2B /* CountDownView.swift */; };
 		0BE598182A5FF23B00D019EA /* SwiftUIGIF in Frameworks */ = {isa = PBXBuildFile; productRef = 0BE598172A5FF23B00D019EA /* SwiftUIGIF */; };
 		0BE598392A60F9AC00D019EA /* onboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* onboardingGIF.gif */; };
+		0E7D7ECF2A7A39B400EC40E7 /* PlogWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D7ECE2A7A39B400EC40E7 /* PlogWatchApp.swift */; };
+		0E7D7ED12A7A39B400EC40E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D7ED02A7A39B400EC40E7 /* ContentView.swift */; };
+		0E7D7ED32A7A39B500EC40E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E7D7ED22A7A39B500EC40E7 /* Assets.xcassets */; };
+		0E7D7ED62A7A39B500EC40E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E7D7ED52A7A39B500EC40E7 /* Preview Assets.xcassets */; };
+		0E7D7ED92A7A39B500EC40E7 /* PlogWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0E7D7ECC2A7A39B400EC40E7 /* PlogWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0E7D7EDE2A7A3C2F00EC40E7 /* WatchMotionClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D7EDD2A7A3C2F00EC40E7 /* WatchMotionClassifier.mlmodel */; };
 		0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */; };
 		0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FAC12A5A83AF002A39FB /* ContentView.swift */; };
 		0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC32A5A83B0002A39FB /* Assets.xcassets */; };
@@ -88,6 +94,16 @@
 		86B9D3F62A736BE500A2ED24 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9D3F52A736BE500A2ED24 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0E7D7ED72A7A39B500EC40E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E94FAB42A5A83AE002A39FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E7D7ECB2A7A39B400EC40E7;
+			remoteInfo = "PlogWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		0EB41E042A705940002929D9 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -95,6 +111,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				0E7D7ED92A7A39B500EC40E7 /* PlogWatch Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +125,13 @@
 		0B8374342A77974600292F2B /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		0BE5980B2A5FD86F00D019EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BE598382A60F9AC00D019EA /* onboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = onboardingGIF.gif; path = ../onboardingGIF.gif; sourceTree = "<group>"; };
+		0E7D7ECC2A7A39B400EC40E7 /* PlogWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlogWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E7D7ECE2A7A39B400EC40E7 /* PlogWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlogWatchApp.swift; sourceTree = "<group>"; };
+		0E7D7ED02A7A39B400EC40E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0E7D7ED22A7A39B500EC40E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0E7D7ED52A7A39B500EC40E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0E7D7EDD2A7A3C2F00EC40E7 /* WatchMotionClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WatchMotionClassifier.mlmodel; sourceTree = SOURCE_ROOT; };
+		0E7D7EDF2A7A3CED00EC40E7 /* PlogWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PlogWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0E94FABC2A5A83AE002A39FB /* SixTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SixTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixTechApp.swift; sourceTree = "<group>"; };
 		0E94FAC12A5A83AF002A39FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -186,6 +210,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0E7D7EC92A7A39B400EC40E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0E94FAB92A5A83AE002A39FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -214,6 +245,27 @@
 			path = CountDown;
 			sourceTree = "<group>";
 		};
+		0E7D7ECD2A7A39B400EC40E7 /* PlogWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				0E7D7EDF2A7A3CED00EC40E7 /* PlogWatch-Watch-App-Info.plist */,
+				0E7D7EDD2A7A3C2F00EC40E7 /* WatchMotionClassifier.mlmodel */,
+				0E7D7ECE2A7A39B400EC40E7 /* PlogWatchApp.swift */,
+				0E7D7ED02A7A39B400EC40E7 /* ContentView.swift */,
+				0E7D7ED22A7A39B500EC40E7 /* Assets.xcassets */,
+				0E7D7ED42A7A39B500EC40E7 /* Preview Content */,
+			);
+			path = "PlogWatch Watch App";
+			sourceTree = "<group>";
+		};
+		0E7D7ED42A7A39B500EC40E7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0E7D7ED52A7A39B500EC40E7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		0E94FAB32A5A83AE002A39FB = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +273,7 @@
 				0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */,
 				709C76522A725E8700C16313 /* SixTech.entitlements */,
 				0E94FABE2A5A83AF002A39FB /* SixTech */,
+				0E7D7ECD2A7A39B400EC40E7 /* PlogWatch Watch App */,
 				0E94FABD2A5A83AE002A39FB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -229,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				0E94FABC2A5A83AE002A39FB /* SixTech.app */,
+				0E7D7ECC2A7A39B400EC40E7 /* PlogWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -543,6 +597,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0E7D7ECB2A7A39B400EC40E7 /* PlogWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E7D7EDC2A7A39B500EC40E7 /* Build configuration list for PBXNativeTarget "PlogWatch Watch App" */;
+			buildPhases = (
+				0E7D7EC82A7A39B400EC40E7 /* Sources */,
+				0E7D7EC92A7A39B400EC40E7 /* Frameworks */,
+				0E7D7ECA2A7A39B400EC40E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PlogWatch Watch App";
+			productName = "PlogWatch Watch App";
+			productReference = 0E7D7ECC2A7A39B400EC40E7 /* PlogWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		0E94FABB2A5A83AE002A39FB /* SixTech */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E94FACA2A5A83B0002A39FB /* Build configuration list for PBXNativeTarget "SixTech" */;
@@ -556,6 +627,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0E7D7ED82A7A39B500EC40E7 /* PBXTargetDependency */,
 			);
 			name = SixTech;
 			packageProductDependencies = (
@@ -575,6 +647,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					0E7D7ECB2A7A39B400EC40E7 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					0E94FABB2A5A83AE002A39FB = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -597,11 +672,21 @@
 			projectRoot = "";
 			targets = (
 				0E94FABB2A5A83AE002A39FB /* SixTech */,
+				0E7D7ECB2A7A39B400EC40E7 /* PlogWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0E7D7ECA2A7A39B400EC40E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E7D7ED62A7A39B500EC40E7 /* Preview Assets.xcassets in Resources */,
+				0E7D7ED32A7A39B500EC40E7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0E94FABA2A5A83AE002A39FB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -647,6 +732,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0E7D7EC82A7A39B400EC40E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E7D7ED12A7A39B400EC40E7 /* ContentView.swift in Sources */,
+				0E7D7ECF2A7A39B400EC40E7 /* PlogWatchApp.swift in Sources */,
+				0E7D7EDE2A7A3C2F00EC40E7 /* WatchMotionClassifier.mlmodel in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0E94FAB82A5A83AE002A39FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -721,7 +816,85 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0E7D7ED82A7A39B500EC40E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E7D7ECB2A7A39B400EC40E7 /* PlogWatch Watch App */;
+			targetProxy = 0E7D7ED72A7A39B500EC40E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		0E7D7EDA2A7A39B500EC40E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PlogWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PlogWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = PlogWatch;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need to save CSV file";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTechh;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTechh.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		0E7D7EDB2A7A39B500EC40E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PlogWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PlogWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = PlogWatch;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need to save CSV file";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTechh;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTechh.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
 		0E94FAC82A5A83B0002A39FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -846,7 +1019,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = M75X2R2UVV;
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
@@ -865,7 +1038,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech1;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTechh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -883,7 +1056,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = M75X2R2UVV;
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
@@ -902,7 +1075,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech1;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTechh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -913,6 +1086,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0E7D7EDC2A7A39B500EC40E7 /* Build configuration list for PBXNativeTarget "PlogWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E7D7EDA2A7A39B500EC40E7 /* Debug */,
+				0E7D7EDB2A7A39B500EC40E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0E94FAB72A5A83AE002A39FB /* Build configuration list for PBXProject "SixTech" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
