@@ -16,6 +16,14 @@
 		0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */; };
 		0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94FAC12A5A83AF002A39FB /* ContentView.swift */; };
 		0E94FAC42A5A83B0002A39FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC32A5A83B0002A39FB /* Assets.xcassets */; };
+		0E94FAC72A5A83B0002A39FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */; };
+		0EA665712A7974660045BBAB /* WatchMotionClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0EA665702A7974660045BBAB /* WatchMotionClassifier.mlmodel */; };
+		0EB41DFA2A70593F002929D9 /* LetPlogWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB41DF92A70593F002929D9 /* LetPlogWatchApp.swift */; };
+		0EB41DFC2A70593F002929D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB41DFB2A70593F002929D9 /* ContentView.swift */; };
+		0EB41DFE2A705940002929D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41DFD2A705940002929D9 /* Assets.xcassets */; };
+		0EB41E012A705940002929D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB41E002A705940002929D9 /* Preview Assets.xcassets */; };
+		0EB41E052A705940002929D9 /* LetPlogWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0EB637252A70EAA1005A44FB /* WatchDatasetReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB637242A70EAA1005A44FB /* WatchDatasetReceiver.swift */; };
 		0EAD30212A5C6FE700E8A548 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */; };
 		0EAD30232A5C711500E8A548 /* .pre-commit-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0EAD30222A5C711500E8A548 /* .pre-commit-config.yaml */; };
 		576D754D2A72AD5C002F977E /* CameraFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576D754C2A72AD5C002F977E /* CameraFilterView.swift */; };
@@ -107,11 +115,21 @@
 		0B5B273A2A72897600703D56 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0B8374342A77974600292F2B /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		0BE5980B2A5FD86F00D019EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0E4F91462A72613A00278D48 /* LetPlogWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "LetPlogWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		0BE598382A60F9AC00D019EA /* onboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = onboardingGIF.gif; path = ../onboardingGIF.gif; sourceTree = "<group>"; };
 		0E94FABC2A5A83AE002A39FB /* SixTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SixTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E94FABF2A5A83AF002A39FB /* SixTechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixTechApp.swift; sourceTree = "<group>"; };
 		0E94FAC12A5A83AF002A39FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0E94FAC32A5A83B0002A39FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0E94FAC62A5A83B0002A39FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0EA665702A7974660045BBAB /* WatchMotionClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = WatchMotionClassifier.mlmodel; sourceTree = SOURCE_ROOT; };
+		0EB41DF72A70593F002929D9 /* LetPlogWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LetPlogWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EB41DF92A70593F002929D9 /* LetPlogWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetPlogWatchApp.swift; sourceTree = "<group>"; };
+		0EB41DFB2A70593F002929D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0EB41DFD2A705940002929D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0EB41E002A705940002929D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0EB637242A70EAA1005A44FB /* WatchDatasetReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDatasetReceiver.swift; sourceTree = "<group>"; };
+		0EB637262A70FA9F005A44FB /* LetPlogWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "LetPlogWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0EAD30202A5C6FE700E8A548 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		0EAD30222A5C711500E8A548 /* .pre-commit-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = ".pre-commit-config.yaml"; sourceTree = "<group>"; };
 		576D754C2A72AD5C002F977E /* CameraFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFilterView.swift; sourceTree = "<group>"; };
@@ -269,6 +287,8 @@
 		70666FED2A779E3C00485955 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				0EB637232A70EA78005A44FB /* WatchDatasetReceiver */,
+				0BE5980D2A5FDE1D00D019EA /* Onboarding */,
 				70666FEE2A779E3C00485955 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -427,6 +447,13 @@
 		7986625B2A72B05400AB89ED /* MyProfileDetail */ = {
 			isa = PBXGroup;
 			children = (
+				0EA665702A7974660045BBAB /* WatchMotionClassifier.mlmodel */,
+				0E4F91462A72613A00278D48 /* LetPlogWatch Watch App.entitlements */,
+				0EB637262A70FA9F005A44FB /* LetPlogWatch-Watch-App-Info.plist */,
+				0EB41DF92A70593F002929D9 /* LetPlogWatchApp.swift */,
+				0EB41DFB2A70593F002929D9 /* ContentView.swift */,
+				0EB41DFD2A705940002929D9 /* Assets.xcassets */,
+				0EB41DFF2A705940002929D9 /* Preview Content */,
 				798662632A72BF4C00AB89ED /* Food */,
 				798662622A72BF3300AB89ED /* Info */,
 			);
@@ -540,6 +567,14 @@
 			path = MapView;
 			sourceTree = "<group>";
 		};
+		0EB637232A70EA78005A44FB /* WatchDatasetReceiver */ = {
+			isa = PBXGroup;
+			children = (
+				0EB637242A70EAA1005A44FB /* WatchDatasetReceiver.swift */,
+			);
+			path = WatchDatasetReceiver;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -651,6 +686,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EB637252A70EAA1005A44FB /* WatchDatasetReceiver.swift in Sources */,
 				709C76802A725EDF00C16313 /* DismissButton.swift in Sources */,
 				709C76762A725EDF00C16313 /* MyprofileView.swift in Sources */,
 				798662612A72BF0800AB89ED /* SelectFoodView.swift in Sources */,
@@ -682,6 +718,9 @@
 				7986625D2A72B09F00AB89ED /* DeveloperInfoView.swift in Sources */,
 				709C76752A725EDF00C16313 /* EngagementView.swift in Sources */,
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
+				0EB41DFC2A70593F002929D9 /* ContentView.swift in Sources */,
+				0EB41DFA2A70593F002929D9 /* LetPlogWatchApp.swift in Sources */,
+				0EA665712A7974660045BBAB /* WatchMotionClassifier.mlmodel in Sources */,
 				709C76412A725CFE00C16313 /* CoredataTest.swift in Sources */,
 				709C767A2A725EDF00C16313 /* WaitingRoomView.swift in Sources */,
 				796F300C2A7782B200138FB2 /* CheckMissionView.swift in Sources */,
@@ -846,10 +885,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = M75X2R2UVV;
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need to save CSV file";
+				DEVELOPMENT_TEAM = M75X2R2UVV;
 				INFOPLIST_KEY_NSCameraUsageDescription = "미션 사진을 찍기 위해 카메라에 대한 접근이 필요해요";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
@@ -883,10 +925,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SixTech/Preview Content\"";
-				DEVELOPMENT_TEAM = M75X2R2UVV;
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SixTech/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need to save CSV file";
+				DEVELOPMENT_TEAM = M75X2R2UVV;
 				INFOPLIST_KEY_NSCameraUsageDescription = "미션 사진을 찍기 위해 카메라에 대한 접근이 필요해요";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "같이줍깅을 사용하기 위해 위치정보가 필요해요";
@@ -907,6 +952,76 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0EB41E062A705940002929D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "LetPlogWatch Watch App/LetPlogWatch Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LetPlogWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LetPlogWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = LetPlogWatch;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTech;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		0EB41E072A705940002929D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "LetPlogWatch Watch App/LetPlogWatch Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LetPlogWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = PAQ92DM7XD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LetPlogWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = LetPlogWatch;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = LetsFlogging.SixTech;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LetsFlogging.SixTech.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Release;
 		};
