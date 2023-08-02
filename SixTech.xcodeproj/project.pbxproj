@@ -13,6 +13,7 @@
 		0B8374352A77974600292F2B /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8374342A77974600292F2B /* CountDownView.swift */; };
 		0BE598182A5FF23B00D019EA /* SwiftUIGIF in Frameworks */ = {isa = PBXBuildFile; productRef = 0BE598172A5FF23B00D019EA /* SwiftUIGIF */; };
 		0BE598392A60F9AC00D019EA /* onboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* onboardingGIF.gif */; };
+		0E3598E22A7A46D4005A15F5 /* WatchMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3598E12A7A46D4005A15F5 /* WatchMainView.swift */; };
 		0E7D7ECF2A7A39B400EC40E7 /* PlogWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D7ECE2A7A39B400EC40E7 /* PlogWatchApp.swift */; };
 		0E7D7ED12A7A39B400EC40E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D7ED02A7A39B400EC40E7 /* ContentView.swift */; };
 		0E7D7ED32A7A39B500EC40E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E7D7ED22A7A39B500EC40E7 /* Assets.xcassets */; };
@@ -125,6 +126,7 @@
 		0B8374342A77974600292F2B /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
 		0BE5980B2A5FD86F00D019EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BE598382A60F9AC00D019EA /* onboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = onboardingGIF.gif; path = ../onboardingGIF.gif; sourceTree = "<group>"; };
+		0E3598E12A7A46D4005A15F5 /* WatchMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainView.swift; sourceTree = "<group>"; };
 		0E7D7ECC2A7A39B400EC40E7 /* PlogWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlogWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7D7ECE2A7A39B400EC40E7 /* PlogWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlogWatchApp.swift; sourceTree = "<group>"; };
 		0E7D7ED02A7A39B400EC40E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				0E7D7ED02A7A39B400EC40E7 /* ContentView.swift */,
 				0E7D7ED22A7A39B500EC40E7 /* Assets.xcassets */,
 				0E7D7ED42A7A39B500EC40E7 /* Preview Content */,
+				0E3598E12A7A46D4005A15F5 /* WatchMainView.swift */,
 			);
 			path = "PlogWatch Watch App";
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E7D7ED12A7A39B400EC40E7 /* ContentView.swift in Sources */,
+				0E3598E22A7A46D4005A15F5 /* WatchMainView.swift in Sources */,
 				0E7D7ECF2A7A39B400EC40E7 /* PlogWatchApp.swift in Sources */,
 				0E7D7EDE2A7A3C2F00EC40E7 /* WatchMotionClassifier.mlmodel in Sources */,
 			);
