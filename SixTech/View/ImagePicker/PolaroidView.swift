@@ -74,9 +74,11 @@ struct PolaroidView: View {
                         
                         Text(userName)
                             .foregroundColor(.black)
+                            .font(.Jamsil.light.font(size: 17))
                     }
                     Text(userMission)
                         .foregroundColor(.black)
+                        .font(.Jamsil.light.font(size: 20))
                     Spacer()
                 }
             }

@@ -13,30 +13,37 @@ struct CharacterCreateView: View {
     
     @StateObject private var viewModel = CharacterCreateViewModel()
     @State private var isButtonTap = false
+    @State private var isButtonDisabled = true
     
     var body: some View {
         VStack {
+            Spacer()
             Text("캐릭터를 생성해주세요.")
                 .font(.Jamsil.bold.font(size: 20))
 				.padding(.vertical)
 				.padding(.top)
-            Text("같이줍깅을 하려면 캐릭터가 필요해요")
+            Text("같이줍깅을 하려면 캐릭터가 필요해요.")
                 .font(.Jamsil.light.font(size: 17))
             HStack {
                 VStack {
                     ImageButton(image: .left) { viewModel.decreaseCount(kind: .face) }
+                        .padding(.bottom)
                     ImageButton(image: .left) { viewModel.decreaseCount(kind: .emotion) }
+                        .padding(.bottom)
                     ImageButton(image: .left) { viewModel.decreaseCount(kind: .color) }
+                        .padding(.bottom)
                 }
                 
                 Image(uiImage: viewModel.imageMerger.merge("\(viewModel.faceArray[viewModel.characterFace] + viewModel.colorArray[viewModel.characterColor])", with: "\(viewModel.emotionArray[viewModel.characterEmotion])"))
                     .resizable()
                     .frame(width: 200, height: 200)
-                
                 VStack {
                     ImageButton(image: .right) { viewModel.increaseCount(kind: .face) }
+                        .padding(.bottom)
                     ImageButton(image: .right) { viewModel.increaseCount(kind: .emotion) }
+                        .padding()
                     ImageButton(image: .right) { viewModel.increaseCount(kind: .color) }
+                        .padding()
                 }
             }
             
@@ -47,6 +54,15 @@ struct CharacterCreateView: View {
                 .overlay {
                     RoundedRectangle(cornerRadius: 23)
                         .stroke(Color.defaultColor, lineWidth: 2)
+                }
+                .onChange(of: viewModel.userName) { newValue in
+                    if(!newValue.isEmpty && newValue.count < 6){
+                        isButtonDisabled = false
+                        print(newValue.count)
+                    }
+                    else{
+                        isButtonDisabled = true
+                    }
                 }
 			HStack {
 				Image(systemName: "questionmark.circle")
@@ -61,11 +77,9 @@ struct CharacterCreateView: View {
 
             Spacer()
             Spacer()
-                            
-			ButtonView(text: "선택하기", isdisable: Binding.constant(false), action: {
-				isOnboardingActive = false
-			})
+            NavigationLinkView(text: "선택하기", isdisable: $isButtonDisabled, destination: MainView())
 			.simultaneousGesture(TapGesture().onEnded {
+                isOnboardingActive = false
 				viewModel.saveUserDefault()
 				userInfo.profileImage = [ viewModel.characterFace,
 										  viewModel.characterColor,

@@ -20,9 +20,8 @@ struct WaitingRoomView: View {
     var body: some View {
         ZStack {
             VStack {
-				
 				Text("모두 도착할 때까지 기다려요.")
-					.font(.Jamsil.light.font(size: 20))
+					.font(.Jamsil.light.font(size: 17))
                 
                 Image(uiImage: loadImageFromURL(imageURL: userInfo.profileImageURL))
                     .resizable()
@@ -35,7 +34,7 @@ struct WaitingRoomView: View {
                     .padding()
                 
                 Text(userInfo.name)
-                    .font(.Jamsil.bold.font(size: 25))
+                    .font(.Jamsil.bold.font(size: 17))
                     .padding()
                 
                 ScrollView {
@@ -59,10 +58,15 @@ struct WaitingRoomView: View {
             .padding(.top)
             .overlay {
                 VStack {
-                    Text("􀁜 모든 멤버가 입장하면 시작할 수 있어요.")
-                        .font(.Jamsil.light.font(size: 14))
-                        .foregroundColor(.gray)
-                        .offset(y: 300)
+                    HStack{
+                        Image(systemName: "questionmark.circle")
+                            .foregroundColor(.gray)
+                            .offset(y: 300)
+                        Text("모든 멤버가 입장하면 시작할 수 있어요.")
+                            .font(.Jamsil.light.font(size: 14))
+                            .foregroundColor(.gray)
+                            .offset(y: 300)
+                    }
                     NavigationLink("시작하기") {
 						CheckMissionView()
 							.navigationBarBackButtonHidden()

@@ -20,13 +20,15 @@ struct PloggingPlayView: View {
     
     var body: some View {
         VStack {
-			Spacer()
+//			Spacer()
             ZStack {
                 FrontView(degree: $frontDegree)
                     .padding(.top)
                 BackView(degree: $backDegree)
                     .padding(.top)
-            }.onTapGesture {
+            }
+            .padding(.top)
+            .onTapGesture {
                 flipCard()
             }
             NavigationLink("방 만들기") {
@@ -38,6 +40,7 @@ struct PloggingPlayView: View {
             }.buttonStyle(DefaultButton(isdisable: false))
                 .padding()
 //            Spacer().frame(height: 60)
+            Spacer()
             
         }
         .toolbar {
@@ -89,9 +92,10 @@ struct FrontView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 50)
+            RoundedRectangle(cornerRadius: 24)
                 .fill(Color.background2Color)
-				.shadow(color: .gray, radius: 4, x: 0, y: 4)
+//				.shadow(color: .gray, radius: 4, x: 0, y: 4)
+                .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
             VStack {
                 GIFImage(name: "onboardingGIF")
                     .scaledToFill()
@@ -121,12 +125,13 @@ struct BackView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 50)
+            RoundedRectangle(cornerRadius: 24)
                 .fill(Color.white)
-				.shadow(color: .gray, radius: 4, x: 0, y: 4)
+                .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
             VStack(alignment: .leading, spacing: 33) {
                 Text("같이줍깅 가이드")
                     .font(.Jamsil.bold.font(size: 20))
+                    .padding(.bottom)
                 HStack {
                     Image("GU1")
                         .resizable()
@@ -162,6 +167,7 @@ struct BackView: View {
                 }
 				.padding(.leading, 7)
             }
+            .padding(.bottom)
         }
         .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 10, z: 0))
         .frame(width: 342, height: 450)

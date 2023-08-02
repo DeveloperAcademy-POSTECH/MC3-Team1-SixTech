@@ -31,7 +31,7 @@ struct ImagePickView: View {
             Text("미션 사진 고르기")
                 .font(.Jamsil.bold.font(size: 24))
                 .padding()
-            Text("제일 맘에 드는 사진을\n미션 결과로 골라요")
+            Text("제일 맘에 드는 사진을\n미션 결과로 골라요.")
                 .multilineTextAlignment(.center)
                 .font(.Jamsil.light.font(size: 20))
                 .padding(.bottom, 20)

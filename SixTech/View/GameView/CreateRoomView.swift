@@ -60,6 +60,7 @@ struct CreateRoomView: View {
                 Spacer().frame(height: 100)
             } // MARK: 피커뷰 on/off 스택
             Divider()
+                .padding(.bottom)
             HStack {
                 Text("참여 코드")
                     .font(.Jamsil.bold.font(size: 20))

@@ -10,7 +10,7 @@ import SwiftUI
 struct OnBoarding2View: View {
     var body: some View {
         VStack {
-            Text("사람들과 함께 플로깅하고,\n함께 축하해요")
+            Text("사람들과 함께 플로깅하고,\n함께 축하해요.")
                 .multilineTextAlignment(.center)
                 .font(.Jamsil.regular.font(size: 20))
             Spacer()

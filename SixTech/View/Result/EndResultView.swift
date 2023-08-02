@@ -56,15 +56,30 @@ struct EndResultView: View {
         
         HStack {
             VStack {
-				
-				Spacer()
-
-                Text("플로깅 완료를 축하합니다!\n 마음에 드는 기록을 공유/저장해요")
-                    .font(.Jamsil.light.font(size: 20))
-                    .multilineTextAlignment(.center)
-					.padding(.top)
+//                HStack {
+//                    Spacer()
+//                    ImageButton(image: .right) {
+//                        isNextView = true
+//                    }
+//                    .padding(.trailing)
+//                }
+//
+//                Text("플로깅이 끝났어요.")
+//                    .font(.Jamsil.bold.font(size: 24))
+//                    .padding(.bottom)
+//                Text("미션 결과를 팀원들과 공유해요.")
+//                    .font(.Jamsil.light.font(size: 20))
                 
                 Spacer()
+				Spacer()
+                Text("오늘의 플로깅 기록")
+                    .font(.Jamsil.bold.font(size: 20))
+                    .padding(.bottom)
+                Text("플로깅 완료를 축하합니다!\n 마음에 드는 기록을 공유/저장해요.")
+                    .font(.Jamsil.light.font(size: 17))
+                    .multilineTextAlignment(.center)
+					.padding(.bottom)
+//                Spacer()
                 
                 if isLeftTapped {
                     ResultWithPhotoView(kcal: kcal,
@@ -105,19 +120,16 @@ struct EndResultView: View {
                         isRightTapped = true
                         isLeftTapped = false
                     } label: {
-                        
+                  
 						Image(uiImage: ploggingManager.snapshottedMap)
                             .resizable()
                             .scaledToFill()
                     }
                     .buttonStyle(CircleButton(isTapped: $isRightTapped))
-                    
                 }
                 .padding(.horizontal)
                 .padding(.bottom)
-                
-                Spacer()
-                
+//                Spacer()
                 HStack {
                     Button {
                         // 저장하는 기능
@@ -129,13 +141,12 @@ struct EndResultView: View {
                                 .padding(.trailing)
                             
                             Text("저장하기")
+                                .font(.Jamsil.regular.font(size: 17))
                                 .padding(.trailing)
                         }
                     }
                     .buttonStyle(SmallButton())
-                    
                     Spacer()
-                    
                     Button {
                         // 공유하는 기능
                     } label: {
@@ -154,7 +165,8 @@ struct EndResultView: View {
                 }
                 Spacer()
             }
-            .padding(.top, 47)
+//            .padding(.top, 47)
+            Spacer()
         }
 		.toolbar {
 			ToolbarItem(placement: .navigationBarTrailing) {
@@ -162,12 +174,8 @@ struct EndResultView: View {
 					isAlert = true
 				}
 			}
-			ToolbarItem(placement: .principal) {
-				Text("오늘의 플로깅 기록")
-					.font(.Jamsil.bold.font(size: 24))
-			}
 		}
-        .edgesIgnoringSafeArea(.all)
+//        .edgesIgnoringSafeArea(.all)
         .padding(.horizontal, 24)
         .alert(title: "플로깅 완료",
                message:

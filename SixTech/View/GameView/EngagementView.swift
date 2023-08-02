@@ -18,10 +18,10 @@ struct EngagementView: View {
         
         VStack {
             Text("참여코드를 입력하세요.")
-                .font(.Jamsil.bold.font(size: 30))
+                .font(.Jamsil.bold.font(size: 24))
                 .padding()
             Text("같이줍깅은 참여코드가 필요해요.")
-                .font(.Jamsil.light.font(size: 17))
+                .font(.Jamsil.light.font(size: 20))
             
             CustomTextField(text: $numberText)
                 .textFieldStyle(.roundedBorder)
@@ -36,6 +36,12 @@ struct EngagementView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 dismissButton(sfName: "chevron.backward") {
                     dismiss()
+                }
+            }
+            ToolbarItem(placement: .principal) {
+                VStack {
+                    Text("참여하기")
+                        .font(.Jamsil.bold.font(size: 24))
                 }
             }
         }
@@ -74,7 +80,7 @@ struct CustomNumberPad: View {
 //                            }
                         } label: {
                             Text(number)
-                                .font(.Jamsil.medium.font(size: 24))
+                                .font(.Jamsil.bold.font(size: 24))
                                 .frame(width: 50, height: 38)
                                 .foregroundColor(.black)
                                 .background(Color.white)

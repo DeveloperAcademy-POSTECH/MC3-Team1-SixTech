@@ -26,7 +26,7 @@ struct ActivityDataView: View {
 		ploggingManager.pickedCount.formatWithDot
 	}
 
-	var ploogingCount: String = 1000.formatWithDot
+    var ploogingCount: String = 1000.formatWithDot
 
 	var body: some View {
 		ZStack {
@@ -92,131 +92,131 @@ struct ActivityDataView: View {
 }
 
 struct TrackingInfoView: View {
-	var kilometer: String
-	var steps: String
-	var pickups: String
+    var kilometer: String
+    var steps: String
+    var pickups: String
 
-	var body: some View {
-		HStack {
-			Spacer()
-			VStack {
-				Text(kilometer)
-					.font(.Jamsil.medium.font(size: 25))
-					.foregroundColor(.fontColor)
-				Text("km")
-					.font(.Jamsil.light.font(size: 12))
-			}
-			Spacer()
-			VStack {
-				Text(steps)
-					.font(.Jamsil.medium.font(size: 25))
-					.foregroundColor(.fontColor)
-				Text("걸음")
-					.font(.Jamsil.light.font(size: 12))
-			}
-			Spacer()
-			VStack {
-				Text(pickups)
-					.font(.Jamsil.medium.font(size: 25))
-					.foregroundColor(.fontColor)
-				Text("줍깅")
-					.font(.Jamsil.light.font(size: 12))
-			}
-			Spacer()
-		}
-	}
+    var body: some View {
+        HStack {
+            Spacer()
+            VStack {
+                Text(kilometer)
+                    .font(.Jamsil.medium.font(size: 25))
+                    .foregroundColor(.fontColor)
+                Text("km")
+                    .font(.Jamsil.light.font(size: 12))
+            }
+            Spacer()
+            VStack {
+                Text(steps)
+                    .font(.Jamsil.medium.font(size: 25))
+                    .foregroundColor(.fontColor)
+                Text("걸음")
+                    .font(.Jamsil.light.font(size: 12))
+            }
+            Spacer()
+            VStack {
+                Text(pickups)
+                    .font(.Jamsil.medium.font(size: 25))
+                    .foregroundColor(.fontColor)
+                Text("줍깅")
+                    .font(.Jamsil.light.font(size: 12))
+            }
+            Spacer()
+        }
+    }
 }
 
 struct ElapsedTimeView: View {
-	var time: String
+    var time: String
 
-	var body: some View {
-		VStack {
-			Text(time)
-				.font(.Jamsil.bold.font(size: 40))
-				.kerning(4)
-				.foregroundColor(.accentFontColor)
-			Text("경과 시간")
-				.font(.Jamsil.light.font(size: 12))
-				.padding(.bottom)
-		}
-	}
+    var body: some View {
+        VStack {
+            Text(time)
+                .font(.Jamsil.bold.font(size: 40))
+                .kerning(4)
+                .foregroundColor(.accentFontColor)
+            Text("경과 시간")
+                .font(.Jamsil.light.font(size: 12))
+                .padding(.bottom)
+        }
+    }
 }
 
 struct MissionView: View {
-	var mission: String
+    var mission: String
 
-	var body: some View {
-		VStack {
-			Text("나의 같이줍깅 미션")
-				.font(.Jamsil.light.font(size: 16))
-				.padding(.top)
-			Spacer()
-			RoundedRectangle(cornerRadius: 10)
-				.frame(maxWidth: 270, maxHeight: 40)
-				.foregroundColor(.white)
-				.padding(.horizontal)
-				.padding(.horizontal)
-				.overlay {
-					Text(mission)
-						.font(.Jamsil.regular.font(size: 16))
-				}
-			Spacer()
-			RoundedRectangle(cornerRadius: 35)
-				.frame(maxWidth: 270, maxHeight: 50)
-				.shadow(color: .gray, radius: 2.5, x: 0, y: 3)
-				.foregroundColor(.defaultColor)
-				.padding(.horizontal)
-				.padding(.horizontal)
-				.overlay {
-					NavigationLink {
-						CameraFilterView()
-					} label: {
-						HStack {
-							Image(systemName: "camera.fill")
-							Text("미션 하러 가기")
-								.font(.Jamsil.bold.font(size: 14))
-						}
-						.foregroundColor(.white)
-					}
-				}
-			Spacer()
-		}
-	}
+    var body: some View {
+        VStack {
+            Text("나의 같이줍깅 미션")
+                .font(.Jamsil.light.font(size: 16))
+                .padding(.top)
+            Spacer()
+            RoundedRectangle(cornerRadius: 10)
+                .frame(maxWidth: 270, maxHeight: 40)
+                .foregroundColor(.white)
+                .padding(.horizontal)
+                .padding(.horizontal)
+                .overlay {
+                    Text(mission)
+                        .font(.Jamsil.regular.font(size: 16))
+                }
+            Spacer()
+            RoundedRectangle(cornerRadius: 35)
+                .frame(maxWidth: 270, maxHeight: 40)
+                .shadow(color: .gray.opacity(0.5), radius: 2.5, x: 0, y: 2)
+                .foregroundColor(.defaultColor)
+                .padding(.horizontal)
+                .padding(.horizontal)
+                .overlay {
+                    NavigationLink {
+                        CameraFilterView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "camera.fill")
+                            Text("미션 하러 가기")
+                                .font(.Jamsil.bold.font(size: 14))
+                        }
+                        .foregroundColor(.white)
+                    }
+                }
+            Spacer()
+        }
+    }
 }
 
 private struct ControlButtonView: View {
-	var buttonType: ControlButtonType
-	var buttonAction: () -> Void
+    var buttonType: ControlButtonType
+    var buttonAction: () -> Void
 
-	var body: some View {
-		Button(action: buttonAction) {
-			Image(systemName: buttonType.systemName)
-				.font(.system(size: 30))
-				.bold()
-				.shadow(radius: 0, x: 1, y: 1)
-				.foregroundColor(.red)
-				.padding()
-				.background {
-					Circle()
-						.foregroundColor(.white)
-						.shadow(color: .black.opacity(0.15), radius: 2.5, x: 1, y: 1)
-				}
-		}
-	}
+    var body: some View {
+        Button(action: buttonAction) {
+            Image(systemName: buttonType.systemName)
+                .font(.system(size: 35))
+                .bold()
+//                .shadow(radius: 0, x: 1, y: 1)
+                .foregroundColor(.red)
+                .padding(.all, 25)
+                .background {
+                    Circle()
+                        .foregroundColor(.buttonBackgroundColor)
+                        .shadow(color: .black.opacity(0.15), radius: 2.5, x: 1, y: 1)
+                }
+        }
+    }
 }
 
 private enum ControlButtonType {
-	case stop, play, pause
+    case stop, play, pause
 
-	var systemName: String {
-		switch self {
-		case .stop:
-			return "stop.fill"
-		case .play:
-			return "play.fill"
-		case .pause:
-			return "pause.fill"
-		}
-	}
+    var systemName: String {
+        switch self {
+        case .stop:
+            return "stop.fill"
+        case .play:
+            return "play.fill"
+        case .pause:
+            return "pause.fill"
+        }
+    }
 }
