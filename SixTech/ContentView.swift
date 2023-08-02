@@ -8,24 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    let num65: Int = 3
-    private var isConditionValid: Bool {
-           false
-    }
-    var body: some View {
-        VStack {
-            Button("Test Test") {
-                 print("SixTech")
-             }.buttonStyle(DefaultButton(isdisable: isConditionValid))
-             .disabled(isConditionValid)
-        }
-        .padding()
-    }
+	
+	let num65: Int = 3
+	
+	var body: some View {
+		VStack {
+			Image(systemName: "globe")
+				.imageScale(.large)
+				.foregroundColor(.accentColor)
+			Text("Hello, world!")
+		}
+		.padding()
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+	static var previews: some View {
+		ContentView()
+	}
 }
