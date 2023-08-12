@@ -98,6 +98,7 @@ struct WaitingRoomView: View {
             } else if isFirst {
                 matchManager.startMatchmaking()
                 isFirst = false
+                matchManager.isHost = true
             }
         }
         .alert(title: "대기실 나가기", message: "메인 화면으로 돌아갑니다.",
