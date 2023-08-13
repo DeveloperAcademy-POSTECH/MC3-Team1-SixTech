@@ -46,7 +46,6 @@ struct CheckMissionView: View {
                         .foregroundColor(.beforeImagePickTextColor)
                         .padding(.vertical)
                     
-
                     ZStack {
                         RoundedRectangle(cornerRadius: 25)
                             .foregroundColor(.white)

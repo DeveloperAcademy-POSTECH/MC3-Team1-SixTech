@@ -33,7 +33,7 @@ struct ShareImageView: View {
                 .font(.Jamsil.light.font(size: 20))
             
             if let playersInfo = matchManager.otherPlayerInfo {
-                Text("\(currentIndex+1) / \(1 + playersInfo.count)")
+                Text("\(currentIndex+1) / \(playersInfo.count)")
                     .font(.Jamsil.light.font(size: 17))
                     .padding()
             }

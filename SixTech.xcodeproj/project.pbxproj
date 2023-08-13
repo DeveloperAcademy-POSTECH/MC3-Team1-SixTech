@@ -100,6 +100,7 @@
 		7986625F2A72BA4300AB89ED /* IntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986625E2A72BA4300AB89ED /* IntroduceView.swift */; };
 		798662612A72BF0800AB89ED /* SelectFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798662602A72BF0800AB89ED /* SelectFoodView.swift */; };
 		798662652A72BF7B00AB89ED /* FoodCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798662642A72BF7B00AB89ED /* FoodCardView.swift */; };
+		864CAD1B2A878EA10052656F /* MatchTxRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864CAD1A2A878EA10052656F /* MatchTxRx.swift */; };
 		86B9D3F32A730B2B00A2ED24 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9D3F22A730B2B00A2ED24 /* NavigationHelper.swift */; };
 		86B9D3F62A736BE500A2ED24 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9D3F52A736BE500A2ED24 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
@@ -216,6 +217,7 @@
 		7986625E2A72BA4300AB89ED /* IntroduceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceView.swift; sourceTree = "<group>"; };
 		798662602A72BF0800AB89ED /* SelectFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFoodView.swift; sourceTree = "<group>"; };
 		798662642A72BF7B00AB89ED /* FoodCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCardView.swift; sourceTree = "<group>"; };
+		864CAD1A2A878EA10052656F /* MatchTxRx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTxRx.swift; sourceTree = "<group>"; };
 		86B9D3F22A730B2B00A2ED24 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		86B9D3F52A736BE500A2ED24 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -466,6 +468,7 @@
 				709C766D2A725EDF00C16313 /* MapCore */,
 				709C761D2A725CFE00C16313 /* Coredata */,
 				709C76602A725EDE00C16313 /* MatchManager.swift */,
+				864CAD1A2A878EA10052656F /* MatchTxRx.swift */,
 				709C76612A725EDE00C16313 /* CustomMatchingViewController.swift */,
 			);
 			path = API;
@@ -801,6 +804,7 @@
 				0E94FAC02A5A83AF002A39FB /* SixTechApp.swift in Sources */,
 				709C76412A725CFE00C16313 /* CoredataTest.swift in Sources */,
 				709C767A2A725EDF00C16313 /* WaitingRoomView.swift in Sources */,
+				864CAD1B2A878EA10052656F /* MatchTxRx.swift in Sources */,
 				796F300C2A7782B200138FB2 /* CheckMissionView.swift in Sources */,
 				70C727812A79500000EAA895 /* Numeric+Format.swift in Sources */,
 				709C76792A725EDF00C16313 /* MyHistoryView.swift in Sources */,

@@ -16,62 +16,38 @@ enum PlayerAuthState: String {
     case error = "There was an error, logging into Game Center."
     case restricted = "You're not allowed to play multiplayer games!"
 }
+enum GameSessionState {
+    case idle
+    case matchmaking
+    case inGame
+    case shared
+}
 
-class MatchManager: NSObject, ObservableObject {
-    
+final class MatchManager: NSObject, ObservableObject {
     static let shared = MatchManager()
     
     private var matchRequest: GKMatchRequest = GKMatchRequest()
     private var matchmakingMode: GKMatchmakingMode = .default
     private var matchmaker: GKMatchmaker?
     
-    @Published var inGame = false
-    @Published var isGameOver = false
+    @Published var gameState: GameSessionState = .idle
+    @Published var isHost = false
     @Published var authenticationState = PlayerAuthState.authenticating
-    @Published var lastData = ""
+    //    @Published var lastData = ""
     @Published var groupNumber = ""
     @Published var otherPlayer: [GKPlayer]?
     @Published var otherPlayerInfo: [UserInfo]? = []
+    @Published var localPlayerInfo: UserInfo?
     
     var maxPlayer: Int = 10
-    var localPlayerInfo: UserInfo?
+    var hostPlayer: String?
     var match: GKMatch?
     var localPlayer = GKLocalPlayer.local
     private var playerUUIDKey = UUID().uuidString
-
+    
     private var rootViewController: UIViewController? {
         let windowsence = UIApplication.shared.connectedScenes.first as? UIWindowScene
         return windowsence?.windows.first?.rootViewController
-    }
-    
-    func generateRandomPlayCode() {
-        let randomNumber = Int.random(in: 0...9999)
-        groupNumber = String(format: "%04d", randomNumber)
-    }
-    
-    func startMatchmaking() {
-        let request = GKMatchRequest()
-        request.minPlayers = 2
-        request.maxPlayers = maxPlayer
-        request.playerGroup = Int(groupNumber)!
-        matchRequest = request
-        
-        matchmaker = GKMatchmaker.shared()
-        matchmaker?.findMatch(for: matchRequest, withCompletionHandler: { [weak self] (match, error) in
-            if let error = error {
-                print("\(error.localizedDescription)")
-            } else if let match = match {
-                print("매치를 찾음 !")
-                self?.startGame(newMatch: match)
-            }
-        })
-    }
-    
-    func cancelMatchmaking() {
-        matchmaker?.cancel()
-        otherPlayer = nil
-        otherPlayerInfo = nil
-        print("매치 취소!")
     }
     
     func authenticateUser() {
@@ -98,123 +74,154 @@ class MatchManager: NSObject, ObservableObject {
         }
     }
     
+    func generateRandomPlayCode() {
+        let randomNumber = Int.random(in: 0...9999)
+        groupNumber = String(format: "%04d", randomNumber)
+    }
+    
+    func startMatchmaking() {
+        let request = GKMatchRequest()
+        request.minPlayers = 2
+        request.maxPlayers = maxPlayer
+        request.playerGroup = Int(groupNumber)!
+        matchRequest = request
+        
+        gameState = .matchmaking
+        
+        matchmaker = GKMatchmaker.shared()
+        matchmaker?.findMatch(for: matchRequest, withCompletionHandler: { [weak self] (match, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else if let match = match {
+                self?.startGame(newMatch: match)
+            }
+        })
+    }
+    
+    func cancelMatchmaking() {
+        matchmaker?.cancel()
+        otherPlayer = nil
+        otherPlayerInfo = nil
+        print("매치 취소!")
+    }
+    
     func startGame(newMatch: GKMatch) {
         newMatch.delegate = self
         match = newMatch
         
-        if let players = match?.players {
-            otherPlayer = players
-            inGame = true
-//            sendString("began: \(playerUUIDKey)")
+        if let match = match, match.players.isEmpty {
+            otherPlayer = newMatch.players
+            //            inGame = true
         } else {
             print("player info nothing..")
         }
-//        게임로직 시작 하면됨..
     }
     
-    func receivedString(_ message: String) {
-        let messageSplit = message.split(separator: ":")
-        guard let messagePrefix = messageSplit.first else { return }
-        let parameter = String(messageSplit.last ?? "")
-        
-        switch messagePrefix {
-        case "began":
-            if playerUUIDKey == parameter {
-                playerUUIDKey = UUID().uuidString
-                sendString("began:\(playerUUIDKey)")
-                break
-            } else {
-//                DispatchQueue.main.async {
-//                    self.lastData = parameter
-//                }
-            }
-//            inGame = true // 게임중이라는 거 여기다 다표시해주기
-        default:
-            break
-        }
-    }
-    
-    func receivedData(_ imageUrl: URL) {
-//        otherPlayerInfo
-    }
-
 }
 
 // MARK: GKMatchDelegate
 extension MatchManager: GKMatchDelegate {
+    // Receive..
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
-        if let content = decodeUserInfo(data) {
-            print("\(content.name) 의 정보 받음")
-            DispatchQueue.main.async { [self] in
-                if let index = otherPlayerInfo?.firstIndex(where: { $0.uuid == content.uuid }) {
-                    // If an element with the same uuid exists, replace it
-                    otherPlayerInfo?[index] = content
+        print(#function)
+        switch gameState {
+        case .matchmaking:
+            if !isHost {
+                let content = String(decoding: data, as: UTF8.self)
+                if content.starts(with: "strData") {
+                    let message = content.replacing("strData:", with: "")
+                    receivedString(message)
+                }
+                //                gameState = .inGame
+            } else {
+                if let content = decodeUserInfo(data) {
+                    DispatchQueue.main.async { [self] in
+                        if let index = otherPlayerInfo?.firstIndex(where: { $0.uuid == content.uuid }) {
+                            // If an element with the same uuid exists, replace it
+                            otherPlayerInfo?[index] = content
+                            sendUserInfo()
+                        } else {
+                            // If the uuid doesn't exist, append the new element
+                            otherPlayerInfo?.append(content)
+                            sendUserInfo()
+                        }
+                    }
                 } else {
-                    // If the uuid doesn't exist, append the new element
-                    otherPlayerInfo?.append(content)
+                    //                    sendUserInfo()
                 }
             }
-        } else {
-            sendImageUrl()
-        }
-//        if content.starts(with: "strData") {
-//            let message = content.replacing("strData:", with: "")
-//            receivedString(message)
-//        } else {
-//            if let imgdata = URL(dataRepresentation: data, relativeTo: nil) {
-//                // Data를 URL로 변환 성공 시 처리
-//                // 변환된 URL을 이용하여 다른 작업을 수행할 수 있습니다.
-//                self.otherPlayerInfo?.first?.profileImageURL = imgdata
-//            } else {
-//                // Data를 URL로 변환 실패 시 처리
-//                print("Data를 URL로 변환하는데 실패하였습니다.")
-//            }
-//
-//            // 만약 깨진 데이터 받아서 이상해지면.... -> lastData로 처리해주는 로직대충 만들기
-//        }
-    }
-    
-    func sendString(_ message: String) {
-        guard let encoded = "strData:\(message)".data(using: .utf8) else { return }
-        sendData(encoded, mode: .reliable)
-    }
-    
-    func sendImageUrl() {
-        guard let info = localPlayerInfo else { return }
-//        info.myMissionPhoto
-        if let data = encodeUserInfo(info) {
-            sendData(data, mode: .reliable)
-        }
-    }
-    
-    func sendMissionImage() {
-        if let info = localPlayerInfo {
-            if  info.myMissionPhoto != nil {
-                if let data = encodeUserInfo(info) {
-                    sendData(data, mode: .reliable)
-                    print("DEBUG: data send sucessfully")
+        case .inGame:
+            if let content = decodeUserInfo(data) {
+                DispatchQueue.main.async { [self] in
+                    if let index = otherPlayerInfo?.firstIndex(where: { $0.uuid == content.uuid }) {
+                        // If an element with the same uuid exists, replace it
+                        otherPlayerInfo?[index] = content
+                    } else {
+                        // If the uuid doesn't exist, append the new element
+                        otherPlayerInfo?.append(content)
+                    }
+                }
+            } else {
+                if let content = decodeUserInfoArray(from: data) {
+                    DispatchQueue.main.async {
+                        self.otherPlayerInfo = self.filterAndRemoveOwnUserInfo(from: content)
+                    }
+                } else {
+                    //                    sendUserInfo()
+                }
+            }
+        case .idle:
+            print("아직 게임 매칭상태도아님.")
+        case .shared:
+            print("shared게임상태로 들어감")
+            if isHost {
+                if let content = decodeUserInfo(data) {
+                    DispatchQueue.main.async { [self] in
+                        if let index = otherPlayerInfo?.firstIndex(where: { $0.uuid == content.uuid }) {
+                            // If an element with the same uuid exists, replace it
+                            otherPlayerInfo?[index] = content
+                            otherPlayerInfo?.insert(localPlayerInfo!, at: 0)
+                        } else {
+                            // If the uuid doesn't exist, append the new element
+                            otherPlayerInfo?.append(content)
+                            otherPlayerInfo?.insert(localPlayerInfo!, at: 0)
+                        }
+                    }
+                }
+            } else {
+                if let content = decodeUserInfoArray(from: data) {
+                    DispatchQueue.main.async {
+                        var arr = self.filterAndRemoveOwnUserInfo(from: content)
+                        arr.insert(self.localPlayerInfo!, at: 0)
+                        self.otherPlayerInfo = arr
+                    }
+                } else {
+                    //                    sendUserInfo()
                 }
             }
         }
-    }
-    
-    func sendData(_ data: Data, mode: GKMatch.SendDataMode) {
-        do {
-            try match?.sendData(toAllPlayers: data, with: mode)
-        } catch {
-            print("데이터 보내기 에러 = \(error.localizedDescription)")
-        }
+        
     }
     
     func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
-//        guard let user = localPlayerInfo else { return }
+        print(#function)
+        //        guard let user = localPlayerInfo else { return }
         switch state {
         case .connected:
-            DispatchQueue.main.async {
-//                self.otherPlayer?.append(player)
-//                self.sendString("began: \(user.name)")
-                self.sendImageUrl()
+            print("DEBUG: localplayer = \(localPlayer.displayName), otherplayer = \(player.displayName)")
+            if isHost {
+                hostPlayer = localPlayer.displayName
+                guard let host = hostPlayer else { print("ishost, host optional and nil !")
+                    return }
+                sendString(host)
             }
+            //            DispatchQueue.main.async {
+            //                guard let host = self.hostPlayer else { return }
+            //                self.sendString("began: \(host.gamePlayerID)")
+            //                self.otherPlayer?.append(player)
+            //                self.sendString("began: \(user.name)")
+            //                self.sendUserInfo()
+            //            }
         case .disconnected:
             print("플레이어\(player.displayName)의 연결이 끊김")
         case .unknown:
@@ -222,6 +229,14 @@ extension MatchManager: GKMatchDelegate {
         @unknown default:
             break
         }
-            
+        
+    }
+    
+}
+
+extension MatchManager {
+    // Filter and remove own user info from array
+    func filterAndRemoveOwnUserInfo(from array: [UserInfo]) -> [UserInfo] {
+        return array.filter { $0.uuid != localPlayerInfo?.uuid }
     }
 }
