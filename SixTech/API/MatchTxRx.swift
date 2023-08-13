@@ -19,10 +19,12 @@ extension MatchManager {
         switch messagePrefix {
         case "began":
             print("began????")
-//            inGame = true // 게임중이라는 거 여기다 다표시해주기
         default:
             hostPlayer = match?.players.first(where: { $0.displayName == message })?.displayName
             sendUserInfo()
+            DispatchQueue.main.async {
+                self.gameState = .inGame                
+            }
         }
     }
     
@@ -35,31 +37,35 @@ extension MatchManager {
     
     func sendUserInfo() {
         guard let info = localPlayerInfo else { return }
-//        info.myMissionPhoto
-        if let data = encodeUserInfo(info) {
-            sendData(data, mode: .reliable)
-        }
-    }
-    
-    func sendMissionImage() {
-        if let info = localPlayerInfo, !isHost {
-            if  info.myMissionPhoto != nil {
-                if let data = encodeUserInfo(info) {
-                    sendData(data, mode: .reliable)
-                    print("DEBUG: data send sucessfully")
-                }
+        if isHost {
+            guard var infoarr = otherPlayerInfo else { return }
+            infoarr.insert(info, at: 0)
+            if let data = encodeUserInfoArray(infoarr) {
+                sendData(data, mode: .reliable)
+            }
+            
+        } else {
+            //        info.myMissionPhoto
+            if let data = encodeUserInfo(info) {
+                sendData(data, mode: .reliable)
             }
         }
     }
     
+//    func sendMissionImage() {
+//        sendUserInfo()
+//    }
+    
     func sendData(_ data: Data, mode: GKMatch.SendDataMode) {
         if isHost {
             do {
+                print("호스트 보냄")
                 try match?.sendData(toAllPlayers: data, with: mode)
             } catch {
                 print("데이터 보내기 에러 = \(error.localizedDescription)")
             }
         } else {
+            print("비호스트가 보냄")
             guard let host = match?.players.first(where: { $0.displayName == hostPlayer }) else { return }
             do {
                 try match?.send(data, to: [host], dataMode: mode)

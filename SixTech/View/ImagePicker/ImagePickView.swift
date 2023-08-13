@@ -52,10 +52,12 @@ struct ImagePickView: View {
             .padding(.top, 100)
         }
         .onDisappear {
-            matchManager.sendMissionImage()
-            if matchManager.match?.players.count == matchManager.otherPlayerInfo?.count {
-                matchManager.otherPlayerInfo?.insert(matchManager.localPlayerInfo!, at: 0)
-            }
+            matchManager.sendUserInfo()
+            matchManager.gameState = .shared
+//            if matchManager.match?.players.count == matchManager.otherPlayerInfo?.count {
+////                matchManager.filterAndRemoveOwnUserInfo(from: matchManager.otherPlayerInfo!)
+//                matchManager.otherPlayerInfo?.insert(matchManager.localPlayerInfo!, at: 0)
+//            }
         }
     }
 }

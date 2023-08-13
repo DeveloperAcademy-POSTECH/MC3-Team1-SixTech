@@ -75,6 +75,7 @@ extension UserInfo: Codable {
         myMission = try container.decode(String.self, forKey: .myMisssion)
 //        userHistory = try container.decode(UserHistory.self, forKey: .userHistory)
     }
+    
 }
 
 extension UserHistory: Codable {
@@ -129,3 +130,28 @@ func decodeUserInfo(_ data: Data) -> UserInfo? {
         return nil
     }
 }
+
+// Encode user info array
+    func encodeUserInfoArray(_ userInfoArray: [UserInfo]) -> Data? {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(userInfoArray)
+            return data
+        } catch {
+            print("Encode User Info Array Error: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
+    // Decode user info array
+func decodeUserInfoArray(from data: Data) -> [UserInfo]? {
+    do {
+        let decoder = JSONDecoder()
+        let userInfoArray = try decoder.decode([UserInfo].self, from: data)
+        return userInfoArray
+    } catch {
+        print("Decode User Info Array Error: \(error.localizedDescription)")
+        return nil
+    }
+}
+
