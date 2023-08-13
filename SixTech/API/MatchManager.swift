@@ -33,7 +33,7 @@ final class MatchManager: NSObject, ObservableObject {
     @Published var gameState: GameSessionState = .idle
     @Published var isHost = false
     @Published var authenticationState = PlayerAuthState.authenticating
-//    @Published var lastData = ""
+    //    @Published var lastData = ""
     @Published var groupNumber = ""
     @Published var otherPlayer: [GKPlayer]?
     @Published var otherPlayerInfo: [UserInfo]? = []
@@ -44,7 +44,7 @@ final class MatchManager: NSObject, ObservableObject {
     var match: GKMatch?
     var localPlayer = GKLocalPlayer.local
     private var playerUUIDKey = UUID().uuidString
-
+    
     private var rootViewController: UIViewController? {
         let windowsence = UIApplication.shared.connectedScenes.first as? UIWindowScene
         return windowsence?.windows.first?.rootViewController
@@ -111,12 +111,12 @@ final class MatchManager: NSObject, ObservableObject {
         
         if let match = match, match.players.isEmpty {
             otherPlayer = newMatch.players
-//            inGame = true
+            //            inGame = true
         } else {
             print("player info nothing..")
         }
     }
-
+    
 }
 
 // MARK: GKMatchDelegate
@@ -132,7 +132,7 @@ extension MatchManager: GKMatchDelegate {
                     let message = content.replacing("strData:", with: "")
                     receivedString(message)
                 }
-//                gameState = .inGame
+                //                gameState = .inGame
             } else {
                 if let content = decodeUserInfo(data) {
                     DispatchQueue.main.async { [self] in
@@ -147,7 +147,7 @@ extension MatchManager: GKMatchDelegate {
                         }
                     }
                 } else {
-//                    sendUserInfo()
+                    //                    sendUserInfo()
                 }
             }
         case .inGame:
@@ -167,21 +167,37 @@ extension MatchManager: GKMatchDelegate {
                         self.otherPlayerInfo = self.filterAndRemoveOwnUserInfo(from: content)
                     }
                 } else {
-//                    sendUserInfo()
+                    //                    sendUserInfo()
                 }
-                }
+            }
         case .idle:
             print("아직 게임 매칭상태도아님.")
         case .shared:
             print("shared게임상태로 들어감")
-            if let content = decodeUserInfoArray(from: data) {
-                DispatchQueue.main.async {
-                    var arr = self.filterAndRemoveOwnUserInfo(from: content)
-                    arr.insert(self.localPlayerInfo!, at: 0)
-                    self.otherPlayerInfo = arr
+            if isHost {
+                if let content = decodeUserInfo(data) {
+                    DispatchQueue.main.async { [self] in
+                        if let index = otherPlayerInfo?.firstIndex(where: { $0.uuid == content.uuid }) {
+                            // If an element with the same uuid exists, replace it
+                            otherPlayerInfo?[index] = content
+                            otherPlayerInfo?.insert(localPlayerInfo!, at: 0)
+                        } else {
+                            // If the uuid doesn't exist, append the new element
+                            otherPlayerInfo?.append(content)
+                            otherPlayerInfo?.insert(localPlayerInfo!, at: 0)
+                        }
+                    }
                 }
             } else {
-//                    sendUserInfo()
+                if let content = decodeUserInfoArray(from: data) {
+                    DispatchQueue.main.async {
+                        var arr = self.filterAndRemoveOwnUserInfo(from: content)
+                        arr.insert(self.localPlayerInfo!, at: 0)
+                        self.otherPlayerInfo = arr
+                    }
+                } else {
+                    //                    sendUserInfo()
+                }
             }
         }
         
@@ -189,7 +205,7 @@ extension MatchManager: GKMatchDelegate {
     
     func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
         print(#function)
-//        guard let user = localPlayerInfo else { return }
+        //        guard let user = localPlayerInfo else { return }
         switch state {
         case .connected:
             print("DEBUG: localplayer = \(localPlayer.displayName), otherplayer = \(player.displayName)")
@@ -199,13 +215,13 @@ extension MatchManager: GKMatchDelegate {
                     return }
                 sendString(host)
             }
-//            DispatchQueue.main.async {
-//                guard let host = self.hostPlayer else { return }
-//                self.sendString("began: \(host.gamePlayerID)")
-//                self.otherPlayer?.append(player)
-//                self.sendString("began: \(user.name)")
-//                self.sendUserInfo()
-//            }
+            //            DispatchQueue.main.async {
+            //                guard let host = self.hostPlayer else { return }
+            //                self.sendString("began: \(host.gamePlayerID)")
+            //                self.otherPlayer?.append(player)
+            //                self.sendString("began: \(user.name)")
+            //                self.sendUserInfo()
+            //            }
         case .disconnected:
             print("플레이어\(player.displayName)의 연결이 끊김")
         case .unknown:
@@ -213,14 +229,14 @@ extension MatchManager: GKMatchDelegate {
         @unknown default:
             break
         }
-            
+        
     }
     
 }
 
 extension MatchManager {
     // Filter and remove own user info from array
-       func filterAndRemoveOwnUserInfo(from array: [UserInfo]) -> [UserInfo] {
-           return array.filter { $0.uuid != localPlayerInfo?.uuid }
-       }
+    func filterAndRemoveOwnUserInfo(from array: [UserInfo]) -> [UserInfo] {
+        return array.filter { $0.uuid != localPlayerInfo?.uuid }
+    }
 }

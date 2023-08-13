@@ -39,7 +39,7 @@ extension MatchManager {
         guard let info = localPlayerInfo else { return }
         if isHost {
             guard var infoarr = otherPlayerInfo else { return }
-            infoarr.insert(info, at: 0)
+            infoarr.append(info)
             if let data = encodeUserInfoArray(infoarr) {
                 sendData(data, mode: .reliable)
             }
@@ -66,7 +66,9 @@ extension MatchManager {
             }
         } else {
             print("비호스트가 보냄")
-            guard let host = match?.players.first(where: { $0.displayName == hostPlayer }) else { return }
+            guard let host = match?.players.first(where: { $0.displayName == hostPlayer }) else {
+                print("데이터 보내는과정에서 호스트를 못찾음")
+                return }
             do {
                 try match?.send(data, to: [host], dataMode: mode)
             } catch {
