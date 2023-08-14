@@ -18,7 +18,7 @@ struct WaitingRoomView: View {
     var groupCode: String?
     
     var body: some View {
-        ZStack {
+        ScrollView {
             VStack {
 				Text("모두 도착할 때까지 기다려요.")
 					.font(.Jamsil.light.font(size: 17))
