@@ -76,7 +76,7 @@ struct EndResultView: View {
 										date: ploggingDate,
 										userTakeImage: userTakeImage!,
 										profileImage: profileImage)
-						.padding(.vertical)
+//						.padding(.vertical)
 				} else {
 					ResultWithPolylineView(kcal: kcal.formatWithDot,
 										   movedDistance: movedDistance,
@@ -85,7 +85,7 @@ struct EndResultView: View {
 										   date: ploggingCount,
 										   polylineMapImage: polylineMapImage,
 										   profileImage: profileImage)
-						.padding(.vertical)
+//						.padding(.vertical)
 				}
 				
 				Spacer()

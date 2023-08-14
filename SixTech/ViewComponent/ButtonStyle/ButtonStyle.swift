@@ -78,7 +78,7 @@ struct CircleButton: ButtonStyle {
 	func makeBody(configuration: Configuration) -> some View {
 		
 		configuration.label
-			.frame(width: 116, height: 116)
+//			.frame(width: 116, height: 116)
 			.clipShape(Circle())
 			.overlay(
 				
@@ -161,7 +161,7 @@ struct ButtonTest_Previews: PreviewProvider {
                     print("Test")
                 }
                 
-                NavigationLinkView(text: "TestNav", isdisable: Binding.constant(false), destination: CharacterCreateView())
+                NavigationLinkView(text: "TestNav", isdisable: Binding.constant(true), destination: CharacterCreateView())
             }
         }
     }

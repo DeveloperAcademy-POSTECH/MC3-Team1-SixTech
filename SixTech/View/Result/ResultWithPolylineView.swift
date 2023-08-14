@@ -102,6 +102,6 @@ struct ResultWithPolylineView: View {
                 .padding(.bottom)
             }
         }
-        .frame(width: 320, height: 337)
+        .aspectRatio(1, contentMode: .fit)
     }
 }
