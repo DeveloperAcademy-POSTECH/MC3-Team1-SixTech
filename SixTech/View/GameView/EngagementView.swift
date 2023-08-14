@@ -17,6 +17,7 @@ struct EngagementView: View {
     var body: some View {
         
         VStack {
+            Spacer()
             Text("참여코드를 입력하세요.")
                 .font(.Jamsil.bold.font(size: 24))
                 .padding()
@@ -26,11 +27,14 @@ struct EngagementView: View {
             CustomTextField(text: $numberText)
                 .textFieldStyle(.roundedBorder)
                 .padding()
-                .frame(width: 240)
+//                .frame(width: 240)
             
             CustomNumberPad(text: $numberText)
-                .padding()
+//                .padding()
+            
+            Spacer()
             NavigationLinkView(text: "참여하기", isdisable: $isDisable, destination: WaitingRoomView(groupCode: numberText))
+//                .padding(.bottom)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -54,8 +58,10 @@ struct EngagementView: View {
 
 struct EngagementView_Previews: PreviewProvider {
     static var previews: some View {
-        EngagementView()
-            .environmentObject(MatchManager())
+        NavigationStack {
+            EngagementView()
+                .environmentObject(MatchManager())
+        }
     }
 }
 
@@ -85,10 +91,11 @@ struct CustomNumberPad: View {
                                 .foregroundColor(.black)
                                 .background(Color.white)
                                 .cornerRadius(10)
-                        }.frame(width: 114, height: 72)
-                        
+                        }
+                        .padding()
                     }
                 }
+                .padding(.horizontal)
             }
         }
     }
@@ -138,7 +145,7 @@ struct CustomTextField: View {
                 }
             }
 //            .animation(.default)
-            .padding()
+//            .padding()
         }
     }
 }
