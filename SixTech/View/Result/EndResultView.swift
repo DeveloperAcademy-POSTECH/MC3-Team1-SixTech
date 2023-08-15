@@ -87,7 +87,7 @@ struct EndResultView: View {
             
             Spacer()
             
-            HStack {
+            HStack(spacing: 20) {
                 VStack {
                     Button {
                         isLeftTapped = true
@@ -98,7 +98,7 @@ struct EndResultView: View {
                             .scaledToFill()
                     }
                     .buttonStyle(CircleButton(isTapped: $isLeftTapped))
-                    .frame(height: 116)
+                    .frame(width: 116, height: 116)
                     .padding()
                     
                     Button {
@@ -118,18 +118,19 @@ struct EndResultView: View {
                     .buttonStyle(SmallButton())
                 }
                 
+//                Spacer()
+                
                 VStack {
                     Button {
                         isRightTapped = true
                         isLeftTapped = false
                     } label: {
-                        
                         Image(uiImage: ploggingManager.snapshottedMap)
                             .resizable()
                             .scaledToFill()
                     }
                     .buttonStyle(CircleButton(isTapped: $isRightTapped))
-                    .frame(height: 116)
+                    .frame(width: 116, height: 116)
                     .padding()
                     
                     Button {
@@ -159,7 +160,6 @@ struct EndResultView: View {
                 }
             }
         }
-        .padding(.horizontal, 24)
         .alert(title: "플로깅 완료",
                message:
        """
@@ -197,10 +197,12 @@ struct EndResultView: View {
 
 struct EndResultView_Previews: PreviewProvider {
     static var previews: some View {
-        EndResultView()
-            .environmentObject(MatchManager())
-            .environmentObject(UserInfo())
-            .environmentObject(PloggingManager())
-            .environmentObject(LocationManager())
+        NavigationView {
+            EndResultView()
+                .environmentObject(MatchManager())
+                .environmentObject(UserInfo())
+                .environmentObject(PloggingManager())
+                .environmentObject(LocationManager())
+        }
     }
 }
