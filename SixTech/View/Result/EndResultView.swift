@@ -10,7 +10,6 @@ import SwiftUI
 struct EndResultView: View {
     @Environment(\.presentationMode) var prsent
     @Environment(\.managedObjectContext) var managedObjectContext
-    
     @EnvironmentObject var matchManager: MatchManager
     @EnvironmentObject var ploggingManager: PloggingManager
     @EnvironmentObject var locationManager: LocationManager
@@ -56,105 +55,102 @@ struct EndResultView: View {
     
     var body: some View {
         
-        HStack {
-            VStack {
-                Spacer()
-                Spacer()
-                Text("오늘의 플로깅 기록")
-                    .font(.Jamsil.bold.font(size: 20))
-                    .padding(.bottom)
-                Text("플로깅 완료를 축하합니다!\n 마음에 드는 기록을 공유/저장해요.")
-                    .font(.Jamsil.light.font(size: 17))
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom)
-                
-                if isLeftTapped {
-                    ResultWithPhotoView(kcal: kcal.formatWithDot,
-                                        movedDistance: movedDistance,
-                                        steps: steps,
-                                        ploogingCount: ploggingCount,
-                                        date: ploggingDate,
-                                        userTakeImage: userTakeImage!,
-                                        profileImage: profileImage)
-                    //						.padding(.vertical)
-                } else {
-                    ResultWithPolylineView(kcal: kcal.formatWithDot,
-                                           movedDistance: movedDistance,
-                                           steps: steps,
-                                           ploogingCount: ploggingCount,
-                                           date: ploggingCount,
-                                           polylineMapImage: polylineMapImage,
-                                           profileImage: profileImage)
-                    //						.padding(.vertical)
-                }
-                
-                				Spacer()
-                
-                HStack {
-                    VStack {
-                        Button {
-                            isLeftTapped = true
-                            isRightTapped = false
-                        } label: {
-                            Image(uiImage: userTakeImage!)
-                                .resizable()
-                                .scaledToFill()
-                        }
-                        .buttonStyle(CircleButton(isTapped: $isLeftTapped))
-                        .frame(height: 116)
-                        .padding()
-                        
-                        Button {
-                            // 저장하는 기능
-                        } label: {
-                            HStack {
-                                Image(systemName: "square.and.arrow.down")
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 24))
-                                    .padding(.trailing)
-                                
-                                Text("저장하기")
-                                    .font(.Jamsil.regular.font(size: 17))
-                                    .padding(.trailing)
-                            }
-                        }
-                        .buttonStyle(SmallButton())
-                    }
-                    
-                    VStack {
-                        Button {
-                            isRightTapped = true
-                            isLeftTapped = false
-                        } label: {
-                            
-                            Image(uiImage: ploggingManager.snapshottedMap)
-                                .resizable()
-                                .scaledToFill()
-                        }
-                        .buttonStyle(CircleButton(isTapped: $isRightTapped))
-                        .frame(height: 116)
-                        .padding()
-                        
-                        Button {
-                            // 공유하는 기능
-                        } label: {
-                            HStack {
-                                Image(systemName: "square.and.arrow.up")
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 24))
-                                    .padding(.trailing)
-                                
-                                Text("공유하기")
-                                    .font(.Jamsil.regular.font(size: 17))
-                                    .padding(.trailing)
-                            }
-                        }
-                        .buttonStyle(SmallButton())
-                        
-                    }
-                }
+        VStack {
+            Spacer()
+            Text("오늘의 플로깅 기록")
+                .font(.Jamsil.bold.font(size: 20))
                 .padding(.bottom)
+            Text("플로깅 완료를 축하합니다!\n 마음에 드는 기록을 공유/저장해요.")
+                .font(.Jamsil.light.font(size: 17))
+                .multilineTextAlignment(.center)
+                .padding(.bottom)
+            
+            if isLeftTapped {
+                ResultWithPhotoView(kcal: kcal.formatWithDot,
+                                    movedDistance: movedDistance,
+                                    steps: steps,
+                                    ploogingCount: ploggingCount,
+                                    date: ploggingDate,
+                                    userTakeImage: userTakeImage!,
+                                    profileImage: profileImage)
+                //						.padding(.vertical)
+            } else {
+                ResultWithPolylineView(kcal: kcal.formatWithDot,
+                                       movedDistance: movedDistance,
+                                       steps: steps,
+                                       ploogingCount: ploggingCount,
+                                       date: ploggingCount,
+                                       polylineMapImage: polylineMapImage,
+                                       profileImage: profileImage)
+                //						.padding(.vertical)
             }
+            
+            Spacer()
+            
+            HStack {
+                VStack {
+                    Button {
+                        isLeftTapped = true
+                        isRightTapped = false
+                    } label: {
+                        Image(uiImage: userTakeImage!)
+                            .resizable()
+                            .scaledToFill()
+                    }
+                    .buttonStyle(CircleButton(isTapped: $isLeftTapped))
+                    .frame(height: 116)
+                    .padding()
+                    
+                    Button {
+                        // 저장하는 기능
+                    } label: {
+                        HStack {
+                            Image(systemName: "square.and.arrow.down")
+                                .fontWeight(.bold)
+                                .font(.system(size: 24))
+                                .padding(.trailing)
+                            
+                            Text("저장하기")
+                                .font(.Jamsil.regular.font(size: 17))
+                                .padding(.trailing)
+                        }
+                    }
+                    .buttonStyle(SmallButton())
+                }
+                
+                VStack {
+                    Button {
+                        isRightTapped = true
+                        isLeftTapped = false
+                    } label: {
+                        
+                        Image(uiImage: ploggingManager.snapshottedMap)
+                            .resizable()
+                            .scaledToFill()
+                    }
+                    .buttonStyle(CircleButton(isTapped: $isRightTapped))
+                    .frame(height: 116)
+                    .padding()
+                    
+                    Button {
+                        // 공유하는 기능
+                    } label: {
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                                .fontWeight(.bold)
+                                .font(.system(size: 24))
+                                .padding(.trailing)
+                            
+                            Text("공유하기")
+                                .font(.Jamsil.regular.font(size: 17))
+                                .padding(.trailing)
+                        }
+                    }
+                    .buttonStyle(SmallButton())
+                    
+                }
+            }
+            .padding(.bottom)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
