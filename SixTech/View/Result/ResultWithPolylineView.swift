@@ -105,3 +105,13 @@ struct ResultWithPolylineView: View {
         .aspectRatio(1, contentMode: .fit)
     }
 }
+
+struct ResultWithPolylineView_Previews: PreviewProvider {
+    static var previews: some View {
+        EndResultView()
+            .environmentObject(MatchManager())
+            .environmentObject(UserInfo())
+            .environmentObject(PloggingManager())
+            .environmentObject(LocationManager())
+    }
+}

@@ -117,8 +117,10 @@ struct ResultWithPhotoView: View {
 
 struct ResultWithPhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultWithPhotoView(kcal: "100", movedDistance: "100", steps: "100", ploogingCount: "100", date: "100", userTakeImage: UIImage(systemName: "star")!, profileImage: UIImage(systemName: "star")!)
+        EndResultView()
             .environmentObject(MatchManager())
             .environmentObject(UserInfo())
+            .environmentObject(PloggingManager())
+            .environmentObject(LocationManager())
     }
 }
