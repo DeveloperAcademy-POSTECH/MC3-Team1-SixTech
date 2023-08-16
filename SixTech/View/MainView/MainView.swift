@@ -30,15 +30,16 @@ struct MainView: View {
                 .padding()
             Spacer()
             Spacer()
-            NavigationLink("플로깅 플레이") {
-                PloggingPlayView()
-            }.buttonStyle(DefaultButton(isdisable: false))
-                .padding()
-            
-            NavigationLink("내 프로필") {
-                MyprofileView()
-            }.buttonStyle(ProfileButton(isdisable: false))
+//            NavigationLink("플로깅 플레이") {
+//                PloggingPlayView()
+//            }.buttonStyle(DefaultButton(isdisable: false))
+            NavigationLinkView(text: "플로깅 플레이", isdisable: .constant(false), destination: PloggingPlayView())
+                .padding(.top)
+//            NavigationLink("내 프로필") {
+//                MyprofileView()
+//            }.buttonStyle(ProfileButton(isdisable: false))
 //                .padding(.bottom)
+            NavigationLinkView(text: "내 프로필", isdisable: .constant(false), destination: MyprofileView())
             Spacer()
         }
         .background {

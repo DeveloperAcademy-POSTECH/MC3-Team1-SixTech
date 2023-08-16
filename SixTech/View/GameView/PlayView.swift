@@ -28,13 +28,17 @@ struct PloggingPlayView: View {
                 flipCard()
             }
             .padding()
-            NavigationLink("방 만들기") {
-                CreateRoomView()
-            }.buttonStyle(DefaultButton(isdisable: false))
-                .padding()
-            NavigationLink("참여하기") {
-                EngagementView()
-            }.buttonStyle(DefaultButton(isdisable: false))
+            
+//            NavigationLink("방 만들기") {
+//                CreateRoomView()
+//            }.buttonStyle(DefaultButton(isdisable: false))
+            NavigationLinkView(text: "방만들기", isdisable: .constant(false), destination: CreateRoomView())
+//                .padding(.top)
+            
+//            NavigationLink("참여하기") {
+//                EngagementView()
+//            }.buttonStyle(DefaultButton(isdisable: false))
+            NavigationLinkView(text: "참여하기", isdisable: .constant(false), destination: EngagementView())
                 .padding(.bottom)
             
         }
