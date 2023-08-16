@@ -44,7 +44,13 @@ struct MainView: View {
         }
         .background {
             Image("MainBack")
-                .offset(y: -7)
+                .resizable()
+                .ignoresSafeArea()
+                .scaledToFill()
+//                .resizable()
+//                .frame()
+//                .scaledToFit()
+//                .offset(y: -7)
         }
         .navigationBarBackButtonHidden()
         .onAppear {
