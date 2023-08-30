@@ -6,8 +6,36 @@
 //
 
 import SwiftUI
+import WatchConnectivity
+
+class WatchSessionManager: NSObject, WCSessionDelegate, ObservableObject {
+    @Published var isCountDownPresented: Bool = false
+    
+    override init() {
+        super.init()
+        
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        // 액션 핸들러
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        if let value = message["Value"] as? Bool, value {
+            // iOS에서 건네받은 Value == true이면 isCountDownPresented = true로 바꿈
+            isCountDownPresented = true
+        }
+    }
+}
 
 struct WatchMainView: View {
+    @StateObject var WCSessionManager: WatchSessionManager = WatchSessionManager()
+    
     var body: some View {
         VStack {
             Text("같이줍깅")
