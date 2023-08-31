@@ -43,6 +43,11 @@ struct WatchMainView: View {
             
             Text("오늘도 지구를 위해 함께 걸어요!")
                 .font(.Jamsil.light.font(size: 14))
+            
+            if WCSessionManager.isCountDownPresented {
+                Text("오늘도 지구를 위해 함께 걸어요!")
+                    .font(.Jamsil.light.font(size: 14))
+            }
         }
     }
 }

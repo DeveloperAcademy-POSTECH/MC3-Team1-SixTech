@@ -109,7 +109,8 @@ struct CheckMissionView: View {
                         .simultaneousGesture(TapGesture().onEnded({ _ in
                             userInfo.myMission = selectMission.selectedMission
                             // TODO: 워치로 카운트다운 시작
-                            
+                            let sessionManager = SessionManager.shared
+                            sessionManager.sendMessage()
                         }))
 						Text("미션 확인!")
 							.font(.Jamsil.light.font(size: 17))

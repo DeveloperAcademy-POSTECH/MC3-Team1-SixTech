@@ -22,6 +22,7 @@
 		0E3598E82A7A6967005A15F5 /* TheJamsilOTF4Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 709C76262A725CFE00C16313 /* TheJamsilOTF4Medium.otf */; };
 		0E3598E92A7A696D005A15F5 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C762A2A725CFE00C16313 /* FontExtension.swift */; };
 		0E3598EA2A7A69EA005A15F5 /* onboardingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0BE598382A60F9AC00D019EA /* onboardingGIF.gif */; };
+		0E5E36022AA07EDA008185B3 /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E36012AA07EDA008185B3 /* WatchManager.swift */; };
 		0E7D7ECF2A7A39B400EC40E7 /* PlogWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D7ECE2A7A39B400EC40E7 /* PlogWatchApp.swift */; };
 		0E7D7ED12A7A39B400EC40E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7D7ED02A7A39B400EC40E7 /* ContentView.swift */; };
 		0E7D7ED32A7A39B500EC40E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E7D7ED22A7A39B500EC40E7 /* Assets.xcassets */; };
@@ -137,6 +138,7 @@
 		0BE5980B2A5FD86F00D019EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BE598382A60F9AC00D019EA /* onboardingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = onboardingGIF.gif; path = ../onboardingGIF.gif; sourceTree = "<group>"; };
 		0E3598E12A7A46D4005A15F5 /* WatchMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainView.swift; sourceTree = "<group>"; };
+		0E5E36012AA07EDA008185B3 /* WatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
 		0E7D7ECC2A7A39B400EC40E7 /* PlogWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlogWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7D7ECE2A7A39B400EC40E7 /* PlogWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlogWatchApp.swift; sourceTree = "<group>"; };
 		0E7D7ED02A7A39B400EC40E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -256,6 +258,14 @@
 				0B8374342A77974600292F2B /* CountDownView.swift */,
 			);
 			path = CountDown;
+			sourceTree = "<group>";
+		};
+		0E5E36002AA07EC5008185B3 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				0E5E36012AA07EDA008185B3 /* WatchManager.swift */,
+			);
+			path = Watch;
 			sourceTree = "<group>";
 		};
 		0E7D7ECD2A7A39B400EC40E7 /* PlogWatch Watch App */ = {
@@ -465,6 +475,7 @@
 		709C765F2A725EDE00C16313 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				0E5E36002AA07EC5008185B3 /* Watch */,
 				709C766D2A725EDF00C16313 /* MapCore */,
 				709C761D2A725CFE00C16313 /* Coredata */,
 				709C76602A725EDE00C16313 /* MatchManager.swift */,
@@ -791,6 +802,7 @@
 				709C76382A725CFE00C16313 /* CharacterCreateViewModel.swift in Sources */,
 				0E94FAC22A5A83AF002A39FB /* ContentView.swift in Sources */,
 				709C76422A725CFE00C16313 /* history.xcdatamodeld in Sources */,
+				0E5E36022AA07EDA008185B3 /* WatchManager.swift in Sources */,
 				709C76882A725EDF00C16313 /* MKPolyline+Coordinates.swift in Sources */,
 				7077986E2A72CE98000525B2 /* ResultWithPolylineView.swift in Sources */,
 				709C76322A725CFE00C16313 /* PolaroidView.swift in Sources */,
