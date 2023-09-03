@@ -4,12 +4,13 @@
 
 ## SixTech 소개
 
-|Jeckmu(이재원)|Musk(유인호)|Madeline(신정연)|Jerry(이주환)|Junyoo(유정현)|Lolenzo(장수민)|                                                                                                             
-| :------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------: |:---------------------------------------------------------------------------------------------------------------------------------------------------: |:---------------------------------------------------------------------------------------------------------------------------------------------------: |
+## SixTech 소개
 
+| Jeckmu(이재원) | Musk(유인호) | Madeline(신정연) | Jerry(이주환) | Junyoo(유정현) | Lolenzo(장수민) |
+|:----------------:|:-------------------:|:---------------------:|:-----------------:|:-----------------:|:-----------------:|
+| <img src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/1c767654-97b6-40ae-9ec0-d0fd5ad2ed08" width="100px"> | <img src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/090d8174-a4e9-42de-8013-e29d36c09aeb" width="100px"> | <img src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/c1ca6798-c085-492f-b905-64054263aec2" width="100px"> | <img src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/18eb99cc-b914-4853-bcbe-9c10345dc9ba" width="100px"> | <img src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/989c46a9-1406-40e6-8179-a33f4149d746" width="100px"> | <img src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/28ce8956-ba51-4a96-b2a6-258192c0f2d6" width="100px"> |
+| [@220v-K](https://github.com/220v-K) | [@Oreo-Mcflurry](https://github.com/Oreo-Mcflurry) | [@MADElinessss](https://github.com/MADElinessss) | [@Jjwan2](https://github.com/Jhwan2) | [@JJunghyunY](https://github.com/JJunghyunY) | [@sumintnals](https://github.com/sumintnals) |
 
-|![82885362](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/1c767654-97b6-40ae-9ec0-d0fd5ad2ed08) |![96654328](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/090d8174-a4e9-42de-8013-e29d36c09aeb)|![88757043](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/c1ca6798-c085-492f-b905-64054263aec2)|![jerry](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/18eb99cc-b914-4853-bcbe-9c10345dc9ba)|![50796114](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/989c46a9-1406-40e6-8179-a33f4149d746)|![127755029](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/28ce8956-ba51-4a96-b2a6-258192c0f2d6)|
-|[@220v-K](https://github.com/220v-K)|[@Oreo-Mcflurry](https://github.com/Oreo-Mcflurry)|[@MADElinessss](https://github.com/MADElinessss)|[@Jjwan2](https://github.com/Jhwan2)|[@JJunghyunY](https://github.com/JJunghyunY)|[@sumintnals](https://github.com/sumintnals)|
 
 
 ## 프로젝트 소개
