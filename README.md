@@ -11,14 +11,18 @@
 
 
 
-## 프로젝트 소개
-### "플로깅을 즐거운 경험으로 만들어주자!"
-저희 SixTech
+## 프로젝트 소개 [발표영상(Youtube)](https://www.youtube.com/watch?v=WUtCuHOYjwA)
+### '플로깅을 즐거운 경험으로 만들어주자!'
+저희 SixTech은 포항 영일대에 직접 플로깅을 다녀오며 사람들이 길이나 바다에 버리는 쓰레기 문제에 심각성을 느꼈습니다. 동시에 플로깅을 사람들이 자주 하면 환경에 좋은 영향을 끼칠 것이라고 생각했습니다. 사람들이 플로깅을 자주 할 수 있도록 플로깅을 즐거운 경험으로 만들어주고 싶어 같이줍깅을 만들었습니다.
 
+'같이줍깅'은 플로깅을 '같이'했을때 사용할 수 있는 앱 입니다. '같이의 가치'를 느낄 수 있도록 앱을 디자인 했고, 사용자는 사람들과 플로깅을 같이 하며 즐거움을 느낄 수 있습니다.
 
+## Project Introduction [Presentation Video(Youtube)](https://www.youtube.com/watch?v=WUtCuHOYjwA)
 
-## Project introduction
-//
+### 'Let's Make Plogging an Enjoyable Experience!'
+At SixTech, we were deeply concerned about the seriousness of the litter problem in the streets and beaches of Yeongildae, Pohang. Simultaneously, we believed that if people engaged in plogging more frequently, it would have a positive impact on the environment. To encourage people to plog more often, we developed the "Let's Plogging" app, aiming to turn plogging into an enjoyable experience.
+
+"Let's Plogging" is an app designed for those who want to plog together, emphasizing the value of 'together.' Users can experience the joy of plogging while doing it with others, fostering a sense of community and environmental responsibility.
 
 ---
 ## 기술 스택 (Tech Stack)
