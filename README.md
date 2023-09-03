@@ -44,19 +44,29 @@ At SixTech, we were deeply concerned about the seriousness of the litter problem
 - **디자인**:
   - Figma
 
+
+
+
+
+
+
+
+
+
 ---
 ## 화면 구성 📺
 |온보딩 페이지|메인 페이지|방장 페이지|팀원 페이지|
 | :-------------------------------------------: | :------------: | :-------------------------------------------: | :------------: |
-|//image1|//image2|//image3|//image4|
+|![onboarding](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/7c37b2f8-bd87-4d34-83ed-5434e60a7b0c)|<img width="351" alt="main" src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/8615fe81-35f5-4422-8bac-0355f0d52cb4">|![makeroom](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/c9066a02-2a51-4b92-9f47-73ef3ba5cd6b)|![joinroom](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/894bed31-9a34-4813-a322-9f08e5f8894d)|
 
 |미션 선택 페이지|플로깅 중 페이지|미션 수행 페이지|미션 수행 사진 선택 페이지|
 | :-------------------------------------------: | :------------: | :-------------------------------------------: | :------------: |
-|//image1|//image2|//image3|//image4|
+|![mission](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/36ecab17-600f-4179-90ad-b1eb31744b9d)|![plogging](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/27459853-8953-4068-ab31-ef9d07335e27)
+|//image3|![selectMission](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/12381ee7-2f4a-46c7-9866-422864660ca6)|
 
 |사진 공유 페이지|SNS 공유 페이지|플로깅 기록 페이지|
 | :-------------------------------------------: | :------------: | :-------------------------------------------: |
-|//image1|//image2|//image3|//image4|
+|//image1|![SNS](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/c2af4904-99cd-40d8-af32-07f4ac9648ec)|![History](https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/dd4b938c-0384-4387-9cad-bf129fd78c22)|
 
 
 
