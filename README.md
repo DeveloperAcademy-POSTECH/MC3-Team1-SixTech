@@ -13,7 +13,7 @@
 
 ## 프로젝트 소개
 
-저희 SixTech는 사람들이 플로깅을 많이 한다면 환경에 좋은 영향을 끼칠 수 있을거라고 생각을 하였습니다. 그래서 플로깅을 재미있게 한다면? 이라는 생각으로, <big>"플로깅을 즐거운 경험으로 만들어주자!"</big>라는 목표를 세워 프로젝트를 진행하였습니다.
+저희 SixTech는 사람들이 플로깅을 많이 한다면 환경에 좋은 영향을 끼칠 수 있을거라고 생각을 하였습니다. 그래서 플로깅을 재미있게 한다면? 이라는 생각과 함께 <big>"플로깅을 즐거운 경험으로 만들어주자!"</big>라는 목표를 세워 프로젝트를 진행하였습니다.
 
 ## Project introduction
 At SixTech, we believe that if people engage in plogging more often, it can have a positive impact on the environment. Therefore, with the idea of making plogging enjoyable, we set the goal to <big>"Turn plogging into a fun experience!"</big> and proceeded with the project.
