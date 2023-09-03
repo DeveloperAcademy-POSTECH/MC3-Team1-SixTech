@@ -65,7 +65,7 @@ At SixTech, we were deeply concerned about the seriousness of the litter problem
 
 |사진 공유 페이지|SNS 공유 페이지|플로깅 기록 페이지|
 | :-------------------------------------------: | :------------: | :-------------------------------------------: |
-|<img src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/5eefbd85-948e-461d-8071-d939b70af321" width="200px">|<img src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/c2af4904-99cd-40d8-af32-07f4ac9648ec" width="200px">|
+|<img src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/5eefbd85-948e-461d-8071-d939b70af321" width="200px">|<img src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/c2af4904-99cd-40d8-af32-07f4ac9648ec" width="200px">|<img src="https://github.com/Oreo-Mcflurry/MC3-Team1-SixTech/assets/96654328/070e01bc-07f5-45dd-8954-09b6effb26f1" width="200px">|
 
 
 
