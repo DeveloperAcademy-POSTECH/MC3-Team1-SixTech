@@ -47,9 +47,9 @@ struct ImagePickView: View {
             .padding(.horizontal, 45)
             
 //            PolaroidView(isdisable: $isdisable, profileImage: $profileImage, userName: $userName, userMission: $userMission)
-
+            Spacer()
 			NavigationLinkView(text: "골랐어요!", isdisable: $isdisable, destination: ShareImageView())
-            .padding(.top, 100)
+            .padding(.top)
         }
         .onDisappear {
             matchManager.sendUserInfo()

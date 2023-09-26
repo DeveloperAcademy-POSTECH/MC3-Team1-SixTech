@@ -25,8 +25,7 @@ struct ResultWithPhotoView: View {
                 
 				Image(uiImage: userTakeImage)
                     .resizable()
-                    .frame(width: 294, height: 294)
-                    .padding(.top)
+                    .padding(.all)
                 
                 VStack {
                     Spacer()
@@ -112,6 +111,16 @@ struct ResultWithPhotoView: View {
                     .padding(.bottom)
                 }
             }
-            .frame(width: 320, height: 337)
+            .aspectRatio(1, contentMode: .fit)
         }
+}
+
+struct ResultWithPhotoView_Previews: PreviewProvider {
+    static var previews: some View {
+        EndResultView()
+            .environmentObject(MatchManager())
+            .environmentObject(UserInfo())
+            .environmentObject(PloggingManager())
+            .environmentObject(LocationManager())
+    }
 }

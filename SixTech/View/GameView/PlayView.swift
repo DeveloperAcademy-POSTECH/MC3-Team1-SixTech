@@ -20,27 +20,26 @@ struct PloggingPlayView: View {
     
     var body: some View {
         VStack {
-//			Spacer()
             ZStack {
                 FrontView(degree: $frontDegree)
-                    .padding(.top)
                 BackView(degree: $backDegree)
-                    .padding(.top)
             }
-            .padding(.top)
             .onTapGesture {
                 flipCard()
             }
-            NavigationLink("방 만들기") {
-                CreateRoomView()
-            }.buttonStyle(DefaultButton(isdisable: false))
-                .padding(.top)
-            NavigationLink("참여하기") {
-                EngagementView()
-            }.buttonStyle(DefaultButton(isdisable: false))
-                .padding()
-//            Spacer().frame(height: 60)
-            Spacer()
+            .padding()
+            
+//            NavigationLink("방 만들기") {
+//                CreateRoomView()
+//            }.buttonStyle(DefaultButton(isdisable: false))
+            NavigationLinkView(text: "방만들기", isdisable: .constant(false), destination: CreateRoomView())
+//                .padding(.top)
+            
+//            NavigationLink("참여하기") {
+//                EngagementView()
+//            }.buttonStyle(DefaultButton(isdisable: false))
+            NavigationLinkView(text: "참여하기", isdisable: .constant(false), destination: EngagementView())
+                .padding(.bottom)
             
         }
         .toolbar {
@@ -55,6 +54,8 @@ struct PloggingPlayView: View {
 			}
        }
         .navigationBarBackButtonHidden()
+        
+//        Spacer()
         
     }
     
@@ -82,8 +83,10 @@ struct PloggingPlayView: View {
 
 struct PloggingPlayView_Previews: PreviewProvider {
     static var previews: some View {
-        PloggingPlayView()
-            .environmentObject(MatchManager())
+        NavigationStack {
+            PloggingPlayView()
+                .environmentObject(MatchManager())
+        }
     }
 }
 
@@ -94,16 +97,13 @@ struct FrontView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 24)
                 .fill(Color.background2Color)
-//				.shadow(color: .gray, radius: 4, x: 0, y: 4)
                 .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
             VStack {
                 GIFImage(name: "onboardingGIF")
-                    .scaledToFill()
-                    .frame(width: 300, height: 300)
+//                    .scaledToFill()
                 Text("환경을 지키는 우리의 노력이 세상을 바꿉니다. \n오늘도 플로깅 화이팅하세요!")
                     .multilineTextAlignment(.center)
                     .font(.Jamsil.regular.font(size: 16))
-                    .padding()
                 
 				HStack {
 					Text("같이줍깅 가이드 보러가기 ")
@@ -111,11 +111,10 @@ struct FrontView: View {
 					
 					Image(systemName: "chevron.right")
 				}
-				.foregroundColor(.init(hexCode: "#1A8370"))
+                .foregroundColor(.defaultColor)
 				.padding()
             }
         }
-        .frame(width: 342, height: 450)
         .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 10, z: 0))
     }
 }
@@ -131,7 +130,6 @@ struct BackView: View {
             VStack(alignment: .leading, spacing: 33) {
                 Text("같이줍깅 가이드")
                     .font(.Jamsil.bold.font(size: 20))
-                    .padding(.bottom)
                 HStack {
                     Image("GU1")
                         .resizable()
@@ -167,9 +165,8 @@ struct BackView: View {
                 }
 				.padding(.leading, 7)
             }
-            .padding(.bottom)
         }
         .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 10, z: 0))
-        .frame(width: 342, height: 450)
+//        .frame(width: 342, height: 450)
     }
 }

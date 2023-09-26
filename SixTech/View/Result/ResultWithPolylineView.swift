@@ -102,6 +102,16 @@ struct ResultWithPolylineView: View {
                 .padding(.bottom)
             }
         }
-        .frame(width: 320, height: 337)
+        .aspectRatio(1, contentMode: .fit)
+    }
+}
+
+struct ResultWithPolylineView_Previews: PreviewProvider {
+    static var previews: some View {
+        EndResultView()
+            .environmentObject(MatchManager())
+            .environmentObject(UserInfo())
+            .environmentObject(PloggingManager())
+            .environmentObject(LocationManager())
     }
 }

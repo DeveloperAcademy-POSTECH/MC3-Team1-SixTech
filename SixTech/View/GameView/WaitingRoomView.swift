@@ -18,8 +18,17 @@ struct WaitingRoomView: View {
     var groupCode: String?
     
     var body: some View {
-        ZStack {
+        ScrollView {
             VStack {
+                HStack {
+                    Image(systemName: "questionmark.circle")
+                        .foregroundColor(.gray)
+//                            .offset(y: 300)
+                    Text("모든 멤버가 입장하면 시작할 수 있어요.")
+                        .font(.Jamsil.light.font(size: 14))
+                        .foregroundColor(.gray)
+//                            .offset(y: 300)
+                }
 				Text("모두 도착할 때까지 기다려요.")
 					.font(.Jamsil.light.font(size: 17))
                 
@@ -54,26 +63,11 @@ struct WaitingRoomView: View {
                 )
                 .clipShape(RoundedRectangle(cornerRadius: 40))
                 
+                Spacer()
+                
+                NavigationLinkView(text: "시작하기", isdisable: .constant(false), destination: CheckMissionView())
             }
             .padding(.top)
-            .overlay {
-                VStack {
-                    HStack{
-                        Image(systemName: "questionmark.circle")
-                            .foregroundColor(.gray)
-                            .offset(y: 300)
-                        Text("모든 멤버가 입장하면 시작할 수 있어요.")
-                            .font(.Jamsil.light.font(size: 14))
-                            .foregroundColor(.gray)
-                            .offset(y: 300)
-                    }
-                    NavigationLink("시작하기") {
-						CheckMissionView()
-							.navigationBarBackButtonHidden()
-                    }.buttonStyle(DefaultButton(isdisable: false))
-                        .offset(y: 300)
-                }
-            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     dismissButton(sfName: "xmark") {
@@ -152,5 +146,14 @@ struct PlayerCellView: View {
                     print("\(uiimage)")
                 }
             }
+    }
+}
+
+struct EngagementView22_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+            EngagementView()
+                .environmentObject(MatchManager())
+        }
     }
 }

@@ -120,6 +120,7 @@ struct CheckMissionView: View {
             .padding(.vertical)
         }
         .padding(.horizontal, 24)
+        .navigationBarBackButtonHidden()
     }
 }
 

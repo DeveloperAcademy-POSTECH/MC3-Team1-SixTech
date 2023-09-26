@@ -182,13 +182,14 @@ struct CustomAlert_Previews: PreviewProvider {
 
         let title = "대기실 나가기"
         let message = "메인 화면으로 돌아갑니다."
-
-        return VStack {
-            CustomAlert(title: title, message: message, dismissButton: nil, primaryButton: primaryButton,
-                        secondaryButton: secondaryButton)
+        NavigationStack {
+            return VStack {
+                CustomAlert(title: title, message: message, dismissButton: nil, primaryButton: primaryButton,
+                            secondaryButton: secondaryButton)
+            }
+            .previewDevice("iPhone 13 Pro Max")
+            //        .preferredColorScheme(.light)
         }
-        .previewDevice("iPhone 13 Pro Max")
-//        .preferredColorScheme(.light)
     }
 }
 #endif

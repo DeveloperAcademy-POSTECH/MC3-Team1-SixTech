@@ -84,12 +84,15 @@ struct SelectFoodView: View {
             
             Spacer()
             
-            Button {
-                dismiss()
-            } label: {
-                Text("선택하기")
+            ButtonView(text: "선택하기", isdisable: .constant(false)) {
+                dismiss
             }
-            .buttonStyle(DefaultButton(isdisable: false))
+//            Button {
+//                dismiss()
+//            } label: {
+//                Text("선택하기")
+//            }
+//            .buttonStyle(DefaultButton(isdisable: false))
         }
         .padding(.horizontal, 24)
         .padding(.bottom)
